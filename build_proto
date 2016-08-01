@@ -1,0 +1,7 @@
+#/!/bin/bash
+dir=$(pwd)
+cd $(dirname $0)
+
+(cd ./proto && protoc --go_out=plugins=grpc,import_path=proto:. *.proto)
+
+cd "$dir"
