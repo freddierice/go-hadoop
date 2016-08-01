@@ -8,6 +8,7 @@ import (
 	"log"
 	"net"
 
+	. "github.com/freddierice/go-hadoop/proto"
 	"github.com/golang/protobuf/proto"
 )
 
