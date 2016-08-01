@@ -2,4 +2,4 @@
 dir=$(pwd)
 cd $(dirname $0)
 
-rm -f ./proto/*.pb.go
+rm -f ./hproto/*.pb.go

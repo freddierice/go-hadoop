@@ -2,6 +2,6 @@
 dir=$(pwd)
 cd $(dirname $0)
 
-(cd ./proto && protoc --go_out=plugins=grpc,import_path=proto:. *.proto)
+(cd ./hproto && protoc --go_out=plugins=grpc,import_path=hproto:. *.proto)
 
 cd "$dir"

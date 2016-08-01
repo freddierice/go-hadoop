@@ -8,7 +8,7 @@ import (
 	"log"
 	"net"
 
-	. "github.com/freddierice/go-hadoop/proto"
+	"github.com/freddierice/go-hadoop/hproto"
 	"github.com/golang/protobuf/proto"
 )
 
@@ -87,7 +87,7 @@ func (rc *Conn) Call(rfunc string, req, resp proto.Message) error {
 
 // recv recieves a message from the server in response to a send. fill must be
 // the right type, or this function will have undefined behavior.
-func (rc *Conn) recv(fill proto.Message) (*RpcResponseHeaderProto, error) {
+func (rc *Conn) recv(fill proto.Message) (*hproto.RpcResponseHeaderProto, error) {
 	var recvLen uint32
 	binary.Read(rc, binary.BigEndian, &recvLen)
 
@@ -103,12 +103,12 @@ func (rc *Conn) recv(fill proto.Message) (*RpcResponseHeaderProto, error) {
 		return nil, err
 	}
 
-	resp := &RpcResponseHeaderProto{}
+	resp := &hproto.RpcResponseHeaderProto{}
 	if err := proto.Unmarshal(headerBytes, resp); err != nil {
 		return nil, err
 	}
 
-	if resp.GetStatus() != RpcResponseHeaderProto_SUCCESS {
+	if resp.GetStatus() != hproto.RpcResponseHeaderProto_SUCCESS {
 		log.Printf("RpcResponseHeaderProto: %v", resp)
 		return nil, errors.New("error response from hadoop")
 	}
@@ -162,23 +162,23 @@ func (rc *Conn) incrementCallId() {
 	}
 }
 
-func (rc *Conn) newRequestHeaderProto(method string) *RequestHeaderProto {
+func (rc *Conn) newRequestHeaderProto(method string) *hproto.RequestHeaderProto {
 	declaringClassProtocolName := rc.Context
 	clientProtocolVersion := uint64(1)
-	return &RequestHeaderProto{
+	return &hproto.RequestHeaderProto{
 		MethodName:                 &method,
 		DeclaringClassProtocolName: &declaringClassProtocolName,
 		ClientProtocolVersion:      &clientProtocolVersion,
 	}
 }
 
-func (rc *Conn) newRpcRequestHeaderProto() *RpcRequestHeaderProto {
+func (rc *Conn) newRpcRequestHeaderProto() *hproto.RpcRequestHeaderProto {
 	callId := int32(rc.CallId)
 	rc.incrementCallId()
 
-	rpcKind := RpcKindProto_RPC_PROTOCOL_BUFFER
-	rpcOp := RpcRequestHeaderProto_RPC_FINAL_PACKET
-	return &RpcRequestHeaderProto{
+	rpcKind := hproto.RpcKindProto_RPC_PROTOCOL_BUFFER
+	rpcOp := hproto.RpcRequestHeaderProto_RPC_FINAL_PACKET
+	return &hproto.RpcRequestHeaderProto{
 		CallId:   &callId,
 		ClientId: rc.ClientId,
 		RpcKind:  &rpcKind,
@@ -186,12 +186,12 @@ func (rc *Conn) newRpcRequestHeaderProto() *RpcRequestHeaderProto {
 	}
 }
 
-func (rc *Conn) newIpcConnectionContextProto() *IpcConnectionContextProto {
+func (rc *Conn) newIpcConnectionContextProto() *hproto.IpcConnectionContextProto {
 	effectiveUser := rc.User
 	protocolName := rc.Context
 	//realUser := "user"
-	return &IpcConnectionContextProto{
-		UserInfo: &UserInformationProto{
+	return &hproto.IpcConnectionContextProto{
+		UserInfo: &hproto.UserInformationProto{
 			EffectiveUser: &effectiveUser,
 			//RealUser:      &realUser,
 		},
