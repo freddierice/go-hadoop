@@ -6,7 +6,6 @@ import (
 	"errors"
 	"fmt"
 	"io"
-	"log"
 	"net"
 	"strings"
 
@@ -26,6 +25,12 @@ const (
 	// AuthSasl uses SASL (and an underlying mechanism) to authenticate
 	// with the host.
 	AuthSasl Auth = 0xDF
+)
+
+var (
+	// AuthenticationMethods is the set of authentication methods that the
+	// client will accept.
+	AllowedMechanisms = map[string]bool{"GSSAPI": true}
 )
 
 // Conn represents an rpc connection.
@@ -58,7 +63,8 @@ type Conn struct {
 
 // Dial initializes an RPC connection for a user within a context to a
 // remote host. Service is an optional argument if kerberos is not used.
-func Dial(username, host, context, service string, auth Auth) (rc *Conn, err error) {
+func Dial(username, host, context, service string, auth Auth) (rc *Conn,
+	err error) {
 
 	// hadoop has great protocols.
 	rc = &Conn{
@@ -113,11 +119,8 @@ func (rc *Conn) authenticate(auth Auth) (err error) {
 // authenticateSasl authenticates a user through SASL/Kerberos. If the server
 // does not allow for the GSSAPI mechanism, then the function will fail.
 func (rc *Conn) authenticateSasl() (err error) {
-	state := hproto.RpcSaslProto_NEGOTIATE
-	negotiate := &hproto.RpcSaslProto{
-		State: &state,
-	}
 
+	// create a new sasl client
 	saslClient, err := sasl.NewClient(rc.Service, rc.Hostname, &sasl.Config{
 		Username: rc.Username,
 		Authname: rc.Username,
@@ -126,63 +129,76 @@ func (rc *Conn) authenticateSasl() (err error) {
 		return err
 	}
 
-	log.Print("sending negotiate")
-	saslRes, err := rc.saslSend(negotiate)
+	// 1. Initialize negotiation with the rpc server
+	state := hproto.RpcSaslProto_NEGOTIATE
+	negotiate := &hproto.RpcSaslProto{
+		State: &state,
+	}
+	saslRes, err := rc.sendSasl(negotiate)
 	if err != nil {
 		return err
 	}
 
 	for {
-		if saslRes.State == nil {
-			return errors.New("no State returned in sasl negotiation")
-		}
 		switch *saslRes.State {
 		case hproto.RpcSaslProto_NEGOTIATE:
-			/*
-				mechlist := make([]string, len(saslRes.Auths))
-				for i, auth := range saslRes.Auths {
+			// build a mechanism list that work for both the client
+			// and the server.
+			mechlist := make([]string, len(saslRes.Auths))
+			i := 0
+			for _, auth := range saslRes.Auths {
+				if _, ok := AllowedMechanisms[*auth.Mechanism]; ok {
 					mechlist[i] = *auth.Mechanism
-				}
-			*/
-			// only allow GSSAPI
-			authIndex := -1
-			mech := "GSSAPI"
-			for i, auth := range saslRes.Auths {
-				if *auth.Mechanism == mech {
-					authIndex = i
-					break
+					i++
 				}
 			}
-			if authIndex == -1 {
-				return fmt.Errorf("server did not provide our authentication mechanism (%s).", mech)
+			if i == 0 {
+				return fmt.Errorf("client and server could not agree on a " +
+					"mechanism")
 			}
-			mechlist := []string{"GSSAPI"}
+			mechlist = mechlist[0:i]
+
+			// make the first step with an agreed upon mechanism list.
 			mech, resp, err := saslClient.Start(mechlist)
 			if err != nil {
 				return fmt.Errorf("could not negotiate sasl: %v", err)
 			}
+
+			var chosenAuth *hproto.RpcSaslProto_SaslAuth
+			for _, serverAuth := range saslRes.Auths {
+				if *serverAuth.Mechanism == mech {
+					chosenAuth = serverAuth
+					break
+				}
+			}
+
+			// 2. initiate the challenge/response with a chosen algorithm.
 			state = hproto.RpcSaslProto_INITIATE
 			initiate := &hproto.RpcSaslProto{
 				State: &state,
 				Token: []byte(resp),
-				Auths: []*hproto.RpcSaslProto_SaslAuth{saslRes.Auths[authIndex]},
+				Auths: []*hproto.RpcSaslProto_SaslAuth{
+					chosenAuth,
+				},
 			}
-			log.Print("sending initiate")
-			saslRes, err = rc.saslSend(initiate)
+			saslRes, err = rc.sendSasl(initiate)
 			if err != nil {
 				return err
 			}
 		case hproto.RpcSaslProto_CHALLENGE:
+			// 3. do the challenge to prove that we are who we say we are.
 			token, err := saslClient.Step(string(saslRes.Token))
 			if err != nil {
 				return err
 			}
+
+			// 4. construct a response to send to the server
 			state = hproto.RpcSaslProto_RESPONSE
 			response := &hproto.RpcSaslProto{
 				State: &state,
 				Token: []byte(token),
 			}
-			if saslRes, err = rc.saslSend(response); err != nil {
+			if saslRes, err = rc.sendSasl(response); err != nil {
 				return err
 			}
 		case hproto.RpcSaslProto_SUCCESS:
@@ -195,7 +211,9 @@ func (rc *Conn) authenticateSasl() (err error) {
 	return nil
 }
 
-func (rc *Conn) saslSend(msg *hproto.RpcSaslProto) (*hproto.RpcSaslProto, error) {
+// sendSasl ships a sasl step to the server and returns the server's response.
+func (rc *Conn) sendSasl(msg *hproto.RpcSaslProto) (*hproto.RpcSaslProto,
+	error) {
 	resSasl := &hproto.RpcSaslProto{}
 
 	header := rc.newSaslRpcRequestHeaderProto()
@@ -206,12 +224,10 @@ func (rc *Conn) saslSend(msg *hproto.RpcSaslProto) (*hproto.RpcSaslProto, error)
 	if _, err := rc.Write(buf); err != nil {
 		return nil, err
 	}
-	if resp, err := rc.recv(resSasl); err != nil {
-		log.Print(resp)
+	if _, err := rc.recv(resSasl); err != nil {
 		return nil, err
 	}
 
-	log.Print(resSasl)
 	return resSasl, nil
 }
 
