@@ -6,6 +6,7 @@ import (
 	"errors"
 	"fmt"
 	"io"
+	"log"
 	"net"
 	"strings"
 
@@ -57,7 +58,7 @@ type Conn struct {
 	// Hostname is the network location of the server (as a FQDN).
 	Hostname string
 
-	// Service is a Kerberos specific field for use with
+	// Service is a field for use with Kerberos.
 	Service string
 }
 
@@ -91,7 +92,7 @@ func Dial(username, host, context, service string, auth Auth) (rc *Conn,
 	// conn write the RPC header and the context
 	ipc := rc.newIpcConnectionContextProto()
 	header := rc.newRpcRequestHeaderProto()
-	buf, err := RpcPackage(header, ipc)
+	buf, err := rpcPackage(header, ipc)
 	if err != nil {
 		return nil, err
 	}
@@ -217,7 +218,7 @@ func (rc *Conn) sendSasl(msg *hproto.RpcSaslProto) (*hproto.RpcSaslProto,
 	resSasl := &hproto.RpcSaslProto{}
 
 	header := rc.newSaslRpcRequestHeaderProto()
-	buf, err := RpcPackage(header, msg)
+	buf, err := rpcPackage(header, msg)
 	if err != nil {
 		return nil, err
 	}
@@ -284,7 +285,7 @@ func (rc *Conn) recv(fill proto.Message) (*hproto.RpcResponseHeaderProto, error)
 	}
 
 	allReader := bytes.NewReader(allRecv)
-	headerBytes, err := VarintUnpackage(allReader)
+	headerBytes, err := varintUnpackage(allReader)
 	if err != nil {
 		return nil, err
 	}
@@ -295,10 +296,11 @@ func (rc *Conn) recv(fill proto.Message) (*hproto.RpcResponseHeaderProto, error)
 	}
 
 	if resp.GetStatus() != hproto.RpcResponseHeaderProto_SUCCESS {
+		log.Print(resp)
 		return resp, errors.New("error response from hadoop")
 	}
 
-	messageBytes, err := VarintUnpackage(allReader)
+	messageBytes, err := varintUnpackage(allReader)
 	if err != nil {
 		return resp, err
 	}
@@ -315,7 +317,7 @@ func (rc *Conn) send(method string, req proto.Message) error {
 	rpcRequestHeader := rc.newRpcRequestHeaderProto()
 	requestHeader := rc.newRequestHeaderProto(method)
 
-	buf, err := RpcPackage(rpcRequestHeader, requestHeader, req)
+	buf, err := rpcPackage(rpcRequestHeader, requestHeader, req)
 	if err != nil {
 		return err
 	}
