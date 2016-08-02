@@ -4,59 +4,81 @@ import (
 	"bytes"
 	"encoding/binary"
 	"errors"
+	"fmt"
 	"io"
 	"log"
 	"net"
+	"strings"
 
 	"github.com/freddierice/go-hadoop/hproto"
+	"github.com/freddierice/go-sasl"
 	"github.com/golang/protobuf/proto"
+)
+
+// Auth is the type of authentication that should be used over RPC.
+type Auth uint8
+
+const (
+	// AuthNone uses no authentication (also refered to as SIMPLE
+	// authentication).
+	AuthNone Auth = 0x0
+
+	// AuthSasl uses SASL (and an underlying mechanism) to authenticate
+	// with the host.
+	AuthSasl Auth = 0xDF
 )
 
 // Conn represents an rpc connection.
 type Conn struct {
+	// net.Conn is the underlying TCP connection.
 	net.Conn
+
+	// ClientId is the sequence of bytes that are used to uniquely identify this
+	// client from others that may be connecting to the server.
 	ClientId []byte
-	CallId   int
-	Context  string
-	User     string
+
+	// CallId is an id that identifies the count of the next . Before the
+	// connection is established, it determines whether SASL or SIMPLE
+	// authentication is in progress.
+	CallId int
+
+	// Context is the namespace where the functions (to be called) lie. The
+	// context cannot change without creating a new connection.
+	Context string
+
+	// Username is the name the user wants to authenticate as.
+	Username string
+
+	// Hostname is the network location of the server (as a FQDN).
+	Hostname string
+
+	// Service is a Kerberos specific field for use with
+	Service string
 }
 
 // Dial initializes an RPC connection for a user within a context to a
-// remote host.
-func Dial(host, context, user string, sasl bool) (rc *Conn, err error) {
+// remote host. Service is an optional argument if kerberos is not used.
+func Dial(username, host, context, service string, auth Auth) (rc *Conn, err error) {
 
 	// hadoop has great protocols.
-	callId := -3
-	if sasl {
-		callId = -33
-	}
-
 	rc = &Conn{
 		ClientId: []byte(NewUUID()),
-		CallId:   callId,
+		CallId:   -3,
 		Context:  context,
-		User:     user,
+		Username: username,
+		Hostname: strings.Split(host, ":")[0],
+		Service:  service,
 	}
 
-	// connect to
 	if rc.Conn, err = net.Dial("tcp", host); err != nil {
 		return nil, err
 	}
 
-	// conn write the Hadoop header
-	if _, err := rc.Conn.Write([]byte("hrpc")); err != nil {
+	if err := rc.writeHeader(auth); err != nil {
 		return nil, err
 	}
-	num8 := uint8(9)
-	if err := binary.Write(rc.Conn, binary.BigEndian, &num8); err != nil {
-		return nil, err
-	}
-	num8 = 0
-	if err := binary.Write(rc.Conn, binary.BigEndian, &num8); err != nil {
-		return nil, err
-	}
-	num8 = 0
-	if err := binary.Write(rc.Conn, binary.BigEndian, &num8); err != nil {
+
+	if err := rc.authenticate(auth); err != nil {
 		return nil, err
 	}
 
@@ -71,7 +93,155 @@ func Dial(host, context, user string, sasl bool) (rc *Conn, err error) {
 		return nil, err
 	}
 
-	return rc, nil
+	return rc, err
+}
+
+// authenticate authenticates a user over an rpc connection, through a
+// particular authentication method.
+func (rc *Conn) authenticate(auth Auth) (err error) {
+
+	switch auth {
+	case AuthNone:
+		return nil
+	case AuthSasl:
+		return rc.authenticateSasl()
+	default:
+		return fmt.Errorf("unknown authentication method: %v", auth)
+	}
+}
+
+// authenticateSasl authenticates a user through SASL/Kerberos. If the server
+// does not allow for the GSSAPI mechanism, then the function will fail.
+func (rc *Conn) authenticateSasl() (err error) {
+	state := hproto.RpcSaslProto_NEGOTIATE
+	negotiate := &hproto.RpcSaslProto{
+		State: &state,
+	}
+
+	saslClient, err := sasl.NewClient(rc.Service, rc.Hostname, &sasl.Config{
+		Username: rc.Username,
+		Authname: rc.Username,
+	})
+	if err != nil {
+		return err
+	}
+
+	log.Print("sending negotiate")
+	saslRes, err := rc.saslSend(negotiate)
+	if err != nil {
+		return err
+	}
+
+	for {
+		if saslRes.State == nil {
+			return errors.New("no State returned in sasl negotiation")
+		}
+		switch *saslRes.State {
+		case hproto.RpcSaslProto_NEGOTIATE:
+			/*
+				mechlist := make([]string, len(saslRes.Auths))
+				for i, auth := range saslRes.Auths {
+					mechlist[i] = *auth.Mechanism
+				}
+			*/
+			// only allow GSSAPI
+			authIndex := -1
+			mech := "GSSAPI"
+			for i, auth := range saslRes.Auths {
+				if *auth.Mechanism == mech {
+					authIndex = i
+					break
+				}
+			}
+			if authIndex == -1 {
+				return fmt.Errorf("server did not provide our authentication mechanism (%s).", mech)
+			}
+			mechlist := []string{"GSSAPI"}
+			mech, resp, err := saslClient.Start(mechlist)
+			if err != nil {
+				return fmt.Errorf("could not negotiate sasl: %v", err)
+			}
+			state = hproto.RpcSaslProto_INITIATE
+			initiate := &hproto.RpcSaslProto{
+				State: &state,
+				Token: []byte(resp),
+				Auths: []*hproto.RpcSaslProto_SaslAuth{saslRes.Auths[authIndex]},
+			}
+			log.Print("sending initiate")
+			saslRes, err = rc.saslSend(initiate)
+			if err != nil {
+				return err
+			}
+		case hproto.RpcSaslProto_CHALLENGE:
+			token, err := saslClient.Step(string(saslRes.Token))
+			if err != nil {
+				return err
+			}
+			state = hproto.RpcSaslProto_RESPONSE
+			response := &hproto.RpcSaslProto{
+				State: &state,
+				Token: []byte(token),
+			}
+			if saslRes, err = rc.saslSend(response); err != nil {
+				return err
+			}
+		case hproto.RpcSaslProto_SUCCESS:
+			return nil
+		default:
+			return fmt.Errorf("recieved unexpected saslRes.State from server: %v\n", *saslRes.State)
+		}
+	}
+
+	return nil
+}
+
+func (rc *Conn) saslSend(msg *hproto.RpcSaslProto) (*hproto.RpcSaslProto, error) {
+	resSasl := &hproto.RpcSaslProto{}
+
+	header := rc.newSaslRpcRequestHeaderProto()
+	buf, err := RpcPackage(header, msg)
+	if err != nil {
+		return nil, err
+	}
+	if _, err := rc.Write(buf); err != nil {
+		return nil, err
+	}
+	if resp, err := rc.recv(resSasl); err != nil {
+		log.Print(resp)
+		return nil, err
+	}
+
+	log.Print(resSasl)
+	return resSasl, nil
+}
+
+// writeHeader writes the rpc header to the connection.
+func (rc *Conn) writeHeader(auth Auth) error {
+
+	// header
+	if _, err := rc.Conn.Write([]byte("hrpc")); err != nil {
+		return err
+	}
+
+	// version
+	num8 := uint8(9)
+	if err := binary.Write(rc.Conn, binary.BigEndian, &num8); err != nil {
+		return err
+	}
+
+	// RPC service class
+	num8 = 0
+	if err := binary.Write(rc.Conn, binary.BigEndian, &num8); err != nil {
+		return err
+	}
+
+	// authentication type
+	num8 = uint8(auth)
+	if err := binary.Write(rc.Conn, binary.BigEndian, &num8); err != nil {
+		return err
+	}
+
+	return nil
 }
 
 // Call makes a request to run rfunc with input req and output resp. Req and
@@ -109,17 +279,16 @@ func (rc *Conn) recv(fill proto.Message) (*hproto.RpcResponseHeaderProto, error)
 	}
 
 	if resp.GetStatus() != hproto.RpcResponseHeaderProto_SUCCESS {
-		log.Printf("RpcResponseHeaderProto: %v", resp)
-		return nil, errors.New("error response from hadoop")
+		return resp, errors.New("error response from hadoop")
 	}
 
 	messageBytes, err := VarintUnpackage(allReader)
 	if err != nil {
-		return nil, err
+		return resp, err
 	}
 
 	if err := proto.Unmarshal(messageBytes, fill); err != nil {
-		return nil, err
+		return resp, err
 	}
 
 	return resp, nil
@@ -172,6 +341,19 @@ func (rc *Conn) newRequestHeaderProto(method string) *hproto.RequestHeaderProto 
 	}
 }
 
+func (rc *Conn) newSaslRpcRequestHeaderProto() *hproto.RpcRequestHeaderProto {
+	callId := int32(-33) // actually part of the spec...
+
+	rpcKind := hproto.RpcKindProto_RPC_PROTOCOL_BUFFER
+	rpcOp := hproto.RpcRequestHeaderProto_RPC_FINAL_PACKET
+	return &hproto.RpcRequestHeaderProto{
+		CallId:   &callId,
+		ClientId: rc.ClientId,
+		RpcKind:  &rpcKind,
+		RpcOp:    &rpcOp,
+	}
+}
+
 func (rc *Conn) newRpcRequestHeaderProto() *hproto.RpcRequestHeaderProto {
 	callId := int32(rc.CallId)
 	rc.incrementCallId()
@@ -187,7 +369,7 @@ func (rc *Conn) newRpcRequestHeaderProto() *hproto.RpcRequestHeaderProto {
 }
 
 func (rc *Conn) newIpcConnectionContextProto() *hproto.IpcConnectionContextProto {
-	effectiveUser := rc.User
+	effectiveUser := rc.Username
 	protocolName := rc.Context
 	//realUser := "user"
 	return &hproto.IpcConnectionContextProto{
