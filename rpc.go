@@ -124,7 +124,6 @@ func (rc *Conn) authenticateSasl() (err error) {
 	// create a new sasl client
 	saslClient, err := sasl.NewClient(rc.Service, rc.Hostname, &sasl.Config{
 		Username: rc.Username,
-		Authname: rc.Username,
 	})
 	if err != nil {
 		return err
