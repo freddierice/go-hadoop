@@ -10,9 +10,9 @@ import (
 	"net"
 	"strings"
 
-	"github.com/freddierice/go-hadoop/hproto"
 	"github.com/freddierice/go-sasl"
 	"github.com/golang/protobuf/proto"
+	"gopkg.in/freddierice/go-hadoop.v1/hproto"
 )
 
 // Auth is the type of authentication that should be used over RPC.
