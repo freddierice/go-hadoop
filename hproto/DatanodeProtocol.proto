@@ -24,9 +24,17 @@
 
 // This file contains protocol buffers that are used throughout HDFS -- i.e.
 // by the client, server, and data transfer protocols.
-syntax = "proto2";
 
+option java_package = "org.apache.hadoop.hdfs.protocol.proto";
+option java_outer_classname = "DatanodeProtocolProtos";
+option java_generic_services = true;
+option java_generate_equals_and_hash = true;
+package hadoop.hdfs.datanode;
+
+import "HAServiceProtocol.proto";
 import "hdfs.proto";
+import "erasurecoding.proto";
+import "HdfsServer.proto";
 
 /**
  * Information to identify a datanode to a namenode
@@ -52,6 +60,7 @@ message DatanodeCommandProto {
     UnusedUpgradeCommand = 6;
     NullDatanodeCommand = 7;
     BlockIdCommand = 8;
+    BlockECReconstructionCommand = 9;
   }
 
   required Type cmdType = 1;    // Type of the command
@@ -65,6 +74,7 @@ message DatanodeCommandProto {
   optional KeyUpdateCommandProto keyUpdateCmd = 6;
   optional RegisterCommandProto registerCmd = 7;
   optional BlockIdCommandProto blkIdCmd = 8;
+  optional BlockECReconstructionCommandProto blkECReconstructionCmd = 9;
 }
 
 /**
@@ -139,6 +149,13 @@ message RegisterCommandProto {
 }
 
 /**
+ * Block Erasure coding reconstruction command
+ */
+message BlockECReconstructionCommandProto {
+  repeated BlockECReconstructionInfoProto blockECReconstructioninfo = 1;
+}
+
+/**
  * registration - Information of the datanode registering with the namenode
  */
 message RegisterDatanodeRequestProto {
@@ -197,11 +214,7 @@ message HeartbeatRequestProto {
  * txid - Highest transaction ID this NN has seen
  */
 message NNHAStatusHeartbeatProto {
-  enum State {
-    ACTIVE = 0;
-    STANDBY = 1;
-  }
-  required State state = 1; 
+  required hadoop.common.HAServiceStateProto state = 1;
   required uint64 txid = 2;
 }
 
@@ -213,8 +226,8 @@ message HeartbeatResponseProto {
   repeated DatanodeCommandProto cmds = 1; // Returned commands can be null
   required NNHAStatusHeartbeatProto haStatus = 2;
   optional RollingUpgradeStatusProto rollingUpgradeStatus = 3;
-  optional uint64 fullBlockReportLeaseId = 4 [ default = 0 ];
-  optional RollingUpgradeStatusProto rollingUpgradeStatusV2 = 5;
+  optional RollingUpgradeStatusProto rollingUpgradeStatusV2 = 4;
+  optional uint64 fullBlockReportLeaseId = 5 [ default = 0 ];
 }
 
 /**
