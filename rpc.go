@@ -391,8 +391,8 @@ func (rc *Conn) newIpcConnectionContextProto() *hproto.IpcConnectionContextProto
 	//realUser := "user"
 	return &hproto.IpcConnectionContextProto{
 		UserInfo: &hproto.UserInformationProto{
-			EffectiveUser: &effectiveUser,
 			//RealUser:      &realUser,
+			RealUser: &effectiveUser,
 		},
 		Protocol: &protocolName,
 	}
