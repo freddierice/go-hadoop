@@ -2,22 +2,6 @@
 // source: HSAdminRefreshProtocol.proto
 // DO NOT EDIT!
 
-/*
-Package common is a generated protocol buffer package.
-
-It is generated from these files:
-	HSAdminRefreshProtocol.proto
-
-It has these top-level messages:
-	RefreshAdminAclsRequestProto
-	RefreshAdminAclsResponseProto
-	RefreshLoadedJobCacheRequestProto
-	RefreshLoadedJobCacheResponseProto
-	RefreshJobRetentionSettingsRequestProto
-	RefreshJobRetentionSettingsResponseProto
-	RefreshLogRetentionSettingsRequestProto
-	RefreshLogRetentionSettingsResponseProto
-*/
 package common
 
 import proto "github.com/golang/protobuf/proto"
@@ -34,12 +18,6 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
-
 // *
 //  refresh admin acls request.
 type RefreshAdminAclsRequestProto struct {
@@ -49,7 +27,7 @@ type RefreshAdminAclsRequestProto struct {
 func (m *RefreshAdminAclsRequestProto) Reset()                    { *m = RefreshAdminAclsRequestProto{} }
 func (m *RefreshAdminAclsRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*RefreshAdminAclsRequestProto) ProtoMessage()               {}
-func (*RefreshAdminAclsRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (*RefreshAdminAclsRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{0} }
 
 // *
 // Response for refresh admin acls.
@@ -60,7 +38,7 @@ type RefreshAdminAclsResponseProto struct {
 func (m *RefreshAdminAclsResponseProto) Reset()                    { *m = RefreshAdminAclsResponseProto{} }
 func (m *RefreshAdminAclsResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*RefreshAdminAclsResponseProto) ProtoMessage()               {}
-func (*RefreshAdminAclsResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
+func (*RefreshAdminAclsResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{1} }
 
 // *
 //  refresh loaded job cache request.
@@ -72,7 +50,7 @@ func (m *RefreshLoadedJobCacheRequestProto) Reset()         { *m = RefreshLoaded
 func (m *RefreshLoadedJobCacheRequestProto) String() string { return proto.CompactTextString(m) }
 func (*RefreshLoadedJobCacheRequestProto) ProtoMessage()    {}
 func (*RefreshLoadedJobCacheRequestProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{2}
+	return fileDescriptor3, []int{2}
 }
 
 // *
@@ -85,7 +63,7 @@ func (m *RefreshLoadedJobCacheResponseProto) Reset()         { *m = RefreshLoade
 func (m *RefreshLoadedJobCacheResponseProto) String() string { return proto.CompactTextString(m) }
 func (*RefreshLoadedJobCacheResponseProto) ProtoMessage()    {}
 func (*RefreshLoadedJobCacheResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{3}
+	return fileDescriptor3, []int{3}
 }
 
 // *
@@ -100,7 +78,7 @@ func (m *RefreshJobRetentionSettingsRequestProto) Reset() {
 func (m *RefreshJobRetentionSettingsRequestProto) String() string { return proto.CompactTextString(m) }
 func (*RefreshJobRetentionSettingsRequestProto) ProtoMessage()    {}
 func (*RefreshJobRetentionSettingsRequestProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{4}
+	return fileDescriptor3, []int{4}
 }
 
 // *
@@ -115,7 +93,7 @@ func (m *RefreshJobRetentionSettingsResponseProto) Reset() {
 func (m *RefreshJobRetentionSettingsResponseProto) String() string { return proto.CompactTextString(m) }
 func (*RefreshJobRetentionSettingsResponseProto) ProtoMessage()    {}
 func (*RefreshJobRetentionSettingsResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{5}
+	return fileDescriptor3, []int{5}
 }
 
 //
@@ -130,7 +108,7 @@ func (m *RefreshLogRetentionSettingsRequestProto) Reset() {
 func (m *RefreshLogRetentionSettingsRequestProto) String() string { return proto.CompactTextString(m) }
 func (*RefreshLogRetentionSettingsRequestProto) ProtoMessage()    {}
 func (*RefreshLogRetentionSettingsRequestProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{6}
+	return fileDescriptor3, []int{6}
 }
 
 // *
@@ -145,7 +123,7 @@ func (m *RefreshLogRetentionSettingsResponseProto) Reset() {
 func (m *RefreshLogRetentionSettingsResponseProto) String() string { return proto.CompactTextString(m) }
 func (*RefreshLogRetentionSettingsResponseProto) ProtoMessage()    {}
 func (*RefreshLogRetentionSettingsResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{7}
+	return fileDescriptor3, []int{7}
 }
 
 func init() {
@@ -343,12 +321,12 @@ var _HSAdminRefreshProtocolService_serviceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: fileDescriptor0,
+	Metadata: fileDescriptor3,
 }
 
-func init() { proto.RegisterFile("HSAdminRefreshProtocol.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("HSAdminRefreshProtocol.proto", fileDescriptor3) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor3 = []byte{
 	// 305 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0x94, 0x93, 0x31, 0x4e, 0xc3, 0x30,
 	0x18, 0x85, 0x65, 0x89, 0xe9, 0x9f, 0x2a, 0x4b, 0x2c, 0xa5, 0x05, 0x11, 0x90, 0x0a, 0x0c, 0x46,

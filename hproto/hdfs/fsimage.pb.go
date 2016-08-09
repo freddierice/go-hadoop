@@ -2,25 +2,6 @@
 // source: fsimage.proto
 // DO NOT EDIT!
 
-/*
-Package hdfs is a generated protocol buffer package.
-
-It is generated from these files:
-	fsimage.proto
-
-It has these top-level messages:
-	FileSummary
-	NameSystemSection
-	INodeSection
-	FilesUnderConstructionSection
-	INodeDirectorySection
-	INodeReferenceSection
-	SnapshotSection
-	SnapshotDiffSection
-	StringTableSection
-	SecretManagerSection
-	CacheManagerSection
-*/
 package hdfs
 
 import proto "github.com/golang/protobuf/proto"
@@ -34,12 +15,6 @@ import _ "."
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
-
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 type INodeSection_INode_Type int32
 
@@ -77,7 +52,7 @@ func (x *INodeSection_INode_Type) UnmarshalJSON(data []byte) error {
 	return nil
 }
 func (INodeSection_INode_Type) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{2, 9, 0}
+	return fileDescriptor4, []int{2, 9, 0}
 }
 
 type SnapshotDiffSection_DiffEntry_Type int32
@@ -113,7 +88,7 @@ func (x *SnapshotDiffSection_DiffEntry_Type) UnmarshalJSON(data []byte) error {
 	return nil
 }
 func (SnapshotDiffSection_DiffEntry_Type) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{7, 3, 0}
+	return fileDescriptor4, []int{7, 3, 0}
 }
 
 type FileSummary struct {
@@ -130,7 +105,7 @@ type FileSummary struct {
 func (m *FileSummary) Reset()                    { *m = FileSummary{} }
 func (m *FileSummary) String() string            { return proto.CompactTextString(m) }
 func (*FileSummary) ProtoMessage()               {}
-func (*FileSummary) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (*FileSummary) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{0} }
 
 func (m *FileSummary) GetOndiskVersion() uint32 {
 	if m != nil && m.OndiskVersion != nil {
@@ -171,7 +146,7 @@ type FileSummary_Section struct {
 func (m *FileSummary_Section) Reset()                    { *m = FileSummary_Section{} }
 func (m *FileSummary_Section) String() string            { return proto.CompactTextString(m) }
 func (*FileSummary_Section) ProtoMessage()               {}
-func (*FileSummary_Section) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0, 0} }
+func (*FileSummary_Section) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{0, 0} }
 
 func (m *FileSummary_Section) GetName() string {
 	if m != nil && m.Name != nil {
@@ -211,7 +186,7 @@ type NameSystemSection struct {
 func (m *NameSystemSection) Reset()                    { *m = NameSystemSection{} }
 func (m *NameSystemSection) String() string            { return proto.CompactTextString(m) }
 func (*NameSystemSection) ProtoMessage()               {}
-func (*NameSystemSection) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
+func (*NameSystemSection) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{1} }
 
 func (m *NameSystemSection) GetNamespaceId() uint32 {
 	if m != nil && m.NamespaceId != nil {
@@ -284,7 +259,7 @@ type INodeSection struct {
 func (m *INodeSection) Reset()                    { *m = INodeSection{} }
 func (m *INodeSection) String() string            { return proto.CompactTextString(m) }
 func (*INodeSection) ProtoMessage()               {}
-func (*INodeSection) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{2} }
+func (*INodeSection) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{2} }
 
 func (m *INodeSection) GetLastInodeId() uint64 {
 	if m != nil && m.LastInodeId != nil {
@@ -314,7 +289,7 @@ func (m *INodeSection_FileUnderConstructionFeature) Reset() {
 func (m *INodeSection_FileUnderConstructionFeature) String() string { return proto.CompactTextString(m) }
 func (*INodeSection_FileUnderConstructionFeature) ProtoMessage()    {}
 func (*INodeSection_FileUnderConstructionFeature) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{2, 0}
+	return fileDescriptor4, []int{2, 0}
 }
 
 func (m *INodeSection_FileUnderConstructionFeature) GetClientName() string {
@@ -351,7 +326,7 @@ type INodeSection_AclFeatureProto struct {
 func (m *INodeSection_AclFeatureProto) Reset()                    { *m = INodeSection_AclFeatureProto{} }
 func (m *INodeSection_AclFeatureProto) String() string            { return proto.CompactTextString(m) }
 func (*INodeSection_AclFeatureProto) ProtoMessage()               {}
-func (*INodeSection_AclFeatureProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{2, 1} }
+func (*INodeSection_AclFeatureProto) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{2, 1} }
 
 func (m *INodeSection_AclFeatureProto) GetEntries() []uint32 {
 	if m != nil {
@@ -380,7 +355,7 @@ func (m *INodeSection_XAttrCompactProto) Reset()         { *m = INodeSection_XAt
 func (m *INodeSection_XAttrCompactProto) String() string { return proto.CompactTextString(m) }
 func (*INodeSection_XAttrCompactProto) ProtoMessage()    {}
 func (*INodeSection_XAttrCompactProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{2, 2}
+	return fileDescriptor4, []int{2, 2}
 }
 
 func (m *INodeSection_XAttrCompactProto) GetName() uint32 {
@@ -406,7 +381,7 @@ func (m *INodeSection_XAttrFeatureProto) Reset()         { *m = INodeSection_XAt
 func (m *INodeSection_XAttrFeatureProto) String() string { return proto.CompactTextString(m) }
 func (*INodeSection_XAttrFeatureProto) ProtoMessage()    {}
 func (*INodeSection_XAttrFeatureProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{2, 3}
+	return fileDescriptor4, []int{2, 3}
 }
 
 func (m *INodeSection_XAttrFeatureProto) GetXAttrs() []*INodeSection_XAttrCompactProto {
@@ -434,7 +409,7 @@ type INodeSection_INodeFile struct {
 func (m *INodeSection_INodeFile) Reset()                    { *m = INodeSection_INodeFile{} }
 func (m *INodeSection_INodeFile) String() string            { return proto.CompactTextString(m) }
 func (*INodeSection_INodeFile) ProtoMessage()               {}
-func (*INodeSection_INodeFile) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{2, 4} }
+func (*INodeSection_INodeFile) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{2, 4} }
 
 func (m *INodeSection_INodeFile) GetReplication() uint32 {
 	if m != nil && m.Replication != nil {
@@ -525,7 +500,7 @@ func (m *INodeSection_QuotaByStorageTypeEntryProto) Reset() {
 func (m *INodeSection_QuotaByStorageTypeEntryProto) String() string { return proto.CompactTextString(m) }
 func (*INodeSection_QuotaByStorageTypeEntryProto) ProtoMessage()    {}
 func (*INodeSection_QuotaByStorageTypeEntryProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{2, 5}
+	return fileDescriptor4, []int{2, 5}
 }
 
 func (m *INodeSection_QuotaByStorageTypeEntryProto) GetStorageType() hadoop_hdfs.StorageTypeProto {
@@ -555,7 +530,7 @@ func (m *INodeSection_QuotaByStorageTypeFeatureProto) String() string {
 }
 func (*INodeSection_QuotaByStorageTypeFeatureProto) ProtoMessage() {}
 func (*INodeSection_QuotaByStorageTypeFeatureProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{2, 6}
+	return fileDescriptor4, []int{2, 6}
 }
 
 func (m *INodeSection_QuotaByStorageTypeFeatureProto) GetQuotas() []*INodeSection_QuotaByStorageTypeEntryProto {
@@ -581,7 +556,7 @@ type INodeSection_INodeDirectory struct {
 func (m *INodeSection_INodeDirectory) Reset()                    { *m = INodeSection_INodeDirectory{} }
 func (m *INodeSection_INodeDirectory) String() string            { return proto.CompactTextString(m) }
 func (*INodeSection_INodeDirectory) ProtoMessage()               {}
-func (*INodeSection_INodeDirectory) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{2, 7} }
+func (*INodeSection_INodeDirectory) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{2, 7} }
 
 func (m *INodeSection_INodeDirectory) GetModificationTime() uint64 {
 	if m != nil && m.ModificationTime != nil {
@@ -643,7 +618,7 @@ type INodeSection_INodeSymlink struct {
 func (m *INodeSection_INodeSymlink) Reset()                    { *m = INodeSection_INodeSymlink{} }
 func (m *INodeSection_INodeSymlink) String() string            { return proto.CompactTextString(m) }
 func (*INodeSection_INodeSymlink) ProtoMessage()               {}
-func (*INodeSection_INodeSymlink) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{2, 8} }
+func (*INodeSection_INodeSymlink) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{2, 8} }
 
 func (m *INodeSection_INodeSymlink) GetPermission() uint64 {
 	if m != nil && m.Permission != nil {
@@ -686,7 +661,7 @@ type INodeSection_INode struct {
 func (m *INodeSection_INode) Reset()                    { *m = INodeSection_INode{} }
 func (m *INodeSection_INode) String() string            { return proto.CompactTextString(m) }
 func (*INodeSection_INode) ProtoMessage()               {}
-func (*INodeSection_INode) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{2, 9} }
+func (*INodeSection_INode) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{2, 9} }
 
 func (m *INodeSection_INode) GetType() INodeSection_INode_Type {
 	if m != nil && m.Type != nil {
@@ -741,7 +716,7 @@ type FilesUnderConstructionSection struct {
 func (m *FilesUnderConstructionSection) Reset()                    { *m = FilesUnderConstructionSection{} }
 func (m *FilesUnderConstructionSection) String() string            { return proto.CompactTextString(m) }
 func (*FilesUnderConstructionSection) ProtoMessage()               {}
-func (*FilesUnderConstructionSection) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{3} }
+func (*FilesUnderConstructionSection) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{3} }
 
 type FilesUnderConstructionSection_FileUnderConstructionEntry struct {
 	InodeId          *uint64 `protobuf:"varint,1,opt,name=inodeId" json:"inodeId,omitempty"`
@@ -757,7 +732,7 @@ func (m *FilesUnderConstructionSection_FileUnderConstructionEntry) String() stri
 }
 func (*FilesUnderConstructionSection_FileUnderConstructionEntry) ProtoMessage() {}
 func (*FilesUnderConstructionSection_FileUnderConstructionEntry) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{3, 0}
+	return fileDescriptor4, []int{3, 0}
 }
 
 func (m *FilesUnderConstructionSection_FileUnderConstructionEntry) GetInodeId() uint64 {
@@ -784,7 +759,7 @@ type INodeDirectorySection struct {
 func (m *INodeDirectorySection) Reset()                    { *m = INodeDirectorySection{} }
 func (m *INodeDirectorySection) String() string            { return proto.CompactTextString(m) }
 func (*INodeDirectorySection) ProtoMessage()               {}
-func (*INodeDirectorySection) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{4} }
+func (*INodeDirectorySection) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{4} }
 
 // *
 // A single DirEntry needs to fit in the default PB max message size of
@@ -802,7 +777,7 @@ func (m *INodeDirectorySection_DirEntry) Reset()         { *m = INodeDirectorySe
 func (m *INodeDirectorySection_DirEntry) String() string { return proto.CompactTextString(m) }
 func (*INodeDirectorySection_DirEntry) ProtoMessage()    {}
 func (*INodeDirectorySection_DirEntry) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{4, 0}
+	return fileDescriptor4, []int{4, 0}
 }
 
 func (m *INodeDirectorySection_DirEntry) GetParent() uint64 {
@@ -833,7 +808,7 @@ type INodeReferenceSection struct {
 func (m *INodeReferenceSection) Reset()                    { *m = INodeReferenceSection{} }
 func (m *INodeReferenceSection) String() string            { return proto.CompactTextString(m) }
 func (*INodeReferenceSection) ProtoMessage()               {}
-func (*INodeReferenceSection) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{5} }
+func (*INodeReferenceSection) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{5} }
 
 type INodeReferenceSection_INodeReference struct {
 	// id of the referred inode
@@ -851,7 +826,7 @@ func (m *INodeReferenceSection_INodeReference) Reset()         { *m = INodeRefer
 func (m *INodeReferenceSection_INodeReference) String() string { return proto.CompactTextString(m) }
 func (*INodeReferenceSection_INodeReference) ProtoMessage()    {}
 func (*INodeReferenceSection_INodeReference) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{5, 0}
+	return fileDescriptor4, []int{5, 0}
 }
 
 func (m *INodeReferenceSection_INodeReference) GetReferredId() uint64 {
@@ -896,7 +871,7 @@ type SnapshotSection struct {
 func (m *SnapshotSection) Reset()                    { *m = SnapshotSection{} }
 func (m *SnapshotSection) String() string            { return proto.CompactTextString(m) }
 func (*SnapshotSection) ProtoMessage()               {}
-func (*SnapshotSection) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{6} }
+func (*SnapshotSection) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{6} }
 
 func (m *SnapshotSection) GetSnapshotCounter() uint32 {
 	if m != nil && m.SnapshotCounter != nil {
@@ -929,7 +904,7 @@ type SnapshotSection_Snapshot struct {
 func (m *SnapshotSection_Snapshot) Reset()                    { *m = SnapshotSection_Snapshot{} }
 func (m *SnapshotSection_Snapshot) String() string            { return proto.CompactTextString(m) }
 func (*SnapshotSection_Snapshot) ProtoMessage()               {}
-func (*SnapshotSection_Snapshot) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{6, 0} }
+func (*SnapshotSection_Snapshot) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{6, 0} }
 
 func (m *SnapshotSection_Snapshot) GetSnapshotId() uint32 {
 	if m != nil && m.SnapshotId != nil {
@@ -955,7 +930,7 @@ type SnapshotDiffSection struct {
 func (m *SnapshotDiffSection) Reset()                    { *m = SnapshotDiffSection{} }
 func (m *SnapshotDiffSection) String() string            { return proto.CompactTextString(m) }
 func (*SnapshotDiffSection) ProtoMessage()               {}
-func (*SnapshotDiffSection) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{7} }
+func (*SnapshotDiffSection) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{7} }
 
 type SnapshotDiffSection_CreatedListEntry struct {
 	Name             []byte `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
@@ -966,7 +941,7 @@ func (m *SnapshotDiffSection_CreatedListEntry) Reset()         { *m = SnapshotDi
 func (m *SnapshotDiffSection_CreatedListEntry) String() string { return proto.CompactTextString(m) }
 func (*SnapshotDiffSection_CreatedListEntry) ProtoMessage()    {}
 func (*SnapshotDiffSection_CreatedListEntry) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{7, 0}
+	return fileDescriptor4, []int{7, 0}
 }
 
 func (m *SnapshotDiffSection_CreatedListEntry) GetName() []byte {
@@ -993,7 +968,7 @@ func (m *SnapshotDiffSection_DirectoryDiff) Reset()         { *m = SnapshotDiffS
 func (m *SnapshotDiffSection_DirectoryDiff) String() string { return proto.CompactTextString(m) }
 func (*SnapshotDiffSection_DirectoryDiff) ProtoMessage()    {}
 func (*SnapshotDiffSection_DirectoryDiff) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{7, 1}
+	return fileDescriptor4, []int{7, 1}
 }
 
 func (m *SnapshotDiffSection_DirectoryDiff) GetSnapshotId() uint32 {
@@ -1064,7 +1039,7 @@ type SnapshotDiffSection_FileDiff struct {
 func (m *SnapshotDiffSection_FileDiff) Reset()                    { *m = SnapshotDiffSection_FileDiff{} }
 func (m *SnapshotDiffSection_FileDiff) String() string            { return proto.CompactTextString(m) }
 func (*SnapshotDiffSection_FileDiff) ProtoMessage()               {}
-func (*SnapshotDiffSection_FileDiff) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{7, 2} }
+func (*SnapshotDiffSection_FileDiff) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{7, 2} }
 
 func (m *SnapshotDiffSection_FileDiff) GetSnapshotId() uint32 {
 	if m != nil && m.SnapshotId != nil {
@@ -1112,7 +1087,7 @@ func (m *SnapshotDiffSection_DiffEntry) Reset()         { *m = SnapshotDiffSecti
 func (m *SnapshotDiffSection_DiffEntry) String() string { return proto.CompactTextString(m) }
 func (*SnapshotDiffSection_DiffEntry) ProtoMessage()    {}
 func (*SnapshotDiffSection_DiffEntry) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{7, 3}
+	return fileDescriptor4, []int{7, 3}
 }
 
 func (m *SnapshotDiffSection_DiffEntry) GetType() SnapshotDiffSection_DiffEntry_Type {
@@ -1147,7 +1122,7 @@ type StringTableSection struct {
 func (m *StringTableSection) Reset()                    { *m = StringTableSection{} }
 func (m *StringTableSection) String() string            { return proto.CompactTextString(m) }
 func (*StringTableSection) ProtoMessage()               {}
-func (*StringTableSection) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{8} }
+func (*StringTableSection) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{8} }
 
 func (m *StringTableSection) GetNumEntry() uint32 {
 	if m != nil && m.NumEntry != nil {
@@ -1165,7 +1140,7 @@ type StringTableSection_Entry struct {
 func (m *StringTableSection_Entry) Reset()                    { *m = StringTableSection_Entry{} }
 func (m *StringTableSection_Entry) String() string            { return proto.CompactTextString(m) }
 func (*StringTableSection_Entry) ProtoMessage()               {}
-func (*StringTableSection_Entry) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{8, 0} }
+func (*StringTableSection_Entry) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{8, 0} }
 
 func (m *StringTableSection_Entry) GetId() uint32 {
 	if m != nil && m.Id != nil {
@@ -1192,7 +1167,7 @@ type SecretManagerSection struct {
 func (m *SecretManagerSection) Reset()                    { *m = SecretManagerSection{} }
 func (m *SecretManagerSection) String() string            { return proto.CompactTextString(m) }
 func (*SecretManagerSection) ProtoMessage()               {}
-func (*SecretManagerSection) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{9} }
+func (*SecretManagerSection) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{9} }
 
 func (m *SecretManagerSection) GetCurrentId() uint32 {
 	if m != nil && m.CurrentId != nil {
@@ -1233,7 +1208,7 @@ func (m *SecretManagerSection_DelegationKey) Reset()         { *m = SecretManage
 func (m *SecretManagerSection_DelegationKey) String() string { return proto.CompactTextString(m) }
 func (*SecretManagerSection_DelegationKey) ProtoMessage()    {}
 func (*SecretManagerSection_DelegationKey) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{9, 0}
+	return fileDescriptor4, []int{9, 0}
 }
 
 func (m *SecretManagerSection_DelegationKey) GetId() uint32 {
@@ -1274,7 +1249,7 @@ func (m *SecretManagerSection_PersistToken) Reset()         { *m = SecretManager
 func (m *SecretManagerSection_PersistToken) String() string { return proto.CompactTextString(m) }
 func (*SecretManagerSection_PersistToken) ProtoMessage()    {}
 func (*SecretManagerSection_PersistToken) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{9, 1}
+	return fileDescriptor4, []int{9, 1}
 }
 
 func (m *SecretManagerSection_PersistToken) GetVersion() uint32 {
@@ -1350,7 +1325,7 @@ type CacheManagerSection struct {
 func (m *CacheManagerSection) Reset()                    { *m = CacheManagerSection{} }
 func (m *CacheManagerSection) String() string            { return proto.CompactTextString(m) }
 func (*CacheManagerSection) ProtoMessage()               {}
-func (*CacheManagerSection) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{10} }
+func (*CacheManagerSection) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{10} }
 
 func (m *CacheManagerSection) GetNextDirectiveId() uint64 {
 	if m != nil && m.NextDirectiveId != nil {
@@ -1411,9 +1386,9 @@ func init() {
 	proto.RegisterEnum("hadoop.hdfs.fsimage.SnapshotDiffSection_DiffEntry_Type", SnapshotDiffSection_DiffEntry_Type_name, SnapshotDiffSection_DiffEntry_Type_value)
 }
 
-func init() { proto.RegisterFile("fsimage.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("fsimage.proto", fileDescriptor4) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor4 = []byte{
 	// 1845 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xac, 0x58, 0xcd, 0x8e, 0x1b, 0xc7,
 	0x11, 0x06, 0xc9, 0x59, 0x2e, 0x59, 0xe4, 0xae, 0xa8, 0x91, 0x12, 0x2f, 0x26, 0xb2, 0x21, 0x10,

@@ -2,50 +2,28 @@
 // source: erasurecoding.proto
 // DO NOT EDIT!
 
-/*
-Package client is a generated protocol buffer package.
-
-It is generated from these files:
-	erasurecoding.proto
-
-It has these top-level messages:
-	SetErasureCodingPolicyRequestProto
-	SetErasureCodingPolicyResponseProto
-	GetErasureCodingPoliciesRequestProto
-	GetErasureCodingPoliciesResponseProto
-	GetErasureCodingPolicyRequestProto
-	GetErasureCodingPolicyResponseProto
-	BlockECReconstructionInfoProto
-*/
 package client
 
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
-import hadoop_hdfs "."
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
-
 type SetErasureCodingPolicyRequestProto struct {
-	Src              *string                               `protobuf:"bytes,1,req,name=src" json:"src,omitempty"`
-	EcPolicy         *hadoop_hdfs.ErasureCodingPolicyProto `protobuf:"bytes,2,opt,name=ecPolicy" json:"ecPolicy,omitempty"`
-	XXX_unrecognized []byte                                `json:"-"`
+	Src              *string                   `protobuf:"bytes,1,req,name=src" json:"src,omitempty"`
+	EcPolicy         *ErasureCodingPolicyProto `protobuf:"bytes,2,opt,name=ecPolicy" json:"ecPolicy,omitempty"`
+	XXX_unrecognized []byte                    `json:"-"`
 }
 
 func (m *SetErasureCodingPolicyRequestProto) Reset()         { *m = SetErasureCodingPolicyRequestProto{} }
 func (m *SetErasureCodingPolicyRequestProto) String() string { return proto.CompactTextString(m) }
 func (*SetErasureCodingPolicyRequestProto) ProtoMessage()    {}
 func (*SetErasureCodingPolicyRequestProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{0}
+	return fileDescriptor6, []int{0}
 }
 
 func (m *SetErasureCodingPolicyRequestProto) GetSrc() string {
@@ -55,7 +33,7 @@ func (m *SetErasureCodingPolicyRequestProto) GetSrc() string {
 	return ""
 }
 
-func (m *SetErasureCodingPolicyRequestProto) GetEcPolicy() *hadoop_hdfs.ErasureCodingPolicyProto {
+func (m *SetErasureCodingPolicyRequestProto) GetEcPolicy() *ErasureCodingPolicyProto {
 	if m != nil {
 		return m.EcPolicy
 	}
@@ -70,7 +48,7 @@ func (m *SetErasureCodingPolicyResponseProto) Reset()         { *m = SetErasureC
 func (m *SetErasureCodingPolicyResponseProto) String() string { return proto.CompactTextString(m) }
 func (*SetErasureCodingPolicyResponseProto) ProtoMessage()    {}
 func (*SetErasureCodingPolicyResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{1}
+	return fileDescriptor6, []int{1}
 }
 
 type GetErasureCodingPoliciesRequestProto struct {
@@ -81,22 +59,22 @@ func (m *GetErasureCodingPoliciesRequestProto) Reset()         { *m = GetErasure
 func (m *GetErasureCodingPoliciesRequestProto) String() string { return proto.CompactTextString(m) }
 func (*GetErasureCodingPoliciesRequestProto) ProtoMessage()    {}
 func (*GetErasureCodingPoliciesRequestProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{2}
+	return fileDescriptor6, []int{2}
 }
 
 type GetErasureCodingPoliciesResponseProto struct {
-	EcPolicies       []*hadoop_hdfs.ErasureCodingPolicyProto `protobuf:"bytes,1,rep,name=ecPolicies" json:"ecPolicies,omitempty"`
-	XXX_unrecognized []byte                                  `json:"-"`
+	EcPolicies       []*ErasureCodingPolicyProto `protobuf:"bytes,1,rep,name=ecPolicies" json:"ecPolicies,omitempty"`
+	XXX_unrecognized []byte                      `json:"-"`
 }
 
 func (m *GetErasureCodingPoliciesResponseProto) Reset()         { *m = GetErasureCodingPoliciesResponseProto{} }
 func (m *GetErasureCodingPoliciesResponseProto) String() string { return proto.CompactTextString(m) }
 func (*GetErasureCodingPoliciesResponseProto) ProtoMessage()    {}
 func (*GetErasureCodingPoliciesResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{3}
+	return fileDescriptor6, []int{3}
 }
 
-func (m *GetErasureCodingPoliciesResponseProto) GetEcPolicies() []*hadoop_hdfs.ErasureCodingPolicyProto {
+func (m *GetErasureCodingPoliciesResponseProto) GetEcPolicies() []*ErasureCodingPolicyProto {
 	if m != nil {
 		return m.EcPolicies
 	}
@@ -112,7 +90,7 @@ func (m *GetErasureCodingPolicyRequestProto) Reset()         { *m = GetErasureCo
 func (m *GetErasureCodingPolicyRequestProto) String() string { return proto.CompactTextString(m) }
 func (*GetErasureCodingPolicyRequestProto) ProtoMessage()    {}
 func (*GetErasureCodingPolicyRequestProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{4}
+	return fileDescriptor6, []int{4}
 }
 
 func (m *GetErasureCodingPolicyRequestProto) GetSrc() string {
@@ -123,18 +101,18 @@ func (m *GetErasureCodingPolicyRequestProto) GetSrc() string {
 }
 
 type GetErasureCodingPolicyResponseProto struct {
-	EcPolicy         *hadoop_hdfs.ErasureCodingPolicyProto `protobuf:"bytes,1,opt,name=ecPolicy" json:"ecPolicy,omitempty"`
-	XXX_unrecognized []byte                                `json:"-"`
+	EcPolicy         *ErasureCodingPolicyProto `protobuf:"bytes,1,opt,name=ecPolicy" json:"ecPolicy,omitempty"`
+	XXX_unrecognized []byte                    `json:"-"`
 }
 
 func (m *GetErasureCodingPolicyResponseProto) Reset()         { *m = GetErasureCodingPolicyResponseProto{} }
 func (m *GetErasureCodingPolicyResponseProto) String() string { return proto.CompactTextString(m) }
 func (*GetErasureCodingPolicyResponseProto) ProtoMessage()    {}
 func (*GetErasureCodingPolicyResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{5}
+	return fileDescriptor6, []int{5}
 }
 
-func (m *GetErasureCodingPolicyResponseProto) GetEcPolicy() *hadoop_hdfs.ErasureCodingPolicyProto {
+func (m *GetErasureCodingPolicyResponseProto) GetEcPolicy() *ErasureCodingPolicyProto {
 	if m != nil {
 		return m.EcPolicy
 	}
@@ -144,50 +122,50 @@ func (m *GetErasureCodingPolicyResponseProto) GetEcPolicy() *hadoop_hdfs.Erasure
 // *
 // Block erasure coding reconstruction info
 type BlockECReconstructionInfoProto struct {
-	Block              *hadoop_hdfs.ExtendedBlockProto       `protobuf:"bytes,1,req,name=block" json:"block,omitempty"`
-	SourceDnInfos      *hadoop_hdfs.DatanodeInfosProto       `protobuf:"bytes,2,req,name=sourceDnInfos" json:"sourceDnInfos,omitempty"`
-	TargetDnInfos      *hadoop_hdfs.DatanodeInfosProto       `protobuf:"bytes,3,req,name=targetDnInfos" json:"targetDnInfos,omitempty"`
-	TargetStorageUuids *hadoop_hdfs.StorageUuidsProto        `protobuf:"bytes,4,req,name=targetStorageUuids" json:"targetStorageUuids,omitempty"`
-	TargetStorageTypes *hadoop_hdfs.StorageTypesProto        `protobuf:"bytes,5,req,name=targetStorageTypes" json:"targetStorageTypes,omitempty"`
-	LiveBlockIndices   []byte                                `protobuf:"bytes,6,req,name=liveBlockIndices" json:"liveBlockIndices,omitempty"`
-	EcPolicy           *hadoop_hdfs.ErasureCodingPolicyProto `protobuf:"bytes,7,req,name=ecPolicy" json:"ecPolicy,omitempty"`
-	XXX_unrecognized   []byte                                `json:"-"`
+	Block              *ExtendedBlockProto       `protobuf:"bytes,1,req,name=block" json:"block,omitempty"`
+	SourceDnInfos      *DatanodeInfosProto       `protobuf:"bytes,2,req,name=sourceDnInfos" json:"sourceDnInfos,omitempty"`
+	TargetDnInfos      *DatanodeInfosProto       `protobuf:"bytes,3,req,name=targetDnInfos" json:"targetDnInfos,omitempty"`
+	TargetStorageUuids *StorageUuidsProto        `protobuf:"bytes,4,req,name=targetStorageUuids" json:"targetStorageUuids,omitempty"`
+	TargetStorageTypes *StorageTypesProto        `protobuf:"bytes,5,req,name=targetStorageTypes" json:"targetStorageTypes,omitempty"`
+	LiveBlockIndices   []byte                    `protobuf:"bytes,6,req,name=liveBlockIndices" json:"liveBlockIndices,omitempty"`
+	EcPolicy           *ErasureCodingPolicyProto `protobuf:"bytes,7,req,name=ecPolicy" json:"ecPolicy,omitempty"`
+	XXX_unrecognized   []byte                    `json:"-"`
 }
 
 func (m *BlockECReconstructionInfoProto) Reset()                    { *m = BlockECReconstructionInfoProto{} }
 func (m *BlockECReconstructionInfoProto) String() string            { return proto.CompactTextString(m) }
 func (*BlockECReconstructionInfoProto) ProtoMessage()               {}
-func (*BlockECReconstructionInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{6} }
+func (*BlockECReconstructionInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{6} }
 
-func (m *BlockECReconstructionInfoProto) GetBlock() *hadoop_hdfs.ExtendedBlockProto {
+func (m *BlockECReconstructionInfoProto) GetBlock() *ExtendedBlockProto {
 	if m != nil {
 		return m.Block
 	}
 	return nil
 }
 
-func (m *BlockECReconstructionInfoProto) GetSourceDnInfos() *hadoop_hdfs.DatanodeInfosProto {
+func (m *BlockECReconstructionInfoProto) GetSourceDnInfos() *DatanodeInfosProto {
 	if m != nil {
 		return m.SourceDnInfos
 	}
 	return nil
 }
 
-func (m *BlockECReconstructionInfoProto) GetTargetDnInfos() *hadoop_hdfs.DatanodeInfosProto {
+func (m *BlockECReconstructionInfoProto) GetTargetDnInfos() *DatanodeInfosProto {
 	if m != nil {
 		return m.TargetDnInfos
 	}
 	return nil
 }
 
-func (m *BlockECReconstructionInfoProto) GetTargetStorageUuids() *hadoop_hdfs.StorageUuidsProto {
+func (m *BlockECReconstructionInfoProto) GetTargetStorageUuids() *StorageUuidsProto {
 	if m != nil {
 		return m.TargetStorageUuids
 	}
 	return nil
 }
 
-func (m *BlockECReconstructionInfoProto) GetTargetStorageTypes() *hadoop_hdfs.StorageTypesProto {
+func (m *BlockECReconstructionInfoProto) GetTargetStorageTypes() *StorageTypesProto {
 	if m != nil {
 		return m.TargetStorageTypes
 	}
@@ -201,7 +179,7 @@ func (m *BlockECReconstructionInfoProto) GetLiveBlockIndices() []byte {
 	return nil
 }
 
-func (m *BlockECReconstructionInfoProto) GetEcPolicy() *hadoop_hdfs.ErasureCodingPolicyProto {
+func (m *BlockECReconstructionInfoProto) GetEcPolicy() *ErasureCodingPolicyProto {
 	if m != nil {
 		return m.EcPolicy
 	}
@@ -218,9 +196,9 @@ func init() {
 	proto.RegisterType((*BlockECReconstructionInfoProto)(nil), "hadoop.hdfs.BlockECReconstructionInfoProto")
 }
 
-func init() { proto.RegisterFile("erasurecoding.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("erasurecoding.proto", fileDescriptor6) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor6 = []byte{
 	// 405 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0x9c, 0x93, 0xcd, 0x8e, 0xd3, 0x30,
 	0x10, 0xc7, 0x95, 0x0d, 0xcb, 0xc7, 0x14, 0xa4, 0x55, 0xf6, 0x52, 0x71, 0x58, 0x56, 0x2e, 0x41,

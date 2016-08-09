@@ -2,25 +2,12 @@
 // source: InterDatanodeProtocol.proto
 // DO NOT EDIT!
 
-/*
-Package hdfs is a generated protocol buffer package.
-
-It is generated from these files:
-	InterDatanodeProtocol.proto
-
-It has these top-level messages:
-	InitReplicaRecoveryRequestProto
-	InitReplicaRecoveryResponseProto
-	UpdateReplicaUnderRecoveryRequestProto
-	UpdateReplicaUnderRecoveryResponseProto
-*/
 package hdfs
 
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import hadoop_hdfs "."
-import hadoop_hdfs1 "."
 
 import (
 	context "golang.org/x/net/context"
@@ -32,26 +19,20 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
-
 // *
 // Block with location information and new generation stamp
 // to be used for recovery.
 type InitReplicaRecoveryRequestProto struct {
-	Block            *hadoop_hdfs1.RecoveringBlockProto `protobuf:"bytes,1,req,name=block" json:"block,omitempty"`
-	XXX_unrecognized []byte                             `json:"-"`
+	Block            *RecoveringBlockProto `protobuf:"bytes,1,req,name=block" json:"block,omitempty"`
+	XXX_unrecognized []byte                `json:"-"`
 }
 
 func (m *InitReplicaRecoveryRequestProto) Reset()                    { *m = InitReplicaRecoveryRequestProto{} }
 func (m *InitReplicaRecoveryRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*InitReplicaRecoveryRequestProto) ProtoMessage()               {}
-func (*InitReplicaRecoveryRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (*InitReplicaRecoveryRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{0} }
 
-func (m *InitReplicaRecoveryRequestProto) GetBlock() *hadoop_hdfs1.RecoveringBlockProto {
+func (m *InitReplicaRecoveryRequestProto) GetBlock() *RecoveringBlockProto {
 	if m != nil {
 		return m.Block
 	}
@@ -63,16 +44,16 @@ func (m *InitReplicaRecoveryRequestProto) GetBlock() *hadoop_hdfs1.RecoveringBlo
 type InitReplicaRecoveryResponseProto struct {
 	ReplicaFound *bool `protobuf:"varint,1,req,name=replicaFound" json:"replicaFound,omitempty"`
 	// The following entries are not set if there was no replica found.
-	State            *hadoop_hdfs1.ReplicaStateProto `protobuf:"varint,2,opt,name=state,enum=hadoop.hdfs.ReplicaStateProto" json:"state,omitempty"`
-	Block            *hadoop_hdfs.BlockProto         `protobuf:"bytes,3,opt,name=block" json:"block,omitempty"`
-	XXX_unrecognized []byte                          `json:"-"`
+	State            *ReplicaStateProto      `protobuf:"varint,2,opt,name=state,enum=hadoop.hdfs.ReplicaStateProto" json:"state,omitempty"`
+	Block            *hadoop_hdfs.BlockProto `protobuf:"bytes,3,opt,name=block" json:"block,omitempty"`
+	XXX_unrecognized []byte                  `json:"-"`
 }
 
 func (m *InitReplicaRecoveryResponseProto) Reset()         { *m = InitReplicaRecoveryResponseProto{} }
 func (m *InitReplicaRecoveryResponseProto) String() string { return proto.CompactTextString(m) }
 func (*InitReplicaRecoveryResponseProto) ProtoMessage()    {}
 func (*InitReplicaRecoveryResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{1}
+	return fileDescriptor6, []int{1}
 }
 
 func (m *InitReplicaRecoveryResponseProto) GetReplicaFound() bool {
@@ -82,11 +63,11 @@ func (m *InitReplicaRecoveryResponseProto) GetReplicaFound() bool {
 	return false
 }
 
-func (m *InitReplicaRecoveryResponseProto) GetState() hadoop_hdfs1.ReplicaStateProto {
+func (m *InitReplicaRecoveryResponseProto) GetState() ReplicaStateProto {
 	if m != nil && m.State != nil {
 		return *m.State
 	}
-	return hadoop_hdfs1.ReplicaStateProto_FINALIZED
+	return ReplicaStateProto_FINALIZED
 }
 
 func (m *InitReplicaRecoveryResponseProto) GetBlock() *hadoop_hdfs.BlockProto {
@@ -113,7 +94,7 @@ func (m *UpdateReplicaUnderRecoveryRequestProto) Reset() {
 func (m *UpdateReplicaUnderRecoveryRequestProto) String() string { return proto.CompactTextString(m) }
 func (*UpdateReplicaUnderRecoveryRequestProto) ProtoMessage()    {}
 func (*UpdateReplicaUnderRecoveryRequestProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{2}
+	return fileDescriptor6, []int{2}
 }
 
 const Default_UpdateReplicaUnderRecoveryRequestProto_NewBlockId uint64 = 0
@@ -159,7 +140,7 @@ func (m *UpdateReplicaUnderRecoveryResponseProto) Reset() {
 func (m *UpdateReplicaUnderRecoveryResponseProto) String() string { return proto.CompactTextString(m) }
 func (*UpdateReplicaUnderRecoveryResponseProto) ProtoMessage()    {}
 func (*UpdateReplicaUnderRecoveryResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{3}
+	return fileDescriptor6, []int{3}
 }
 
 func (m *UpdateReplicaUnderRecoveryResponseProto) GetStorageUuid() string {
@@ -286,12 +267,12 @@ var _InterDatanodeProtocolService_serviceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: fileDescriptor0,
+	Metadata: fileDescriptor6,
 }
 
-func init() { proto.RegisterFile("InterDatanodeProtocol.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("InterDatanodeProtocol.proto", fileDescriptor6) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor6 = []byte{
 	// 419 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0x8c, 0x53, 0xcb, 0x8e, 0xd3, 0x30,
 	0x14, 0x95, 0x43, 0x47, 0x62, 0x6e, 0x10, 0x42, 0x66, 0xc1, 0x28, 0x8c, 0x66, 0x32, 0x91, 0x80,

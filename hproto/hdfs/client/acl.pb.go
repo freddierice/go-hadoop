@@ -2,45 +2,16 @@
 // source: acl.proto
 // DO NOT EDIT!
 
-/*
-Package client is a generated protocol buffer package.
-
-It is generated from these files:
-	acl.proto
-
-It has these top-level messages:
-	AclEntryProto
-	AclStatusProto
-	ModifyAclEntriesRequestProto
-	ModifyAclEntriesResponseProto
-	RemoveAclRequestProto
-	RemoveAclResponseProto
-	RemoveAclEntriesRequestProto
-	RemoveAclEntriesResponseProto
-	RemoveDefaultAclRequestProto
-	RemoveDefaultAclResponseProto
-	SetAclRequestProto
-	SetAclResponseProto
-	GetAclStatusRequestProto
-	GetAclStatusResponseProto
-*/
 package client
 
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
-import hadoop_hdfs "."
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
-
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 type AclEntryProto_AclEntryScopeProto int32
 
@@ -75,7 +46,7 @@ func (x *AclEntryProto_AclEntryScopeProto) UnmarshalJSON(data []byte) error {
 	return nil
 }
 func (AclEntryProto_AclEntryScopeProto) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{0, 0}
+	return fileDescriptor2, []int{0, 0}
 }
 
 type AclEntryProto_AclEntryTypeProto int32
@@ -117,7 +88,7 @@ func (x *AclEntryProto_AclEntryTypeProto) UnmarshalJSON(data []byte) error {
 	return nil
 }
 func (AclEntryProto_AclEntryTypeProto) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{0, 1}
+	return fileDescriptor2, []int{0, 1}
 }
 
 type AclEntryProto_FsActionProto int32
@@ -171,7 +142,7 @@ func (x *AclEntryProto_FsActionProto) UnmarshalJSON(data []byte) error {
 	return nil
 }
 func (AclEntryProto_FsActionProto) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{0, 2}
+	return fileDescriptor2, []int{0, 2}
 }
 
 type AclEntryProto struct {
@@ -185,7 +156,7 @@ type AclEntryProto struct {
 func (m *AclEntryProto) Reset()                    { *m = AclEntryProto{} }
 func (m *AclEntryProto) String() string            { return proto.CompactTextString(m) }
 func (*AclEntryProto) ProtoMessage()               {}
-func (*AclEntryProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (*AclEntryProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{0} }
 
 func (m *AclEntryProto) GetType() AclEntryProto_AclEntryTypeProto {
 	if m != nil && m.Type != nil {
@@ -216,18 +187,18 @@ func (m *AclEntryProto) GetName() string {
 }
 
 type AclStatusProto struct {
-	Owner            *string                        `protobuf:"bytes,1,req,name=owner" json:"owner,omitempty"`
-	Group            *string                        `protobuf:"bytes,2,req,name=group" json:"group,omitempty"`
-	Sticky           *bool                          `protobuf:"varint,3,req,name=sticky" json:"sticky,omitempty"`
-	Entries          []*AclEntryProto               `protobuf:"bytes,4,rep,name=entries" json:"entries,omitempty"`
-	Permission       *hadoop_hdfs.FsPermissionProto `protobuf:"bytes,5,opt,name=permission" json:"permission,omitempty"`
-	XXX_unrecognized []byte                         `json:"-"`
+	Owner            *string            `protobuf:"bytes,1,req,name=owner" json:"owner,omitempty"`
+	Group            *string            `protobuf:"bytes,2,req,name=group" json:"group,omitempty"`
+	Sticky           *bool              `protobuf:"varint,3,req,name=sticky" json:"sticky,omitempty"`
+	Entries          []*AclEntryProto   `protobuf:"bytes,4,rep,name=entries" json:"entries,omitempty"`
+	Permission       *FsPermissionProto `protobuf:"bytes,5,opt,name=permission" json:"permission,omitempty"`
+	XXX_unrecognized []byte             `json:"-"`
 }
 
 func (m *AclStatusProto) Reset()                    { *m = AclStatusProto{} }
 func (m *AclStatusProto) String() string            { return proto.CompactTextString(m) }
 func (*AclStatusProto) ProtoMessage()               {}
-func (*AclStatusProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
+func (*AclStatusProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{1} }
 
 func (m *AclStatusProto) GetOwner() string {
 	if m != nil && m.Owner != nil {
@@ -257,7 +228,7 @@ func (m *AclStatusProto) GetEntries() []*AclEntryProto {
 	return nil
 }
 
-func (m *AclStatusProto) GetPermission() *hadoop_hdfs.FsPermissionProto {
+func (m *AclStatusProto) GetPermission() *FsPermissionProto {
 	if m != nil {
 		return m.Permission
 	}
@@ -273,7 +244,7 @@ type ModifyAclEntriesRequestProto struct {
 func (m *ModifyAclEntriesRequestProto) Reset()                    { *m = ModifyAclEntriesRequestProto{} }
 func (m *ModifyAclEntriesRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*ModifyAclEntriesRequestProto) ProtoMessage()               {}
-func (*ModifyAclEntriesRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{2} }
+func (*ModifyAclEntriesRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{2} }
 
 func (m *ModifyAclEntriesRequestProto) GetSrc() string {
 	if m != nil && m.Src != nil {
@@ -296,7 +267,7 @@ type ModifyAclEntriesResponseProto struct {
 func (m *ModifyAclEntriesResponseProto) Reset()                    { *m = ModifyAclEntriesResponseProto{} }
 func (m *ModifyAclEntriesResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*ModifyAclEntriesResponseProto) ProtoMessage()               {}
-func (*ModifyAclEntriesResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{3} }
+func (*ModifyAclEntriesResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{3} }
 
 type RemoveAclRequestProto struct {
 	Src              *string `protobuf:"bytes,1,req,name=src" json:"src,omitempty"`
@@ -306,7 +277,7 @@ type RemoveAclRequestProto struct {
 func (m *RemoveAclRequestProto) Reset()                    { *m = RemoveAclRequestProto{} }
 func (m *RemoveAclRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*RemoveAclRequestProto) ProtoMessage()               {}
-func (*RemoveAclRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{4} }
+func (*RemoveAclRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{4} }
 
 func (m *RemoveAclRequestProto) GetSrc() string {
 	if m != nil && m.Src != nil {
@@ -322,7 +293,7 @@ type RemoveAclResponseProto struct {
 func (m *RemoveAclResponseProto) Reset()                    { *m = RemoveAclResponseProto{} }
 func (m *RemoveAclResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*RemoveAclResponseProto) ProtoMessage()               {}
-func (*RemoveAclResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{5} }
+func (*RemoveAclResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{5} }
 
 type RemoveAclEntriesRequestProto struct {
 	Src              *string          `protobuf:"bytes,1,req,name=src" json:"src,omitempty"`
@@ -333,7 +304,7 @@ type RemoveAclEntriesRequestProto struct {
 func (m *RemoveAclEntriesRequestProto) Reset()                    { *m = RemoveAclEntriesRequestProto{} }
 func (m *RemoveAclEntriesRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*RemoveAclEntriesRequestProto) ProtoMessage()               {}
-func (*RemoveAclEntriesRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{6} }
+func (*RemoveAclEntriesRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{6} }
 
 func (m *RemoveAclEntriesRequestProto) GetSrc() string {
 	if m != nil && m.Src != nil {
@@ -356,7 +327,7 @@ type RemoveAclEntriesResponseProto struct {
 func (m *RemoveAclEntriesResponseProto) Reset()                    { *m = RemoveAclEntriesResponseProto{} }
 func (m *RemoveAclEntriesResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*RemoveAclEntriesResponseProto) ProtoMessage()               {}
-func (*RemoveAclEntriesResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{7} }
+func (*RemoveAclEntriesResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{7} }
 
 type RemoveDefaultAclRequestProto struct {
 	Src              *string `protobuf:"bytes,1,req,name=src" json:"src,omitempty"`
@@ -366,7 +337,7 @@ type RemoveDefaultAclRequestProto struct {
 func (m *RemoveDefaultAclRequestProto) Reset()                    { *m = RemoveDefaultAclRequestProto{} }
 func (m *RemoveDefaultAclRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*RemoveDefaultAclRequestProto) ProtoMessage()               {}
-func (*RemoveDefaultAclRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{8} }
+func (*RemoveDefaultAclRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{8} }
 
 func (m *RemoveDefaultAclRequestProto) GetSrc() string {
 	if m != nil && m.Src != nil {
@@ -382,7 +353,7 @@ type RemoveDefaultAclResponseProto struct {
 func (m *RemoveDefaultAclResponseProto) Reset()                    { *m = RemoveDefaultAclResponseProto{} }
 func (m *RemoveDefaultAclResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*RemoveDefaultAclResponseProto) ProtoMessage()               {}
-func (*RemoveDefaultAclResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{9} }
+func (*RemoveDefaultAclResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{9} }
 
 type SetAclRequestProto struct {
 	Src              *string          `protobuf:"bytes,1,req,name=src" json:"src,omitempty"`
@@ -393,7 +364,7 @@ type SetAclRequestProto struct {
 func (m *SetAclRequestProto) Reset()                    { *m = SetAclRequestProto{} }
 func (m *SetAclRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*SetAclRequestProto) ProtoMessage()               {}
-func (*SetAclRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{10} }
+func (*SetAclRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{10} }
 
 func (m *SetAclRequestProto) GetSrc() string {
 	if m != nil && m.Src != nil {
@@ -416,7 +387,7 @@ type SetAclResponseProto struct {
 func (m *SetAclResponseProto) Reset()                    { *m = SetAclResponseProto{} }
 func (m *SetAclResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*SetAclResponseProto) ProtoMessage()               {}
-func (*SetAclResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{11} }
+func (*SetAclResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{11} }
 
 type GetAclStatusRequestProto struct {
 	Src              *string `protobuf:"bytes,1,req,name=src" json:"src,omitempty"`
@@ -426,7 +397,7 @@ type GetAclStatusRequestProto struct {
 func (m *GetAclStatusRequestProto) Reset()                    { *m = GetAclStatusRequestProto{} }
 func (m *GetAclStatusRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*GetAclStatusRequestProto) ProtoMessage()               {}
-func (*GetAclStatusRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{12} }
+func (*GetAclStatusRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{12} }
 
 func (m *GetAclStatusRequestProto) GetSrc() string {
 	if m != nil && m.Src != nil {
@@ -443,7 +414,7 @@ type GetAclStatusResponseProto struct {
 func (m *GetAclStatusResponseProto) Reset()                    { *m = GetAclStatusResponseProto{} }
 func (m *GetAclStatusResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*GetAclStatusResponseProto) ProtoMessage()               {}
-func (*GetAclStatusResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{13} }
+func (*GetAclStatusResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{13} }
 
 func (m *GetAclStatusResponseProto) GetResult() *AclStatusProto {
 	if m != nil {
@@ -472,9 +443,9 @@ func init() {
 	proto.RegisterEnum("hadoop.hdfs.AclEntryProto_FsActionProto", AclEntryProto_FsActionProto_name, AclEntryProto_FsActionProto_value)
 }
 
-func init() { proto.RegisterFile("acl.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("acl.proto", fileDescriptor2) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor2 = []byte{
 	// 599 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xb4, 0x54, 0xdd, 0x8e, 0xd2, 0x40,
 	0x14, 0xb6, 0x94, 0xdf, 0xd3, 0x85, 0x74, 0x47, 0x77, 0x53, 0xd7, 0xbf, 0x4d, 0x13, 0x13, 0x4c,

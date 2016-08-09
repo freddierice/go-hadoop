@@ -2,16 +2,6 @@
 // source: RefreshCallQueueProtocol.proto
 // DO NOT EDIT!
 
-/*
-Package common is a generated protocol buffer package.
-
-It is generated from these files:
-	RefreshCallQueueProtocol.proto
-
-It has these top-level messages:
-	RefreshCallQueueRequestProto
-	RefreshCallQueueResponseProto
-*/
 package common
 
 import proto "github.com/golang/protobuf/proto"
@@ -28,12 +18,6 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
-
 // *
 //  Refresh callqueue request.
 type RefreshCallQueueRequestProto struct {
@@ -43,7 +27,7 @@ type RefreshCallQueueRequestProto struct {
 func (m *RefreshCallQueueRequestProto) Reset()                    { *m = RefreshCallQueueRequestProto{} }
 func (m *RefreshCallQueueRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*RefreshCallQueueRequestProto) ProtoMessage()               {}
-func (*RefreshCallQueueRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (*RefreshCallQueueRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{0} }
 
 // *
 // void response.
@@ -54,7 +38,7 @@ type RefreshCallQueueResponseProto struct {
 func (m *RefreshCallQueueResponseProto) Reset()                    { *m = RefreshCallQueueResponseProto{} }
 func (m *RefreshCallQueueResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*RefreshCallQueueResponseProto) ProtoMessage()               {}
-func (*RefreshCallQueueResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
+func (*RefreshCallQueueResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{1} }
 
 func init() {
 	proto.RegisterType((*RefreshCallQueueRequestProto)(nil), "hadoop.common.RefreshCallQueueRequestProto")
@@ -134,12 +118,12 @@ var _RefreshCallQueueProtocolService_serviceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: fileDescriptor0,
+	Metadata: fileDescriptor1,
 }
 
-func init() { proto.RegisterFile("RefreshCallQueueProtocol.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("RefreshCallQueueProtocol.proto", fileDescriptor1) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor1 = []byte{
 	// 168 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xe2, 0x92, 0x0b, 0x4a, 0x4d, 0x2b,
 	0x4a, 0x2d, 0xce, 0x70, 0x4e, 0xcc, 0xc9, 0x09, 0x2c, 0x4d, 0x2d, 0x4d, 0x0d, 0x28, 0xca, 0x2f,

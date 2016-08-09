@@ -2,23 +2,6 @@
 // source: Security.proto
 // DO NOT EDIT!
 
-/*
-Package common is a generated protocol buffer package.
-
-It is generated from these files:
-	Security.proto
-
-It has these top-level messages:
-	TokenProto
-	CredentialsKVProto
-	CredentialsProto
-	GetDelegationTokenRequestProto
-	GetDelegationTokenResponseProto
-	RenewDelegationTokenRequestProto
-	RenewDelegationTokenResponseProto
-	CancelDelegationTokenRequestProto
-	CancelDelegationTokenResponseProto
-*/
 package common
 
 import proto "github.com/golang/protobuf/proto"
@@ -29,12 +12,6 @@ import math "math"
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
-
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 // *
 // Security token identifier
@@ -49,7 +26,7 @@ type TokenProto struct {
 func (m *TokenProto) Reset()                    { *m = TokenProto{} }
 func (m *TokenProto) String() string            { return proto.CompactTextString(m) }
 func (*TokenProto) ProtoMessage()               {}
-func (*TokenProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (*TokenProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{0} }
 
 func (m *TokenProto) GetIdentifier() []byte {
 	if m != nil {
@@ -89,7 +66,7 @@ type CredentialsKVProto struct {
 func (m *CredentialsKVProto) Reset()                    { *m = CredentialsKVProto{} }
 func (m *CredentialsKVProto) String() string            { return proto.CompactTextString(m) }
 func (*CredentialsKVProto) ProtoMessage()               {}
-func (*CredentialsKVProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
+func (*CredentialsKVProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{1} }
 
 func (m *CredentialsKVProto) GetAlias() string {
 	if m != nil && m.Alias != nil {
@@ -121,7 +98,7 @@ type CredentialsProto struct {
 func (m *CredentialsProto) Reset()                    { *m = CredentialsProto{} }
 func (m *CredentialsProto) String() string            { return proto.CompactTextString(m) }
 func (*CredentialsProto) ProtoMessage()               {}
-func (*CredentialsProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{2} }
+func (*CredentialsProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{2} }
 
 func (m *CredentialsProto) GetTokens() []*CredentialsKVProto {
 	if m != nil {
@@ -145,7 +122,7 @@ type GetDelegationTokenRequestProto struct {
 func (m *GetDelegationTokenRequestProto) Reset()                    { *m = GetDelegationTokenRequestProto{} }
 func (m *GetDelegationTokenRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*GetDelegationTokenRequestProto) ProtoMessage()               {}
-func (*GetDelegationTokenRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{3} }
+func (*GetDelegationTokenRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{3} }
 
 func (m *GetDelegationTokenRequestProto) GetRenewer() string {
 	if m != nil && m.Renewer != nil {
@@ -162,7 +139,7 @@ type GetDelegationTokenResponseProto struct {
 func (m *GetDelegationTokenResponseProto) Reset()                    { *m = GetDelegationTokenResponseProto{} }
 func (m *GetDelegationTokenResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*GetDelegationTokenResponseProto) ProtoMessage()               {}
-func (*GetDelegationTokenResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{4} }
+func (*GetDelegationTokenResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{4} }
 
 func (m *GetDelegationTokenResponseProto) GetToken() *TokenProto {
 	if m != nil {
@@ -180,7 +157,7 @@ func (m *RenewDelegationTokenRequestProto) Reset()         { *m = RenewDelegatio
 func (m *RenewDelegationTokenRequestProto) String() string { return proto.CompactTextString(m) }
 func (*RenewDelegationTokenRequestProto) ProtoMessage()    {}
 func (*RenewDelegationTokenRequestProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{5}
+	return fileDescriptor2, []int{5}
 }
 
 func (m *RenewDelegationTokenRequestProto) GetToken() *TokenProto {
@@ -199,7 +176,7 @@ func (m *RenewDelegationTokenResponseProto) Reset()         { *m = RenewDelegati
 func (m *RenewDelegationTokenResponseProto) String() string { return proto.CompactTextString(m) }
 func (*RenewDelegationTokenResponseProto) ProtoMessage()    {}
 func (*RenewDelegationTokenResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{6}
+	return fileDescriptor2, []int{6}
 }
 
 func (m *RenewDelegationTokenResponseProto) GetNewExpiryTime() uint64 {
@@ -218,7 +195,7 @@ func (m *CancelDelegationTokenRequestProto) Reset()         { *m = CancelDelegat
 func (m *CancelDelegationTokenRequestProto) String() string { return proto.CompactTextString(m) }
 func (*CancelDelegationTokenRequestProto) ProtoMessage()    {}
 func (*CancelDelegationTokenRequestProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{7}
+	return fileDescriptor2, []int{7}
 }
 
 func (m *CancelDelegationTokenRequestProto) GetToken() *TokenProto {
@@ -236,7 +213,7 @@ func (m *CancelDelegationTokenResponseProto) Reset()         { *m = CancelDelega
 func (m *CancelDelegationTokenResponseProto) String() string { return proto.CompactTextString(m) }
 func (*CancelDelegationTokenResponseProto) ProtoMessage()    {}
 func (*CancelDelegationTokenResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{8}
+	return fileDescriptor2, []int{8}
 }
 
 func init() {
@@ -251,9 +228,9 @@ func init() {
 	proto.RegisterType((*CancelDelegationTokenResponseProto)(nil), "hadoop.common.CancelDelegationTokenResponseProto")
 }
 
-func init() { proto.RegisterFile("Security.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("Security.proto", fileDescriptor2) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor2 = []byte{
 	// 389 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xac, 0x93, 0xcf, 0xae, 0x12, 0x31,
 	0x14, 0xc6, 0x53, 0xfe, 0x29, 0x47, 0x31, 0xa6, 0x31, 0x66, 0x74, 0x81, 0xd0, 0xb0, 0x60, 0x35,

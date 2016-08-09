@@ -2,16 +2,6 @@
 // source: IpcConnectionContext.proto
 // DO NOT EDIT!
 
-/*
-Package common is a generated protocol buffer package.
-
-It is generated from these files:
-	IpcConnectionContext.proto
-
-It has these top-level messages:
-	UserInformationProto
-	IpcConnectionContextProto
-*/
 package common
 
 import proto "github.com/golang/protobuf/proto"
@@ -22,12 +12,6 @@ import math "math"
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
-
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 // *
 // Spec for UserInformationProto is specified in ProtoUtil#makeIpcConnectionContext
@@ -40,7 +24,7 @@ type UserInformationProto struct {
 func (m *UserInformationProto) Reset()                    { *m = UserInformationProto{} }
 func (m *UserInformationProto) String() string            { return proto.CompactTextString(m) }
 func (*UserInformationProto) ProtoMessage()               {}
-func (*UserInformationProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (*UserInformationProto) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{0} }
 
 func (m *UserInformationProto) GetEffectiveUser() string {
 	if m != nil && m.EffectiveUser != nil {
@@ -72,7 +56,7 @@ type IpcConnectionContextProto struct {
 func (m *IpcConnectionContextProto) Reset()                    { *m = IpcConnectionContextProto{} }
 func (m *IpcConnectionContextProto) String() string            { return proto.CompactTextString(m) }
 func (*IpcConnectionContextProto) ProtoMessage()               {}
-func (*IpcConnectionContextProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
+func (*IpcConnectionContextProto) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{1} }
 
 func (m *IpcConnectionContextProto) GetUserInfo() *UserInformationProto {
 	if m != nil {
@@ -93,9 +77,9 @@ func init() {
 	proto.RegisterType((*IpcConnectionContextProto)(nil), "hadoop.common.IpcConnectionContextProto")
 }
 
-func init() { proto.RegisterFile("IpcConnectionContext.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("IpcConnectionContext.proto", fileDescriptor4) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor4 = []byte{
 	// 198 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xe2, 0x92, 0xf2, 0x2c, 0x48, 0x76,
 	0xce, 0xcf, 0xcb, 0x4b, 0x4d, 0x2e, 0xc9, 0xcc, 0xcf, 0x03, 0xb2, 0x4a, 0x52, 0x2b, 0x4a, 0xf4,

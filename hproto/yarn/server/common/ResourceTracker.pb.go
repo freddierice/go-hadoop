@@ -2,20 +2,11 @@
 // source: ResourceTracker.proto
 // DO NOT EDIT!
 
-/*
-Package common is a generated protocol buffer package.
-
-It is generated from these files:
-	ResourceTracker.proto
-
-It has these top-level messages:
-*/
 package common
 
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
-import hadoop_yarn3 "."
 
 import (
 	context "golang.org/x/net/context"
@@ -26,12 +17,6 @@ import (
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
-
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ context.Context
@@ -44,9 +29,9 @@ const _ = grpc.SupportPackageIsVersion3
 // Client API for ResourceTrackerService service
 
 type ResourceTrackerServiceClient interface {
-	RegisterNodeManager(ctx context.Context, in *hadoop_yarn3.RegisterNodeManagerRequestProto, opts ...grpc.CallOption) (*hadoop_yarn3.RegisterNodeManagerResponseProto, error)
-	NodeHeartbeat(ctx context.Context, in *hadoop_yarn3.NodeHeartbeatRequestProto, opts ...grpc.CallOption) (*hadoop_yarn3.NodeHeartbeatResponseProto, error)
-	UnRegisterNodeManager(ctx context.Context, in *hadoop_yarn3.UnRegisterNodeManagerRequestProto, opts ...grpc.CallOption) (*hadoop_yarn3.UnRegisterNodeManagerResponseProto, error)
+	RegisterNodeManager(ctx context.Context, in *RegisterNodeManagerRequestProto, opts ...grpc.CallOption) (*RegisterNodeManagerResponseProto, error)
+	NodeHeartbeat(ctx context.Context, in *NodeHeartbeatRequestProto, opts ...grpc.CallOption) (*NodeHeartbeatResponseProto, error)
+	UnRegisterNodeManager(ctx context.Context, in *UnRegisterNodeManagerRequestProto, opts ...grpc.CallOption) (*UnRegisterNodeManagerResponseProto, error)
 }
 
 type resourceTrackerServiceClient struct {
@@ -57,8 +42,8 @@ func NewResourceTrackerServiceClient(cc *grpc.ClientConn) ResourceTrackerService
 	return &resourceTrackerServiceClient{cc}
 }
 
-func (c *resourceTrackerServiceClient) RegisterNodeManager(ctx context.Context, in *hadoop_yarn3.RegisterNodeManagerRequestProto, opts ...grpc.CallOption) (*hadoop_yarn3.RegisterNodeManagerResponseProto, error) {
-	out := new(hadoop_yarn3.RegisterNodeManagerResponseProto)
+func (c *resourceTrackerServiceClient) RegisterNodeManager(ctx context.Context, in *RegisterNodeManagerRequestProto, opts ...grpc.CallOption) (*RegisterNodeManagerResponseProto, error) {
+	out := new(RegisterNodeManagerResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ResourceTrackerService/registerNodeManager", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -66,8 +51,8 @@ func (c *resourceTrackerServiceClient) RegisterNodeManager(ctx context.Context, 
 	return out, nil
 }
 
-func (c *resourceTrackerServiceClient) NodeHeartbeat(ctx context.Context, in *hadoop_yarn3.NodeHeartbeatRequestProto, opts ...grpc.CallOption) (*hadoop_yarn3.NodeHeartbeatResponseProto, error) {
-	out := new(hadoop_yarn3.NodeHeartbeatResponseProto)
+func (c *resourceTrackerServiceClient) NodeHeartbeat(ctx context.Context, in *NodeHeartbeatRequestProto, opts ...grpc.CallOption) (*NodeHeartbeatResponseProto, error) {
+	out := new(NodeHeartbeatResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ResourceTrackerService/nodeHeartbeat", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -75,8 +60,8 @@ func (c *resourceTrackerServiceClient) NodeHeartbeat(ctx context.Context, in *ha
 	return out, nil
 }
 
-func (c *resourceTrackerServiceClient) UnRegisterNodeManager(ctx context.Context, in *hadoop_yarn3.UnRegisterNodeManagerRequestProto, opts ...grpc.CallOption) (*hadoop_yarn3.UnRegisterNodeManagerResponseProto, error) {
-	out := new(hadoop_yarn3.UnRegisterNodeManagerResponseProto)
+func (c *resourceTrackerServiceClient) UnRegisterNodeManager(ctx context.Context, in *UnRegisterNodeManagerRequestProto, opts ...grpc.CallOption) (*UnRegisterNodeManagerResponseProto, error) {
+	out := new(UnRegisterNodeManagerResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ResourceTrackerService/unRegisterNodeManager", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -87,9 +72,9 @@ func (c *resourceTrackerServiceClient) UnRegisterNodeManager(ctx context.Context
 // Server API for ResourceTrackerService service
 
 type ResourceTrackerServiceServer interface {
-	RegisterNodeManager(context.Context, *hadoop_yarn3.RegisterNodeManagerRequestProto) (*hadoop_yarn3.RegisterNodeManagerResponseProto, error)
-	NodeHeartbeat(context.Context, *hadoop_yarn3.NodeHeartbeatRequestProto) (*hadoop_yarn3.NodeHeartbeatResponseProto, error)
-	UnRegisterNodeManager(context.Context, *hadoop_yarn3.UnRegisterNodeManagerRequestProto) (*hadoop_yarn3.UnRegisterNodeManagerResponseProto, error)
+	RegisterNodeManager(context.Context, *RegisterNodeManagerRequestProto) (*RegisterNodeManagerResponseProto, error)
+	NodeHeartbeat(context.Context, *NodeHeartbeatRequestProto) (*NodeHeartbeatResponseProto, error)
+	UnRegisterNodeManager(context.Context, *UnRegisterNodeManagerRequestProto) (*UnRegisterNodeManagerResponseProto, error)
 }
 
 func RegisterResourceTrackerServiceServer(s *grpc.Server, srv ResourceTrackerServiceServer) {
@@ -97,7 +82,7 @@ func RegisterResourceTrackerServiceServer(s *grpc.Server, srv ResourceTrackerSer
 }
 
 func _ResourceTrackerService_RegisterNodeManager_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn3.RegisterNodeManagerRequestProto)
+	in := new(RegisterNodeManagerRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -109,13 +94,13 @@ func _ResourceTrackerService_RegisterNodeManager_Handler(srv interface{}, ctx co
 		FullMethod: "/hadoop.yarn.ResourceTrackerService/RegisterNodeManager",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResourceTrackerServiceServer).RegisterNodeManager(ctx, req.(*hadoop_yarn3.RegisterNodeManagerRequestProto))
+		return srv.(ResourceTrackerServiceServer).RegisterNodeManager(ctx, req.(*RegisterNodeManagerRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ResourceTrackerService_NodeHeartbeat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn3.NodeHeartbeatRequestProto)
+	in := new(NodeHeartbeatRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -127,13 +112,13 @@ func _ResourceTrackerService_NodeHeartbeat_Handler(srv interface{}, ctx context.
 		FullMethod: "/hadoop.yarn.ResourceTrackerService/NodeHeartbeat",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResourceTrackerServiceServer).NodeHeartbeat(ctx, req.(*hadoop_yarn3.NodeHeartbeatRequestProto))
+		return srv.(ResourceTrackerServiceServer).NodeHeartbeat(ctx, req.(*NodeHeartbeatRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ResourceTrackerService_UnRegisterNodeManager_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn3.UnRegisterNodeManagerRequestProto)
+	in := new(UnRegisterNodeManagerRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -145,7 +130,7 @@ func _ResourceTrackerService_UnRegisterNodeManager_Handler(srv interface{}, ctx 
 		FullMethod: "/hadoop.yarn.ResourceTrackerService/UnRegisterNodeManager",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResourceTrackerServiceServer).UnRegisterNodeManager(ctx, req.(*hadoop_yarn3.UnRegisterNodeManagerRequestProto))
+		return srv.(ResourceTrackerServiceServer).UnRegisterNodeManager(ctx, req.(*UnRegisterNodeManagerRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -168,12 +153,12 @@ var _ResourceTrackerService_serviceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: fileDescriptor0,
+	Metadata: fileDescriptor2,
 }
 
-func init() { proto.RegisterFile("ResourceTracker.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("ResourceTracker.proto", fileDescriptor2) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor2 = []byte{
 	// 233 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0x8c, 0x91, 0x41, 0x4a, 0x03, 0x31,
 	0x14, 0x86, 0x89, 0xcb, 0x88, 0x08, 0x91, 0xba, 0x28, 0xae, 0xed, 0x46, 0x23, 0x08, 0x5e, 0xa0,

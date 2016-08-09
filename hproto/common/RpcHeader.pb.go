@@ -2,19 +2,6 @@
 // source: RpcHeader.proto
 // DO NOT EDIT!
 
-/*
-Package common is a generated protocol buffer package.
-
-It is generated from these files:
-	RpcHeader.proto
-
-It has these top-level messages:
-	RPCTraceInfoProto
-	RPCCallerContextProto
-	RpcRequestHeaderProto
-	RpcResponseHeaderProto
-	RpcSaslProto
-*/
 package common
 
 import proto "github.com/golang/protobuf/proto"
@@ -25,12 +12,6 @@ import math "math"
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
-
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 // *
 // RpcKind determine the rpcEngine and the serialization of the rpc request
@@ -69,7 +50,7 @@ func (x *RpcKindProto) UnmarshalJSON(data []byte) error {
 	*x = RpcKindProto(value)
 	return nil
 }
-func (RpcKindProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (RpcKindProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor5, []int{0} }
 
 type RpcRequestHeaderProto_OperationProto int32
 
@@ -107,7 +88,7 @@ func (x *RpcRequestHeaderProto_OperationProto) UnmarshalJSON(data []byte) error 
 	return nil
 }
 func (RpcRequestHeaderProto_OperationProto) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{2, 0}
+	return fileDescriptor5, []int{2, 0}
 }
 
 type RpcResponseHeaderProto_RpcStatusProto int32
@@ -146,7 +127,7 @@ func (x *RpcResponseHeaderProto_RpcStatusProto) UnmarshalJSON(data []byte) error
 	return nil
 }
 func (RpcResponseHeaderProto_RpcStatusProto) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{3, 0}
+	return fileDescriptor5, []int{3, 0}
 }
 
 type RpcResponseHeaderProto_RpcErrorCodeProto int32
@@ -214,7 +195,7 @@ func (x *RpcResponseHeaderProto_RpcErrorCodeProto) UnmarshalJSON(data []byte) er
 	return nil
 }
 func (RpcResponseHeaderProto_RpcErrorCodeProto) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{3, 1}
+	return fileDescriptor5, []int{3, 1}
 }
 
 type RpcSaslProto_SaslState int32
@@ -261,7 +242,7 @@ func (x *RpcSaslProto_SaslState) UnmarshalJSON(data []byte) error {
 	*x = RpcSaslProto_SaslState(value)
 	return nil
 }
-func (RpcSaslProto_SaslState) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{4, 0} }
+func (RpcSaslProto_SaslState) EnumDescriptor() ([]byte, []int) { return fileDescriptor5, []int{4, 0} }
 
 // *
 // Used to pass through the information necessary to continue
@@ -278,7 +259,7 @@ type RPCTraceInfoProto struct {
 func (m *RPCTraceInfoProto) Reset()                    { *m = RPCTraceInfoProto{} }
 func (m *RPCTraceInfoProto) String() string            { return proto.CompactTextString(m) }
 func (*RPCTraceInfoProto) ProtoMessage()               {}
-func (*RPCTraceInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (*RPCTraceInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{0} }
 
 func (m *RPCTraceInfoProto) GetTraceId() int64 {
 	if m != nil && m.TraceId != nil {
@@ -305,7 +286,7 @@ type RPCCallerContextProto struct {
 func (m *RPCCallerContextProto) Reset()                    { *m = RPCCallerContextProto{} }
 func (m *RPCCallerContextProto) String() string            { return proto.CompactTextString(m) }
 func (*RPCCallerContextProto) ProtoMessage()               {}
-func (*RPCCallerContextProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
+func (*RPCCallerContextProto) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{1} }
 
 func (m *RPCCallerContextProto) GetContext() string {
 	if m != nil && m.Context != nil {
@@ -337,7 +318,7 @@ type RpcRequestHeaderProto struct {
 func (m *RpcRequestHeaderProto) Reset()                    { *m = RpcRequestHeaderProto{} }
 func (m *RpcRequestHeaderProto) String() string            { return proto.CompactTextString(m) }
 func (*RpcRequestHeaderProto) ProtoMessage()               {}
-func (*RpcRequestHeaderProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{2} }
+func (*RpcRequestHeaderProto) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{2} }
 
 const Default_RpcRequestHeaderProto_RetryCount int32 = -1
 
@@ -423,7 +404,7 @@ type RpcResponseHeaderProto struct {
 func (m *RpcResponseHeaderProto) Reset()                    { *m = RpcResponseHeaderProto{} }
 func (m *RpcResponseHeaderProto) String() string            { return proto.CompactTextString(m) }
 func (*RpcResponseHeaderProto) ProtoMessage()               {}
-func (*RpcResponseHeaderProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{3} }
+func (*RpcResponseHeaderProto) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{3} }
 
 const Default_RpcResponseHeaderProto_RetryCount int32 = -1
 
@@ -494,7 +475,7 @@ type RpcSaslProto struct {
 func (m *RpcSaslProto) Reset()                    { *m = RpcSaslProto{} }
 func (m *RpcSaslProto) String() string            { return proto.CompactTextString(m) }
 func (*RpcSaslProto) ProtoMessage()               {}
-func (*RpcSaslProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{4} }
+func (*RpcSaslProto) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{4} }
 
 func (m *RpcSaslProto) GetVersion() uint32 {
 	if m != nil && m.Version != nil {
@@ -536,7 +517,7 @@ type RpcSaslProto_SaslAuth struct {
 func (m *RpcSaslProto_SaslAuth) Reset()                    { *m = RpcSaslProto_SaslAuth{} }
 func (m *RpcSaslProto_SaslAuth) String() string            { return proto.CompactTextString(m) }
 func (*RpcSaslProto_SaslAuth) ProtoMessage()               {}
-func (*RpcSaslProto_SaslAuth) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{4, 0} }
+func (*RpcSaslProto_SaslAuth) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{4, 0} }
 
 func (m *RpcSaslProto_SaslAuth) GetMethod() string {
 	if m != nil && m.Method != nil {
@@ -587,9 +568,9 @@ func init() {
 	proto.RegisterEnum("hadoop.common.RpcSaslProto_SaslState", RpcSaslProto_SaslState_name, RpcSaslProto_SaslState_value)
 }
 
-func init() { proto.RegisterFile("RpcHeader.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("RpcHeader.proto", fileDescriptor5) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor5 = []byte{
 	// 1023 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0x8c, 0x55, 0x6f, 0x6f, 0xdb, 0x44,
 	0x18, 0x27, 0x49, 0xd3, 0x36, 0x4f, 0x93, 0xcc, 0xbd, 0x6d, 0x5d, 0xd4, 0xa2, 0x6d, 0x0a, 0x20,

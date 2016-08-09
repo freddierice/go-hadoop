@@ -7,8 +7,139 @@ Package api is a generated protocol buffer package.
 
 It is generated from these files:
 	application_history_client.proto
+	yarn_service_protos.proto
+	yarn_protos.proto
+	client_SCM_protocol.proto
+	applicationclient_protocol.proto
+	applicationmaster_protocol.proto
+	containermanagement_protocol.proto
 
 It has these top-level messages:
+	RegisterApplicationMasterRequestProto
+	RegisterApplicationMasterResponseProto
+	FinishApplicationMasterRequestProto
+	FinishApplicationMasterResponseProto
+	AllocateRequestProto
+	NMTokenProto
+	AllocateResponseProto
+	GetNewApplicationRequestProto
+	GetNewApplicationResponseProto
+	GetApplicationReportRequestProto
+	GetApplicationReportResponseProto
+	SubmitApplicationRequestProto
+	SubmitApplicationResponseProto
+	FailApplicationAttemptRequestProto
+	FailApplicationAttemptResponseProto
+	KillApplicationRequestProto
+	KillApplicationResponseProto
+	GetClusterMetricsRequestProto
+	GetClusterMetricsResponseProto
+	MoveApplicationAcrossQueuesRequestProto
+	MoveApplicationAcrossQueuesResponseProto
+	GetApplicationsRequestProto
+	GetApplicationsResponseProto
+	GetClusterNodesRequestProto
+	GetClusterNodesResponseProto
+	GetQueueInfoRequestProto
+	GetQueueInfoResponseProto
+	GetQueueUserAclsInfoRequestProto
+	GetQueueUserAclsInfoResponseProto
+	GetNodesToLabelsRequestProto
+	GetNodesToLabelsResponseProto
+	GetLabelsToNodesRequestProto
+	GetLabelsToNodesResponseProto
+	GetClusterNodeLabelsRequestProto
+	GetClusterNodeLabelsResponseProto
+	UpdateApplicationPriorityRequestProto
+	UpdateApplicationPriorityResponseProto
+	SignalContainerRequestProto
+	SignalContainerResponseProto
+	StartContainerRequestProto
+	StartContainerResponseProto
+	StopContainerRequestProto
+	StopContainerResponseProto
+	StartContainersRequestProto
+	ContainerExceptionMapProto
+	StartContainersResponseProto
+	StopContainersRequestProto
+	StopContainersResponseProto
+	GetContainerStatusesRequestProto
+	GetContainerStatusesResponseProto
+	IncreaseContainersResourceRequestProto
+	IncreaseContainersResourceResponseProto
+	GetApplicationAttemptReportRequestProto
+	GetApplicationAttemptReportResponseProto
+	GetApplicationAttemptsRequestProto
+	GetApplicationAttemptsResponseProto
+	GetContainerReportRequestProto
+	GetContainerReportResponseProto
+	GetContainersRequestProto
+	GetContainersResponseProto
+	UseSharedCacheResourceRequestProto
+	UseSharedCacheResourceResponseProto
+	ReleaseSharedCacheResourceRequestProto
+	ReleaseSharedCacheResourceResponseProto
+	GetNewReservationRequestProto
+	GetNewReservationResponseProto
+	ReservationSubmissionRequestProto
+	ReservationSubmissionResponseProto
+	ReservationUpdateRequestProto
+	ReservationUpdateResponseProto
+	ReservationDeleteRequestProto
+	ReservationDeleteResponseProto
+	ReservationListRequestProto
+	ReservationListResponseProto
+	RunSharedCacheCleanerTaskRequestProto
+	RunSharedCacheCleanerTaskResponseProto
+	SerializedExceptionProto
+	ApplicationIdProto
+	ApplicationAttemptIdProto
+	ContainerIdProto
+	ResourceProto
+	ResourceUtilizationProto
+	ResourceOptionProto
+	NodeResourceMapProto
+	PriorityProto
+	ContainerProto
+	ContainerReportProto
+	URLProto
+	LocalResourceProto
+	ApplicationResourceUsageReportProto
+	ApplicationReportProto
+	ApplicationAttemptReportProto
+	NodeIdProto
+	NodeReportProto
+	NodeIdToLabelsInfoProto
+	LabelsToNodeIdsProto
+	NodeLabelProto
+	ResourceRequestProto
+	ExecutionTypeRequestProto
+	PreemptionMessageProto
+	StrictPreemptionContractProto
+	PreemptionContractProto
+	PreemptionContainerProto
+	PreemptionResourceRequestProto
+	ResourceBlacklistRequestProto
+	ApplicationSubmissionContextProto
+	LogAggregationContextProto
+	ApplicationACLMapProto
+	YarnClusterMetricsProto
+	QueueStatisticsProto
+	QueueInfoProto
+	QueueUserACLInfoProto
+	ReservationIdProto
+	ReservationRequestProto
+	ReservationRequestsProto
+	ReservationDefinitionProto
+	ResourceAllocationRequestProto
+	ReservationAllocationStateProto
+	ContainerLaunchContextProto
+	ContainerStatusProto
+	ContainerResourceChangeRequestProto
+	ContainerRetryContextProto
+	StringLocalResourceMapProto
+	StringStringMapProto
+	StringBytesMapProto
 */
 package api
 
@@ -16,7 +147,6 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import hadoop_common "."
-import hadoop_yarn1 "."
 
 import (
 	context "golang.org/x/net/context"
@@ -45,12 +175,12 @@ const _ = grpc.SupportPackageIsVersion3
 // Client API for ApplicationHistoryProtocolService service
 
 type ApplicationHistoryProtocolServiceClient interface {
-	GetApplicationReport(ctx context.Context, in *hadoop_yarn1.GetApplicationReportRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetApplicationReportResponseProto, error)
-	GetApplications(ctx context.Context, in *hadoop_yarn1.GetApplicationsRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetApplicationsResponseProto, error)
-	GetApplicationAttemptReport(ctx context.Context, in *hadoop_yarn1.GetApplicationAttemptReportRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetApplicationAttemptReportResponseProto, error)
-	GetApplicationAttempts(ctx context.Context, in *hadoop_yarn1.GetApplicationAttemptsRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetApplicationAttemptsResponseProto, error)
-	GetContainerReport(ctx context.Context, in *hadoop_yarn1.GetContainerReportRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetContainerReportResponseProto, error)
-	GetContainers(ctx context.Context, in *hadoop_yarn1.GetContainersRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetContainersResponseProto, error)
+	GetApplicationReport(ctx context.Context, in *GetApplicationReportRequestProto, opts ...grpc.CallOption) (*GetApplicationReportResponseProto, error)
+	GetApplications(ctx context.Context, in *GetApplicationsRequestProto, opts ...grpc.CallOption) (*GetApplicationsResponseProto, error)
+	GetApplicationAttemptReport(ctx context.Context, in *GetApplicationAttemptReportRequestProto, opts ...grpc.CallOption) (*GetApplicationAttemptReportResponseProto, error)
+	GetApplicationAttempts(ctx context.Context, in *GetApplicationAttemptsRequestProto, opts ...grpc.CallOption) (*GetApplicationAttemptsResponseProto, error)
+	GetContainerReport(ctx context.Context, in *GetContainerReportRequestProto, opts ...grpc.CallOption) (*GetContainerReportResponseProto, error)
+	GetContainers(ctx context.Context, in *GetContainersRequestProto, opts ...grpc.CallOption) (*GetContainersResponseProto, error)
 	GetDelegationToken(ctx context.Context, in *hadoop_common.GetDelegationTokenRequestProto, opts ...grpc.CallOption) (*hadoop_common.GetDelegationTokenResponseProto, error)
 	RenewDelegationToken(ctx context.Context, in *hadoop_common.RenewDelegationTokenRequestProto, opts ...grpc.CallOption) (*hadoop_common.RenewDelegationTokenResponseProto, error)
 	CancelDelegationToken(ctx context.Context, in *hadoop_common.CancelDelegationTokenRequestProto, opts ...grpc.CallOption) (*hadoop_common.CancelDelegationTokenResponseProto, error)
@@ -64,8 +194,8 @@ func NewApplicationHistoryProtocolServiceClient(cc *grpc.ClientConn) Application
 	return &applicationHistoryProtocolServiceClient{cc}
 }
 
-func (c *applicationHistoryProtocolServiceClient) GetApplicationReport(ctx context.Context, in *hadoop_yarn1.GetApplicationReportRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetApplicationReportResponseProto, error) {
-	out := new(hadoop_yarn1.GetApplicationReportResponseProto)
+func (c *applicationHistoryProtocolServiceClient) GetApplicationReport(ctx context.Context, in *GetApplicationReportRequestProto, opts ...grpc.CallOption) (*GetApplicationReportResponseProto, error) {
+	out := new(GetApplicationReportResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ApplicationHistoryProtocolService/getApplicationReport", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -73,8 +203,8 @@ func (c *applicationHistoryProtocolServiceClient) GetApplicationReport(ctx conte
 	return out, nil
 }
 
-func (c *applicationHistoryProtocolServiceClient) GetApplications(ctx context.Context, in *hadoop_yarn1.GetApplicationsRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetApplicationsResponseProto, error) {
-	out := new(hadoop_yarn1.GetApplicationsResponseProto)
+func (c *applicationHistoryProtocolServiceClient) GetApplications(ctx context.Context, in *GetApplicationsRequestProto, opts ...grpc.CallOption) (*GetApplicationsResponseProto, error) {
+	out := new(GetApplicationsResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ApplicationHistoryProtocolService/getApplications", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -82,8 +212,8 @@ func (c *applicationHistoryProtocolServiceClient) GetApplications(ctx context.Co
 	return out, nil
 }
 
-func (c *applicationHistoryProtocolServiceClient) GetApplicationAttemptReport(ctx context.Context, in *hadoop_yarn1.GetApplicationAttemptReportRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetApplicationAttemptReportResponseProto, error) {
-	out := new(hadoop_yarn1.GetApplicationAttemptReportResponseProto)
+func (c *applicationHistoryProtocolServiceClient) GetApplicationAttemptReport(ctx context.Context, in *GetApplicationAttemptReportRequestProto, opts ...grpc.CallOption) (*GetApplicationAttemptReportResponseProto, error) {
+	out := new(GetApplicationAttemptReportResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ApplicationHistoryProtocolService/getApplicationAttemptReport", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -91,8 +221,8 @@ func (c *applicationHistoryProtocolServiceClient) GetApplicationAttemptReport(ct
 	return out, nil
 }
 
-func (c *applicationHistoryProtocolServiceClient) GetApplicationAttempts(ctx context.Context, in *hadoop_yarn1.GetApplicationAttemptsRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetApplicationAttemptsResponseProto, error) {
-	out := new(hadoop_yarn1.GetApplicationAttemptsResponseProto)
+func (c *applicationHistoryProtocolServiceClient) GetApplicationAttempts(ctx context.Context, in *GetApplicationAttemptsRequestProto, opts ...grpc.CallOption) (*GetApplicationAttemptsResponseProto, error) {
+	out := new(GetApplicationAttemptsResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ApplicationHistoryProtocolService/getApplicationAttempts", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -100,8 +230,8 @@ func (c *applicationHistoryProtocolServiceClient) GetApplicationAttempts(ctx con
 	return out, nil
 }
 
-func (c *applicationHistoryProtocolServiceClient) GetContainerReport(ctx context.Context, in *hadoop_yarn1.GetContainerReportRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetContainerReportResponseProto, error) {
-	out := new(hadoop_yarn1.GetContainerReportResponseProto)
+func (c *applicationHistoryProtocolServiceClient) GetContainerReport(ctx context.Context, in *GetContainerReportRequestProto, opts ...grpc.CallOption) (*GetContainerReportResponseProto, error) {
+	out := new(GetContainerReportResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ApplicationHistoryProtocolService/getContainerReport", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -109,8 +239,8 @@ func (c *applicationHistoryProtocolServiceClient) GetContainerReport(ctx context
 	return out, nil
 }
 
-func (c *applicationHistoryProtocolServiceClient) GetContainers(ctx context.Context, in *hadoop_yarn1.GetContainersRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetContainersResponseProto, error) {
-	out := new(hadoop_yarn1.GetContainersResponseProto)
+func (c *applicationHistoryProtocolServiceClient) GetContainers(ctx context.Context, in *GetContainersRequestProto, opts ...grpc.CallOption) (*GetContainersResponseProto, error) {
+	out := new(GetContainersResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ApplicationHistoryProtocolService/getContainers", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -148,12 +278,12 @@ func (c *applicationHistoryProtocolServiceClient) CancelDelegationToken(ctx cont
 // Server API for ApplicationHistoryProtocolService service
 
 type ApplicationHistoryProtocolServiceServer interface {
-	GetApplicationReport(context.Context, *hadoop_yarn1.GetApplicationReportRequestProto) (*hadoop_yarn1.GetApplicationReportResponseProto, error)
-	GetApplications(context.Context, *hadoop_yarn1.GetApplicationsRequestProto) (*hadoop_yarn1.GetApplicationsResponseProto, error)
-	GetApplicationAttemptReport(context.Context, *hadoop_yarn1.GetApplicationAttemptReportRequestProto) (*hadoop_yarn1.GetApplicationAttemptReportResponseProto, error)
-	GetApplicationAttempts(context.Context, *hadoop_yarn1.GetApplicationAttemptsRequestProto) (*hadoop_yarn1.GetApplicationAttemptsResponseProto, error)
-	GetContainerReport(context.Context, *hadoop_yarn1.GetContainerReportRequestProto) (*hadoop_yarn1.GetContainerReportResponseProto, error)
-	GetContainers(context.Context, *hadoop_yarn1.GetContainersRequestProto) (*hadoop_yarn1.GetContainersResponseProto, error)
+	GetApplicationReport(context.Context, *GetApplicationReportRequestProto) (*GetApplicationReportResponseProto, error)
+	GetApplications(context.Context, *GetApplicationsRequestProto) (*GetApplicationsResponseProto, error)
+	GetApplicationAttemptReport(context.Context, *GetApplicationAttemptReportRequestProto) (*GetApplicationAttemptReportResponseProto, error)
+	GetApplicationAttempts(context.Context, *GetApplicationAttemptsRequestProto) (*GetApplicationAttemptsResponseProto, error)
+	GetContainerReport(context.Context, *GetContainerReportRequestProto) (*GetContainerReportResponseProto, error)
+	GetContainers(context.Context, *GetContainersRequestProto) (*GetContainersResponseProto, error)
 	GetDelegationToken(context.Context, *hadoop_common.GetDelegationTokenRequestProto) (*hadoop_common.GetDelegationTokenResponseProto, error)
 	RenewDelegationToken(context.Context, *hadoop_common.RenewDelegationTokenRequestProto) (*hadoop_common.RenewDelegationTokenResponseProto, error)
 	CancelDelegationToken(context.Context, *hadoop_common.CancelDelegationTokenRequestProto) (*hadoop_common.CancelDelegationTokenResponseProto, error)
@@ -164,7 +294,7 @@ func RegisterApplicationHistoryProtocolServiceServer(s *grpc.Server, srv Applica
 }
 
 func _ApplicationHistoryProtocolService_GetApplicationReport_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn1.GetApplicationReportRequestProto)
+	in := new(GetApplicationReportRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -176,13 +306,13 @@ func _ApplicationHistoryProtocolService_GetApplicationReport_Handler(srv interfa
 		FullMethod: "/hadoop.yarn.ApplicationHistoryProtocolService/GetApplicationReport",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ApplicationHistoryProtocolServiceServer).GetApplicationReport(ctx, req.(*hadoop_yarn1.GetApplicationReportRequestProto))
+		return srv.(ApplicationHistoryProtocolServiceServer).GetApplicationReport(ctx, req.(*GetApplicationReportRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ApplicationHistoryProtocolService_GetApplications_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn1.GetApplicationsRequestProto)
+	in := new(GetApplicationsRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -194,13 +324,13 @@ func _ApplicationHistoryProtocolService_GetApplications_Handler(srv interface{},
 		FullMethod: "/hadoop.yarn.ApplicationHistoryProtocolService/GetApplications",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ApplicationHistoryProtocolServiceServer).GetApplications(ctx, req.(*hadoop_yarn1.GetApplicationsRequestProto))
+		return srv.(ApplicationHistoryProtocolServiceServer).GetApplications(ctx, req.(*GetApplicationsRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ApplicationHistoryProtocolService_GetApplicationAttemptReport_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn1.GetApplicationAttemptReportRequestProto)
+	in := new(GetApplicationAttemptReportRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -212,13 +342,13 @@ func _ApplicationHistoryProtocolService_GetApplicationAttemptReport_Handler(srv 
 		FullMethod: "/hadoop.yarn.ApplicationHistoryProtocolService/GetApplicationAttemptReport",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ApplicationHistoryProtocolServiceServer).GetApplicationAttemptReport(ctx, req.(*hadoop_yarn1.GetApplicationAttemptReportRequestProto))
+		return srv.(ApplicationHistoryProtocolServiceServer).GetApplicationAttemptReport(ctx, req.(*GetApplicationAttemptReportRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ApplicationHistoryProtocolService_GetApplicationAttempts_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn1.GetApplicationAttemptsRequestProto)
+	in := new(GetApplicationAttemptsRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -230,13 +360,13 @@ func _ApplicationHistoryProtocolService_GetApplicationAttempts_Handler(srv inter
 		FullMethod: "/hadoop.yarn.ApplicationHistoryProtocolService/GetApplicationAttempts",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ApplicationHistoryProtocolServiceServer).GetApplicationAttempts(ctx, req.(*hadoop_yarn1.GetApplicationAttemptsRequestProto))
+		return srv.(ApplicationHistoryProtocolServiceServer).GetApplicationAttempts(ctx, req.(*GetApplicationAttemptsRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ApplicationHistoryProtocolService_GetContainerReport_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn1.GetContainerReportRequestProto)
+	in := new(GetContainerReportRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -248,13 +378,13 @@ func _ApplicationHistoryProtocolService_GetContainerReport_Handler(srv interface
 		FullMethod: "/hadoop.yarn.ApplicationHistoryProtocolService/GetContainerReport",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ApplicationHistoryProtocolServiceServer).GetContainerReport(ctx, req.(*hadoop_yarn1.GetContainerReportRequestProto))
+		return srv.(ApplicationHistoryProtocolServiceServer).GetContainerReport(ctx, req.(*GetContainerReportRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ApplicationHistoryProtocolService_GetContainers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn1.GetContainersRequestProto)
+	in := new(GetContainersRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -266,7 +396,7 @@ func _ApplicationHistoryProtocolService_GetContainers_Handler(srv interface{}, c
 		FullMethod: "/hadoop.yarn.ApplicationHistoryProtocolService/GetContainers",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ApplicationHistoryProtocolServiceServer).GetContainers(ctx, req.(*hadoop_yarn1.GetContainersRequestProto))
+		return srv.(ApplicationHistoryProtocolServiceServer).GetContainers(ctx, req.(*GetContainersRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }

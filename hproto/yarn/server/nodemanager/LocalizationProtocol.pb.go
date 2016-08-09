@@ -7,15 +7,24 @@ Package nodemanager is a generated protocol buffer package.
 
 It is generated from these files:
 	LocalizationProtocol.proto
+	yarn_server_nodemanager_recovery.proto
+	yarn_server_nodemanager_service_protos.proto
 
 It has these top-level messages:
+	ContainerManagerApplicationProto
+	DeletionServiceDeleteTaskProto
+	LocalizedResourceProto
+	LogDeleterProto
+	LocalResourceStatusProto
+	LocalizerStatusProto
+	ResourceLocalizationSpecProto
+	LocalizerHeartbeatResponseProto
 */
 package nodemanager
 
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
-import hadoop_yarn1 "."
 
 import (
 	context "golang.org/x/net/context"
@@ -44,7 +53,7 @@ const _ = grpc.SupportPackageIsVersion3
 // Client API for LocalizationProtocolService service
 
 type LocalizationProtocolServiceClient interface {
-	Heartbeat(ctx context.Context, in *hadoop_yarn1.LocalizerStatusProto, opts ...grpc.CallOption) (*hadoop_yarn1.LocalizerHeartbeatResponseProto, error)
+	Heartbeat(ctx context.Context, in *LocalizerStatusProto, opts ...grpc.CallOption) (*LocalizerHeartbeatResponseProto, error)
 }
 
 type localizationProtocolServiceClient struct {
@@ -55,8 +64,8 @@ func NewLocalizationProtocolServiceClient(cc *grpc.ClientConn) LocalizationProto
 	return &localizationProtocolServiceClient{cc}
 }
 
-func (c *localizationProtocolServiceClient) Heartbeat(ctx context.Context, in *hadoop_yarn1.LocalizerStatusProto, opts ...grpc.CallOption) (*hadoop_yarn1.LocalizerHeartbeatResponseProto, error) {
-	out := new(hadoop_yarn1.LocalizerHeartbeatResponseProto)
+func (c *localizationProtocolServiceClient) Heartbeat(ctx context.Context, in *LocalizerStatusProto, opts ...grpc.CallOption) (*LocalizerHeartbeatResponseProto, error) {
+	out := new(LocalizerHeartbeatResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.LocalizationProtocolService/heartbeat", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -67,7 +76,7 @@ func (c *localizationProtocolServiceClient) Heartbeat(ctx context.Context, in *h
 // Server API for LocalizationProtocolService service
 
 type LocalizationProtocolServiceServer interface {
-	Heartbeat(context.Context, *hadoop_yarn1.LocalizerStatusProto) (*hadoop_yarn1.LocalizerHeartbeatResponseProto, error)
+	Heartbeat(context.Context, *LocalizerStatusProto) (*LocalizerHeartbeatResponseProto, error)
 }
 
 func RegisterLocalizationProtocolServiceServer(s *grpc.Server, srv LocalizationProtocolServiceServer) {
@@ -75,7 +84,7 @@ func RegisterLocalizationProtocolServiceServer(s *grpc.Server, srv LocalizationP
 }
 
 func _LocalizationProtocolService_Heartbeat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn1.LocalizerStatusProto)
+	in := new(LocalizerStatusProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -87,7 +96,7 @@ func _LocalizationProtocolService_Heartbeat_Handler(srv interface{}, ctx context
 		FullMethod: "/hadoop.yarn.LocalizationProtocolService/Heartbeat",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LocalizationProtocolServiceServer).Heartbeat(ctx, req.(*hadoop_yarn1.LocalizerStatusProto))
+		return srv.(LocalizationProtocolServiceServer).Heartbeat(ctx, req.(*LocalizerStatusProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }

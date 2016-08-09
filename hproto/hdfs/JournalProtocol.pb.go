@@ -2,27 +2,11 @@
 // source: JournalProtocol.proto
 // DO NOT EDIT!
 
-/*
-Package hdfs is a generated protocol buffer package.
-
-It is generated from these files:
-	JournalProtocol.proto
-
-It has these top-level messages:
-	JournalInfoProto
-	JournalRequestProto
-	JournalResponseProto
-	StartLogSegmentRequestProto
-	StartLogSegmentResponseProto
-	FenceRequestProto
-	FenceResponseProto
-*/
 package hdfs
 
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
-import _ "."
 import _ "."
 
 import (
@@ -34,12 +18,6 @@ import (
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
-
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 // *
 // Journal information used by the journal receiver to identify a journal.
@@ -53,7 +31,7 @@ type JournalInfoProto struct {
 func (m *JournalInfoProto) Reset()                    { *m = JournalInfoProto{} }
 func (m *JournalInfoProto) String() string            { return proto.CompactTextString(m) }
 func (*JournalInfoProto) ProtoMessage()               {}
-func (*JournalInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (*JournalInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{0} }
 
 func (m *JournalInfoProto) GetClusterID() string {
 	if m != nil && m.ClusterID != nil {
@@ -94,7 +72,7 @@ type JournalRequestProto struct {
 func (m *JournalRequestProto) Reset()                    { *m = JournalRequestProto{} }
 func (m *JournalRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*JournalRequestProto) ProtoMessage()               {}
-func (*JournalRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
+func (*JournalRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{1} }
 
 func (m *JournalRequestProto) GetJournalInfo() *JournalInfoProto {
 	if m != nil {
@@ -140,7 +118,7 @@ type JournalResponseProto struct {
 func (m *JournalResponseProto) Reset()                    { *m = JournalResponseProto{} }
 func (m *JournalResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*JournalResponseProto) ProtoMessage()               {}
-func (*JournalResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{2} }
+func (*JournalResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{2} }
 
 // *
 // journalInfo - the information about the journal
@@ -155,7 +133,7 @@ type StartLogSegmentRequestProto struct {
 func (m *StartLogSegmentRequestProto) Reset()                    { *m = StartLogSegmentRequestProto{} }
 func (m *StartLogSegmentRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*StartLogSegmentRequestProto) ProtoMessage()               {}
-func (*StartLogSegmentRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{3} }
+func (*StartLogSegmentRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{3} }
 
 func (m *StartLogSegmentRequestProto) GetJournalInfo() *JournalInfoProto {
 	if m != nil {
@@ -187,7 +165,7 @@ type StartLogSegmentResponseProto struct {
 func (m *StartLogSegmentResponseProto) Reset()                    { *m = StartLogSegmentResponseProto{} }
 func (m *StartLogSegmentResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*StartLogSegmentResponseProto) ProtoMessage()               {}
-func (*StartLogSegmentResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{4} }
+func (*StartLogSegmentResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{4} }
 
 // *
 // journalInfo - the information about the journal
@@ -202,7 +180,7 @@ type FenceRequestProto struct {
 func (m *FenceRequestProto) Reset()                    { *m = FenceRequestProto{} }
 func (m *FenceRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*FenceRequestProto) ProtoMessage()               {}
-func (*FenceRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{5} }
+func (*FenceRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{5} }
 
 func (m *FenceRequestProto) GetJournalInfo() *JournalInfoProto {
 	if m != nil {
@@ -239,7 +217,7 @@ type FenceResponseProto struct {
 func (m *FenceResponseProto) Reset()                    { *m = FenceResponseProto{} }
 func (m *FenceResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*FenceResponseProto) ProtoMessage()               {}
-func (*FenceResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{6} }
+func (*FenceResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{6} }
 
 func (m *FenceResponseProto) GetPreviousEpoch() uint64 {
 	if m != nil && m.PreviousEpoch != nil {
@@ -425,12 +403,12 @@ var _JournalProtocolService_serviceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: fileDescriptor0,
+	Metadata: fileDescriptor5,
 }
 
-func init() { proto.RegisterFile("JournalProtocol.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("JournalProtocol.proto", fileDescriptor5) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor5 = []byte{
 	// 498 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xac, 0x94, 0xdf, 0x6e, 0xd3, 0x3c,
 	0x14, 0xc0, 0xe5, 0xac, 0xfd, 0xf6, 0xf5, 0x94, 0x89, 0xcd, 0x8c, 0x2a, 0x0a, 0xa3, 0x94, 0x08,

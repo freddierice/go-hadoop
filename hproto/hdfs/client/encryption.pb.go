@@ -2,38 +2,16 @@
 // source: encryption.proto
 // DO NOT EDIT!
 
-/*
-Package client is a generated protocol buffer package.
-
-It is generated from these files:
-	encryption.proto
-
-It has these top-level messages:
-	CreateEncryptionZoneRequestProto
-	CreateEncryptionZoneResponseProto
-	ListEncryptionZonesRequestProto
-	EncryptionZoneProto
-	ListEncryptionZonesResponseProto
-	GetEZForPathRequestProto
-	GetEZForPathResponseProto
-*/
 package client
 
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
-import hadoop_hdfs "."
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
-
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 type CreateEncryptionZoneRequestProto struct {
 	Src              *string `protobuf:"bytes,1,req,name=src" json:"src,omitempty"`
@@ -45,7 +23,7 @@ func (m *CreateEncryptionZoneRequestProto) Reset()         { *m = CreateEncrypti
 func (m *CreateEncryptionZoneRequestProto) String() string { return proto.CompactTextString(m) }
 func (*CreateEncryptionZoneRequestProto) ProtoMessage()    {}
 func (*CreateEncryptionZoneRequestProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{0}
+	return fileDescriptor7, []int{0}
 }
 
 func (m *CreateEncryptionZoneRequestProto) GetSrc() string {
@@ -70,7 +48,7 @@ func (m *CreateEncryptionZoneResponseProto) Reset()         { *m = CreateEncrypt
 func (m *CreateEncryptionZoneResponseProto) String() string { return proto.CompactTextString(m) }
 func (*CreateEncryptionZoneResponseProto) ProtoMessage()    {}
 func (*CreateEncryptionZoneResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{1}
+	return fileDescriptor7, []int{1}
 }
 
 type ListEncryptionZonesRequestProto struct {
@@ -81,7 +59,7 @@ type ListEncryptionZonesRequestProto struct {
 func (m *ListEncryptionZonesRequestProto) Reset()                    { *m = ListEncryptionZonesRequestProto{} }
 func (m *ListEncryptionZonesRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*ListEncryptionZonesRequestProto) ProtoMessage()               {}
-func (*ListEncryptionZonesRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{2} }
+func (*ListEncryptionZonesRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{2} }
 
 func (m *ListEncryptionZonesRequestProto) GetId() int64 {
 	if m != nil && m.Id != nil {
@@ -91,18 +69,18 @@ func (m *ListEncryptionZonesRequestProto) GetId() int64 {
 }
 
 type EncryptionZoneProto struct {
-	Id                    *int64                                  `protobuf:"varint,1,req,name=id" json:"id,omitempty"`
-	Path                  *string                                 `protobuf:"bytes,2,req,name=path" json:"path,omitempty"`
-	Suite                 *hadoop_hdfs.CipherSuiteProto           `protobuf:"varint,3,req,name=suite,enum=hadoop.hdfs.CipherSuiteProto" json:"suite,omitempty"`
-	CryptoProtocolVersion *hadoop_hdfs.CryptoProtocolVersionProto `protobuf:"varint,4,req,name=cryptoProtocolVersion,enum=hadoop.hdfs.CryptoProtocolVersionProto" json:"cryptoProtocolVersion,omitempty"`
-	KeyName               *string                                 `protobuf:"bytes,5,req,name=keyName" json:"keyName,omitempty"`
-	XXX_unrecognized      []byte                                  `json:"-"`
+	Id                    *int64                      `protobuf:"varint,1,req,name=id" json:"id,omitempty"`
+	Path                  *string                     `protobuf:"bytes,2,req,name=path" json:"path,omitempty"`
+	Suite                 *CipherSuiteProto           `protobuf:"varint,3,req,name=suite,enum=hadoop.hdfs.CipherSuiteProto" json:"suite,omitempty"`
+	CryptoProtocolVersion *CryptoProtocolVersionProto `protobuf:"varint,4,req,name=cryptoProtocolVersion,enum=hadoop.hdfs.CryptoProtocolVersionProto" json:"cryptoProtocolVersion,omitempty"`
+	KeyName               *string                     `protobuf:"bytes,5,req,name=keyName" json:"keyName,omitempty"`
+	XXX_unrecognized      []byte                      `json:"-"`
 }
 
 func (m *EncryptionZoneProto) Reset()                    { *m = EncryptionZoneProto{} }
 func (m *EncryptionZoneProto) String() string            { return proto.CompactTextString(m) }
 func (*EncryptionZoneProto) ProtoMessage()               {}
-func (*EncryptionZoneProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{3} }
+func (*EncryptionZoneProto) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{3} }
 
 func (m *EncryptionZoneProto) GetId() int64 {
 	if m != nil && m.Id != nil {
@@ -118,18 +96,18 @@ func (m *EncryptionZoneProto) GetPath() string {
 	return ""
 }
 
-func (m *EncryptionZoneProto) GetSuite() hadoop_hdfs.CipherSuiteProto {
+func (m *EncryptionZoneProto) GetSuite() CipherSuiteProto {
 	if m != nil && m.Suite != nil {
 		return *m.Suite
 	}
-	return hadoop_hdfs.CipherSuiteProto_UNKNOWN
+	return CipherSuiteProto_UNKNOWN
 }
 
-func (m *EncryptionZoneProto) GetCryptoProtocolVersion() hadoop_hdfs.CryptoProtocolVersionProto {
+func (m *EncryptionZoneProto) GetCryptoProtocolVersion() CryptoProtocolVersionProto {
 	if m != nil && m.CryptoProtocolVersion != nil {
 		return *m.CryptoProtocolVersion
 	}
-	return hadoop_hdfs.CryptoProtocolVersionProto_UNKNOWN_PROTOCOL_VERSION
+	return CryptoProtocolVersionProto_UNKNOWN_PROTOCOL_VERSION
 }
 
 func (m *EncryptionZoneProto) GetKeyName() string {
@@ -149,7 +127,7 @@ func (m *ListEncryptionZonesResponseProto) Reset()         { *m = ListEncryption
 func (m *ListEncryptionZonesResponseProto) String() string { return proto.CompactTextString(m) }
 func (*ListEncryptionZonesResponseProto) ProtoMessage()    {}
 func (*ListEncryptionZonesResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{4}
+	return fileDescriptor7, []int{4}
 }
 
 func (m *ListEncryptionZonesResponseProto) GetZones() []*EncryptionZoneProto {
@@ -174,7 +152,7 @@ type GetEZForPathRequestProto struct {
 func (m *GetEZForPathRequestProto) Reset()                    { *m = GetEZForPathRequestProto{} }
 func (m *GetEZForPathRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*GetEZForPathRequestProto) ProtoMessage()               {}
-func (*GetEZForPathRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{5} }
+func (*GetEZForPathRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{5} }
 
 func (m *GetEZForPathRequestProto) GetSrc() string {
 	if m != nil && m.Src != nil {
@@ -191,7 +169,7 @@ type GetEZForPathResponseProto struct {
 func (m *GetEZForPathResponseProto) Reset()                    { *m = GetEZForPathResponseProto{} }
 func (m *GetEZForPathResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*GetEZForPathResponseProto) ProtoMessage()               {}
-func (*GetEZForPathResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{6} }
+func (*GetEZForPathResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{6} }
 
 func (m *GetEZForPathResponseProto) GetZone() *EncryptionZoneProto {
 	if m != nil {
@@ -210,9 +188,9 @@ func init() {
 	proto.RegisterType((*GetEZForPathResponseProto)(nil), "hadoop.hdfs.GetEZForPathResponseProto")
 }
 
-func init() { proto.RegisterFile("encryption.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("encryption.proto", fileDescriptor7) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor7 = []byte{
 	// 356 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0x8c, 0x91, 0x51, 0x4b, 0xc3, 0x30,
 	0x14, 0x85, 0xe9, 0xba, 0xa1, 0xde, 0xc1, 0x18, 0x91, 0x41, 0x15, 0xc4, 0x5a, 0x11, 0xf7, 0x20,

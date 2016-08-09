@@ -2,20 +2,6 @@
 // source: ProtocolInfo.proto
 // DO NOT EDIT!
 
-/*
-Package common is a generated protocol buffer package.
-
-It is generated from these files:
-	ProtocolInfo.proto
-
-It has these top-level messages:
-	GetProtocolVersionsRequestProto
-	ProtocolVersionProto
-	GetProtocolVersionsResponseProto
-	GetProtocolSignatureRequestProto
-	GetProtocolSignatureResponseProto
-	ProtocolSignatureProto
-*/
 package common
 
 import proto "github.com/golang/protobuf/proto"
@@ -32,12 +18,6 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
-
 // *
 // Request to get protocol versions for all supported rpc kinds.
 type GetProtocolVersionsRequestProto struct {
@@ -45,10 +25,12 @@ type GetProtocolVersionsRequestProto struct {
 	XXX_unrecognized []byte  `json:"-"`
 }
 
-func (m *GetProtocolVersionsRequestProto) Reset()                    { *m = GetProtocolVersionsRequestProto{} }
-func (m *GetProtocolVersionsRequestProto) String() string            { return proto.CompactTextString(m) }
-func (*GetProtocolVersionsRequestProto) ProtoMessage()               {}
-func (*GetProtocolVersionsRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (m *GetProtocolVersionsRequestProto) Reset()         { *m = GetProtocolVersionsRequestProto{} }
+func (m *GetProtocolVersionsRequestProto) String() string { return proto.CompactTextString(m) }
+func (*GetProtocolVersionsRequestProto) ProtoMessage()    {}
+func (*GetProtocolVersionsRequestProto) Descriptor() ([]byte, []int) {
+	return fileDescriptor11, []int{0}
+}
 
 func (m *GetProtocolVersionsRequestProto) GetProtocol() string {
 	if m != nil && m.Protocol != nil {
@@ -68,7 +50,7 @@ type ProtocolVersionProto struct {
 func (m *ProtocolVersionProto) Reset()                    { *m = ProtocolVersionProto{} }
 func (m *ProtocolVersionProto) String() string            { return proto.CompactTextString(m) }
 func (*ProtocolVersionProto) ProtoMessage()               {}
-func (*ProtocolVersionProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
+func (*ProtocolVersionProto) Descriptor() ([]byte, []int) { return fileDescriptor11, []int{1} }
 
 func (m *ProtocolVersionProto) GetRpcKind() string {
 	if m != nil && m.RpcKind != nil {
@@ -95,7 +77,7 @@ func (m *GetProtocolVersionsResponseProto) Reset()         { *m = GetProtocolVer
 func (m *GetProtocolVersionsResponseProto) String() string { return proto.CompactTextString(m) }
 func (*GetProtocolVersionsResponseProto) ProtoMessage()    {}
 func (*GetProtocolVersionsResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{2}
+	return fileDescriptor11, []int{2}
 }
 
 func (m *GetProtocolVersionsResponseProto) GetProtocolVersions() []*ProtocolVersionProto {
@@ -117,7 +99,7 @@ func (m *GetProtocolSignatureRequestProto) Reset()         { *m = GetProtocolSig
 func (m *GetProtocolSignatureRequestProto) String() string { return proto.CompactTextString(m) }
 func (*GetProtocolSignatureRequestProto) ProtoMessage()    {}
 func (*GetProtocolSignatureRequestProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{3}
+	return fileDescriptor11, []int{3}
 }
 
 func (m *GetProtocolSignatureRequestProto) GetProtocol() string {
@@ -145,7 +127,7 @@ func (m *GetProtocolSignatureResponseProto) Reset()         { *m = GetProtocolSi
 func (m *GetProtocolSignatureResponseProto) String() string { return proto.CompactTextString(m) }
 func (*GetProtocolSignatureResponseProto) ProtoMessage()    {}
 func (*GetProtocolSignatureResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{4}
+	return fileDescriptor11, []int{4}
 }
 
 func (m *GetProtocolSignatureResponseProto) GetProtocolSignature() []*ProtocolSignatureProto {
@@ -164,7 +146,7 @@ type ProtocolSignatureProto struct {
 func (m *ProtocolSignatureProto) Reset()                    { *m = ProtocolSignatureProto{} }
 func (m *ProtocolSignatureProto) String() string            { return proto.CompactTextString(m) }
 func (*ProtocolSignatureProto) ProtoMessage()               {}
-func (*ProtocolSignatureProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{5} }
+func (*ProtocolSignatureProto) Descriptor() ([]byte, []int) { return fileDescriptor11, []int{5} }
 
 func (m *ProtocolSignatureProto) GetVersion() uint64 {
 	if m != nil && m.Version != nil {
@@ -301,12 +283,12 @@ var _ProtocolInfoService_serviceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: fileDescriptor0,
+	Metadata: fileDescriptor11,
 }
 
-func init() { proto.RegisterFile("ProtocolInfo.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("ProtocolInfo.proto", fileDescriptor11) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor11 = []byte{
 	// 338 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0x8c, 0x53, 0x5d, 0x4b, 0xc3, 0x30,
 	0x14, 0xa5, 0xdd, 0x40, 0xbd, 0x32, 0xd0, 0x6c, 0xc8, 0xd8, 0x83, 0xce, 0x8a, 0xb0, 0xa7, 0x28,

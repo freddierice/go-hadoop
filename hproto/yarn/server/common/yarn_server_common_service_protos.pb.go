@@ -2,37 +2,6 @@
 // source: yarn_server_common_service_protos.proto
 // DO NOT EDIT!
 
-/*
-Package common is a generated protocol buffer package.
-
-It is generated from these files:
-	yarn_server_common_service_protos.proto
-
-It has these top-level messages:
-	DistSchedRegisterResponseProto
-	DistSchedAllocateResponseProto
-	DistSchedAllocateRequestProto
-	NodeLabelsProto
-	RegisterNodeManagerRequestProto
-	RegisterNodeManagerResponseProto
-	UnRegisterNodeManagerRequestProto
-	UnRegisterNodeManagerResponseProto
-	NodeHeartbeatRequestProto
-	LogAggregationReportProto
-	NodeHeartbeatResponseProto
-	ContainerQueuingLimitProto
-	SystemCredentialsForAppsProto
-	AppCollectorsMapProto
-	ReportNewCollectorInfoRequestProto
-	ReportNewCollectorInfoResponseProto
-	GetTimelineCollectorContextRequestProto
-	GetTimelineCollectorContextResponseProto
-	NMContainerStatusProto
-	SCMUploaderNotifyRequestProto
-	SCMUploaderNotifyResponseProto
-	SCMUploaderCanUploadRequestProto
-	SCMUploaderCanUploadResponseProto
-*/
 package common
 
 import proto "github.com/golang/protobuf/proto"
@@ -40,21 +9,14 @@ import fmt "fmt"
 import math "math"
 import hadoop_yarn "."
 import hadoop_yarn1 "."
-import hadoop_yarn2 "."
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
-
 type DistSchedRegisterResponseProto struct {
-	RegisterResponse             *hadoop_yarn2.RegisterApplicationMasterResponseProto `protobuf:"bytes,1,opt,name=register_response,json=registerResponse" json:"register_response,omitempty"`
+	RegisterResponse             *hadoop_yarn1.RegisterApplicationMasterResponseProto `protobuf:"bytes,1,opt,name=register_response,json=registerResponse" json:"register_response,omitempty"`
 	MaxAllocCapability           *hadoop_yarn.ResourceProto                           `protobuf:"bytes,2,opt,name=max_alloc_capability,json=maxAllocCapability" json:"max_alloc_capability,omitempty"`
 	MinAllocCapability           *hadoop_yarn.ResourceProto                           `protobuf:"bytes,3,opt,name=min_alloc_capability,json=minAllocCapability" json:"min_alloc_capability,omitempty"`
 	IncrAllocCapability          *hadoop_yarn.ResourceProto                           `protobuf:"bytes,4,opt,name=incr_alloc_capability,json=incrAllocCapability" json:"incr_alloc_capability,omitempty"`
@@ -67,9 +29,9 @@ type DistSchedRegisterResponseProto struct {
 func (m *DistSchedRegisterResponseProto) Reset()                    { *m = DistSchedRegisterResponseProto{} }
 func (m *DistSchedRegisterResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*DistSchedRegisterResponseProto) ProtoMessage()               {}
-func (*DistSchedRegisterResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (*DistSchedRegisterResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{0} }
 
-func (m *DistSchedRegisterResponseProto) GetRegisterResponse() *hadoop_yarn2.RegisterApplicationMasterResponseProto {
+func (m *DistSchedRegisterResponseProto) GetRegisterResponse() *hadoop_yarn1.RegisterApplicationMasterResponseProto {
 	if m != nil {
 		return m.RegisterResponse
 	}
@@ -119,7 +81,7 @@ func (m *DistSchedRegisterResponseProto) GetNodesForScheduling() []*hadoop_yarn.
 }
 
 type DistSchedAllocateResponseProto struct {
-	AllocateResponse   *hadoop_yarn2.AllocateResponseProto `protobuf:"bytes,1,opt,name=allocate_response,json=allocateResponse" json:"allocate_response,omitempty"`
+	AllocateResponse   *hadoop_yarn1.AllocateResponseProto `protobuf:"bytes,1,opt,name=allocate_response,json=allocateResponse" json:"allocate_response,omitempty"`
 	NodesForScheduling []*hadoop_yarn.NodeIdProto          `protobuf:"bytes,2,rep,name=nodes_for_scheduling,json=nodesForScheduling" json:"nodes_for_scheduling,omitempty"`
 	XXX_unrecognized   []byte                              `json:"-"`
 }
@@ -127,9 +89,9 @@ type DistSchedAllocateResponseProto struct {
 func (m *DistSchedAllocateResponseProto) Reset()                    { *m = DistSchedAllocateResponseProto{} }
 func (m *DistSchedAllocateResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*DistSchedAllocateResponseProto) ProtoMessage()               {}
-func (*DistSchedAllocateResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
+func (*DistSchedAllocateResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{1} }
 
-func (m *DistSchedAllocateResponseProto) GetAllocateResponse() *hadoop_yarn2.AllocateResponseProto {
+func (m *DistSchedAllocateResponseProto) GetAllocateResponse() *hadoop_yarn1.AllocateResponseProto {
 	if m != nil {
 		return m.AllocateResponse
 	}
@@ -144,7 +106,7 @@ func (m *DistSchedAllocateResponseProto) GetNodesForScheduling() []*hadoop_yarn.
 }
 
 type DistSchedAllocateRequestProto struct {
-	AllocateRequest     *hadoop_yarn2.AllocateRequestProto `protobuf:"bytes,1,opt,name=allocate_request,json=allocateRequest" json:"allocate_request,omitempty"`
+	AllocateRequest     *hadoop_yarn1.AllocateRequestProto `protobuf:"bytes,1,opt,name=allocate_request,json=allocateRequest" json:"allocate_request,omitempty"`
 	AllocatedContainers []*hadoop_yarn.ContainerProto      `protobuf:"bytes,2,rep,name=allocated_containers,json=allocatedContainers" json:"allocated_containers,omitempty"`
 	XXX_unrecognized    []byte                             `json:"-"`
 }
@@ -152,9 +114,9 @@ type DistSchedAllocateRequestProto struct {
 func (m *DistSchedAllocateRequestProto) Reset()                    { *m = DistSchedAllocateRequestProto{} }
 func (m *DistSchedAllocateRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*DistSchedAllocateRequestProto) ProtoMessage()               {}
-func (*DistSchedAllocateRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{2} }
+func (*DistSchedAllocateRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{2} }
 
-func (m *DistSchedAllocateRequestProto) GetAllocateRequest() *hadoop_yarn2.AllocateRequestProto {
+func (m *DistSchedAllocateRequestProto) GetAllocateRequest() *hadoop_yarn1.AllocateRequestProto {
 	if m != nil {
 		return m.AllocateRequest
 	}
@@ -176,7 +138,7 @@ type NodeLabelsProto struct {
 func (m *NodeLabelsProto) Reset()                    { *m = NodeLabelsProto{} }
 func (m *NodeLabelsProto) String() string            { return proto.CompactTextString(m) }
 func (*NodeLabelsProto) ProtoMessage()               {}
-func (*NodeLabelsProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{3} }
+func (*NodeLabelsProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{3} }
 
 func (m *NodeLabelsProto) GetNodeLabels() []*hadoop_yarn.NodeLabelProto {
 	if m != nil {
@@ -199,7 +161,7 @@ type RegisterNodeManagerRequestProto struct {
 func (m *RegisterNodeManagerRequestProto) Reset()                    { *m = RegisterNodeManagerRequestProto{} }
 func (m *RegisterNodeManagerRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*RegisterNodeManagerRequestProto) ProtoMessage()               {}
-func (*RegisterNodeManagerRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{4} }
+func (*RegisterNodeManagerRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{4} }
 
 func (m *RegisterNodeManagerRequestProto) GetNodeId() *hadoop_yarn.NodeIdProto {
 	if m != nil {
@@ -251,45 +213,45 @@ func (m *RegisterNodeManagerRequestProto) GetNodeLabels() *NodeLabelsProto {
 }
 
 type RegisterNodeManagerResponseProto struct {
-	ContainerTokenMasterKey   *hadoop_yarn1.MasterKeyProto  `protobuf:"bytes,1,opt,name=container_token_master_key,json=containerTokenMasterKey" json:"container_token_master_key,omitempty"`
-	NmTokenMasterKey          *hadoop_yarn1.MasterKeyProto  `protobuf:"bytes,2,opt,name=nm_token_master_key,json=nmTokenMasterKey" json:"nm_token_master_key,omitempty"`
-	NodeAction                *hadoop_yarn1.NodeActionProto `protobuf:"varint,3,opt,name=nodeAction,enum=hadoop.yarn.NodeActionProto" json:"nodeAction,omitempty"`
-	RmIdentifier              *int64                        `protobuf:"varint,4,opt,name=rm_identifier,json=rmIdentifier" json:"rm_identifier,omitempty"`
-	DiagnosticsMessage        *string                       `protobuf:"bytes,5,opt,name=diagnostics_message,json=diagnosticsMessage" json:"diagnostics_message,omitempty"`
-	RmVersion                 *string                       `protobuf:"bytes,6,opt,name=rm_version,json=rmVersion" json:"rm_version,omitempty"`
-	AreNodeLabelsAcceptedByRM *bool                         `protobuf:"varint,7,opt,name=areNodeLabelsAcceptedByRM,def=0" json:"areNodeLabelsAcceptedByRM,omitempty"`
-	Resource                  *hadoop_yarn.ResourceProto    `protobuf:"bytes,8,opt,name=resource" json:"resource,omitempty"`
-	XXX_unrecognized          []byte                        `json:"-"`
+	ContainerTokenMasterKey   *MasterKeyProto            `protobuf:"bytes,1,opt,name=container_token_master_key,json=containerTokenMasterKey" json:"container_token_master_key,omitempty"`
+	NmTokenMasterKey          *MasterKeyProto            `protobuf:"bytes,2,opt,name=nm_token_master_key,json=nmTokenMasterKey" json:"nm_token_master_key,omitempty"`
+	NodeAction                *NodeActionProto           `protobuf:"varint,3,opt,name=nodeAction,enum=hadoop.yarn.NodeActionProto" json:"nodeAction,omitempty"`
+	RmIdentifier              *int64                     `protobuf:"varint,4,opt,name=rm_identifier,json=rmIdentifier" json:"rm_identifier,omitempty"`
+	DiagnosticsMessage        *string                    `protobuf:"bytes,5,opt,name=diagnostics_message,json=diagnosticsMessage" json:"diagnostics_message,omitempty"`
+	RmVersion                 *string                    `protobuf:"bytes,6,opt,name=rm_version,json=rmVersion" json:"rm_version,omitempty"`
+	AreNodeLabelsAcceptedByRM *bool                      `protobuf:"varint,7,opt,name=areNodeLabelsAcceptedByRM,def=0" json:"areNodeLabelsAcceptedByRM,omitempty"`
+	Resource                  *hadoop_yarn.ResourceProto `protobuf:"bytes,8,opt,name=resource" json:"resource,omitempty"`
+	XXX_unrecognized          []byte                     `json:"-"`
 }
 
 func (m *RegisterNodeManagerResponseProto) Reset()         { *m = RegisterNodeManagerResponseProto{} }
 func (m *RegisterNodeManagerResponseProto) String() string { return proto.CompactTextString(m) }
 func (*RegisterNodeManagerResponseProto) ProtoMessage()    {}
 func (*RegisterNodeManagerResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{5}
+	return fileDescriptor1, []int{5}
 }
 
 const Default_RegisterNodeManagerResponseProto_AreNodeLabelsAcceptedByRM bool = false
 
-func (m *RegisterNodeManagerResponseProto) GetContainerTokenMasterKey() *hadoop_yarn1.MasterKeyProto {
+func (m *RegisterNodeManagerResponseProto) GetContainerTokenMasterKey() *MasterKeyProto {
 	if m != nil {
 		return m.ContainerTokenMasterKey
 	}
 	return nil
 }
 
-func (m *RegisterNodeManagerResponseProto) GetNmTokenMasterKey() *hadoop_yarn1.MasterKeyProto {
+func (m *RegisterNodeManagerResponseProto) GetNmTokenMasterKey() *MasterKeyProto {
 	if m != nil {
 		return m.NmTokenMasterKey
 	}
 	return nil
 }
 
-func (m *RegisterNodeManagerResponseProto) GetNodeAction() hadoop_yarn1.NodeActionProto {
+func (m *RegisterNodeManagerResponseProto) GetNodeAction() NodeActionProto {
 	if m != nil && m.NodeAction != nil {
 		return *m.NodeAction
 	}
-	return hadoop_yarn1.NodeActionProto_NORMAL
+	return NodeActionProto_NORMAL
 }
 
 func (m *RegisterNodeManagerResponseProto) GetRmIdentifier() int64 {
@@ -336,7 +298,7 @@ func (m *UnRegisterNodeManagerRequestProto) Reset()         { *m = UnRegisterNod
 func (m *UnRegisterNodeManagerRequestProto) String() string { return proto.CompactTextString(m) }
 func (*UnRegisterNodeManagerRequestProto) ProtoMessage()    {}
 func (*UnRegisterNodeManagerRequestProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{6}
+	return fileDescriptor1, []int{6}
 }
 
 func (m *UnRegisterNodeManagerRequestProto) GetNodeId() *hadoop_yarn.NodeIdProto {
@@ -354,39 +316,39 @@ func (m *UnRegisterNodeManagerResponseProto) Reset()         { *m = UnRegisterNo
 func (m *UnRegisterNodeManagerResponseProto) String() string { return proto.CompactTextString(m) }
 func (*UnRegisterNodeManagerResponseProto) ProtoMessage()    {}
 func (*UnRegisterNodeManagerResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{7}
+	return fileDescriptor1, []int{7}
 }
 
 type NodeHeartbeatRequestProto struct {
-	NodeStatus                       *hadoop_yarn1.NodeStatusProto `protobuf:"bytes,1,opt,name=node_status,json=nodeStatus" json:"node_status,omitempty"`
-	LastKnownContainerTokenMasterKey *hadoop_yarn1.MasterKeyProto  `protobuf:"bytes,2,opt,name=last_known_container_token_master_key,json=lastKnownContainerTokenMasterKey" json:"last_known_container_token_master_key,omitempty"`
-	LastKnownNmTokenMasterKey        *hadoop_yarn1.MasterKeyProto  `protobuf:"bytes,3,opt,name=last_known_nm_token_master_key,json=lastKnownNmTokenMasterKey" json:"last_known_nm_token_master_key,omitempty"`
-	NodeLabels                       *NodeLabelsProto              `protobuf:"bytes,4,opt,name=nodeLabels" json:"nodeLabels,omitempty"`
-	LogAggregationReportsForApps     []*LogAggregationReportProto  `protobuf:"bytes,5,rep,name=log_aggregation_reports_for_apps,json=logAggregationReportsForApps" json:"log_aggregation_reports_for_apps,omitempty"`
-	RegisteredCollectors             []*AppCollectorsMapProto      `protobuf:"bytes,6,rep,name=registered_collectors,json=registeredCollectors" json:"registered_collectors,omitempty"`
-	XXX_unrecognized                 []byte                        `json:"-"`
+	NodeStatus                       *NodeStatusProto             `protobuf:"bytes,1,opt,name=node_status,json=nodeStatus" json:"node_status,omitempty"`
+	LastKnownContainerTokenMasterKey *MasterKeyProto              `protobuf:"bytes,2,opt,name=last_known_container_token_master_key,json=lastKnownContainerTokenMasterKey" json:"last_known_container_token_master_key,omitempty"`
+	LastKnownNmTokenMasterKey        *MasterKeyProto              `protobuf:"bytes,3,opt,name=last_known_nm_token_master_key,json=lastKnownNmTokenMasterKey" json:"last_known_nm_token_master_key,omitempty"`
+	NodeLabels                       *NodeLabelsProto             `protobuf:"bytes,4,opt,name=nodeLabels" json:"nodeLabels,omitempty"`
+	LogAggregationReportsForApps     []*LogAggregationReportProto `protobuf:"bytes,5,rep,name=log_aggregation_reports_for_apps,json=logAggregationReportsForApps" json:"log_aggregation_reports_for_apps,omitempty"`
+	RegisteredCollectors             []*AppCollectorsMapProto     `protobuf:"bytes,6,rep,name=registered_collectors,json=registeredCollectors" json:"registered_collectors,omitempty"`
+	XXX_unrecognized                 []byte                       `json:"-"`
 }
 
 func (m *NodeHeartbeatRequestProto) Reset()                    { *m = NodeHeartbeatRequestProto{} }
 func (m *NodeHeartbeatRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*NodeHeartbeatRequestProto) ProtoMessage()               {}
-func (*NodeHeartbeatRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{8} }
+func (*NodeHeartbeatRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{8} }
 
-func (m *NodeHeartbeatRequestProto) GetNodeStatus() *hadoop_yarn1.NodeStatusProto {
+func (m *NodeHeartbeatRequestProto) GetNodeStatus() *NodeStatusProto {
 	if m != nil {
 		return m.NodeStatus
 	}
 	return nil
 }
 
-func (m *NodeHeartbeatRequestProto) GetLastKnownContainerTokenMasterKey() *hadoop_yarn1.MasterKeyProto {
+func (m *NodeHeartbeatRequestProto) GetLastKnownContainerTokenMasterKey() *MasterKeyProto {
 	if m != nil {
 		return m.LastKnownContainerTokenMasterKey
 	}
 	return nil
 }
 
-func (m *NodeHeartbeatRequestProto) GetLastKnownNmTokenMasterKey() *hadoop_yarn1.MasterKeyProto {
+func (m *NodeHeartbeatRequestProto) GetLastKnownNmTokenMasterKey() *MasterKeyProto {
 	if m != nil {
 		return m.LastKnownNmTokenMasterKey
 	}
@@ -424,7 +386,7 @@ type LogAggregationReportProto struct {
 func (m *LogAggregationReportProto) Reset()                    { *m = LogAggregationReportProto{} }
 func (m *LogAggregationReportProto) String() string            { return proto.CompactTextString(m) }
 func (*LogAggregationReportProto) ProtoMessage()               {}
-func (*LogAggregationReportProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{9} }
+func (*LogAggregationReportProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{9} }
 
 const Default_LogAggregationReportProto_Diagnostics string = "N/A"
 
@@ -451,9 +413,9 @@ func (m *LogAggregationReportProto) GetDiagnostics() string {
 
 type NodeHeartbeatResponseProto struct {
 	ResponseId                  *int32                                      `protobuf:"varint,1,opt,name=response_id,json=responseId" json:"response_id,omitempty"`
-	ContainerTokenMasterKey     *hadoop_yarn1.MasterKeyProto                `protobuf:"bytes,2,opt,name=container_token_master_key,json=containerTokenMasterKey" json:"container_token_master_key,omitempty"`
-	NmTokenMasterKey            *hadoop_yarn1.MasterKeyProto                `protobuf:"bytes,3,opt,name=nm_token_master_key,json=nmTokenMasterKey" json:"nm_token_master_key,omitempty"`
-	NodeAction                  *hadoop_yarn1.NodeActionProto               `protobuf:"varint,4,opt,name=nodeAction,enum=hadoop.yarn.NodeActionProto" json:"nodeAction,omitempty"`
+	ContainerTokenMasterKey     *MasterKeyProto                             `protobuf:"bytes,2,opt,name=container_token_master_key,json=containerTokenMasterKey" json:"container_token_master_key,omitempty"`
+	NmTokenMasterKey            *MasterKeyProto                             `protobuf:"bytes,3,opt,name=nm_token_master_key,json=nmTokenMasterKey" json:"nm_token_master_key,omitempty"`
+	NodeAction                  *NodeActionProto                            `protobuf:"varint,4,opt,name=nodeAction,enum=hadoop.yarn.NodeActionProto" json:"nodeAction,omitempty"`
 	ContainersToCleanup         []*hadoop_yarn.ContainerIdProto             `protobuf:"bytes,5,rep,name=containers_to_cleanup,json=containersToCleanup" json:"containers_to_cleanup,omitempty"`
 	ApplicationsToCleanup       []*hadoop_yarn.ApplicationIdProto           `protobuf:"bytes,6,rep,name=applications_to_cleanup,json=applicationsToCleanup" json:"applications_to_cleanup,omitempty"`
 	NextHeartBeatInterval       *int64                                      `protobuf:"varint,7,opt,name=nextHeartBeatInterval" json:"nextHeartBeatInterval,omitempty"`
@@ -462,7 +424,7 @@ type NodeHeartbeatResponseProto struct {
 	SystemCredentialsForApps    []*SystemCredentialsForAppsProto            `protobuf:"bytes,10,rep,name=system_credentials_for_apps,json=systemCredentialsForApps" json:"system_credentials_for_apps,omitempty"`
 	AreNodeLabelsAcceptedByRM   *bool                                       `protobuf:"varint,11,opt,name=areNodeLabelsAcceptedByRM,def=0" json:"areNodeLabelsAcceptedByRM,omitempty"`
 	ContainersToDecrease        []*hadoop_yarn.ContainerProto               `protobuf:"bytes,12,rep,name=containers_to_decrease,json=containersToDecrease" json:"containers_to_decrease,omitempty"`
-	ContainersToSignal          []*hadoop_yarn2.SignalContainerRequestProto `protobuf:"bytes,13,rep,name=containers_to_signal,json=containersToSignal" json:"containers_to_signal,omitempty"`
+	ContainersToSignal          []*hadoop_yarn1.SignalContainerRequestProto `protobuf:"bytes,13,rep,name=containers_to_signal,json=containersToSignal" json:"containers_to_signal,omitempty"`
 	Resource                    *hadoop_yarn.ResourceProto                  `protobuf:"bytes,14,opt,name=resource" json:"resource,omitempty"`
 	ContainerQueuingLimit       *ContainerQueuingLimitProto                 `protobuf:"bytes,15,opt,name=container_queuing_limit,json=containerQueuingLimit" json:"container_queuing_limit,omitempty"`
 	AppCollectorsMap            []*AppCollectorsMapProto                    `protobuf:"bytes,16,rep,name=app_collectors_map,json=appCollectorsMap" json:"app_collectors_map,omitempty"`
@@ -472,7 +434,7 @@ type NodeHeartbeatResponseProto struct {
 func (m *NodeHeartbeatResponseProto) Reset()                    { *m = NodeHeartbeatResponseProto{} }
 func (m *NodeHeartbeatResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*NodeHeartbeatResponseProto) ProtoMessage()               {}
-func (*NodeHeartbeatResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{10} }
+func (*NodeHeartbeatResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{10} }
 
 const Default_NodeHeartbeatResponseProto_AreNodeLabelsAcceptedByRM bool = false
 
@@ -483,25 +445,25 @@ func (m *NodeHeartbeatResponseProto) GetResponseId() int32 {
 	return 0
 }
 
-func (m *NodeHeartbeatResponseProto) GetContainerTokenMasterKey() *hadoop_yarn1.MasterKeyProto {
+func (m *NodeHeartbeatResponseProto) GetContainerTokenMasterKey() *MasterKeyProto {
 	if m != nil {
 		return m.ContainerTokenMasterKey
 	}
 	return nil
 }
 
-func (m *NodeHeartbeatResponseProto) GetNmTokenMasterKey() *hadoop_yarn1.MasterKeyProto {
+func (m *NodeHeartbeatResponseProto) GetNmTokenMasterKey() *MasterKeyProto {
 	if m != nil {
 		return m.NmTokenMasterKey
 	}
 	return nil
 }
 
-func (m *NodeHeartbeatResponseProto) GetNodeAction() hadoop_yarn1.NodeActionProto {
+func (m *NodeHeartbeatResponseProto) GetNodeAction() NodeActionProto {
 	if m != nil && m.NodeAction != nil {
 		return *m.NodeAction
 	}
-	return hadoop_yarn1.NodeActionProto_NORMAL
+	return NodeActionProto_NORMAL
 }
 
 func (m *NodeHeartbeatResponseProto) GetContainersToCleanup() []*hadoop_yarn.ContainerIdProto {
@@ -560,7 +522,7 @@ func (m *NodeHeartbeatResponseProto) GetContainersToDecrease() []*hadoop_yarn.Co
 	return nil
 }
 
-func (m *NodeHeartbeatResponseProto) GetContainersToSignal() []*hadoop_yarn2.SignalContainerRequestProto {
+func (m *NodeHeartbeatResponseProto) GetContainersToSignal() []*hadoop_yarn1.SignalContainerRequestProto {
 	if m != nil {
 		return m.ContainersToSignal
 	}
@@ -597,7 +559,7 @@ type ContainerQueuingLimitProto struct {
 func (m *ContainerQueuingLimitProto) Reset()                    { *m = ContainerQueuingLimitProto{} }
 func (m *ContainerQueuingLimitProto) String() string            { return proto.CompactTextString(m) }
 func (*ContainerQueuingLimitProto) ProtoMessage()               {}
-func (*ContainerQueuingLimitProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{11} }
+func (*ContainerQueuingLimitProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{11} }
 
 func (m *ContainerQueuingLimitProto) GetMaxQueueLength() int32 {
 	if m != nil && m.MaxQueueLength != nil {
@@ -622,7 +584,7 @@ type SystemCredentialsForAppsProto struct {
 func (m *SystemCredentialsForAppsProto) Reset()                    { *m = SystemCredentialsForAppsProto{} }
 func (m *SystemCredentialsForAppsProto) String() string            { return proto.CompactTextString(m) }
 func (*SystemCredentialsForAppsProto) ProtoMessage()               {}
-func (*SystemCredentialsForAppsProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{12} }
+func (*SystemCredentialsForAppsProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{12} }
 
 func (m *SystemCredentialsForAppsProto) GetAppId() *hadoop_yarn.ApplicationIdProto {
 	if m != nil {
@@ -650,7 +612,7 @@ type AppCollectorsMapProto struct {
 func (m *AppCollectorsMapProto) Reset()                    { *m = AppCollectorsMapProto{} }
 func (m *AppCollectorsMapProto) String() string            { return proto.CompactTextString(m) }
 func (*AppCollectorsMapProto) ProtoMessage()               {}
-func (*AppCollectorsMapProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{13} }
+func (*AppCollectorsMapProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{13} }
 
 func (m *AppCollectorsMapProto) GetAppId() *hadoop_yarn.ApplicationIdProto {
 	if m != nil {
@@ -678,7 +640,7 @@ func (m *ReportNewCollectorInfoRequestProto) Reset()         { *m = ReportNewCol
 func (m *ReportNewCollectorInfoRequestProto) String() string { return proto.CompactTextString(m) }
 func (*ReportNewCollectorInfoRequestProto) ProtoMessage()    {}
 func (*ReportNewCollectorInfoRequestProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{14}
+	return fileDescriptor1, []int{14}
 }
 
 func (m *ReportNewCollectorInfoRequestProto) GetAppCollectors() []*AppCollectorsMapProto {
@@ -696,7 +658,7 @@ func (m *ReportNewCollectorInfoResponseProto) Reset()         { *m = ReportNewCo
 func (m *ReportNewCollectorInfoResponseProto) String() string { return proto.CompactTextString(m) }
 func (*ReportNewCollectorInfoResponseProto) ProtoMessage()    {}
 func (*ReportNewCollectorInfoResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{15}
+	return fileDescriptor1, []int{15}
 }
 
 type GetTimelineCollectorContextRequestProto struct {
@@ -710,7 +672,7 @@ func (m *GetTimelineCollectorContextRequestProto) Reset() {
 func (m *GetTimelineCollectorContextRequestProto) String() string { return proto.CompactTextString(m) }
 func (*GetTimelineCollectorContextRequestProto) ProtoMessage()    {}
 func (*GetTimelineCollectorContextRequestProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{16}
+	return fileDescriptor1, []int{16}
 }
 
 func (m *GetTimelineCollectorContextRequestProto) GetAppId() *hadoop_yarn.ApplicationIdProto {
@@ -734,7 +696,7 @@ func (m *GetTimelineCollectorContextResponseProto) Reset() {
 func (m *GetTimelineCollectorContextResponseProto) String() string { return proto.CompactTextString(m) }
 func (*GetTimelineCollectorContextResponseProto) ProtoMessage()    {}
 func (*GetTimelineCollectorContextResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{17}
+	return fileDescriptor1, []int{17}
 }
 
 func (m *GetTimelineCollectorContextResponseProto) GetUserId() string {
@@ -780,7 +742,7 @@ type NMContainerStatusProto struct {
 func (m *NMContainerStatusProto) Reset()                    { *m = NMContainerStatusProto{} }
 func (m *NMContainerStatusProto) String() string            { return proto.CompactTextString(m) }
 func (*NMContainerStatusProto) ProtoMessage()               {}
-func (*NMContainerStatusProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{18} }
+func (*NMContainerStatusProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{18} }
 
 const Default_NMContainerStatusProto_Diagnostics string = "N/A"
 
@@ -849,7 +811,7 @@ type SCMUploaderNotifyRequestProto struct {
 func (m *SCMUploaderNotifyRequestProto) Reset()                    { *m = SCMUploaderNotifyRequestProto{} }
 func (m *SCMUploaderNotifyRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*SCMUploaderNotifyRequestProto) ProtoMessage()               {}
-func (*SCMUploaderNotifyRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{19} }
+func (*SCMUploaderNotifyRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{19} }
 
 func (m *SCMUploaderNotifyRequestProto) GetResourceKey() string {
 	if m != nil && m.ResourceKey != nil {
@@ -873,7 +835,7 @@ type SCMUploaderNotifyResponseProto struct {
 func (m *SCMUploaderNotifyResponseProto) Reset()                    { *m = SCMUploaderNotifyResponseProto{} }
 func (m *SCMUploaderNotifyResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*SCMUploaderNotifyResponseProto) ProtoMessage()               {}
-func (*SCMUploaderNotifyResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{20} }
+func (*SCMUploaderNotifyResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{20} }
 
 func (m *SCMUploaderNotifyResponseProto) GetAccepted() bool {
 	if m != nil && m.Accepted != nil {
@@ -891,7 +853,7 @@ func (m *SCMUploaderCanUploadRequestProto) Reset()         { *m = SCMUploaderCan
 func (m *SCMUploaderCanUploadRequestProto) String() string { return proto.CompactTextString(m) }
 func (*SCMUploaderCanUploadRequestProto) ProtoMessage()    {}
 func (*SCMUploaderCanUploadRequestProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{21}
+	return fileDescriptor1, []int{21}
 }
 
 func (m *SCMUploaderCanUploadRequestProto) GetResourceKey() string {
@@ -910,7 +872,7 @@ func (m *SCMUploaderCanUploadResponseProto) Reset()         { *m = SCMUploaderCa
 func (m *SCMUploaderCanUploadResponseProto) String() string { return proto.CompactTextString(m) }
 func (*SCMUploaderCanUploadResponseProto) ProtoMessage()    {}
 func (*SCMUploaderCanUploadResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{22}
+	return fileDescriptor1, []int{22}
 }
 
 func (m *SCMUploaderCanUploadResponseProto) GetUploadable() bool {
@@ -946,9 +908,9 @@ func init() {
 	proto.RegisterType((*SCMUploaderCanUploadResponseProto)(nil), "hadoop.yarn.SCMUploaderCanUploadResponseProto")
 }
 
-func init() { proto.RegisterFile("yarn_server_common_service_protos.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("yarn_server_common_service_protos.proto", fileDescriptor1) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor1 = []byte{
 	// 1826 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xac, 0x58, 0xcd, 0x72, 0xdb, 0xc8,
 	0x11, 0x2e, 0x8a, 0x96, 0x4c, 0xb5, 0x64, 0x99, 0x1a, 0x53, 0x36, 0x25, 0xdb, 0x12, 0x0d, 0xc7,

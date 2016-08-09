@@ -2,63 +2,6 @@
 // source: yarn_protos.proto
 // DO NOT EDIT!
 
-/*
-Package api is a generated protocol buffer package.
-
-It is generated from these files:
-	yarn_protos.proto
-
-It has these top-level messages:
-	SerializedExceptionProto
-	ApplicationIdProto
-	ApplicationAttemptIdProto
-	ContainerIdProto
-	ResourceProto
-	ResourceUtilizationProto
-	ResourceOptionProto
-	NodeResourceMapProto
-	PriorityProto
-	ContainerProto
-	ContainerReportProto
-	URLProto
-	LocalResourceProto
-	ApplicationResourceUsageReportProto
-	ApplicationReportProto
-	ApplicationAttemptReportProto
-	NodeIdProto
-	NodeReportProto
-	NodeIdToLabelsInfoProto
-	LabelsToNodeIdsProto
-	NodeLabelProto
-	ResourceRequestProto
-	ExecutionTypeRequestProto
-	PreemptionMessageProto
-	StrictPreemptionContractProto
-	PreemptionContractProto
-	PreemptionContainerProto
-	PreemptionResourceRequestProto
-	ResourceBlacklistRequestProto
-	ApplicationSubmissionContextProto
-	LogAggregationContextProto
-	ApplicationACLMapProto
-	YarnClusterMetricsProto
-	QueueStatisticsProto
-	QueueInfoProto
-	QueueUserACLInfoProto
-	ReservationIdProto
-	ReservationRequestProto
-	ReservationRequestsProto
-	ReservationDefinitionProto
-	ResourceAllocationRequestProto
-	ReservationAllocationStateProto
-	ContainerLaunchContextProto
-	ContainerStatusProto
-	ContainerResourceChangeRequestProto
-	ContainerRetryContextProto
-	StringLocalResourceMapProto
-	StringStringMapProto
-	StringBytesMapProto
-*/
 package api
 
 import proto "github.com/golang/protobuf/proto"
@@ -70,12 +13,6 @@ import hadoop_common "."
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
-
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 type ContainerStateProto int32
 
@@ -115,7 +52,7 @@ func (x *ContainerStateProto) UnmarshalJSON(data []byte) error {
 	*x = ContainerStateProto(value)
 	return nil
 }
-func (ContainerStateProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (ContainerStateProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor2, []int{0} }
 
 type YarnApplicationStateProto int32
 
@@ -167,7 +104,7 @@ func (x *YarnApplicationStateProto) UnmarshalJSON(data []byte) error {
 	*x = YarnApplicationStateProto(value)
 	return nil
 }
-func (YarnApplicationStateProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
+func (YarnApplicationStateProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor2, []int{1} }
 
 type YarnApplicationAttemptStateProto int32
 
@@ -229,7 +166,7 @@ func (x *YarnApplicationAttemptStateProto) UnmarshalJSON(data []byte) error {
 	return nil
 }
 func (YarnApplicationAttemptStateProto) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{2}
+	return fileDescriptor2, []int{2}
 }
 
 type FinalApplicationStatusProto int32
@@ -273,7 +210,7 @@ func (x *FinalApplicationStatusProto) UnmarshalJSON(data []byte) error {
 	*x = FinalApplicationStatusProto(value)
 	return nil
 }
-func (FinalApplicationStatusProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{3} }
+func (FinalApplicationStatusProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor2, []int{3} }
 
 type LocalResourceVisibilityProto int32
 
@@ -310,7 +247,7 @@ func (x *LocalResourceVisibilityProto) UnmarshalJSON(data []byte) error {
 	*x = LocalResourceVisibilityProto(value)
 	return nil
 }
-func (LocalResourceVisibilityProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{4} }
+func (LocalResourceVisibilityProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor2, []int{4} }
 
 type LocalResourceTypeProto int32
 
@@ -347,7 +284,7 @@ func (x *LocalResourceTypeProto) UnmarshalJSON(data []byte) error {
 	*x = LocalResourceTypeProto(value)
 	return nil
 }
-func (LocalResourceTypeProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{5} }
+func (LocalResourceTypeProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor2, []int{5} }
 
 type LogAggregationStatusProto int32
 
@@ -396,7 +333,7 @@ func (x *LogAggregationStatusProto) UnmarshalJSON(data []byte) error {
 	*x = LogAggregationStatusProto(value)
 	return nil
 }
-func (LogAggregationStatusProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{6} }
+func (LogAggregationStatusProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor2, []int{6} }
 
 type NodeStateProto int32
 
@@ -448,7 +385,7 @@ func (x *NodeStateProto) UnmarshalJSON(data []byte) error {
 	*x = NodeStateProto(value)
 	return nil
 }
-func (NodeStateProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{7} }
+func (NodeStateProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor2, []int{7} }
 
 type ContainerTypeProto int32
 
@@ -482,7 +419,7 @@ func (x *ContainerTypeProto) UnmarshalJSON(data []byte) error {
 	*x = ContainerTypeProto(value)
 	return nil
 }
-func (ContainerTypeProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{8} }
+func (ContainerTypeProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor2, []int{8} }
 
 type ExecutionTypeProto int32
 
@@ -516,7 +453,7 @@ func (x *ExecutionTypeProto) UnmarshalJSON(data []byte) error {
 	*x = ExecutionTypeProto(value)
 	return nil
 }
-func (ExecutionTypeProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{9} }
+func (ExecutionTypeProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor2, []int{9} }
 
 type AMCommandProto int32
 
@@ -550,7 +487,7 @@ func (x *AMCommandProto) UnmarshalJSON(data []byte) error {
 	*x = AMCommandProto(value)
 	return nil
 }
-func (AMCommandProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{10} }
+func (AMCommandProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor2, []int{10} }
 
 type ApplicationAccessTypeProto int32
 
@@ -584,7 +521,7 @@ func (x *ApplicationAccessTypeProto) UnmarshalJSON(data []byte) error {
 	*x = ApplicationAccessTypeProto(value)
 	return nil
 }
-func (ApplicationAccessTypeProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{11} }
+func (ApplicationAccessTypeProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor2, []int{11} }
 
 type QueueStateProto int32
 
@@ -618,7 +555,7 @@ func (x *QueueStateProto) UnmarshalJSON(data []byte) error {
 	*x = QueueStateProto(value)
 	return nil
 }
-func (QueueStateProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{12} }
+func (QueueStateProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor2, []int{12} }
 
 type QueueACLProto int32
 
@@ -652,7 +589,7 @@ func (x *QueueACLProto) UnmarshalJSON(data []byte) error {
 	*x = QueueACLProto(value)
 	return nil
 }
-func (QueueACLProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{13} }
+func (QueueACLProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor2, []int{13} }
 
 type SignalContainerCommandProto int32
 
@@ -689,7 +626,7 @@ func (x *SignalContainerCommandProto) UnmarshalJSON(data []byte) error {
 	*x = SignalContainerCommandProto(value)
 	return nil
 }
-func (SignalContainerCommandProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{14} }
+func (SignalContainerCommandProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor2, []int{14} }
 
 type ReservationRequestInterpreterProto int32
 
@@ -730,7 +667,7 @@ func (x *ReservationRequestInterpreterProto) UnmarshalJSON(data []byte) error {
 	return nil
 }
 func (ReservationRequestInterpreterProto) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{15}
+	return fileDescriptor2, []int{15}
 }
 
 type ContainerExitStatusProto int32
@@ -771,7 +708,7 @@ func (x *ContainerExitStatusProto) UnmarshalJSON(data []byte) error {
 	*x = ContainerExitStatusProto(value)
 	return nil
 }
-func (ContainerExitStatusProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{16} }
+func (ContainerExitStatusProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor2, []int{16} }
 
 type ContainerRetryPolicyProto int32
 
@@ -808,7 +745,7 @@ func (x *ContainerRetryPolicyProto) UnmarshalJSON(data []byte) error {
 	*x = ContainerRetryPolicyProto(value)
 	return nil
 }
-func (ContainerRetryPolicyProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{17} }
+func (ContainerRetryPolicyProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor2, []int{17} }
 
 type SerializedExceptionProto struct {
 	Message          *string                   `protobuf:"bytes,1,opt,name=message" json:"message,omitempty"`
@@ -821,7 +758,7 @@ type SerializedExceptionProto struct {
 func (m *SerializedExceptionProto) Reset()                    { *m = SerializedExceptionProto{} }
 func (m *SerializedExceptionProto) String() string            { return proto.CompactTextString(m) }
 func (*SerializedExceptionProto) ProtoMessage()               {}
-func (*SerializedExceptionProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (*SerializedExceptionProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{0} }
 
 func (m *SerializedExceptionProto) GetMessage() string {
 	if m != nil && m.Message != nil {
@@ -860,7 +797,7 @@ type ApplicationIdProto struct {
 func (m *ApplicationIdProto) Reset()                    { *m = ApplicationIdProto{} }
 func (m *ApplicationIdProto) String() string            { return proto.CompactTextString(m) }
 func (*ApplicationIdProto) ProtoMessage()               {}
-func (*ApplicationIdProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
+func (*ApplicationIdProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{1} }
 
 func (m *ApplicationIdProto) GetId() int32 {
 	if m != nil && m.Id != nil {
@@ -885,7 +822,7 @@ type ApplicationAttemptIdProto struct {
 func (m *ApplicationAttemptIdProto) Reset()                    { *m = ApplicationAttemptIdProto{} }
 func (m *ApplicationAttemptIdProto) String() string            { return proto.CompactTextString(m) }
 func (*ApplicationAttemptIdProto) ProtoMessage()               {}
-func (*ApplicationAttemptIdProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{2} }
+func (*ApplicationAttemptIdProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{2} }
 
 func (m *ApplicationAttemptIdProto) GetApplicationId() *ApplicationIdProto {
 	if m != nil {
@@ -911,7 +848,7 @@ type ContainerIdProto struct {
 func (m *ContainerIdProto) Reset()                    { *m = ContainerIdProto{} }
 func (m *ContainerIdProto) String() string            { return proto.CompactTextString(m) }
 func (*ContainerIdProto) ProtoMessage()               {}
-func (*ContainerIdProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{3} }
+func (*ContainerIdProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{3} }
 
 func (m *ContainerIdProto) GetAppId() *ApplicationIdProto {
 	if m != nil {
@@ -943,7 +880,7 @@ type ResourceProto struct {
 func (m *ResourceProto) Reset()                    { *m = ResourceProto{} }
 func (m *ResourceProto) String() string            { return proto.CompactTextString(m) }
 func (*ResourceProto) ProtoMessage()               {}
-func (*ResourceProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{4} }
+func (*ResourceProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{4} }
 
 func (m *ResourceProto) GetMemory() int64 {
 	if m != nil && m.Memory != nil {
@@ -969,7 +906,7 @@ type ResourceUtilizationProto struct {
 func (m *ResourceUtilizationProto) Reset()                    { *m = ResourceUtilizationProto{} }
 func (m *ResourceUtilizationProto) String() string            { return proto.CompactTextString(m) }
 func (*ResourceUtilizationProto) ProtoMessage()               {}
-func (*ResourceUtilizationProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{5} }
+func (*ResourceUtilizationProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{5} }
 
 func (m *ResourceUtilizationProto) GetPmem() int32 {
 	if m != nil && m.Pmem != nil {
@@ -1001,7 +938,7 @@ type ResourceOptionProto struct {
 func (m *ResourceOptionProto) Reset()                    { *m = ResourceOptionProto{} }
 func (m *ResourceOptionProto) String() string            { return proto.CompactTextString(m) }
 func (*ResourceOptionProto) ProtoMessage()               {}
-func (*ResourceOptionProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{6} }
+func (*ResourceOptionProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{6} }
 
 func (m *ResourceOptionProto) GetResource() *ResourceProto {
 	if m != nil {
@@ -1026,7 +963,7 @@ type NodeResourceMapProto struct {
 func (m *NodeResourceMapProto) Reset()                    { *m = NodeResourceMapProto{} }
 func (m *NodeResourceMapProto) String() string            { return proto.CompactTextString(m) }
 func (*NodeResourceMapProto) ProtoMessage()               {}
-func (*NodeResourceMapProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{7} }
+func (*NodeResourceMapProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{7} }
 
 func (m *NodeResourceMapProto) GetNodeId() *NodeIdProto {
 	if m != nil {
@@ -1050,7 +987,7 @@ type PriorityProto struct {
 func (m *PriorityProto) Reset()                    { *m = PriorityProto{} }
 func (m *PriorityProto) String() string            { return proto.CompactTextString(m) }
 func (*PriorityProto) ProtoMessage()               {}
-func (*PriorityProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{8} }
+func (*PriorityProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{8} }
 
 func (m *PriorityProto) GetPriority() int32 {
 	if m != nil && m.Priority != nil {
@@ -1074,7 +1011,7 @@ type ContainerProto struct {
 func (m *ContainerProto) Reset()                    { *m = ContainerProto{} }
 func (m *ContainerProto) String() string            { return proto.CompactTextString(m) }
 func (*ContainerProto) ProtoMessage()               {}
-func (*ContainerProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{9} }
+func (*ContainerProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{9} }
 
 const Default_ContainerProto_ExecutionType ExecutionTypeProto = ExecutionTypeProto_GUARANTEED
 const Default_ContainerProto_AllocationRequestId int64 = -1
@@ -1153,7 +1090,7 @@ type ContainerReportProto struct {
 func (m *ContainerReportProto) Reset()                    { *m = ContainerReportProto{} }
 func (m *ContainerReportProto) String() string            { return proto.CompactTextString(m) }
 func (*ContainerReportProto) ProtoMessage()               {}
-func (*ContainerReportProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{10} }
+func (*ContainerReportProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{10} }
 
 const Default_ContainerReportProto_DiagnosticsInfo string = "N/A"
 
@@ -1246,7 +1183,7 @@ type URLProto struct {
 func (m *URLProto) Reset()                    { *m = URLProto{} }
 func (m *URLProto) String() string            { return proto.CompactTextString(m) }
 func (*URLProto) ProtoMessage()               {}
-func (*URLProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{11} }
+func (*URLProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{11} }
 
 func (m *URLProto) GetScheme() string {
 	if m != nil && m.Scheme != nil {
@@ -1297,7 +1234,7 @@ type LocalResourceProto struct {
 func (m *LocalResourceProto) Reset()                    { *m = LocalResourceProto{} }
 func (m *LocalResourceProto) String() string            { return proto.CompactTextString(m) }
 func (*LocalResourceProto) ProtoMessage()               {}
-func (*LocalResourceProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{12} }
+func (*LocalResourceProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{12} }
 
 func (m *LocalResourceProto) GetResource() *URLProto {
 	if m != nil {
@@ -1365,7 +1302,7 @@ func (m *ApplicationResourceUsageReportProto) Reset()         { *m = Application
 func (m *ApplicationResourceUsageReportProto) String() string { return proto.CompactTextString(m) }
 func (*ApplicationResourceUsageReportProto) ProtoMessage()    {}
 func (*ApplicationResourceUsageReportProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{13}
+	return fileDescriptor2, []int{13}
 }
 
 func (m *ApplicationResourceUsageReportProto) GetNumUsedContainers() int32 {
@@ -1463,7 +1400,7 @@ type ApplicationReportProto struct {
 func (m *ApplicationReportProto) Reset()                    { *m = ApplicationReportProto{} }
 func (m *ApplicationReportProto) String() string            { return proto.CompactTextString(m) }
 func (*ApplicationReportProto) ProtoMessage()               {}
-func (*ApplicationReportProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{14} }
+func (*ApplicationReportProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{14} }
 
 const Default_ApplicationReportProto_Diagnostics string = "N/A"
 const Default_ApplicationReportProto_UnmanagedApplication bool = false
@@ -1660,7 +1597,7 @@ type ApplicationAttemptReportProto struct {
 func (m *ApplicationAttemptReportProto) Reset()                    { *m = ApplicationAttemptReportProto{} }
 func (m *ApplicationAttemptReportProto) String() string            { return proto.CompactTextString(m) }
 func (*ApplicationAttemptReportProto) ProtoMessage()               {}
-func (*ApplicationAttemptReportProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{15} }
+func (*ApplicationAttemptReportProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{15} }
 
 const Default_ApplicationAttemptReportProto_Diagnostics string = "N/A"
 
@@ -1743,7 +1680,7 @@ type NodeIdProto struct {
 func (m *NodeIdProto) Reset()                    { *m = NodeIdProto{} }
 func (m *NodeIdProto) String() string            { return proto.CompactTextString(m) }
 func (*NodeIdProto) ProtoMessage()               {}
-func (*NodeIdProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{16} }
+func (*NodeIdProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{16} }
 
 func (m *NodeIdProto) GetHost() string {
 	if m != nil && m.Host != nil {
@@ -1778,7 +1715,7 @@ type NodeReportProto struct {
 func (m *NodeReportProto) Reset()                    { *m = NodeReportProto{} }
 func (m *NodeReportProto) String() string            { return proto.CompactTextString(m) }
 func (*NodeReportProto) ProtoMessage()               {}
-func (*NodeReportProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{17} }
+func (*NodeReportProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{17} }
 
 func (m *NodeReportProto) GetNodeId() *NodeIdProto {
 	if m != nil {
@@ -1873,7 +1810,7 @@ type NodeIdToLabelsInfoProto struct {
 func (m *NodeIdToLabelsInfoProto) Reset()                    { *m = NodeIdToLabelsInfoProto{} }
 func (m *NodeIdToLabelsInfoProto) String() string            { return proto.CompactTextString(m) }
 func (*NodeIdToLabelsInfoProto) ProtoMessage()               {}
-func (*NodeIdToLabelsInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{18} }
+func (*NodeIdToLabelsInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{18} }
 
 func (m *NodeIdToLabelsInfoProto) GetNodeId() *NodeIdProto {
 	if m != nil {
@@ -1898,7 +1835,7 @@ type LabelsToNodeIdsProto struct {
 func (m *LabelsToNodeIdsProto) Reset()                    { *m = LabelsToNodeIdsProto{} }
 func (m *LabelsToNodeIdsProto) String() string            { return proto.CompactTextString(m) }
 func (*LabelsToNodeIdsProto) ProtoMessage()               {}
-func (*LabelsToNodeIdsProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{19} }
+func (*LabelsToNodeIdsProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{19} }
 
 func (m *LabelsToNodeIdsProto) GetNodeLabels() *NodeLabelProto {
 	if m != nil {
@@ -1923,7 +1860,7 @@ type NodeLabelProto struct {
 func (m *NodeLabelProto) Reset()                    { *m = NodeLabelProto{} }
 func (m *NodeLabelProto) String() string            { return proto.CompactTextString(m) }
 func (*NodeLabelProto) ProtoMessage()               {}
-func (*NodeLabelProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{20} }
+func (*NodeLabelProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{20} }
 
 const Default_NodeLabelProto_IsExclusive bool = true
 
@@ -1959,7 +1896,7 @@ type ResourceRequestProto struct {
 func (m *ResourceRequestProto) Reset()                    { *m = ResourceRequestProto{} }
 func (m *ResourceRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*ResourceRequestProto) ProtoMessage()               {}
-func (*ResourceRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{21} }
+func (*ResourceRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{21} }
 
 const Default_ResourceRequestProto_RelaxLocality bool = true
 const Default_ResourceRequestProto_AllocationRequestId int64 = -1
@@ -2029,7 +1966,7 @@ type ExecutionTypeRequestProto struct {
 func (m *ExecutionTypeRequestProto) Reset()                    { *m = ExecutionTypeRequestProto{} }
 func (m *ExecutionTypeRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*ExecutionTypeRequestProto) ProtoMessage()               {}
-func (*ExecutionTypeRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{22} }
+func (*ExecutionTypeRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{22} }
 
 const Default_ExecutionTypeRequestProto_ExecutionType ExecutionTypeProto = ExecutionTypeProto_GUARANTEED
 const Default_ExecutionTypeRequestProto_EnforceExecutionType bool = false
@@ -2057,7 +1994,7 @@ type PreemptionMessageProto struct {
 func (m *PreemptionMessageProto) Reset()                    { *m = PreemptionMessageProto{} }
 func (m *PreemptionMessageProto) String() string            { return proto.CompactTextString(m) }
 func (*PreemptionMessageProto) ProtoMessage()               {}
-func (*PreemptionMessageProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{23} }
+func (*PreemptionMessageProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{23} }
 
 func (m *PreemptionMessageProto) GetStrictContract() *StrictPreemptionContractProto {
 	if m != nil {
@@ -2081,7 +2018,7 @@ type StrictPreemptionContractProto struct {
 func (m *StrictPreemptionContractProto) Reset()                    { *m = StrictPreemptionContractProto{} }
 func (m *StrictPreemptionContractProto) String() string            { return proto.CompactTextString(m) }
 func (*StrictPreemptionContractProto) ProtoMessage()               {}
-func (*StrictPreemptionContractProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{24} }
+func (*StrictPreemptionContractProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{24} }
 
 func (m *StrictPreemptionContractProto) GetContainer() []*PreemptionContainerProto {
 	if m != nil {
@@ -2099,7 +2036,7 @@ type PreemptionContractProto struct {
 func (m *PreemptionContractProto) Reset()                    { *m = PreemptionContractProto{} }
 func (m *PreemptionContractProto) String() string            { return proto.CompactTextString(m) }
 func (*PreemptionContractProto) ProtoMessage()               {}
-func (*PreemptionContractProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{25} }
+func (*PreemptionContractProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{25} }
 
 func (m *PreemptionContractProto) GetResource() []*PreemptionResourceRequestProto {
 	if m != nil {
@@ -2123,7 +2060,7 @@ type PreemptionContainerProto struct {
 func (m *PreemptionContainerProto) Reset()                    { *m = PreemptionContainerProto{} }
 func (m *PreemptionContainerProto) String() string            { return proto.CompactTextString(m) }
 func (*PreemptionContainerProto) ProtoMessage()               {}
-func (*PreemptionContainerProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{26} }
+func (*PreemptionContainerProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{26} }
 
 func (m *PreemptionContainerProto) GetId() *ContainerIdProto {
 	if m != nil {
@@ -2140,7 +2077,7 @@ type PreemptionResourceRequestProto struct {
 func (m *PreemptionResourceRequestProto) Reset()                    { *m = PreemptionResourceRequestProto{} }
 func (m *PreemptionResourceRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*PreemptionResourceRequestProto) ProtoMessage()               {}
-func (*PreemptionResourceRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{27} }
+func (*PreemptionResourceRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{27} }
 
 func (m *PreemptionResourceRequestProto) GetResource() *ResourceRequestProto {
 	if m != nil {
@@ -2158,7 +2095,7 @@ type ResourceBlacklistRequestProto struct {
 func (m *ResourceBlacklistRequestProto) Reset()                    { *m = ResourceBlacklistRequestProto{} }
 func (m *ResourceBlacklistRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*ResourceBlacklistRequestProto) ProtoMessage()               {}
-func (*ResourceBlacklistRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{28} }
+func (*ResourceBlacklistRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{28} }
 
 func (m *ResourceBlacklistRequestProto) GetBlacklistAdditions() []string {
 	if m != nil {
@@ -2202,7 +2139,7 @@ func (m *ApplicationSubmissionContextProto) Reset()         { *m = ApplicationSu
 func (m *ApplicationSubmissionContextProto) String() string { return proto.CompactTextString(m) }
 func (*ApplicationSubmissionContextProto) ProtoMessage()    {}
 func (*ApplicationSubmissionContextProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{29}
+	return fileDescriptor2, []int{29}
 }
 
 const Default_ApplicationSubmissionContextProto_ApplicationName string = "N/A"
@@ -2346,7 +2283,7 @@ type LogAggregationContextProto struct {
 func (m *LogAggregationContextProto) Reset()                    { *m = LogAggregationContextProto{} }
 func (m *LogAggregationContextProto) String() string            { return proto.CompactTextString(m) }
 func (*LogAggregationContextProto) ProtoMessage()               {}
-func (*LogAggregationContextProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{30} }
+func (*LogAggregationContextProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{30} }
 
 const Default_LogAggregationContextProto_IncludePattern string = ".*"
 const Default_LogAggregationContextProto_RolledLogsExcludePattern string = ".*"
@@ -2402,7 +2339,7 @@ type ApplicationACLMapProto struct {
 func (m *ApplicationACLMapProto) Reset()                    { *m = ApplicationACLMapProto{} }
 func (m *ApplicationACLMapProto) String() string            { return proto.CompactTextString(m) }
 func (*ApplicationACLMapProto) ProtoMessage()               {}
-func (*ApplicationACLMapProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{31} }
+func (*ApplicationACLMapProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{31} }
 
 const Default_ApplicationACLMapProto_Acl string = " "
 
@@ -2433,7 +2370,7 @@ type YarnClusterMetricsProto struct {
 func (m *YarnClusterMetricsProto) Reset()                    { *m = YarnClusterMetricsProto{} }
 func (m *YarnClusterMetricsProto) String() string            { return proto.CompactTextString(m) }
 func (*YarnClusterMetricsProto) ProtoMessage()               {}
-func (*YarnClusterMetricsProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{32} }
+func (*YarnClusterMetricsProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{32} }
 
 func (m *YarnClusterMetricsProto) GetNumNodeManagers() int32 {
 	if m != nil && m.NumNodeManagers != nil {
@@ -2502,7 +2439,7 @@ type QueueStatisticsProto struct {
 func (m *QueueStatisticsProto) Reset()                    { *m = QueueStatisticsProto{} }
 func (m *QueueStatisticsProto) String() string            { return proto.CompactTextString(m) }
 func (*QueueStatisticsProto) ProtoMessage()               {}
-func (*QueueStatisticsProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{33} }
+func (*QueueStatisticsProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{33} }
 
 func (m *QueueStatisticsProto) GetNumAppsSubmitted() int64 {
 	if m != nil && m.NumAppsSubmitted != nil {
@@ -2648,7 +2585,7 @@ type QueueInfoProto struct {
 func (m *QueueInfoProto) Reset()                    { *m = QueueInfoProto{} }
 func (m *QueueInfoProto) String() string            { return proto.CompactTextString(m) }
 func (*QueueInfoProto) ProtoMessage()               {}
-func (*QueueInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{34} }
+func (*QueueInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{34} }
 
 func (m *QueueInfoProto) GetQueueName() string {
 	if m != nil && m.QueueName != nil {
@@ -2736,7 +2673,7 @@ type QueueUserACLInfoProto struct {
 func (m *QueueUserACLInfoProto) Reset()                    { *m = QueueUserACLInfoProto{} }
 func (m *QueueUserACLInfoProto) String() string            { return proto.CompactTextString(m) }
 func (*QueueUserACLInfoProto) ProtoMessage()               {}
-func (*QueueUserACLInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{35} }
+func (*QueueUserACLInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{35} }
 
 func (m *QueueUserACLInfoProto) GetQueueName() string {
 	if m != nil && m.QueueName != nil {
@@ -2761,7 +2698,7 @@ type ReservationIdProto struct {
 func (m *ReservationIdProto) Reset()                    { *m = ReservationIdProto{} }
 func (m *ReservationIdProto) String() string            { return proto.CompactTextString(m) }
 func (*ReservationIdProto) ProtoMessage()               {}
-func (*ReservationIdProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{36} }
+func (*ReservationIdProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{36} }
 
 func (m *ReservationIdProto) GetId() int64 {
 	if m != nil && m.Id != nil {
@@ -2788,7 +2725,7 @@ type ReservationRequestProto struct {
 func (m *ReservationRequestProto) Reset()                    { *m = ReservationRequestProto{} }
 func (m *ReservationRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*ReservationRequestProto) ProtoMessage()               {}
-func (*ReservationRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{37} }
+func (*ReservationRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{37} }
 
 const Default_ReservationRequestProto_NumContainers int32 = 1
 const Default_ReservationRequestProto_Concurrency int32 = 1
@@ -2831,7 +2768,7 @@ type ReservationRequestsProto struct {
 func (m *ReservationRequestsProto) Reset()                    { *m = ReservationRequestsProto{} }
 func (m *ReservationRequestsProto) String() string            { return proto.CompactTextString(m) }
 func (*ReservationRequestsProto) ProtoMessage()               {}
-func (*ReservationRequestsProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{38} }
+func (*ReservationRequestsProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{38} }
 
 const Default_ReservationRequestsProto_Interpreter ReservationRequestInterpreterProto = ReservationRequestInterpreterProto_R_ALL
 
@@ -2860,7 +2797,7 @@ type ReservationDefinitionProto struct {
 func (m *ReservationDefinitionProto) Reset()                    { *m = ReservationDefinitionProto{} }
 func (m *ReservationDefinitionProto) String() string            { return proto.CompactTextString(m) }
 func (*ReservationDefinitionProto) ProtoMessage()               {}
-func (*ReservationDefinitionProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{39} }
+func (*ReservationDefinitionProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{39} }
 
 func (m *ReservationDefinitionProto) GetReservationRequests() *ReservationRequestsProto {
 	if m != nil {
@@ -2900,7 +2837,7 @@ type ResourceAllocationRequestProto struct {
 func (m *ResourceAllocationRequestProto) Reset()                    { *m = ResourceAllocationRequestProto{} }
 func (m *ResourceAllocationRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*ResourceAllocationRequestProto) ProtoMessage()               {}
-func (*ResourceAllocationRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{40} }
+func (*ResourceAllocationRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{40} }
 
 func (m *ResourceAllocationRequestProto) GetStartTime() int64 {
 	if m != nil && m.StartTime != nil {
@@ -2939,7 +2876,7 @@ func (m *ReservationAllocationStateProto) Reset()         { *m = ReservationAllo
 func (m *ReservationAllocationStateProto) String() string { return proto.CompactTextString(m) }
 func (*ReservationAllocationStateProto) ProtoMessage()    {}
 func (*ReservationAllocationStateProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{41}
+	return fileDescriptor2, []int{41}
 }
 
 func (m *ReservationAllocationStateProto) GetReservationDefinition() *ReservationDefinitionProto {
@@ -3012,7 +2949,7 @@ type ContainerLaunchContextProto struct {
 func (m *ContainerLaunchContextProto) Reset()                    { *m = ContainerLaunchContextProto{} }
 func (m *ContainerLaunchContextProto) String() string            { return proto.CompactTextString(m) }
 func (*ContainerLaunchContextProto) ProtoMessage()               {}
-func (*ContainerLaunchContextProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{42} }
+func (*ContainerLaunchContextProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{42} }
 
 func (m *ContainerLaunchContextProto) GetLocalResources() []*StringLocalResourceMapProto {
 	if m != nil {
@@ -3076,7 +3013,7 @@ type ContainerStatusProto struct {
 func (m *ContainerStatusProto) Reset()                    { *m = ContainerStatusProto{} }
 func (m *ContainerStatusProto) String() string            { return proto.CompactTextString(m) }
 func (*ContainerStatusProto) ProtoMessage()               {}
-func (*ContainerStatusProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{43} }
+func (*ContainerStatusProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{43} }
 
 const Default_ContainerStatusProto_Diagnostics string = "N/A"
 const Default_ContainerStatusProto_ExitStatus int32 = -1000
@@ -3134,7 +3071,7 @@ func (m *ContainerResourceChangeRequestProto) Reset()         { *m = ContainerRe
 func (m *ContainerResourceChangeRequestProto) String() string { return proto.CompactTextString(m) }
 func (*ContainerResourceChangeRequestProto) ProtoMessage()    {}
 func (*ContainerResourceChangeRequestProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{44}
+	return fileDescriptor2, []int{44}
 }
 
 func (m *ContainerResourceChangeRequestProto) GetContainerId() *ContainerIdProto {
@@ -3162,7 +3099,7 @@ type ContainerRetryContextProto struct {
 func (m *ContainerRetryContextProto) Reset()                    { *m = ContainerRetryContextProto{} }
 func (m *ContainerRetryContextProto) String() string            { return proto.CompactTextString(m) }
 func (*ContainerRetryContextProto) ProtoMessage()               {}
-func (*ContainerRetryContextProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{45} }
+func (*ContainerRetryContextProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{45} }
 
 const Default_ContainerRetryContextProto_RetryPolicy ContainerRetryPolicyProto = ContainerRetryPolicyProto_NEVER_RETRY
 const Default_ContainerRetryContextProto_MaxRetries int32 = 0
@@ -3208,7 +3145,7 @@ type StringLocalResourceMapProto struct {
 func (m *StringLocalResourceMapProto) Reset()                    { *m = StringLocalResourceMapProto{} }
 func (m *StringLocalResourceMapProto) String() string            { return proto.CompactTextString(m) }
 func (*StringLocalResourceMapProto) ProtoMessage()               {}
-func (*StringLocalResourceMapProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{46} }
+func (*StringLocalResourceMapProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{46} }
 
 func (m *StringLocalResourceMapProto) GetKey() string {
 	if m != nil && m.Key != nil {
@@ -3233,7 +3170,7 @@ type StringStringMapProto struct {
 func (m *StringStringMapProto) Reset()                    { *m = StringStringMapProto{} }
 func (m *StringStringMapProto) String() string            { return proto.CompactTextString(m) }
 func (*StringStringMapProto) ProtoMessage()               {}
-func (*StringStringMapProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{47} }
+func (*StringStringMapProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{47} }
 
 func (m *StringStringMapProto) GetKey() string {
 	if m != nil && m.Key != nil {
@@ -3258,7 +3195,7 @@ type StringBytesMapProto struct {
 func (m *StringBytesMapProto) Reset()                    { *m = StringBytesMapProto{} }
 func (m *StringBytesMapProto) String() string            { return proto.CompactTextString(m) }
 func (*StringBytesMapProto) ProtoMessage()               {}
-func (*StringBytesMapProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{48} }
+func (*StringBytesMapProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{48} }
 
 func (m *StringBytesMapProto) GetKey() string {
 	if m != nil && m.Key != nil {
@@ -3344,9 +3281,9 @@ func init() {
 	proto.RegisterEnum("hadoop.yarn.ContainerRetryPolicyProto", ContainerRetryPolicyProto_name, ContainerRetryPolicyProto_value)
 }
 
-func init() { proto.RegisterFile("yarn_protos.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("yarn_protos.proto", fileDescriptor2) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor2 = []byte{
 	// 5105 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xac, 0x3b, 0x4d, 0x8f, 0x23, 0x59,
 	0x52, 0xeb, 0x8f, 0xfa, 0x70, 0xb8, 0xca, 0x55, 0x95, 0xe5, 0xaa, 0x76, 0x7f, 0x4e, 0x4f, 0xf6,

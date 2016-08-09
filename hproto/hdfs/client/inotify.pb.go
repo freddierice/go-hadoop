@@ -7,6 +7,15 @@ Package client is a generated protocol buffer package.
 
 It is generated from these files:
 	inotify.proto
+	hdfs.proto
+	acl.proto
+	ReconfigurationProtocol.proto
+	ClientDatanodeProtocol.proto
+	xattr.proto
+	erasurecoding.proto
+	encryption.proto
+	ClientNamenodeProtocol.proto
+	datatransfer.proto
 
 It has these top-level messages:
 	EventProto
@@ -19,15 +28,295 @@ It has these top-level messages:
 	MetadataUpdateEventProto
 	UnlinkEventProto
 	EventsListProto
+	ExtendedBlockProto
+	DatanodeIDProto
+	DatanodeLocalInfoProto
+	DatanodeInfosProto
+	DatanodeInfoProto
+	DatanodeStorageProto
+	StorageReportProto
+	ContentSummaryProto
+	QuotaUsageProto
+	StorageTypeQuotaInfosProto
+	StorageTypeQuotaInfoProto
+	CorruptFileBlocksProto
+	FsPermissionProto
+	StorageTypesProto
+	BlockStoragePolicyProto
+	LocatedBlockProto
+	DataEncryptionKeyProto
+	FileEncryptionInfoProto
+	PerFileEncryptionInfoProto
+	ZoneEncryptionInfoProto
+	CipherOptionProto
+	LocatedBlocksProto
+	ECSchemaOptionEntryProto
+	ECSchemaProto
+	ErasureCodingPolicyProto
+	HdfsFileStatusProto
+	FsServerDefaultsProto
+	DirectoryListingProto
+	SnapshottableDirectoryStatusProto
+	SnapshottableDirectoryListingProto
+	SnapshotDiffReportEntryProto
+	SnapshotDiffReportProto
+	BlockProto
+	SnapshotInfoProto
+	RollingUpgradeStatusProto
+	StorageUuidsProto
+	AclEntryProto
+	AclStatusProto
+	ModifyAclEntriesRequestProto
+	ModifyAclEntriesResponseProto
+	RemoveAclRequestProto
+	RemoveAclResponseProto
+	RemoveAclEntriesRequestProto
+	RemoveAclEntriesResponseProto
+	RemoveDefaultAclRequestProto
+	RemoveDefaultAclResponseProto
+	SetAclRequestProto
+	SetAclResponseProto
+	GetAclStatusRequestProto
+	GetAclStatusResponseProto
+	StartReconfigurationRequestProto
+	StartReconfigurationResponseProto
+	GetReconfigurationStatusRequestProto
+	GetReconfigurationStatusConfigChangeProto
+	GetReconfigurationStatusResponseProto
+	ListReconfigurablePropertiesRequestProto
+	ListReconfigurablePropertiesResponseProto
+	GetReplicaVisibleLengthRequestProto
+	GetReplicaVisibleLengthResponseProto
+	RefreshNamenodesRequestProto
+	RefreshNamenodesResponseProto
+	DeleteBlockPoolRequestProto
+	DeleteBlockPoolResponseProto
+	GetBlockLocalPathInfoRequestProto
+	GetBlockLocalPathInfoResponseProto
+	ShutdownDatanodeRequestProto
+	ShutdownDatanodeResponseProto
+	EvictWritersRequestProto
+	EvictWritersResponseProto
+	GetDatanodeInfoRequestProto
+	GetDatanodeInfoResponseProto
+	TriggerBlockReportRequestProto
+	TriggerBlockReportResponseProto
+	GetBalancerBandwidthRequestProto
+	GetBalancerBandwidthResponseProto
+	SubmitDiskBalancerPlanRequestProto
+	SubmitDiskBalancerPlanResponseProto
+	CancelPlanRequestProto
+	CancelPlanResponseProto
+	QueryPlanStatusRequestProto
+	QueryPlanStatusResponseProto
+	DiskBalancerSettingRequestProto
+	DiskBalancerSettingResponseProto
+	XAttrProto
+	SetXAttrRequestProto
+	SetXAttrResponseProto
+	GetXAttrsRequestProto
+	GetXAttrsResponseProto
+	ListXAttrsRequestProto
+	ListXAttrsResponseProto
+	RemoveXAttrRequestProto
+	RemoveXAttrResponseProto
+	SetErasureCodingPolicyRequestProto
+	SetErasureCodingPolicyResponseProto
+	GetErasureCodingPoliciesRequestProto
+	GetErasureCodingPoliciesResponseProto
+	GetErasureCodingPolicyRequestProto
+	GetErasureCodingPolicyResponseProto
+	BlockECReconstructionInfoProto
+	CreateEncryptionZoneRequestProto
+	CreateEncryptionZoneResponseProto
+	ListEncryptionZonesRequestProto
+	EncryptionZoneProto
+	ListEncryptionZonesResponseProto
+	GetEZForPathRequestProto
+	GetEZForPathResponseProto
+	GetBlockLocationsRequestProto
+	GetBlockLocationsResponseProto
+	GetServerDefaultsRequestProto
+	GetServerDefaultsResponseProto
+	CreateRequestProto
+	CreateResponseProto
+	AppendRequestProto
+	AppendResponseProto
+	SetReplicationRequestProto
+	SetReplicationResponseProto
+	SetStoragePolicyRequestProto
+	SetStoragePolicyResponseProto
+	UnsetStoragePolicyRequestProto
+	UnsetStoragePolicyResponseProto
+	GetStoragePolicyRequestProto
+	GetStoragePolicyResponseProto
+	GetStoragePoliciesRequestProto
+	GetStoragePoliciesResponseProto
+	SetPermissionRequestProto
+	SetPermissionResponseProto
+	SetOwnerRequestProto
+	SetOwnerResponseProto
+	AbandonBlockRequestProto
+	AbandonBlockResponseProto
+	AddBlockRequestProto
+	AddBlockResponseProto
+	GetAdditionalDatanodeRequestProto
+	GetAdditionalDatanodeResponseProto
+	CompleteRequestProto
+	CompleteResponseProto
+	ReportBadBlocksRequestProto
+	ReportBadBlocksResponseProto
+	ConcatRequestProto
+	ConcatResponseProto
+	TruncateRequestProto
+	TruncateResponseProto
+	RenameRequestProto
+	RenameResponseProto
+	Rename2RequestProto
+	Rename2ResponseProto
+	DeleteRequestProto
+	DeleteResponseProto
+	MkdirsRequestProto
+	MkdirsResponseProto
+	GetListingRequestProto
+	GetListingResponseProto
+	GetSnapshottableDirListingRequestProto
+	GetSnapshottableDirListingResponseProto
+	GetSnapshotDiffReportRequestProto
+	GetSnapshotDiffReportResponseProto
+	RenewLeaseRequestProto
+	RenewLeaseResponseProto
+	RecoverLeaseRequestProto
+	RecoverLeaseResponseProto
+	GetFsStatusRequestProto
+	GetFsStatsResponseProto
+	GetDatanodeReportRequestProto
+	GetDatanodeReportResponseProto
+	GetDatanodeStorageReportRequestProto
+	DatanodeStorageReportProto
+	GetDatanodeStorageReportResponseProto
+	GetPreferredBlockSizeRequestProto
+	GetPreferredBlockSizeResponseProto
+	SetSafeModeRequestProto
+	SetSafeModeResponseProto
+	SaveNamespaceRequestProto
+	SaveNamespaceResponseProto
+	RollEditsRequestProto
+	RollEditsResponseProto
+	RestoreFailedStorageRequestProto
+	RestoreFailedStorageResponseProto
+	RefreshNodesRequestProto
+	RefreshNodesResponseProto
+	FinalizeUpgradeRequestProto
+	FinalizeUpgradeResponseProto
+	RollingUpgradeRequestProto
+	RollingUpgradeInfoProto
+	RollingUpgradeResponseProto
+	ListCorruptFileBlocksRequestProto
+	ListCorruptFileBlocksResponseProto
+	MetaSaveRequestProto
+	MetaSaveResponseProto
+	GetFileInfoRequestProto
+	GetFileInfoResponseProto
+	IsFileClosedRequestProto
+	IsFileClosedResponseProto
+	CacheDirectiveInfoProto
+	CacheDirectiveInfoExpirationProto
+	CacheDirectiveStatsProto
+	AddCacheDirectiveRequestProto
+	AddCacheDirectiveResponseProto
+	ModifyCacheDirectiveRequestProto
+	ModifyCacheDirectiveResponseProto
+	RemoveCacheDirectiveRequestProto
+	RemoveCacheDirectiveResponseProto
+	ListCacheDirectivesRequestProto
+	CacheDirectiveEntryProto
+	ListCacheDirectivesResponseProto
+	CachePoolInfoProto
+	CachePoolStatsProto
+	AddCachePoolRequestProto
+	AddCachePoolResponseProto
+	ModifyCachePoolRequestProto
+	ModifyCachePoolResponseProto
+	RemoveCachePoolRequestProto
+	RemoveCachePoolResponseProto
+	ListCachePoolsRequestProto
+	ListCachePoolsResponseProto
+	CachePoolEntryProto
+	GetFileLinkInfoRequestProto
+	GetFileLinkInfoResponseProto
+	GetContentSummaryRequestProto
+	GetContentSummaryResponseProto
+	GetQuotaUsageRequestProto
+	GetQuotaUsageResponseProto
+	SetQuotaRequestProto
+	SetQuotaResponseProto
+	FsyncRequestProto
+	FsyncResponseProto
+	SetTimesRequestProto
+	SetTimesResponseProto
+	CreateSymlinkRequestProto
+	CreateSymlinkResponseProto
+	GetLinkTargetRequestProto
+	GetLinkTargetResponseProto
+	UpdateBlockForPipelineRequestProto
+	UpdateBlockForPipelineResponseProto
+	UpdatePipelineRequestProto
+	UpdatePipelineResponseProto
+	SetBalancerBandwidthRequestProto
+	SetBalancerBandwidthResponseProto
+	GetDataEncryptionKeyRequestProto
+	GetDataEncryptionKeyResponseProto
+	CreateSnapshotRequestProto
+	CreateSnapshotResponseProto
+	RenameSnapshotRequestProto
+	RenameSnapshotResponseProto
+	AllowSnapshotRequestProto
+	AllowSnapshotResponseProto
+	DisallowSnapshotRequestProto
+	DisallowSnapshotResponseProto
+	DeleteSnapshotRequestProto
+	DeleteSnapshotResponseProto
+	CheckAccessRequestProto
+	CheckAccessResponseProto
+	GetCurrentEditLogTxidRequestProto
+	GetCurrentEditLogTxidResponseProto
+	GetEditsFromTxidRequestProto
+	GetEditsFromTxidResponseProto
+	DataTransferEncryptorMessageProto
+	BaseHeaderProto
+	DataTransferTraceInfoProto
+	ClientOperationHeaderProto
+	CachingStrategyProto
+	OpReadBlockProto
+	ChecksumProto
+	OpWriteBlockProto
+	OpTransferBlockProto
+	OpReplaceBlockProto
+	OpCopyBlockProto
+	OpBlockChecksumProto
+	OpBlockGroupChecksumProto
+	ShortCircuitShmIdProto
+	ShortCircuitShmSlotProto
+	OpRequestShortCircuitAccessProto
+	ReleaseShortCircuitAccessRequestProto
+	ReleaseShortCircuitAccessResponseProto
+	ShortCircuitShmRequestProto
+	ShortCircuitShmResponseProto
+	PacketHeaderProto
+	PipelineAckProto
+	ReadOpChecksumInfoProto
+	BlockOpResponseProto
+	ClientReadStatusProto
+	DNTransferAckProto
+	OpBlockChecksumResponseProto
+	OpCustomProto
 */
 package client
 
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
-import hadoop_hdfs1 "."
-import hadoop_hdfs2 "."
-import hadoop_hdfs "."
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -223,17 +512,17 @@ func (m *EventBatchProto) GetEvents() []*EventProto {
 }
 
 type CreateEventProto struct {
-	Type             *INodeType                     `protobuf:"varint,1,req,name=type,enum=hadoop.hdfs.INodeType" json:"type,omitempty"`
-	Path             *string                        `protobuf:"bytes,2,req,name=path" json:"path,omitempty"`
-	Ctime            *int64                         `protobuf:"varint,3,req,name=ctime" json:"ctime,omitempty"`
-	OwnerName        *string                        `protobuf:"bytes,4,req,name=ownerName" json:"ownerName,omitempty"`
-	GroupName        *string                        `protobuf:"bytes,5,req,name=groupName" json:"groupName,omitempty"`
-	Perms            *hadoop_hdfs.FsPermissionProto `protobuf:"bytes,6,req,name=perms" json:"perms,omitempty"`
-	Replication      *int32                         `protobuf:"varint,7,opt,name=replication" json:"replication,omitempty"`
-	SymlinkTarget    *string                        `protobuf:"bytes,8,opt,name=symlinkTarget" json:"symlinkTarget,omitempty"`
-	Overwrite        *bool                          `protobuf:"varint,9,opt,name=overwrite" json:"overwrite,omitempty"`
-	DefaultBlockSize *int64                         `protobuf:"varint,10,opt,name=defaultBlockSize,def=0" json:"defaultBlockSize,omitempty"`
-	XXX_unrecognized []byte                         `json:"-"`
+	Type             *INodeType         `protobuf:"varint,1,req,name=type,enum=hadoop.hdfs.INodeType" json:"type,omitempty"`
+	Path             *string            `protobuf:"bytes,2,req,name=path" json:"path,omitempty"`
+	Ctime            *int64             `protobuf:"varint,3,req,name=ctime" json:"ctime,omitempty"`
+	OwnerName        *string            `protobuf:"bytes,4,req,name=ownerName" json:"ownerName,omitempty"`
+	GroupName        *string            `protobuf:"bytes,5,req,name=groupName" json:"groupName,omitempty"`
+	Perms            *FsPermissionProto `protobuf:"bytes,6,req,name=perms" json:"perms,omitempty"`
+	Replication      *int32             `protobuf:"varint,7,opt,name=replication" json:"replication,omitempty"`
+	SymlinkTarget    *string            `protobuf:"bytes,8,opt,name=symlinkTarget" json:"symlinkTarget,omitempty"`
+	Overwrite        *bool              `protobuf:"varint,9,opt,name=overwrite" json:"overwrite,omitempty"`
+	DefaultBlockSize *int64             `protobuf:"varint,10,opt,name=defaultBlockSize,def=0" json:"defaultBlockSize,omitempty"`
+	XXX_unrecognized []byte             `json:"-"`
 }
 
 func (m *CreateEventProto) Reset()                    { *m = CreateEventProto{} }
@@ -278,7 +567,7 @@ func (m *CreateEventProto) GetGroupName() string {
 	return ""
 }
 
-func (m *CreateEventProto) GetPerms() *hadoop_hdfs.FsPermissionProto {
+func (m *CreateEventProto) GetPerms() *FsPermissionProto {
 	if m != nil {
 		return m.Perms
 	}
@@ -440,18 +729,18 @@ func (m *RenameEventProto) GetTimestamp() int64 {
 }
 
 type MetadataUpdateEventProto struct {
-	Path             *string                        `protobuf:"bytes,1,req,name=path" json:"path,omitempty"`
-	Type             *MetadataUpdateType            `protobuf:"varint,2,req,name=type,enum=hadoop.hdfs.MetadataUpdateType" json:"type,omitempty"`
-	Mtime            *int64                         `protobuf:"varint,3,opt,name=mtime" json:"mtime,omitempty"`
-	Atime            *int64                         `protobuf:"varint,4,opt,name=atime" json:"atime,omitempty"`
-	Replication      *int32                         `protobuf:"varint,5,opt,name=replication" json:"replication,omitempty"`
-	OwnerName        *string                        `protobuf:"bytes,6,opt,name=ownerName" json:"ownerName,omitempty"`
-	GroupName        *string                        `protobuf:"bytes,7,opt,name=groupName" json:"groupName,omitempty"`
-	Perms            *hadoop_hdfs.FsPermissionProto `protobuf:"bytes,8,opt,name=perms" json:"perms,omitempty"`
-	Acls             []*hadoop_hdfs1.AclEntryProto  `protobuf:"bytes,9,rep,name=acls" json:"acls,omitempty"`
-	XAttrs           []*hadoop_hdfs2.XAttrProto     `protobuf:"bytes,10,rep,name=xAttrs" json:"xAttrs,omitempty"`
-	XAttrsRemoved    *bool                          `protobuf:"varint,11,opt,name=xAttrsRemoved" json:"xAttrsRemoved,omitempty"`
-	XXX_unrecognized []byte                         `json:"-"`
+	Path             *string             `protobuf:"bytes,1,req,name=path" json:"path,omitempty"`
+	Type             *MetadataUpdateType `protobuf:"varint,2,req,name=type,enum=hadoop.hdfs.MetadataUpdateType" json:"type,omitempty"`
+	Mtime            *int64              `protobuf:"varint,3,opt,name=mtime" json:"mtime,omitempty"`
+	Atime            *int64              `protobuf:"varint,4,opt,name=atime" json:"atime,omitempty"`
+	Replication      *int32              `protobuf:"varint,5,opt,name=replication" json:"replication,omitempty"`
+	OwnerName        *string             `protobuf:"bytes,6,opt,name=ownerName" json:"ownerName,omitempty"`
+	GroupName        *string             `protobuf:"bytes,7,opt,name=groupName" json:"groupName,omitempty"`
+	Perms            *FsPermissionProto  `protobuf:"bytes,8,opt,name=perms" json:"perms,omitempty"`
+	Acls             []*AclEntryProto    `protobuf:"bytes,9,rep,name=acls" json:"acls,omitempty"`
+	XAttrs           []*XAttrProto       `protobuf:"bytes,10,rep,name=xAttrs" json:"xAttrs,omitempty"`
+	XAttrsRemoved    *bool               `protobuf:"varint,11,opt,name=xAttrsRemoved" json:"xAttrsRemoved,omitempty"`
+	XXX_unrecognized []byte              `json:"-"`
 }
 
 func (m *MetadataUpdateEventProto) Reset()                    { *m = MetadataUpdateEventProto{} }
@@ -508,21 +797,21 @@ func (m *MetadataUpdateEventProto) GetGroupName() string {
 	return ""
 }
 
-func (m *MetadataUpdateEventProto) GetPerms() *hadoop_hdfs.FsPermissionProto {
+func (m *MetadataUpdateEventProto) GetPerms() *FsPermissionProto {
 	if m != nil {
 		return m.Perms
 	}
 	return nil
 }
 
-func (m *MetadataUpdateEventProto) GetAcls() []*hadoop_hdfs1.AclEntryProto {
+func (m *MetadataUpdateEventProto) GetAcls() []*AclEntryProto {
 	if m != nil {
 		return m.Acls
 	}
 	return nil
 }
 
-func (m *MetadataUpdateEventProto) GetXAttrs() []*hadoop_hdfs2.XAttrProto {
+func (m *MetadataUpdateEventProto) GetXAttrs() []*XAttrProto {
 	if m != nil {
 		return m.XAttrs
 	}

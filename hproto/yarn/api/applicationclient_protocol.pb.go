@@ -2,21 +2,12 @@
 // source: applicationclient_protocol.proto
 // DO NOT EDIT!
 
-/*
-Package api is a generated protocol buffer package.
-
-It is generated from these files:
-	applicationclient_protocol.proto
-
-It has these top-level messages:
-*/
 package api
 
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import hadoop_common "."
-import hadoop_yarn1 "."
 
 import (
 	context "golang.org/x/net/context"
@@ -27,12 +18,6 @@ import (
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
-
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ context.Context
@@ -45,34 +30,34 @@ const _ = grpc.SupportPackageIsVersion3
 // Client API for ApplicationClientProtocolService service
 
 type ApplicationClientProtocolServiceClient interface {
-	GetNewApplication(ctx context.Context, in *hadoop_yarn1.GetNewApplicationRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetNewApplicationResponseProto, error)
-	GetApplicationReport(ctx context.Context, in *hadoop_yarn1.GetApplicationReportRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetApplicationReportResponseProto, error)
-	SubmitApplication(ctx context.Context, in *hadoop_yarn1.SubmitApplicationRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.SubmitApplicationResponseProto, error)
-	FailApplicationAttempt(ctx context.Context, in *hadoop_yarn1.FailApplicationAttemptRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.FailApplicationAttemptResponseProto, error)
-	ForceKillApplication(ctx context.Context, in *hadoop_yarn1.KillApplicationRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.KillApplicationResponseProto, error)
-	GetClusterMetrics(ctx context.Context, in *hadoop_yarn1.GetClusterMetricsRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetClusterMetricsResponseProto, error)
-	GetApplications(ctx context.Context, in *hadoop_yarn1.GetApplicationsRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetApplicationsResponseProto, error)
-	GetClusterNodes(ctx context.Context, in *hadoop_yarn1.GetClusterNodesRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetClusterNodesResponseProto, error)
-	GetQueueInfo(ctx context.Context, in *hadoop_yarn1.GetQueueInfoRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetQueueInfoResponseProto, error)
-	GetQueueUserAcls(ctx context.Context, in *hadoop_yarn1.GetQueueUserAclsInfoRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetQueueUserAclsInfoResponseProto, error)
+	GetNewApplication(ctx context.Context, in *GetNewApplicationRequestProto, opts ...grpc.CallOption) (*GetNewApplicationResponseProto, error)
+	GetApplicationReport(ctx context.Context, in *GetApplicationReportRequestProto, opts ...grpc.CallOption) (*GetApplicationReportResponseProto, error)
+	SubmitApplication(ctx context.Context, in *SubmitApplicationRequestProto, opts ...grpc.CallOption) (*SubmitApplicationResponseProto, error)
+	FailApplicationAttempt(ctx context.Context, in *FailApplicationAttemptRequestProto, opts ...grpc.CallOption) (*FailApplicationAttemptResponseProto, error)
+	ForceKillApplication(ctx context.Context, in *KillApplicationRequestProto, opts ...grpc.CallOption) (*KillApplicationResponseProto, error)
+	GetClusterMetrics(ctx context.Context, in *GetClusterMetricsRequestProto, opts ...grpc.CallOption) (*GetClusterMetricsResponseProto, error)
+	GetApplications(ctx context.Context, in *GetApplicationsRequestProto, opts ...grpc.CallOption) (*GetApplicationsResponseProto, error)
+	GetClusterNodes(ctx context.Context, in *GetClusterNodesRequestProto, opts ...grpc.CallOption) (*GetClusterNodesResponseProto, error)
+	GetQueueInfo(ctx context.Context, in *GetQueueInfoRequestProto, opts ...grpc.CallOption) (*GetQueueInfoResponseProto, error)
+	GetQueueUserAcls(ctx context.Context, in *GetQueueUserAclsInfoRequestProto, opts ...grpc.CallOption) (*GetQueueUserAclsInfoResponseProto, error)
 	GetDelegationToken(ctx context.Context, in *hadoop_common.GetDelegationTokenRequestProto, opts ...grpc.CallOption) (*hadoop_common.GetDelegationTokenResponseProto, error)
 	RenewDelegationToken(ctx context.Context, in *hadoop_common.RenewDelegationTokenRequestProto, opts ...grpc.CallOption) (*hadoop_common.RenewDelegationTokenResponseProto, error)
 	CancelDelegationToken(ctx context.Context, in *hadoop_common.CancelDelegationTokenRequestProto, opts ...grpc.CallOption) (*hadoop_common.CancelDelegationTokenResponseProto, error)
-	MoveApplicationAcrossQueues(ctx context.Context, in *hadoop_yarn1.MoveApplicationAcrossQueuesRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.MoveApplicationAcrossQueuesResponseProto, error)
-	GetApplicationAttemptReport(ctx context.Context, in *hadoop_yarn1.GetApplicationAttemptReportRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetApplicationAttemptReportResponseProto, error)
-	GetApplicationAttempts(ctx context.Context, in *hadoop_yarn1.GetApplicationAttemptsRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetApplicationAttemptsResponseProto, error)
-	GetContainerReport(ctx context.Context, in *hadoop_yarn1.GetContainerReportRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetContainerReportResponseProto, error)
-	GetContainers(ctx context.Context, in *hadoop_yarn1.GetContainersRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetContainersResponseProto, error)
-	GetNewReservation(ctx context.Context, in *hadoop_yarn1.GetNewReservationRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetNewReservationResponseProto, error)
-	SubmitReservation(ctx context.Context, in *hadoop_yarn1.ReservationSubmissionRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.ReservationSubmissionResponseProto, error)
-	UpdateReservation(ctx context.Context, in *hadoop_yarn1.ReservationUpdateRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.ReservationUpdateResponseProto, error)
-	DeleteReservation(ctx context.Context, in *hadoop_yarn1.ReservationDeleteRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.ReservationDeleteResponseProto, error)
-	ListReservations(ctx context.Context, in *hadoop_yarn1.ReservationListRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.ReservationListResponseProto, error)
-	GetNodeToLabels(ctx context.Context, in *hadoop_yarn1.GetNodesToLabelsRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetNodesToLabelsResponseProto, error)
-	GetLabelsToNodes(ctx context.Context, in *hadoop_yarn1.GetLabelsToNodesRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetLabelsToNodesResponseProto, error)
-	GetClusterNodeLabels(ctx context.Context, in *hadoop_yarn1.GetClusterNodeLabelsRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetClusterNodeLabelsResponseProto, error)
-	UpdateApplicationPriority(ctx context.Context, in *hadoop_yarn1.UpdateApplicationPriorityRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.UpdateApplicationPriorityResponseProto, error)
-	SignalToContainer(ctx context.Context, in *hadoop_yarn1.SignalContainerRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.SignalContainerResponseProto, error)
+	MoveApplicationAcrossQueues(ctx context.Context, in *MoveApplicationAcrossQueuesRequestProto, opts ...grpc.CallOption) (*MoveApplicationAcrossQueuesResponseProto, error)
+	GetApplicationAttemptReport(ctx context.Context, in *GetApplicationAttemptReportRequestProto, opts ...grpc.CallOption) (*GetApplicationAttemptReportResponseProto, error)
+	GetApplicationAttempts(ctx context.Context, in *GetApplicationAttemptsRequestProto, opts ...grpc.CallOption) (*GetApplicationAttemptsResponseProto, error)
+	GetContainerReport(ctx context.Context, in *GetContainerReportRequestProto, opts ...grpc.CallOption) (*GetContainerReportResponseProto, error)
+	GetContainers(ctx context.Context, in *GetContainersRequestProto, opts ...grpc.CallOption) (*GetContainersResponseProto, error)
+	GetNewReservation(ctx context.Context, in *GetNewReservationRequestProto, opts ...grpc.CallOption) (*GetNewReservationResponseProto, error)
+	SubmitReservation(ctx context.Context, in *ReservationSubmissionRequestProto, opts ...grpc.CallOption) (*ReservationSubmissionResponseProto, error)
+	UpdateReservation(ctx context.Context, in *ReservationUpdateRequestProto, opts ...grpc.CallOption) (*ReservationUpdateResponseProto, error)
+	DeleteReservation(ctx context.Context, in *ReservationDeleteRequestProto, opts ...grpc.CallOption) (*ReservationDeleteResponseProto, error)
+	ListReservations(ctx context.Context, in *ReservationListRequestProto, opts ...grpc.CallOption) (*ReservationListResponseProto, error)
+	GetNodeToLabels(ctx context.Context, in *GetNodesToLabelsRequestProto, opts ...grpc.CallOption) (*GetNodesToLabelsResponseProto, error)
+	GetLabelsToNodes(ctx context.Context, in *GetLabelsToNodesRequestProto, opts ...grpc.CallOption) (*GetLabelsToNodesResponseProto, error)
+	GetClusterNodeLabels(ctx context.Context, in *GetClusterNodeLabelsRequestProto, opts ...grpc.CallOption) (*GetClusterNodeLabelsResponseProto, error)
+	UpdateApplicationPriority(ctx context.Context, in *UpdateApplicationPriorityRequestProto, opts ...grpc.CallOption) (*UpdateApplicationPriorityResponseProto, error)
+	SignalToContainer(ctx context.Context, in *SignalContainerRequestProto, opts ...grpc.CallOption) (*SignalContainerResponseProto, error)
 }
 
 type applicationClientProtocolServiceClient struct {
@@ -83,8 +68,8 @@ func NewApplicationClientProtocolServiceClient(cc *grpc.ClientConn) ApplicationC
 	return &applicationClientProtocolServiceClient{cc}
 }
 
-func (c *applicationClientProtocolServiceClient) GetNewApplication(ctx context.Context, in *hadoop_yarn1.GetNewApplicationRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetNewApplicationResponseProto, error) {
-	out := new(hadoop_yarn1.GetNewApplicationResponseProto)
+func (c *applicationClientProtocolServiceClient) GetNewApplication(ctx context.Context, in *GetNewApplicationRequestProto, opts ...grpc.CallOption) (*GetNewApplicationResponseProto, error) {
+	out := new(GetNewApplicationResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ApplicationClientProtocolService/getNewApplication", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -92,8 +77,8 @@ func (c *applicationClientProtocolServiceClient) GetNewApplication(ctx context.C
 	return out, nil
 }
 
-func (c *applicationClientProtocolServiceClient) GetApplicationReport(ctx context.Context, in *hadoop_yarn1.GetApplicationReportRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetApplicationReportResponseProto, error) {
-	out := new(hadoop_yarn1.GetApplicationReportResponseProto)
+func (c *applicationClientProtocolServiceClient) GetApplicationReport(ctx context.Context, in *GetApplicationReportRequestProto, opts ...grpc.CallOption) (*GetApplicationReportResponseProto, error) {
+	out := new(GetApplicationReportResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ApplicationClientProtocolService/getApplicationReport", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -101,8 +86,8 @@ func (c *applicationClientProtocolServiceClient) GetApplicationReport(ctx contex
 	return out, nil
 }
 
-func (c *applicationClientProtocolServiceClient) SubmitApplication(ctx context.Context, in *hadoop_yarn1.SubmitApplicationRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.SubmitApplicationResponseProto, error) {
-	out := new(hadoop_yarn1.SubmitApplicationResponseProto)
+func (c *applicationClientProtocolServiceClient) SubmitApplication(ctx context.Context, in *SubmitApplicationRequestProto, opts ...grpc.CallOption) (*SubmitApplicationResponseProto, error) {
+	out := new(SubmitApplicationResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ApplicationClientProtocolService/submitApplication", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -110,8 +95,8 @@ func (c *applicationClientProtocolServiceClient) SubmitApplication(ctx context.C
 	return out, nil
 }
 
-func (c *applicationClientProtocolServiceClient) FailApplicationAttempt(ctx context.Context, in *hadoop_yarn1.FailApplicationAttemptRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.FailApplicationAttemptResponseProto, error) {
-	out := new(hadoop_yarn1.FailApplicationAttemptResponseProto)
+func (c *applicationClientProtocolServiceClient) FailApplicationAttempt(ctx context.Context, in *FailApplicationAttemptRequestProto, opts ...grpc.CallOption) (*FailApplicationAttemptResponseProto, error) {
+	out := new(FailApplicationAttemptResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ApplicationClientProtocolService/failApplicationAttempt", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -119,8 +104,8 @@ func (c *applicationClientProtocolServiceClient) FailApplicationAttempt(ctx cont
 	return out, nil
 }
 
-func (c *applicationClientProtocolServiceClient) ForceKillApplication(ctx context.Context, in *hadoop_yarn1.KillApplicationRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.KillApplicationResponseProto, error) {
-	out := new(hadoop_yarn1.KillApplicationResponseProto)
+func (c *applicationClientProtocolServiceClient) ForceKillApplication(ctx context.Context, in *KillApplicationRequestProto, opts ...grpc.CallOption) (*KillApplicationResponseProto, error) {
+	out := new(KillApplicationResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ApplicationClientProtocolService/forceKillApplication", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -128,8 +113,8 @@ func (c *applicationClientProtocolServiceClient) ForceKillApplication(ctx contex
 	return out, nil
 }
 
-func (c *applicationClientProtocolServiceClient) GetClusterMetrics(ctx context.Context, in *hadoop_yarn1.GetClusterMetricsRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetClusterMetricsResponseProto, error) {
-	out := new(hadoop_yarn1.GetClusterMetricsResponseProto)
+func (c *applicationClientProtocolServiceClient) GetClusterMetrics(ctx context.Context, in *GetClusterMetricsRequestProto, opts ...grpc.CallOption) (*GetClusterMetricsResponseProto, error) {
+	out := new(GetClusterMetricsResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ApplicationClientProtocolService/getClusterMetrics", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -137,8 +122,8 @@ func (c *applicationClientProtocolServiceClient) GetClusterMetrics(ctx context.C
 	return out, nil
 }
 
-func (c *applicationClientProtocolServiceClient) GetApplications(ctx context.Context, in *hadoop_yarn1.GetApplicationsRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetApplicationsResponseProto, error) {
-	out := new(hadoop_yarn1.GetApplicationsResponseProto)
+func (c *applicationClientProtocolServiceClient) GetApplications(ctx context.Context, in *GetApplicationsRequestProto, opts ...grpc.CallOption) (*GetApplicationsResponseProto, error) {
+	out := new(GetApplicationsResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ApplicationClientProtocolService/getApplications", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -146,8 +131,8 @@ func (c *applicationClientProtocolServiceClient) GetApplications(ctx context.Con
 	return out, nil
 }
 
-func (c *applicationClientProtocolServiceClient) GetClusterNodes(ctx context.Context, in *hadoop_yarn1.GetClusterNodesRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetClusterNodesResponseProto, error) {
-	out := new(hadoop_yarn1.GetClusterNodesResponseProto)
+func (c *applicationClientProtocolServiceClient) GetClusterNodes(ctx context.Context, in *GetClusterNodesRequestProto, opts ...grpc.CallOption) (*GetClusterNodesResponseProto, error) {
+	out := new(GetClusterNodesResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ApplicationClientProtocolService/getClusterNodes", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -155,8 +140,8 @@ func (c *applicationClientProtocolServiceClient) GetClusterNodes(ctx context.Con
 	return out, nil
 }
 
-func (c *applicationClientProtocolServiceClient) GetQueueInfo(ctx context.Context, in *hadoop_yarn1.GetQueueInfoRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetQueueInfoResponseProto, error) {
-	out := new(hadoop_yarn1.GetQueueInfoResponseProto)
+func (c *applicationClientProtocolServiceClient) GetQueueInfo(ctx context.Context, in *GetQueueInfoRequestProto, opts ...grpc.CallOption) (*GetQueueInfoResponseProto, error) {
+	out := new(GetQueueInfoResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ApplicationClientProtocolService/getQueueInfo", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -164,8 +149,8 @@ func (c *applicationClientProtocolServiceClient) GetQueueInfo(ctx context.Contex
 	return out, nil
 }
 
-func (c *applicationClientProtocolServiceClient) GetQueueUserAcls(ctx context.Context, in *hadoop_yarn1.GetQueueUserAclsInfoRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetQueueUserAclsInfoResponseProto, error) {
-	out := new(hadoop_yarn1.GetQueueUserAclsInfoResponseProto)
+func (c *applicationClientProtocolServiceClient) GetQueueUserAcls(ctx context.Context, in *GetQueueUserAclsInfoRequestProto, opts ...grpc.CallOption) (*GetQueueUserAclsInfoResponseProto, error) {
+	out := new(GetQueueUserAclsInfoResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ApplicationClientProtocolService/getQueueUserAcls", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -200,8 +185,8 @@ func (c *applicationClientProtocolServiceClient) CancelDelegationToken(ctx conte
 	return out, nil
 }
 
-func (c *applicationClientProtocolServiceClient) MoveApplicationAcrossQueues(ctx context.Context, in *hadoop_yarn1.MoveApplicationAcrossQueuesRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.MoveApplicationAcrossQueuesResponseProto, error) {
-	out := new(hadoop_yarn1.MoveApplicationAcrossQueuesResponseProto)
+func (c *applicationClientProtocolServiceClient) MoveApplicationAcrossQueues(ctx context.Context, in *MoveApplicationAcrossQueuesRequestProto, opts ...grpc.CallOption) (*MoveApplicationAcrossQueuesResponseProto, error) {
+	out := new(MoveApplicationAcrossQueuesResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ApplicationClientProtocolService/moveApplicationAcrossQueues", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -209,8 +194,8 @@ func (c *applicationClientProtocolServiceClient) MoveApplicationAcrossQueues(ctx
 	return out, nil
 }
 
-func (c *applicationClientProtocolServiceClient) GetApplicationAttemptReport(ctx context.Context, in *hadoop_yarn1.GetApplicationAttemptReportRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetApplicationAttemptReportResponseProto, error) {
-	out := new(hadoop_yarn1.GetApplicationAttemptReportResponseProto)
+func (c *applicationClientProtocolServiceClient) GetApplicationAttemptReport(ctx context.Context, in *GetApplicationAttemptReportRequestProto, opts ...grpc.CallOption) (*GetApplicationAttemptReportResponseProto, error) {
+	out := new(GetApplicationAttemptReportResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ApplicationClientProtocolService/getApplicationAttemptReport", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -218,8 +203,8 @@ func (c *applicationClientProtocolServiceClient) GetApplicationAttemptReport(ctx
 	return out, nil
 }
 
-func (c *applicationClientProtocolServiceClient) GetApplicationAttempts(ctx context.Context, in *hadoop_yarn1.GetApplicationAttemptsRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetApplicationAttemptsResponseProto, error) {
-	out := new(hadoop_yarn1.GetApplicationAttemptsResponseProto)
+func (c *applicationClientProtocolServiceClient) GetApplicationAttempts(ctx context.Context, in *GetApplicationAttemptsRequestProto, opts ...grpc.CallOption) (*GetApplicationAttemptsResponseProto, error) {
+	out := new(GetApplicationAttemptsResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ApplicationClientProtocolService/getApplicationAttempts", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -227,8 +212,8 @@ func (c *applicationClientProtocolServiceClient) GetApplicationAttempts(ctx cont
 	return out, nil
 }
 
-func (c *applicationClientProtocolServiceClient) GetContainerReport(ctx context.Context, in *hadoop_yarn1.GetContainerReportRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetContainerReportResponseProto, error) {
-	out := new(hadoop_yarn1.GetContainerReportResponseProto)
+func (c *applicationClientProtocolServiceClient) GetContainerReport(ctx context.Context, in *GetContainerReportRequestProto, opts ...grpc.CallOption) (*GetContainerReportResponseProto, error) {
+	out := new(GetContainerReportResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ApplicationClientProtocolService/getContainerReport", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -236,8 +221,8 @@ func (c *applicationClientProtocolServiceClient) GetContainerReport(ctx context.
 	return out, nil
 }
 
-func (c *applicationClientProtocolServiceClient) GetContainers(ctx context.Context, in *hadoop_yarn1.GetContainersRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetContainersResponseProto, error) {
-	out := new(hadoop_yarn1.GetContainersResponseProto)
+func (c *applicationClientProtocolServiceClient) GetContainers(ctx context.Context, in *GetContainersRequestProto, opts ...grpc.CallOption) (*GetContainersResponseProto, error) {
+	out := new(GetContainersResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ApplicationClientProtocolService/getContainers", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -245,8 +230,8 @@ func (c *applicationClientProtocolServiceClient) GetContainers(ctx context.Conte
 	return out, nil
 }
 
-func (c *applicationClientProtocolServiceClient) GetNewReservation(ctx context.Context, in *hadoop_yarn1.GetNewReservationRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetNewReservationResponseProto, error) {
-	out := new(hadoop_yarn1.GetNewReservationResponseProto)
+func (c *applicationClientProtocolServiceClient) GetNewReservation(ctx context.Context, in *GetNewReservationRequestProto, opts ...grpc.CallOption) (*GetNewReservationResponseProto, error) {
+	out := new(GetNewReservationResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ApplicationClientProtocolService/getNewReservation", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -254,8 +239,8 @@ func (c *applicationClientProtocolServiceClient) GetNewReservation(ctx context.C
 	return out, nil
 }
 
-func (c *applicationClientProtocolServiceClient) SubmitReservation(ctx context.Context, in *hadoop_yarn1.ReservationSubmissionRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.ReservationSubmissionResponseProto, error) {
-	out := new(hadoop_yarn1.ReservationSubmissionResponseProto)
+func (c *applicationClientProtocolServiceClient) SubmitReservation(ctx context.Context, in *ReservationSubmissionRequestProto, opts ...grpc.CallOption) (*ReservationSubmissionResponseProto, error) {
+	out := new(ReservationSubmissionResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ApplicationClientProtocolService/submitReservation", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -263,8 +248,8 @@ func (c *applicationClientProtocolServiceClient) SubmitReservation(ctx context.C
 	return out, nil
 }
 
-func (c *applicationClientProtocolServiceClient) UpdateReservation(ctx context.Context, in *hadoop_yarn1.ReservationUpdateRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.ReservationUpdateResponseProto, error) {
-	out := new(hadoop_yarn1.ReservationUpdateResponseProto)
+func (c *applicationClientProtocolServiceClient) UpdateReservation(ctx context.Context, in *ReservationUpdateRequestProto, opts ...grpc.CallOption) (*ReservationUpdateResponseProto, error) {
+	out := new(ReservationUpdateResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ApplicationClientProtocolService/updateReservation", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -272,8 +257,8 @@ func (c *applicationClientProtocolServiceClient) UpdateReservation(ctx context.C
 	return out, nil
 }
 
-func (c *applicationClientProtocolServiceClient) DeleteReservation(ctx context.Context, in *hadoop_yarn1.ReservationDeleteRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.ReservationDeleteResponseProto, error) {
-	out := new(hadoop_yarn1.ReservationDeleteResponseProto)
+func (c *applicationClientProtocolServiceClient) DeleteReservation(ctx context.Context, in *ReservationDeleteRequestProto, opts ...grpc.CallOption) (*ReservationDeleteResponseProto, error) {
+	out := new(ReservationDeleteResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ApplicationClientProtocolService/deleteReservation", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -281,8 +266,8 @@ func (c *applicationClientProtocolServiceClient) DeleteReservation(ctx context.C
 	return out, nil
 }
 
-func (c *applicationClientProtocolServiceClient) ListReservations(ctx context.Context, in *hadoop_yarn1.ReservationListRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.ReservationListResponseProto, error) {
-	out := new(hadoop_yarn1.ReservationListResponseProto)
+func (c *applicationClientProtocolServiceClient) ListReservations(ctx context.Context, in *ReservationListRequestProto, opts ...grpc.CallOption) (*ReservationListResponseProto, error) {
+	out := new(ReservationListResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ApplicationClientProtocolService/listReservations", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -290,8 +275,8 @@ func (c *applicationClientProtocolServiceClient) ListReservations(ctx context.Co
 	return out, nil
 }
 
-func (c *applicationClientProtocolServiceClient) GetNodeToLabels(ctx context.Context, in *hadoop_yarn1.GetNodesToLabelsRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetNodesToLabelsResponseProto, error) {
-	out := new(hadoop_yarn1.GetNodesToLabelsResponseProto)
+func (c *applicationClientProtocolServiceClient) GetNodeToLabels(ctx context.Context, in *GetNodesToLabelsRequestProto, opts ...grpc.CallOption) (*GetNodesToLabelsResponseProto, error) {
+	out := new(GetNodesToLabelsResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ApplicationClientProtocolService/getNodeToLabels", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -299,8 +284,8 @@ func (c *applicationClientProtocolServiceClient) GetNodeToLabels(ctx context.Con
 	return out, nil
 }
 
-func (c *applicationClientProtocolServiceClient) GetLabelsToNodes(ctx context.Context, in *hadoop_yarn1.GetLabelsToNodesRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetLabelsToNodesResponseProto, error) {
-	out := new(hadoop_yarn1.GetLabelsToNodesResponseProto)
+func (c *applicationClientProtocolServiceClient) GetLabelsToNodes(ctx context.Context, in *GetLabelsToNodesRequestProto, opts ...grpc.CallOption) (*GetLabelsToNodesResponseProto, error) {
+	out := new(GetLabelsToNodesResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ApplicationClientProtocolService/getLabelsToNodes", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -308,8 +293,8 @@ func (c *applicationClientProtocolServiceClient) GetLabelsToNodes(ctx context.Co
 	return out, nil
 }
 
-func (c *applicationClientProtocolServiceClient) GetClusterNodeLabels(ctx context.Context, in *hadoop_yarn1.GetClusterNodeLabelsRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetClusterNodeLabelsResponseProto, error) {
-	out := new(hadoop_yarn1.GetClusterNodeLabelsResponseProto)
+func (c *applicationClientProtocolServiceClient) GetClusterNodeLabels(ctx context.Context, in *GetClusterNodeLabelsRequestProto, opts ...grpc.CallOption) (*GetClusterNodeLabelsResponseProto, error) {
+	out := new(GetClusterNodeLabelsResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ApplicationClientProtocolService/getClusterNodeLabels", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -317,8 +302,8 @@ func (c *applicationClientProtocolServiceClient) GetClusterNodeLabels(ctx contex
 	return out, nil
 }
 
-func (c *applicationClientProtocolServiceClient) UpdateApplicationPriority(ctx context.Context, in *hadoop_yarn1.UpdateApplicationPriorityRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.UpdateApplicationPriorityResponseProto, error) {
-	out := new(hadoop_yarn1.UpdateApplicationPriorityResponseProto)
+func (c *applicationClientProtocolServiceClient) UpdateApplicationPriority(ctx context.Context, in *UpdateApplicationPriorityRequestProto, opts ...grpc.CallOption) (*UpdateApplicationPriorityResponseProto, error) {
+	out := new(UpdateApplicationPriorityResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ApplicationClientProtocolService/updateApplicationPriority", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -326,8 +311,8 @@ func (c *applicationClientProtocolServiceClient) UpdateApplicationPriority(ctx c
 	return out, nil
 }
 
-func (c *applicationClientProtocolServiceClient) SignalToContainer(ctx context.Context, in *hadoop_yarn1.SignalContainerRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.SignalContainerResponseProto, error) {
-	out := new(hadoop_yarn1.SignalContainerResponseProto)
+func (c *applicationClientProtocolServiceClient) SignalToContainer(ctx context.Context, in *SignalContainerRequestProto, opts ...grpc.CallOption) (*SignalContainerResponseProto, error) {
+	out := new(SignalContainerResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ApplicationClientProtocolService/signalToContainer", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -338,34 +323,34 @@ func (c *applicationClientProtocolServiceClient) SignalToContainer(ctx context.C
 // Server API for ApplicationClientProtocolService service
 
 type ApplicationClientProtocolServiceServer interface {
-	GetNewApplication(context.Context, *hadoop_yarn1.GetNewApplicationRequestProto) (*hadoop_yarn1.GetNewApplicationResponseProto, error)
-	GetApplicationReport(context.Context, *hadoop_yarn1.GetApplicationReportRequestProto) (*hadoop_yarn1.GetApplicationReportResponseProto, error)
-	SubmitApplication(context.Context, *hadoop_yarn1.SubmitApplicationRequestProto) (*hadoop_yarn1.SubmitApplicationResponseProto, error)
-	FailApplicationAttempt(context.Context, *hadoop_yarn1.FailApplicationAttemptRequestProto) (*hadoop_yarn1.FailApplicationAttemptResponseProto, error)
-	ForceKillApplication(context.Context, *hadoop_yarn1.KillApplicationRequestProto) (*hadoop_yarn1.KillApplicationResponseProto, error)
-	GetClusterMetrics(context.Context, *hadoop_yarn1.GetClusterMetricsRequestProto) (*hadoop_yarn1.GetClusterMetricsResponseProto, error)
-	GetApplications(context.Context, *hadoop_yarn1.GetApplicationsRequestProto) (*hadoop_yarn1.GetApplicationsResponseProto, error)
-	GetClusterNodes(context.Context, *hadoop_yarn1.GetClusterNodesRequestProto) (*hadoop_yarn1.GetClusterNodesResponseProto, error)
-	GetQueueInfo(context.Context, *hadoop_yarn1.GetQueueInfoRequestProto) (*hadoop_yarn1.GetQueueInfoResponseProto, error)
-	GetQueueUserAcls(context.Context, *hadoop_yarn1.GetQueueUserAclsInfoRequestProto) (*hadoop_yarn1.GetQueueUserAclsInfoResponseProto, error)
+	GetNewApplication(context.Context, *GetNewApplicationRequestProto) (*GetNewApplicationResponseProto, error)
+	GetApplicationReport(context.Context, *GetApplicationReportRequestProto) (*GetApplicationReportResponseProto, error)
+	SubmitApplication(context.Context, *SubmitApplicationRequestProto) (*SubmitApplicationResponseProto, error)
+	FailApplicationAttempt(context.Context, *FailApplicationAttemptRequestProto) (*FailApplicationAttemptResponseProto, error)
+	ForceKillApplication(context.Context, *KillApplicationRequestProto) (*KillApplicationResponseProto, error)
+	GetClusterMetrics(context.Context, *GetClusterMetricsRequestProto) (*GetClusterMetricsResponseProto, error)
+	GetApplications(context.Context, *GetApplicationsRequestProto) (*GetApplicationsResponseProto, error)
+	GetClusterNodes(context.Context, *GetClusterNodesRequestProto) (*GetClusterNodesResponseProto, error)
+	GetQueueInfo(context.Context, *GetQueueInfoRequestProto) (*GetQueueInfoResponseProto, error)
+	GetQueueUserAcls(context.Context, *GetQueueUserAclsInfoRequestProto) (*GetQueueUserAclsInfoResponseProto, error)
 	GetDelegationToken(context.Context, *hadoop_common.GetDelegationTokenRequestProto) (*hadoop_common.GetDelegationTokenResponseProto, error)
 	RenewDelegationToken(context.Context, *hadoop_common.RenewDelegationTokenRequestProto) (*hadoop_common.RenewDelegationTokenResponseProto, error)
 	CancelDelegationToken(context.Context, *hadoop_common.CancelDelegationTokenRequestProto) (*hadoop_common.CancelDelegationTokenResponseProto, error)
-	MoveApplicationAcrossQueues(context.Context, *hadoop_yarn1.MoveApplicationAcrossQueuesRequestProto) (*hadoop_yarn1.MoveApplicationAcrossQueuesResponseProto, error)
-	GetApplicationAttemptReport(context.Context, *hadoop_yarn1.GetApplicationAttemptReportRequestProto) (*hadoop_yarn1.GetApplicationAttemptReportResponseProto, error)
-	GetApplicationAttempts(context.Context, *hadoop_yarn1.GetApplicationAttemptsRequestProto) (*hadoop_yarn1.GetApplicationAttemptsResponseProto, error)
-	GetContainerReport(context.Context, *hadoop_yarn1.GetContainerReportRequestProto) (*hadoop_yarn1.GetContainerReportResponseProto, error)
-	GetContainers(context.Context, *hadoop_yarn1.GetContainersRequestProto) (*hadoop_yarn1.GetContainersResponseProto, error)
-	GetNewReservation(context.Context, *hadoop_yarn1.GetNewReservationRequestProto) (*hadoop_yarn1.GetNewReservationResponseProto, error)
-	SubmitReservation(context.Context, *hadoop_yarn1.ReservationSubmissionRequestProto) (*hadoop_yarn1.ReservationSubmissionResponseProto, error)
-	UpdateReservation(context.Context, *hadoop_yarn1.ReservationUpdateRequestProto) (*hadoop_yarn1.ReservationUpdateResponseProto, error)
-	DeleteReservation(context.Context, *hadoop_yarn1.ReservationDeleteRequestProto) (*hadoop_yarn1.ReservationDeleteResponseProto, error)
-	ListReservations(context.Context, *hadoop_yarn1.ReservationListRequestProto) (*hadoop_yarn1.ReservationListResponseProto, error)
-	GetNodeToLabels(context.Context, *hadoop_yarn1.GetNodesToLabelsRequestProto) (*hadoop_yarn1.GetNodesToLabelsResponseProto, error)
-	GetLabelsToNodes(context.Context, *hadoop_yarn1.GetLabelsToNodesRequestProto) (*hadoop_yarn1.GetLabelsToNodesResponseProto, error)
-	GetClusterNodeLabels(context.Context, *hadoop_yarn1.GetClusterNodeLabelsRequestProto) (*hadoop_yarn1.GetClusterNodeLabelsResponseProto, error)
-	UpdateApplicationPriority(context.Context, *hadoop_yarn1.UpdateApplicationPriorityRequestProto) (*hadoop_yarn1.UpdateApplicationPriorityResponseProto, error)
-	SignalToContainer(context.Context, *hadoop_yarn1.SignalContainerRequestProto) (*hadoop_yarn1.SignalContainerResponseProto, error)
+	MoveApplicationAcrossQueues(context.Context, *MoveApplicationAcrossQueuesRequestProto) (*MoveApplicationAcrossQueuesResponseProto, error)
+	GetApplicationAttemptReport(context.Context, *GetApplicationAttemptReportRequestProto) (*GetApplicationAttemptReportResponseProto, error)
+	GetApplicationAttempts(context.Context, *GetApplicationAttemptsRequestProto) (*GetApplicationAttemptsResponseProto, error)
+	GetContainerReport(context.Context, *GetContainerReportRequestProto) (*GetContainerReportResponseProto, error)
+	GetContainers(context.Context, *GetContainersRequestProto) (*GetContainersResponseProto, error)
+	GetNewReservation(context.Context, *GetNewReservationRequestProto) (*GetNewReservationResponseProto, error)
+	SubmitReservation(context.Context, *ReservationSubmissionRequestProto) (*ReservationSubmissionResponseProto, error)
+	UpdateReservation(context.Context, *ReservationUpdateRequestProto) (*ReservationUpdateResponseProto, error)
+	DeleteReservation(context.Context, *ReservationDeleteRequestProto) (*ReservationDeleteResponseProto, error)
+	ListReservations(context.Context, *ReservationListRequestProto) (*ReservationListResponseProto, error)
+	GetNodeToLabels(context.Context, *GetNodesToLabelsRequestProto) (*GetNodesToLabelsResponseProto, error)
+	GetLabelsToNodes(context.Context, *GetLabelsToNodesRequestProto) (*GetLabelsToNodesResponseProto, error)
+	GetClusterNodeLabels(context.Context, *GetClusterNodeLabelsRequestProto) (*GetClusterNodeLabelsResponseProto, error)
+	UpdateApplicationPriority(context.Context, *UpdateApplicationPriorityRequestProto) (*UpdateApplicationPriorityResponseProto, error)
+	SignalToContainer(context.Context, *SignalContainerRequestProto) (*SignalContainerResponseProto, error)
 }
 
 func RegisterApplicationClientProtocolServiceServer(s *grpc.Server, srv ApplicationClientProtocolServiceServer) {
@@ -373,7 +358,7 @@ func RegisterApplicationClientProtocolServiceServer(s *grpc.Server, srv Applicat
 }
 
 func _ApplicationClientProtocolService_GetNewApplication_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn1.GetNewApplicationRequestProto)
+	in := new(GetNewApplicationRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -385,13 +370,13 @@ func _ApplicationClientProtocolService_GetNewApplication_Handler(srv interface{}
 		FullMethod: "/hadoop.yarn.ApplicationClientProtocolService/GetNewApplication",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ApplicationClientProtocolServiceServer).GetNewApplication(ctx, req.(*hadoop_yarn1.GetNewApplicationRequestProto))
+		return srv.(ApplicationClientProtocolServiceServer).GetNewApplication(ctx, req.(*GetNewApplicationRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ApplicationClientProtocolService_GetApplicationReport_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn1.GetApplicationReportRequestProto)
+	in := new(GetApplicationReportRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -403,13 +388,13 @@ func _ApplicationClientProtocolService_GetApplicationReport_Handler(srv interfac
 		FullMethod: "/hadoop.yarn.ApplicationClientProtocolService/GetApplicationReport",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ApplicationClientProtocolServiceServer).GetApplicationReport(ctx, req.(*hadoop_yarn1.GetApplicationReportRequestProto))
+		return srv.(ApplicationClientProtocolServiceServer).GetApplicationReport(ctx, req.(*GetApplicationReportRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ApplicationClientProtocolService_SubmitApplication_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn1.SubmitApplicationRequestProto)
+	in := new(SubmitApplicationRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -421,13 +406,13 @@ func _ApplicationClientProtocolService_SubmitApplication_Handler(srv interface{}
 		FullMethod: "/hadoop.yarn.ApplicationClientProtocolService/SubmitApplication",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ApplicationClientProtocolServiceServer).SubmitApplication(ctx, req.(*hadoop_yarn1.SubmitApplicationRequestProto))
+		return srv.(ApplicationClientProtocolServiceServer).SubmitApplication(ctx, req.(*SubmitApplicationRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ApplicationClientProtocolService_FailApplicationAttempt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn1.FailApplicationAttemptRequestProto)
+	in := new(FailApplicationAttemptRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -439,13 +424,13 @@ func _ApplicationClientProtocolService_FailApplicationAttempt_Handler(srv interf
 		FullMethod: "/hadoop.yarn.ApplicationClientProtocolService/FailApplicationAttempt",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ApplicationClientProtocolServiceServer).FailApplicationAttempt(ctx, req.(*hadoop_yarn1.FailApplicationAttemptRequestProto))
+		return srv.(ApplicationClientProtocolServiceServer).FailApplicationAttempt(ctx, req.(*FailApplicationAttemptRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ApplicationClientProtocolService_ForceKillApplication_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn1.KillApplicationRequestProto)
+	in := new(KillApplicationRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -457,13 +442,13 @@ func _ApplicationClientProtocolService_ForceKillApplication_Handler(srv interfac
 		FullMethod: "/hadoop.yarn.ApplicationClientProtocolService/ForceKillApplication",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ApplicationClientProtocolServiceServer).ForceKillApplication(ctx, req.(*hadoop_yarn1.KillApplicationRequestProto))
+		return srv.(ApplicationClientProtocolServiceServer).ForceKillApplication(ctx, req.(*KillApplicationRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ApplicationClientProtocolService_GetClusterMetrics_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn1.GetClusterMetricsRequestProto)
+	in := new(GetClusterMetricsRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -475,13 +460,13 @@ func _ApplicationClientProtocolService_GetClusterMetrics_Handler(srv interface{}
 		FullMethod: "/hadoop.yarn.ApplicationClientProtocolService/GetClusterMetrics",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ApplicationClientProtocolServiceServer).GetClusterMetrics(ctx, req.(*hadoop_yarn1.GetClusterMetricsRequestProto))
+		return srv.(ApplicationClientProtocolServiceServer).GetClusterMetrics(ctx, req.(*GetClusterMetricsRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ApplicationClientProtocolService_GetApplications_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn1.GetApplicationsRequestProto)
+	in := new(GetApplicationsRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -493,13 +478,13 @@ func _ApplicationClientProtocolService_GetApplications_Handler(srv interface{}, 
 		FullMethod: "/hadoop.yarn.ApplicationClientProtocolService/GetApplications",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ApplicationClientProtocolServiceServer).GetApplications(ctx, req.(*hadoop_yarn1.GetApplicationsRequestProto))
+		return srv.(ApplicationClientProtocolServiceServer).GetApplications(ctx, req.(*GetApplicationsRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ApplicationClientProtocolService_GetClusterNodes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn1.GetClusterNodesRequestProto)
+	in := new(GetClusterNodesRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -511,13 +496,13 @@ func _ApplicationClientProtocolService_GetClusterNodes_Handler(srv interface{}, 
 		FullMethod: "/hadoop.yarn.ApplicationClientProtocolService/GetClusterNodes",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ApplicationClientProtocolServiceServer).GetClusterNodes(ctx, req.(*hadoop_yarn1.GetClusterNodesRequestProto))
+		return srv.(ApplicationClientProtocolServiceServer).GetClusterNodes(ctx, req.(*GetClusterNodesRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ApplicationClientProtocolService_GetQueueInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn1.GetQueueInfoRequestProto)
+	in := new(GetQueueInfoRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -529,13 +514,13 @@ func _ApplicationClientProtocolService_GetQueueInfo_Handler(srv interface{}, ctx
 		FullMethod: "/hadoop.yarn.ApplicationClientProtocolService/GetQueueInfo",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ApplicationClientProtocolServiceServer).GetQueueInfo(ctx, req.(*hadoop_yarn1.GetQueueInfoRequestProto))
+		return srv.(ApplicationClientProtocolServiceServer).GetQueueInfo(ctx, req.(*GetQueueInfoRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ApplicationClientProtocolService_GetQueueUserAcls_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn1.GetQueueUserAclsInfoRequestProto)
+	in := new(GetQueueUserAclsInfoRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -547,7 +532,7 @@ func _ApplicationClientProtocolService_GetQueueUserAcls_Handler(srv interface{},
 		FullMethod: "/hadoop.yarn.ApplicationClientProtocolService/GetQueueUserAcls",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ApplicationClientProtocolServiceServer).GetQueueUserAcls(ctx, req.(*hadoop_yarn1.GetQueueUserAclsInfoRequestProto))
+		return srv.(ApplicationClientProtocolServiceServer).GetQueueUserAcls(ctx, req.(*GetQueueUserAclsInfoRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -607,7 +592,7 @@ func _ApplicationClientProtocolService_CancelDelegationToken_Handler(srv interfa
 }
 
 func _ApplicationClientProtocolService_MoveApplicationAcrossQueues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn1.MoveApplicationAcrossQueuesRequestProto)
+	in := new(MoveApplicationAcrossQueuesRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -619,13 +604,13 @@ func _ApplicationClientProtocolService_MoveApplicationAcrossQueues_Handler(srv i
 		FullMethod: "/hadoop.yarn.ApplicationClientProtocolService/MoveApplicationAcrossQueues",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ApplicationClientProtocolServiceServer).MoveApplicationAcrossQueues(ctx, req.(*hadoop_yarn1.MoveApplicationAcrossQueuesRequestProto))
+		return srv.(ApplicationClientProtocolServiceServer).MoveApplicationAcrossQueues(ctx, req.(*MoveApplicationAcrossQueuesRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ApplicationClientProtocolService_GetApplicationAttemptReport_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn1.GetApplicationAttemptReportRequestProto)
+	in := new(GetApplicationAttemptReportRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -637,13 +622,13 @@ func _ApplicationClientProtocolService_GetApplicationAttemptReport_Handler(srv i
 		FullMethod: "/hadoop.yarn.ApplicationClientProtocolService/GetApplicationAttemptReport",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ApplicationClientProtocolServiceServer).GetApplicationAttemptReport(ctx, req.(*hadoop_yarn1.GetApplicationAttemptReportRequestProto))
+		return srv.(ApplicationClientProtocolServiceServer).GetApplicationAttemptReport(ctx, req.(*GetApplicationAttemptReportRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ApplicationClientProtocolService_GetApplicationAttempts_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn1.GetApplicationAttemptsRequestProto)
+	in := new(GetApplicationAttemptsRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -655,13 +640,13 @@ func _ApplicationClientProtocolService_GetApplicationAttempts_Handler(srv interf
 		FullMethod: "/hadoop.yarn.ApplicationClientProtocolService/GetApplicationAttempts",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ApplicationClientProtocolServiceServer).GetApplicationAttempts(ctx, req.(*hadoop_yarn1.GetApplicationAttemptsRequestProto))
+		return srv.(ApplicationClientProtocolServiceServer).GetApplicationAttempts(ctx, req.(*GetApplicationAttemptsRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ApplicationClientProtocolService_GetContainerReport_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn1.GetContainerReportRequestProto)
+	in := new(GetContainerReportRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -673,13 +658,13 @@ func _ApplicationClientProtocolService_GetContainerReport_Handler(srv interface{
 		FullMethod: "/hadoop.yarn.ApplicationClientProtocolService/GetContainerReport",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ApplicationClientProtocolServiceServer).GetContainerReport(ctx, req.(*hadoop_yarn1.GetContainerReportRequestProto))
+		return srv.(ApplicationClientProtocolServiceServer).GetContainerReport(ctx, req.(*GetContainerReportRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ApplicationClientProtocolService_GetContainers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn1.GetContainersRequestProto)
+	in := new(GetContainersRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -691,13 +676,13 @@ func _ApplicationClientProtocolService_GetContainers_Handler(srv interface{}, ct
 		FullMethod: "/hadoop.yarn.ApplicationClientProtocolService/GetContainers",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ApplicationClientProtocolServiceServer).GetContainers(ctx, req.(*hadoop_yarn1.GetContainersRequestProto))
+		return srv.(ApplicationClientProtocolServiceServer).GetContainers(ctx, req.(*GetContainersRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ApplicationClientProtocolService_GetNewReservation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn1.GetNewReservationRequestProto)
+	in := new(GetNewReservationRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -709,13 +694,13 @@ func _ApplicationClientProtocolService_GetNewReservation_Handler(srv interface{}
 		FullMethod: "/hadoop.yarn.ApplicationClientProtocolService/GetNewReservation",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ApplicationClientProtocolServiceServer).GetNewReservation(ctx, req.(*hadoop_yarn1.GetNewReservationRequestProto))
+		return srv.(ApplicationClientProtocolServiceServer).GetNewReservation(ctx, req.(*GetNewReservationRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ApplicationClientProtocolService_SubmitReservation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn1.ReservationSubmissionRequestProto)
+	in := new(ReservationSubmissionRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -727,13 +712,13 @@ func _ApplicationClientProtocolService_SubmitReservation_Handler(srv interface{}
 		FullMethod: "/hadoop.yarn.ApplicationClientProtocolService/SubmitReservation",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ApplicationClientProtocolServiceServer).SubmitReservation(ctx, req.(*hadoop_yarn1.ReservationSubmissionRequestProto))
+		return srv.(ApplicationClientProtocolServiceServer).SubmitReservation(ctx, req.(*ReservationSubmissionRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ApplicationClientProtocolService_UpdateReservation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn1.ReservationUpdateRequestProto)
+	in := new(ReservationUpdateRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -745,13 +730,13 @@ func _ApplicationClientProtocolService_UpdateReservation_Handler(srv interface{}
 		FullMethod: "/hadoop.yarn.ApplicationClientProtocolService/UpdateReservation",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ApplicationClientProtocolServiceServer).UpdateReservation(ctx, req.(*hadoop_yarn1.ReservationUpdateRequestProto))
+		return srv.(ApplicationClientProtocolServiceServer).UpdateReservation(ctx, req.(*ReservationUpdateRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ApplicationClientProtocolService_DeleteReservation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn1.ReservationDeleteRequestProto)
+	in := new(ReservationDeleteRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -763,13 +748,13 @@ func _ApplicationClientProtocolService_DeleteReservation_Handler(srv interface{}
 		FullMethod: "/hadoop.yarn.ApplicationClientProtocolService/DeleteReservation",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ApplicationClientProtocolServiceServer).DeleteReservation(ctx, req.(*hadoop_yarn1.ReservationDeleteRequestProto))
+		return srv.(ApplicationClientProtocolServiceServer).DeleteReservation(ctx, req.(*ReservationDeleteRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ApplicationClientProtocolService_ListReservations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn1.ReservationListRequestProto)
+	in := new(ReservationListRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -781,13 +766,13 @@ func _ApplicationClientProtocolService_ListReservations_Handler(srv interface{},
 		FullMethod: "/hadoop.yarn.ApplicationClientProtocolService/ListReservations",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ApplicationClientProtocolServiceServer).ListReservations(ctx, req.(*hadoop_yarn1.ReservationListRequestProto))
+		return srv.(ApplicationClientProtocolServiceServer).ListReservations(ctx, req.(*ReservationListRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ApplicationClientProtocolService_GetNodeToLabels_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn1.GetNodesToLabelsRequestProto)
+	in := new(GetNodesToLabelsRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -799,13 +784,13 @@ func _ApplicationClientProtocolService_GetNodeToLabels_Handler(srv interface{}, 
 		FullMethod: "/hadoop.yarn.ApplicationClientProtocolService/GetNodeToLabels",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ApplicationClientProtocolServiceServer).GetNodeToLabels(ctx, req.(*hadoop_yarn1.GetNodesToLabelsRequestProto))
+		return srv.(ApplicationClientProtocolServiceServer).GetNodeToLabels(ctx, req.(*GetNodesToLabelsRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ApplicationClientProtocolService_GetLabelsToNodes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn1.GetLabelsToNodesRequestProto)
+	in := new(GetLabelsToNodesRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -817,13 +802,13 @@ func _ApplicationClientProtocolService_GetLabelsToNodes_Handler(srv interface{},
 		FullMethod: "/hadoop.yarn.ApplicationClientProtocolService/GetLabelsToNodes",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ApplicationClientProtocolServiceServer).GetLabelsToNodes(ctx, req.(*hadoop_yarn1.GetLabelsToNodesRequestProto))
+		return srv.(ApplicationClientProtocolServiceServer).GetLabelsToNodes(ctx, req.(*GetLabelsToNodesRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ApplicationClientProtocolService_GetClusterNodeLabels_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn1.GetClusterNodeLabelsRequestProto)
+	in := new(GetClusterNodeLabelsRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -835,13 +820,13 @@ func _ApplicationClientProtocolService_GetClusterNodeLabels_Handler(srv interfac
 		FullMethod: "/hadoop.yarn.ApplicationClientProtocolService/GetClusterNodeLabels",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ApplicationClientProtocolServiceServer).GetClusterNodeLabels(ctx, req.(*hadoop_yarn1.GetClusterNodeLabelsRequestProto))
+		return srv.(ApplicationClientProtocolServiceServer).GetClusterNodeLabels(ctx, req.(*GetClusterNodeLabelsRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ApplicationClientProtocolService_UpdateApplicationPriority_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn1.UpdateApplicationPriorityRequestProto)
+	in := new(UpdateApplicationPriorityRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -853,13 +838,13 @@ func _ApplicationClientProtocolService_UpdateApplicationPriority_Handler(srv int
 		FullMethod: "/hadoop.yarn.ApplicationClientProtocolService/UpdateApplicationPriority",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ApplicationClientProtocolServiceServer).UpdateApplicationPriority(ctx, req.(*hadoop_yarn1.UpdateApplicationPriorityRequestProto))
+		return srv.(ApplicationClientProtocolServiceServer).UpdateApplicationPriority(ctx, req.(*UpdateApplicationPriorityRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ApplicationClientProtocolService_SignalToContainer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn1.SignalContainerRequestProto)
+	in := new(SignalContainerRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -871,7 +856,7 @@ func _ApplicationClientProtocolService_SignalToContainer_Handler(srv interface{}
 		FullMethod: "/hadoop.yarn.ApplicationClientProtocolService/SignalToContainer",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ApplicationClientProtocolServiceServer).SignalToContainer(ctx, req.(*hadoop_yarn1.SignalContainerRequestProto))
+		return srv.(ApplicationClientProtocolServiceServer).SignalToContainer(ctx, req.(*SignalContainerRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -994,12 +979,12 @@ var _ApplicationClientProtocolService_serviceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: fileDescriptor0,
+	Metadata: fileDescriptor4,
 }
 
-func init() { proto.RegisterFile("applicationclient_protocol.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("applicationclient_protocol.proto", fileDescriptor4) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor4 = []byte{
 	// 757 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0x8c, 0x97, 0xc1, 0x52, 0xd4, 0x4c,
 	0x10, 0xc7, 0x6b, 0xaf, 0xf3, 0x7d, 0x2a, 0xa4, 0xd0, 0xaa, 0x45, 0x0f, 0x5c, 0x44, 0x45, 0x09,

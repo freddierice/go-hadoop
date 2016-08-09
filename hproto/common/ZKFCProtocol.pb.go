@@ -2,18 +2,6 @@
 // source: ZKFCProtocol.proto
 // DO NOT EDIT!
 
-/*
-Package common is a generated protocol buffer package.
-
-It is generated from these files:
-	ZKFCProtocol.proto
-
-It has these top-level messages:
-	CedeActiveRequestProto
-	CedeActiveResponseProto
-	GracefulFailoverRequestProto
-	GracefulFailoverResponseProto
-*/
 package common
 
 import proto "github.com/golang/protobuf/proto"
@@ -30,12 +18,6 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
-
 type CedeActiveRequestProto struct {
 	MillisToCede     *uint32 `protobuf:"varint,1,req,name=millisToCede" json:"millisToCede,omitempty"`
 	XXX_unrecognized []byte  `json:"-"`
@@ -44,7 +26,7 @@ type CedeActiveRequestProto struct {
 func (m *CedeActiveRequestProto) Reset()                    { *m = CedeActiveRequestProto{} }
 func (m *CedeActiveRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*CedeActiveRequestProto) ProtoMessage()               {}
-func (*CedeActiveRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (*CedeActiveRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{0} }
 
 func (m *CedeActiveRequestProto) GetMillisToCede() uint32 {
 	if m != nil && m.MillisToCede != nil {
@@ -60,7 +42,7 @@ type CedeActiveResponseProto struct {
 func (m *CedeActiveResponseProto) Reset()                    { *m = CedeActiveResponseProto{} }
 func (m *CedeActiveResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*CedeActiveResponseProto) ProtoMessage()               {}
-func (*CedeActiveResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
+func (*CedeActiveResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{1} }
 
 type GracefulFailoverRequestProto struct {
 	XXX_unrecognized []byte `json:"-"`
@@ -69,7 +51,7 @@ type GracefulFailoverRequestProto struct {
 func (m *GracefulFailoverRequestProto) Reset()                    { *m = GracefulFailoverRequestProto{} }
 func (m *GracefulFailoverRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*GracefulFailoverRequestProto) ProtoMessage()               {}
-func (*GracefulFailoverRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{2} }
+func (*GracefulFailoverRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{2} }
 
 type GracefulFailoverResponseProto struct {
 	XXX_unrecognized []byte `json:"-"`
@@ -78,7 +60,7 @@ type GracefulFailoverResponseProto struct {
 func (m *GracefulFailoverResponseProto) Reset()                    { *m = GracefulFailoverResponseProto{} }
 func (m *GracefulFailoverResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*GracefulFailoverResponseProto) ProtoMessage()               {}
-func (*GracefulFailoverResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{3} }
+func (*GracefulFailoverResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{3} }
 
 func init() {
 	proto.RegisterType((*CedeActiveRequestProto)(nil), "hadoop.common.CedeActiveRequestProto")
@@ -195,12 +177,12 @@ var _ZKFCProtocolService_serviceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: fileDescriptor0,
+	Metadata: fileDescriptor8,
 }
 
-func init() { proto.RegisterFile("ZKFCProtocol.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("ZKFCProtocol.proto", fileDescriptor8) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor8 = []byte{
 	// 238 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xe2, 0x12, 0x8a, 0xf2, 0x76, 0x73,
 	0x0e, 0x28, 0xca, 0x2f, 0xc9, 0x4f, 0xce, 0xcf, 0xd1, 0x2b, 0x00, 0x31, 0x84, 0x78, 0x33, 0x12,

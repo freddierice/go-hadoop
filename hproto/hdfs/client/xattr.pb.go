@@ -2,23 +2,6 @@
 // source: xattr.proto
 // DO NOT EDIT!
 
-/*
-Package client is a generated protocol buffer package.
-
-It is generated from these files:
-	xattr.proto
-
-It has these top-level messages:
-	XAttrProto
-	SetXAttrRequestProto
-	SetXAttrResponseProto
-	GetXAttrsRequestProto
-	GetXAttrsResponseProto
-	ListXAttrsRequestProto
-	ListXAttrsResponseProto
-	RemoveXAttrRequestProto
-	RemoveXAttrResponseProto
-*/
 package client
 
 import proto "github.com/golang/protobuf/proto"
@@ -29,12 +12,6 @@ import math "math"
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
-
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 type XAttrSetFlagProto int32
 
@@ -68,7 +45,7 @@ func (x *XAttrSetFlagProto) UnmarshalJSON(data []byte) error {
 	*x = XAttrSetFlagProto(value)
 	return nil
 }
-func (XAttrSetFlagProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (XAttrSetFlagProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor5, []int{0} }
 
 type XAttrProto_XAttrNamespaceProto int32
 
@@ -112,7 +89,7 @@ func (x *XAttrProto_XAttrNamespaceProto) UnmarshalJSON(data []byte) error {
 	return nil
 }
 func (XAttrProto_XAttrNamespaceProto) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{0, 0}
+	return fileDescriptor5, []int{0, 0}
 }
 
 type XAttrProto struct {
@@ -125,7 +102,7 @@ type XAttrProto struct {
 func (m *XAttrProto) Reset()                    { *m = XAttrProto{} }
 func (m *XAttrProto) String() string            { return proto.CompactTextString(m) }
 func (*XAttrProto) ProtoMessage()               {}
-func (*XAttrProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (*XAttrProto) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{0} }
 
 func (m *XAttrProto) GetNamespace() XAttrProto_XAttrNamespaceProto {
 	if m != nil && m.Namespace != nil {
@@ -158,7 +135,7 @@ type SetXAttrRequestProto struct {
 func (m *SetXAttrRequestProto) Reset()                    { *m = SetXAttrRequestProto{} }
 func (m *SetXAttrRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*SetXAttrRequestProto) ProtoMessage()               {}
-func (*SetXAttrRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
+func (*SetXAttrRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{1} }
 
 func (m *SetXAttrRequestProto) GetSrc() string {
 	if m != nil && m.Src != nil {
@@ -188,7 +165,7 @@ type SetXAttrResponseProto struct {
 func (m *SetXAttrResponseProto) Reset()                    { *m = SetXAttrResponseProto{} }
 func (m *SetXAttrResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*SetXAttrResponseProto) ProtoMessage()               {}
-func (*SetXAttrResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{2} }
+func (*SetXAttrResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{2} }
 
 type GetXAttrsRequestProto struct {
 	Src              *string       `protobuf:"bytes,1,req,name=src" json:"src,omitempty"`
@@ -199,7 +176,7 @@ type GetXAttrsRequestProto struct {
 func (m *GetXAttrsRequestProto) Reset()                    { *m = GetXAttrsRequestProto{} }
 func (m *GetXAttrsRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*GetXAttrsRequestProto) ProtoMessage()               {}
-func (*GetXAttrsRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{3} }
+func (*GetXAttrsRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{3} }
 
 func (m *GetXAttrsRequestProto) GetSrc() string {
 	if m != nil && m.Src != nil {
@@ -223,7 +200,7 @@ type GetXAttrsResponseProto struct {
 func (m *GetXAttrsResponseProto) Reset()                    { *m = GetXAttrsResponseProto{} }
 func (m *GetXAttrsResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*GetXAttrsResponseProto) ProtoMessage()               {}
-func (*GetXAttrsResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{4} }
+func (*GetXAttrsResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{4} }
 
 func (m *GetXAttrsResponseProto) GetXAttrs() []*XAttrProto {
 	if m != nil {
@@ -240,7 +217,7 @@ type ListXAttrsRequestProto struct {
 func (m *ListXAttrsRequestProto) Reset()                    { *m = ListXAttrsRequestProto{} }
 func (m *ListXAttrsRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*ListXAttrsRequestProto) ProtoMessage()               {}
-func (*ListXAttrsRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{5} }
+func (*ListXAttrsRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{5} }
 
 func (m *ListXAttrsRequestProto) GetSrc() string {
 	if m != nil && m.Src != nil {
@@ -257,7 +234,7 @@ type ListXAttrsResponseProto struct {
 func (m *ListXAttrsResponseProto) Reset()                    { *m = ListXAttrsResponseProto{} }
 func (m *ListXAttrsResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*ListXAttrsResponseProto) ProtoMessage()               {}
-func (*ListXAttrsResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{6} }
+func (*ListXAttrsResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{6} }
 
 func (m *ListXAttrsResponseProto) GetXAttrs() []*XAttrProto {
 	if m != nil {
@@ -275,7 +252,7 @@ type RemoveXAttrRequestProto struct {
 func (m *RemoveXAttrRequestProto) Reset()                    { *m = RemoveXAttrRequestProto{} }
 func (m *RemoveXAttrRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*RemoveXAttrRequestProto) ProtoMessage()               {}
-func (*RemoveXAttrRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{7} }
+func (*RemoveXAttrRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{7} }
 
 func (m *RemoveXAttrRequestProto) GetSrc() string {
 	if m != nil && m.Src != nil {
@@ -298,7 +275,7 @@ type RemoveXAttrResponseProto struct {
 func (m *RemoveXAttrResponseProto) Reset()                    { *m = RemoveXAttrResponseProto{} }
 func (m *RemoveXAttrResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*RemoveXAttrResponseProto) ProtoMessage()               {}
-func (*RemoveXAttrResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{8} }
+func (*RemoveXAttrResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{8} }
 
 func init() {
 	proto.RegisterType((*XAttrProto)(nil), "hadoop.hdfs.XAttrProto")
@@ -314,9 +291,9 @@ func init() {
 	proto.RegisterEnum("hadoop.hdfs.XAttrProto_XAttrNamespaceProto", XAttrProto_XAttrNamespaceProto_name, XAttrProto_XAttrNamespaceProto_value)
 }
 
-func init() { proto.RegisterFile("xattr.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("xattr.proto", fileDescriptor5) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor5 = []byte{
 	// 403 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xac, 0x93, 0x5d, 0xef, 0xd2, 0x30,
 	0x14, 0xc6, 0xed, 0xc6, 0xff, 0x85, 0x33, 0x30, 0xa3, 0x02, 0x5b, 0xbc, 0x22, 0x4d, 0x4c, 0x08,

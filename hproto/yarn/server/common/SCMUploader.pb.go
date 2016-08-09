@@ -7,15 +7,47 @@ Package common is a generated protocol buffer package.
 
 It is generated from these files:
 	SCMUploader.proto
+	yarn_server_common_service_protos.proto
+	ResourceTracker.proto
+	yarn_server_common_protos.proto
+	distributed_scheduler_protocol.proto
+	collectornodemanager_protocol.proto
 
 It has these top-level messages:
+	DistSchedRegisterResponseProto
+	DistSchedAllocateResponseProto
+	DistSchedAllocateRequestProto
+	NodeLabelsProto
+	RegisterNodeManagerRequestProto
+	RegisterNodeManagerResponseProto
+	UnRegisterNodeManagerRequestProto
+	UnRegisterNodeManagerResponseProto
+	NodeHeartbeatRequestProto
+	LogAggregationReportProto
+	NodeHeartbeatResponseProto
+	ContainerQueuingLimitProto
+	SystemCredentialsForAppsProto
+	AppCollectorsMapProto
+	ReportNewCollectorInfoRequestProto
+	ReportNewCollectorInfoResponseProto
+	GetTimelineCollectorContextRequestProto
+	GetTimelineCollectorContextResponseProto
+	NMContainerStatusProto
+	SCMUploaderNotifyRequestProto
+	SCMUploaderNotifyResponseProto
+	SCMUploaderCanUploadRequestProto
+	SCMUploaderCanUploadResponseProto
+	NodeStatusProto
+	QueuedContainersStatusProto
+	MasterKeyProto
+	NodeHealthStatusProto
+	VersionProto
 */
 package common
 
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
-import hadoop_yarn3 "."
 
 import (
 	context "golang.org/x/net/context"
@@ -44,8 +76,8 @@ const _ = grpc.SupportPackageIsVersion3
 // Client API for SCMUploaderProtocolService service
 
 type SCMUploaderProtocolServiceClient interface {
-	Notify(ctx context.Context, in *hadoop_yarn3.SCMUploaderNotifyRequestProto, opts ...grpc.CallOption) (*hadoop_yarn3.SCMUploaderNotifyResponseProto, error)
-	CanUpload(ctx context.Context, in *hadoop_yarn3.SCMUploaderCanUploadRequestProto, opts ...grpc.CallOption) (*hadoop_yarn3.SCMUploaderCanUploadResponseProto, error)
+	Notify(ctx context.Context, in *SCMUploaderNotifyRequestProto, opts ...grpc.CallOption) (*SCMUploaderNotifyResponseProto, error)
+	CanUpload(ctx context.Context, in *SCMUploaderCanUploadRequestProto, opts ...grpc.CallOption) (*SCMUploaderCanUploadResponseProto, error)
 }
 
 type sCMUploaderProtocolServiceClient struct {
@@ -56,8 +88,8 @@ func NewSCMUploaderProtocolServiceClient(cc *grpc.ClientConn) SCMUploaderProtoco
 	return &sCMUploaderProtocolServiceClient{cc}
 }
 
-func (c *sCMUploaderProtocolServiceClient) Notify(ctx context.Context, in *hadoop_yarn3.SCMUploaderNotifyRequestProto, opts ...grpc.CallOption) (*hadoop_yarn3.SCMUploaderNotifyResponseProto, error) {
-	out := new(hadoop_yarn3.SCMUploaderNotifyResponseProto)
+func (c *sCMUploaderProtocolServiceClient) Notify(ctx context.Context, in *SCMUploaderNotifyRequestProto, opts ...grpc.CallOption) (*SCMUploaderNotifyResponseProto, error) {
+	out := new(SCMUploaderNotifyResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.SCMUploaderProtocolService/notify", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -65,8 +97,8 @@ func (c *sCMUploaderProtocolServiceClient) Notify(ctx context.Context, in *hadoo
 	return out, nil
 }
 
-func (c *sCMUploaderProtocolServiceClient) CanUpload(ctx context.Context, in *hadoop_yarn3.SCMUploaderCanUploadRequestProto, opts ...grpc.CallOption) (*hadoop_yarn3.SCMUploaderCanUploadResponseProto, error) {
-	out := new(hadoop_yarn3.SCMUploaderCanUploadResponseProto)
+func (c *sCMUploaderProtocolServiceClient) CanUpload(ctx context.Context, in *SCMUploaderCanUploadRequestProto, opts ...grpc.CallOption) (*SCMUploaderCanUploadResponseProto, error) {
+	out := new(SCMUploaderCanUploadResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.SCMUploaderProtocolService/canUpload", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -77,8 +109,8 @@ func (c *sCMUploaderProtocolServiceClient) CanUpload(ctx context.Context, in *ha
 // Server API for SCMUploaderProtocolService service
 
 type SCMUploaderProtocolServiceServer interface {
-	Notify(context.Context, *hadoop_yarn3.SCMUploaderNotifyRequestProto) (*hadoop_yarn3.SCMUploaderNotifyResponseProto, error)
-	CanUpload(context.Context, *hadoop_yarn3.SCMUploaderCanUploadRequestProto) (*hadoop_yarn3.SCMUploaderCanUploadResponseProto, error)
+	Notify(context.Context, *SCMUploaderNotifyRequestProto) (*SCMUploaderNotifyResponseProto, error)
+	CanUpload(context.Context, *SCMUploaderCanUploadRequestProto) (*SCMUploaderCanUploadResponseProto, error)
 }
 
 func RegisterSCMUploaderProtocolServiceServer(s *grpc.Server, srv SCMUploaderProtocolServiceServer) {
@@ -86,7 +118,7 @@ func RegisterSCMUploaderProtocolServiceServer(s *grpc.Server, srv SCMUploaderPro
 }
 
 func _SCMUploaderProtocolService_Notify_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn3.SCMUploaderNotifyRequestProto)
+	in := new(SCMUploaderNotifyRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -98,13 +130,13 @@ func _SCMUploaderProtocolService_Notify_Handler(srv interface{}, ctx context.Con
 		FullMethod: "/hadoop.yarn.SCMUploaderProtocolService/Notify",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SCMUploaderProtocolServiceServer).Notify(ctx, req.(*hadoop_yarn3.SCMUploaderNotifyRequestProto))
+		return srv.(SCMUploaderProtocolServiceServer).Notify(ctx, req.(*SCMUploaderNotifyRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _SCMUploaderProtocolService_CanUpload_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn3.SCMUploaderCanUploadRequestProto)
+	in := new(SCMUploaderCanUploadRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -116,7 +148,7 @@ func _SCMUploaderProtocolService_CanUpload_Handler(srv interface{}, ctx context.
 		FullMethod: "/hadoop.yarn.SCMUploaderProtocolService/CanUpload",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SCMUploaderProtocolServiceServer).CanUpload(ctx, req.(*hadoop_yarn3.SCMUploaderCanUploadRequestProto))
+		return srv.(SCMUploaderProtocolServiceServer).CanUpload(ctx, req.(*SCMUploaderCanUploadRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }

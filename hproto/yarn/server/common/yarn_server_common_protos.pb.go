@@ -2,19 +2,6 @@
 // source: yarn_server_common_protos.proto
 // DO NOT EDIT!
 
-/*
-Package common is a generated protocol buffer package.
-
-It is generated from these files:
-	yarn_server_common_protos.proto
-
-It has these top-level messages:
-	NodeStatusProto
-	QueuedContainersStatusProto
-	MasterKeyProto
-	NodeHealthStatusProto
-	VersionProto
-*/
 package common
 
 import proto "github.com/golang/protobuf/proto"
@@ -26,12 +13,6 @@ import hadoop_yarn "."
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
-
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 type NodeActionProto int32
 
@@ -68,7 +49,7 @@ func (x *NodeActionProto) UnmarshalJSON(data []byte) error {
 	*x = NodeActionProto(value)
 	return nil
 }
-func (NodeActionProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (NodeActionProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor3, []int{0} }
 
 type NodeStatusProto struct {
 	NodeId                *hadoop_yarn.NodeIdProto              `protobuf:"bytes,1,opt,name=node_id,json=nodeId" json:"node_id,omitempty"`
@@ -86,7 +67,7 @@ type NodeStatusProto struct {
 func (m *NodeStatusProto) Reset()                    { *m = NodeStatusProto{} }
 func (m *NodeStatusProto) String() string            { return proto.CompactTextString(m) }
 func (*NodeStatusProto) ProtoMessage()               {}
-func (*NodeStatusProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (*NodeStatusProto) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{0} }
 
 func (m *NodeStatusProto) GetNodeId() *hadoop_yarn.NodeIdProto {
 	if m != nil {
@@ -160,7 +141,7 @@ type QueuedContainersStatusProto struct {
 func (m *QueuedContainersStatusProto) Reset()                    { *m = QueuedContainersStatusProto{} }
 func (m *QueuedContainersStatusProto) String() string            { return proto.CompactTextString(m) }
 func (*QueuedContainersStatusProto) ProtoMessage()               {}
-func (*QueuedContainersStatusProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
+func (*QueuedContainersStatusProto) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{1} }
 
 func (m *QueuedContainersStatusProto) GetEstimatedQueueWaitTime() int32 {
 	if m != nil && m.EstimatedQueueWaitTime != nil {
@@ -185,7 +166,7 @@ type MasterKeyProto struct {
 func (m *MasterKeyProto) Reset()                    { *m = MasterKeyProto{} }
 func (m *MasterKeyProto) String() string            { return proto.CompactTextString(m) }
 func (*MasterKeyProto) ProtoMessage()               {}
-func (*MasterKeyProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{2} }
+func (*MasterKeyProto) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{2} }
 
 func (m *MasterKeyProto) GetKeyId() int32 {
 	if m != nil && m.KeyId != nil {
@@ -211,7 +192,7 @@ type NodeHealthStatusProto struct {
 func (m *NodeHealthStatusProto) Reset()                    { *m = NodeHealthStatusProto{} }
 func (m *NodeHealthStatusProto) String() string            { return proto.CompactTextString(m) }
 func (*NodeHealthStatusProto) ProtoMessage()               {}
-func (*NodeHealthStatusProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{3} }
+func (*NodeHealthStatusProto) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{3} }
 
 func (m *NodeHealthStatusProto) GetIsNodeHealthy() bool {
 	if m != nil && m.IsNodeHealthy != nil {
@@ -243,7 +224,7 @@ type VersionProto struct {
 func (m *VersionProto) Reset()                    { *m = VersionProto{} }
 func (m *VersionProto) String() string            { return proto.CompactTextString(m) }
 func (*VersionProto) ProtoMessage()               {}
-func (*VersionProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{4} }
+func (*VersionProto) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{4} }
 
 func (m *VersionProto) GetMajorVersion() int32 {
 	if m != nil && m.MajorVersion != nil {
@@ -268,9 +249,9 @@ func init() {
 	proto.RegisterEnum("hadoop.yarn.NodeActionProto", NodeActionProto_name, NodeActionProto_value)
 }
 
-func init() { proto.RegisterFile("yarn_server_common_protos.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("yarn_server_common_protos.proto", fileDescriptor3) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor3 = []byte{
 	// 644 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0x94, 0x54, 0xdd, 0x4e, 0x13, 0x4f,
 	0x14, 0xff, 0x2f, 0xfd, 0x6f, 0x81, 0x43, 0xb1, 0x65, 0xe4, 0x63, 0x15, 0x13, 0xb0, 0x46, 0x43,

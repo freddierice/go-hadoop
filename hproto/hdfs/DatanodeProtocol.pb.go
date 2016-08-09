@@ -7,6 +7,15 @@ Package hdfs is a generated protocol buffer package.
 
 It is generated from these files:
 	DatanodeProtocol.proto
+	NamenodeProtocol.proto
+	DatanodeLifelineProtocol.proto
+	HdfsServer.proto
+	fsimage.proto
+	JournalProtocol.proto
+	InterDatanodeProtocol.proto
+	HAZKInfo.proto
+	editlog.proto
+	QJournalProtocol.proto
 
 It has these top-level messages:
 	DatanodeRegistrationProto
@@ -41,6 +50,111 @@ It has these top-level messages:
 	ReportBadBlocksResponseProto
 	CommitBlockSynchronizationRequestProto
 	CommitBlockSynchronizationResponseProto
+	GetBlocksRequestProto
+	GetBlocksResponseProto
+	GetBlockKeysRequestProto
+	GetBlockKeysResponseProto
+	GetTransactionIdRequestProto
+	GetTransactionIdResponseProto
+	RollEditLogRequestProto
+	RollEditLogResponseProto
+	GetMostRecentCheckpointTxIdRequestProto
+	GetMostRecentCheckpointTxIdResponseProto
+	ErrorReportRequestProto
+	ErrorReportResponseProto
+	RegisterRequestProto
+	RegisterResponseProto
+	StartCheckpointRequestProto
+	StartCheckpointResponseProto
+	EndCheckpointRequestProto
+	EndCheckpointResponseProto
+	GetEditLogManifestRequestProto
+	GetEditLogManifestResponseProto
+	IsUpgradeFinalizedRequestProto
+	IsUpgradeFinalizedResponseProto
+	LifelineResponseProto
+	BlockKeyProto
+	ExportedBlockKeysProto
+	BlockWithLocationsProto
+	BlocksWithLocationsProto
+	RemoteEditLogProto
+	RemoteEditLogManifestProto
+	NamespaceInfoProto
+	RecoveringBlockProto
+	CheckpointSignatureProto
+	CheckpointCommandProto
+	NamenodeCommandProto
+	VersionRequestProto
+	VersionResponseProto
+	StorageInfoProto
+	NamenodeRegistrationProto
+	FileSummary
+	NameSystemSection
+	INodeSection
+	FilesUnderConstructionSection
+	INodeDirectorySection
+	INodeReferenceSection
+	SnapshotSection
+	SnapshotDiffSection
+	StringTableSection
+	SecretManagerSection
+	CacheManagerSection
+	JournalInfoProto
+	JournalRequestProto
+	JournalResponseProto
+	StartLogSegmentRequestProto
+	StartLogSegmentResponseProto
+	FenceRequestProto
+	FenceResponseProto
+	InitReplicaRecoveryRequestProto
+	InitReplicaRecoveryResponseProto
+	UpdateReplicaUnderRecoveryRequestProto
+	UpdateReplicaUnderRecoveryResponseProto
+	ActiveNodeInfo
+	AclEditLogProto
+	XAttrEditLogProto
+	JournalIdProto
+	RequestInfoProto
+	SegmentStateProto
+	PersistedRecoveryPaxosData
+	JournalRequestProto
+	JournalResponseProto
+	HeartbeatRequestProto
+	HeartbeatResponseProto
+	StartLogSegmentRequestProto
+	StartLogSegmentResponseProto
+	FinalizeLogSegmentRequestProto
+	FinalizeLogSegmentResponseProto
+	PurgeLogsRequestProto
+	PurgeLogsResponseProto
+	IsFormattedRequestProto
+	IsFormattedResponseProto
+	GetJournalCTimeRequestProto
+	GetJournalCTimeResponseProto
+	DoPreUpgradeRequestProto
+	DoPreUpgradeResponseProto
+	DoUpgradeRequestProto
+	DoUpgradeResponseProto
+	DoFinalizeRequestProto
+	DoFinalizeResponseProto
+	CanRollBackRequestProto
+	CanRollBackResponseProto
+	DoRollbackRequestProto
+	DoRollbackResponseProto
+	DiscardSegmentsRequestProto
+	DiscardSegmentsResponseProto
+	GetJournalStateRequestProto
+	GetJournalStateResponseProto
+	FormatRequestProto
+	FormatResponseProto
+	NewEpochRequestProto
+	NewEpochResponseProto
+	GetEditLogManifestRequestProto
+	GetEditLogManifestResponseProto
+	PrepareRecoveryRequestProto
+	PrepareRecoveryResponseProto
+	AcceptRecoveryRequestProto
+	AcceptRecoveryResponseProto
 */
 package hdfs
 
@@ -50,7 +164,6 @@ import math "math"
 import hadoop_common "."
 import hadoop_hdfs "."
 import hadoop_hdfs1 "."
-import hadoop_hdfs2 "."
 
 import (
 	context "golang.org/x/net/context"
@@ -283,11 +396,11 @@ func (ErrorReportRequestProto_ErrorCode) EnumDescriptor() ([]byte, []int) {
 // *
 // Information to identify a datanode to a namenode
 type DatanodeRegistrationProto struct {
-	DatanodeID       *hadoop_hdfs.DatanodeIDProto         `protobuf:"bytes,1,req,name=datanodeID" json:"datanodeID,omitempty"`
-	StorageInfo      *hadoop_hdfs2.StorageInfoProto       `protobuf:"bytes,2,req,name=storageInfo" json:"storageInfo,omitempty"`
-	Keys             *hadoop_hdfs2.ExportedBlockKeysProto `protobuf:"bytes,3,req,name=keys" json:"keys,omitempty"`
-	SoftwareVersion  *string                              `protobuf:"bytes,4,req,name=softwareVersion" json:"softwareVersion,omitempty"`
-	XXX_unrecognized []byte                               `json:"-"`
+	DatanodeID       *hadoop_hdfs.DatanodeIDProto `protobuf:"bytes,1,req,name=datanodeID" json:"datanodeID,omitempty"`
+	StorageInfo      *StorageInfoProto            `protobuf:"bytes,2,req,name=storageInfo" json:"storageInfo,omitempty"`
+	Keys             *ExportedBlockKeysProto      `protobuf:"bytes,3,req,name=keys" json:"keys,omitempty"`
+	SoftwareVersion  *string                      `protobuf:"bytes,4,req,name=softwareVersion" json:"softwareVersion,omitempty"`
+	XXX_unrecognized []byte                       `json:"-"`
 }
 
 func (m *DatanodeRegistrationProto) Reset()                    { *m = DatanodeRegistrationProto{} }
@@ -302,14 +415,14 @@ func (m *DatanodeRegistrationProto) GetDatanodeID() *hadoop_hdfs.DatanodeIDProto
 	return nil
 }
 
-func (m *DatanodeRegistrationProto) GetStorageInfo() *hadoop_hdfs2.StorageInfoProto {
+func (m *DatanodeRegistrationProto) GetStorageInfo() *StorageInfoProto {
 	if m != nil {
 		return m.StorageInfo
 	}
 	return nil
 }
 
-func (m *DatanodeRegistrationProto) GetKeys() *hadoop_hdfs2.ExportedBlockKeysProto {
+func (m *DatanodeRegistrationProto) GetKeys() *ExportedBlockKeysProto {
 	if m != nil {
 		return m.Keys
 	}
@@ -528,8 +641,8 @@ func (m *BlockIdCommandProto) GetBlockIds() []uint64 {
 // *
 // List of blocks to be recovered by the datanode
 type BlockRecoveryCommandProto struct {
-	Blocks           []*hadoop_hdfs2.RecoveringBlockProto `protobuf:"bytes,1,rep,name=blocks" json:"blocks,omitempty"`
-	XXX_unrecognized []byte                               `json:"-"`
+	Blocks           []*RecoveringBlockProto `protobuf:"bytes,1,rep,name=blocks" json:"blocks,omitempty"`
+	XXX_unrecognized []byte                  `json:"-"`
 }
 
 func (m *BlockRecoveryCommandProto) Reset()                    { *m = BlockRecoveryCommandProto{} }
@@ -537,7 +650,7 @@ func (m *BlockRecoveryCommandProto) String() string            { return proto.Co
 func (*BlockRecoveryCommandProto) ProtoMessage()               {}
 func (*BlockRecoveryCommandProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{5} }
 
-func (m *BlockRecoveryCommandProto) GetBlocks() []*hadoop_hdfs2.RecoveringBlockProto {
+func (m *BlockRecoveryCommandProto) GetBlocks() []*RecoveringBlockProto {
 	if m != nil {
 		return m.Blocks
 	}
@@ -566,8 +679,8 @@ func (m *FinalizeCommandProto) GetBlockPoolId() string {
 // *
 // Update the block keys at the datanode
 type KeyUpdateCommandProto struct {
-	Keys             *hadoop_hdfs2.ExportedBlockKeysProto `protobuf:"bytes,1,req,name=keys" json:"keys,omitempty"`
-	XXX_unrecognized []byte                               `json:"-"`
+	Keys             *ExportedBlockKeysProto `protobuf:"bytes,1,req,name=keys" json:"keys,omitempty"`
+	XXX_unrecognized []byte                  `json:"-"`
 }
 
 func (m *KeyUpdateCommandProto) Reset()                    { *m = KeyUpdateCommandProto{} }
@@ -575,7 +688,7 @@ func (m *KeyUpdateCommandProto) String() string            { return proto.Compac
 func (*KeyUpdateCommandProto) ProtoMessage()               {}
 func (*KeyUpdateCommandProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{7} }
 
-func (m *KeyUpdateCommandProto) GetKeys() *hadoop_hdfs2.ExportedBlockKeysProto {
+func (m *KeyUpdateCommandProto) GetKeys() *ExportedBlockKeysProto {
 	if m != nil {
 		return m.Keys
 	}
@@ -1463,7 +1576,7 @@ type DatanodeProtocolServiceClient interface {
 	ErrorReport(ctx context.Context, in *ErrorReportRequestProto, opts ...grpc.CallOption) (*ErrorReportResponseProto, error)
 	// *
 	// Request the version
-	VersionRequest(ctx context.Context, in *hadoop_hdfs2.VersionRequestProto, opts ...grpc.CallOption) (*hadoop_hdfs2.VersionResponseProto, error)
+	VersionRequest(ctx context.Context, in *VersionRequestProto, opts ...grpc.CallOption) (*VersionResponseProto, error)
 	// *
 	// Report corrupt blocks at the specified location
 	ReportBadBlocks(ctx context.Context, in *ReportBadBlocksRequestProto, opts ...grpc.CallOption) (*ReportBadBlocksResponseProto, error)
@@ -1534,8 +1647,8 @@ func (c *datanodeProtocolServiceClient) ErrorReport(ctx context.Context, in *Err
 	return out, nil
 }
 
-func (c *datanodeProtocolServiceClient) VersionRequest(ctx context.Context, in *hadoop_hdfs2.VersionRequestProto, opts ...grpc.CallOption) (*hadoop_hdfs2.VersionResponseProto, error) {
-	out := new(hadoop_hdfs2.VersionResponseProto)
+func (c *datanodeProtocolServiceClient) VersionRequest(ctx context.Context, in *VersionRequestProto, opts ...grpc.CallOption) (*VersionResponseProto, error) {
+	out := new(VersionResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.hdfs.datanode.DatanodeProtocolService/versionRequest", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -1587,7 +1700,7 @@ type DatanodeProtocolServiceServer interface {
 	ErrorReport(context.Context, *ErrorReportRequestProto) (*ErrorReportResponseProto, error)
 	// *
 	// Request the version
-	VersionRequest(context.Context, *hadoop_hdfs2.VersionRequestProto) (*hadoop_hdfs2.VersionResponseProto, error)
+	VersionRequest(context.Context, *VersionRequestProto) (*VersionResponseProto, error)
 	// *
 	// Report corrupt blocks at the specified location
 	ReportBadBlocks(context.Context, *ReportBadBlocksRequestProto) (*ReportBadBlocksResponseProto, error)
@@ -1709,7 +1822,7 @@ func _DatanodeProtocolService_ErrorReport_Handler(srv interface{}, ctx context.C
 }
 
 func _DatanodeProtocolService_VersionRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_hdfs2.VersionRequestProto)
+	in := new(VersionRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -1721,7 +1834,7 @@ func _DatanodeProtocolService_VersionRequest_Handler(srv interface{}, ctx contex
 		FullMethod: "/hadoop.hdfs.datanode.DatanodeProtocolService/VersionRequest",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DatanodeProtocolServiceServer).VersionRequest(ctx, req.(*hadoop_hdfs2.VersionRequestProto))
+		return srv.(DatanodeProtocolServiceServer).VersionRequest(ctx, req.(*VersionRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }

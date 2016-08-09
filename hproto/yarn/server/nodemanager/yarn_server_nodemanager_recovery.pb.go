@@ -2,18 +2,6 @@
 // source: yarn_server_nodemanager_recovery.proto
 // DO NOT EDIT!
 
-/*
-Package nodemanager is a generated protocol buffer package.
-
-It is generated from these files:
-	yarn_server_nodemanager_recovery.proto
-
-It has these top-level messages:
-	ContainerManagerApplicationProto
-	DeletionServiceDeleteTaskProto
-	LocalizedResourceProto
-	LogDeleterProto
-*/
 package nodemanager
 
 import proto "github.com/golang/protobuf/proto"
@@ -25,12 +13,6 @@ import hadoop_yarn "."
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
-
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 type ContainerManagerApplicationProto struct {
 	Id                          *hadoop_yarn.ApplicationIdProto         `protobuf:"bytes,1,opt,name=id" json:"id,omitempty"`
@@ -46,7 +28,7 @@ func (m *ContainerManagerApplicationProto) Reset()         { *m = ContainerManag
 func (m *ContainerManagerApplicationProto) String() string { return proto.CompactTextString(m) }
 func (*ContainerManagerApplicationProto) ProtoMessage()    {}
 func (*ContainerManagerApplicationProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{0}
+	return fileDescriptor1, []int{0}
 }
 
 const Default_ContainerManagerApplicationProto_AppLogAggregationInitedTime int64 = -1
@@ -106,7 +88,7 @@ type DeletionServiceDeleteTaskProto struct {
 func (m *DeletionServiceDeleteTaskProto) Reset()                    { *m = DeletionServiceDeleteTaskProto{} }
 func (m *DeletionServiceDeleteTaskProto) String() string            { return proto.CompactTextString(m) }
 func (*DeletionServiceDeleteTaskProto) ProtoMessage()               {}
-func (*DeletionServiceDeleteTaskProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
+func (*DeletionServiceDeleteTaskProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{1} }
 
 func (m *DeletionServiceDeleteTaskProto) GetId() int32 {
 	if m != nil && m.Id != nil {
@@ -160,7 +142,7 @@ type LocalizedResourceProto struct {
 func (m *LocalizedResourceProto) Reset()                    { *m = LocalizedResourceProto{} }
 func (m *LocalizedResourceProto) String() string            { return proto.CompactTextString(m) }
 func (*LocalizedResourceProto) ProtoMessage()               {}
-func (*LocalizedResourceProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{2} }
+func (*LocalizedResourceProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{2} }
 
 func (m *LocalizedResourceProto) GetResource() *hadoop_yarn.LocalResourceProto {
 	if m != nil {
@@ -192,7 +174,7 @@ type LogDeleterProto struct {
 func (m *LogDeleterProto) Reset()                    { *m = LogDeleterProto{} }
 func (m *LogDeleterProto) String() string            { return proto.CompactTextString(m) }
 func (*LogDeleterProto) ProtoMessage()               {}
-func (*LogDeleterProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{3} }
+func (*LogDeleterProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{3} }
 
 func (m *LogDeleterProto) GetUser() string {
 	if m != nil && m.User != nil {
@@ -215,9 +197,9 @@ func init() {
 	proto.RegisterType((*LogDeleterProto)(nil), "hadoop.yarn.LogDeleterProto")
 }
 
-func init() { proto.RegisterFile("yarn_server_nodemanager_recovery.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("yarn_server_nodemanager_recovery.proto", fileDescriptor1) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor1 = []byte{
 	// 480 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0x7c, 0x53, 0xc1, 0x6e, 0xd4, 0x30,
 	0x10, 0x95, 0x93, 0x6d, 0xd5, 0xf5, 0x56, 0x20, 0x2c, 0x51, 0xa2, 0x52, 0xc1, 0x2a, 0x95, 0x80,

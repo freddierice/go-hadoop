@@ -2,20 +2,11 @@
 // source: client_SCM_protocol.proto
 // DO NOT EDIT!
 
-/*
-Package api is a generated protocol buffer package.
-
-It is generated from these files:
-	client_SCM_protocol.proto
-
-It has these top-level messages:
-*/
 package api
 
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
-import hadoop_yarn1 "."
 
 import (
 	context "golang.org/x/net/context"
@@ -26,12 +17,6 @@ import (
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
-
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ context.Context
@@ -44,8 +29,8 @@ const _ = grpc.SupportPackageIsVersion3
 // Client API for ClientSCMProtocolService service
 
 type ClientSCMProtocolServiceClient interface {
-	Use(ctx context.Context, in *hadoop_yarn1.UseSharedCacheResourceRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.UseSharedCacheResourceResponseProto, error)
-	Release(ctx context.Context, in *hadoop_yarn1.ReleaseSharedCacheResourceRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.ReleaseSharedCacheResourceResponseProto, error)
+	Use(ctx context.Context, in *UseSharedCacheResourceRequestProto, opts ...grpc.CallOption) (*UseSharedCacheResourceResponseProto, error)
+	Release(ctx context.Context, in *ReleaseSharedCacheResourceRequestProto, opts ...grpc.CallOption) (*ReleaseSharedCacheResourceResponseProto, error)
 }
 
 type clientSCMProtocolServiceClient struct {
@@ -56,8 +41,8 @@ func NewClientSCMProtocolServiceClient(cc *grpc.ClientConn) ClientSCMProtocolSer
 	return &clientSCMProtocolServiceClient{cc}
 }
 
-func (c *clientSCMProtocolServiceClient) Use(ctx context.Context, in *hadoop_yarn1.UseSharedCacheResourceRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.UseSharedCacheResourceResponseProto, error) {
-	out := new(hadoop_yarn1.UseSharedCacheResourceResponseProto)
+func (c *clientSCMProtocolServiceClient) Use(ctx context.Context, in *UseSharedCacheResourceRequestProto, opts ...grpc.CallOption) (*UseSharedCacheResourceResponseProto, error) {
+	out := new(UseSharedCacheResourceResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ClientSCMProtocolService/use", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -65,8 +50,8 @@ func (c *clientSCMProtocolServiceClient) Use(ctx context.Context, in *hadoop_yar
 	return out, nil
 }
 
-func (c *clientSCMProtocolServiceClient) Release(ctx context.Context, in *hadoop_yarn1.ReleaseSharedCacheResourceRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.ReleaseSharedCacheResourceResponseProto, error) {
-	out := new(hadoop_yarn1.ReleaseSharedCacheResourceResponseProto)
+func (c *clientSCMProtocolServiceClient) Release(ctx context.Context, in *ReleaseSharedCacheResourceRequestProto, opts ...grpc.CallOption) (*ReleaseSharedCacheResourceResponseProto, error) {
+	out := new(ReleaseSharedCacheResourceResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ClientSCMProtocolService/release", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -77,8 +62,8 @@ func (c *clientSCMProtocolServiceClient) Release(ctx context.Context, in *hadoop
 // Server API for ClientSCMProtocolService service
 
 type ClientSCMProtocolServiceServer interface {
-	Use(context.Context, *hadoop_yarn1.UseSharedCacheResourceRequestProto) (*hadoop_yarn1.UseSharedCacheResourceResponseProto, error)
-	Release(context.Context, *hadoop_yarn1.ReleaseSharedCacheResourceRequestProto) (*hadoop_yarn1.ReleaseSharedCacheResourceResponseProto, error)
+	Use(context.Context, *UseSharedCacheResourceRequestProto) (*UseSharedCacheResourceResponseProto, error)
+	Release(context.Context, *ReleaseSharedCacheResourceRequestProto) (*ReleaseSharedCacheResourceResponseProto, error)
 }
 
 func RegisterClientSCMProtocolServiceServer(s *grpc.Server, srv ClientSCMProtocolServiceServer) {
@@ -86,7 +71,7 @@ func RegisterClientSCMProtocolServiceServer(s *grpc.Server, srv ClientSCMProtoco
 }
 
 func _ClientSCMProtocolService_Use_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn1.UseSharedCacheResourceRequestProto)
+	in := new(UseSharedCacheResourceRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -98,13 +83,13 @@ func _ClientSCMProtocolService_Use_Handler(srv interface{}, ctx context.Context,
 		FullMethod: "/hadoop.yarn.ClientSCMProtocolService/Use",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ClientSCMProtocolServiceServer).Use(ctx, req.(*hadoop_yarn1.UseSharedCacheResourceRequestProto))
+		return srv.(ClientSCMProtocolServiceServer).Use(ctx, req.(*UseSharedCacheResourceRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ClientSCMProtocolService_Release_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn1.ReleaseSharedCacheResourceRequestProto)
+	in := new(ReleaseSharedCacheResourceRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -116,7 +101,7 @@ func _ClientSCMProtocolService_Release_Handler(srv interface{}, ctx context.Cont
 		FullMethod: "/hadoop.yarn.ClientSCMProtocolService/Release",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ClientSCMProtocolServiceServer).Release(ctx, req.(*hadoop_yarn1.ReleaseSharedCacheResourceRequestProto))
+		return srv.(ClientSCMProtocolServiceServer).Release(ctx, req.(*ReleaseSharedCacheResourceRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -135,12 +120,12 @@ var _ClientSCMProtocolService_serviceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: fileDescriptor0,
+	Metadata: fileDescriptor3,
 }
 
-func init() { proto.RegisterFile("client_SCM_protocol.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("client_SCM_protocol.proto", fileDescriptor3) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor3 = []byte{
 	// 202 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xe2, 0x92, 0x4c, 0xce, 0xc9, 0x4c,
 	0xcd, 0x2b, 0x89, 0x0f, 0x76, 0xf6, 0x8d, 0x2f, 0x28, 0xca, 0x2f, 0xc9, 0x4f, 0xce, 0xcf, 0xd1,

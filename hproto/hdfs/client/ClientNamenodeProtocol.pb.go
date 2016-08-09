@@ -2,175 +2,12 @@
 // source: ClientNamenodeProtocol.proto
 // DO NOT EDIT!
 
-/*
-Package client is a generated protocol buffer package.
-
-It is generated from these files:
-	ClientNamenodeProtocol.proto
-
-It has these top-level messages:
-	GetBlockLocationsRequestProto
-	GetBlockLocationsResponseProto
-	GetServerDefaultsRequestProto
-	GetServerDefaultsResponseProto
-	CreateRequestProto
-	CreateResponseProto
-	AppendRequestProto
-	AppendResponseProto
-	SetReplicationRequestProto
-	SetReplicationResponseProto
-	SetStoragePolicyRequestProto
-	SetStoragePolicyResponseProto
-	UnsetStoragePolicyRequestProto
-	UnsetStoragePolicyResponseProto
-	GetStoragePolicyRequestProto
-	GetStoragePolicyResponseProto
-	GetStoragePoliciesRequestProto
-	GetStoragePoliciesResponseProto
-	SetPermissionRequestProto
-	SetPermissionResponseProto
-	SetOwnerRequestProto
-	SetOwnerResponseProto
-	AbandonBlockRequestProto
-	AbandonBlockResponseProto
-	AddBlockRequestProto
-	AddBlockResponseProto
-	GetAdditionalDatanodeRequestProto
-	GetAdditionalDatanodeResponseProto
-	CompleteRequestProto
-	CompleteResponseProto
-	ReportBadBlocksRequestProto
-	ReportBadBlocksResponseProto
-	ConcatRequestProto
-	ConcatResponseProto
-	TruncateRequestProto
-	TruncateResponseProto
-	RenameRequestProto
-	RenameResponseProto
-	Rename2RequestProto
-	Rename2ResponseProto
-	DeleteRequestProto
-	DeleteResponseProto
-	MkdirsRequestProto
-	MkdirsResponseProto
-	GetListingRequestProto
-	GetListingResponseProto
-	GetSnapshottableDirListingRequestProto
-	GetSnapshottableDirListingResponseProto
-	GetSnapshotDiffReportRequestProto
-	GetSnapshotDiffReportResponseProto
-	RenewLeaseRequestProto
-	RenewLeaseResponseProto
-	RecoverLeaseRequestProto
-	RecoverLeaseResponseProto
-	GetFsStatusRequestProto
-	GetFsStatsResponseProto
-	GetDatanodeReportRequestProto
-	GetDatanodeReportResponseProto
-	GetDatanodeStorageReportRequestProto
-	DatanodeStorageReportProto
-	GetDatanodeStorageReportResponseProto
-	GetPreferredBlockSizeRequestProto
-	GetPreferredBlockSizeResponseProto
-	SetSafeModeRequestProto
-	SetSafeModeResponseProto
-	SaveNamespaceRequestProto
-	SaveNamespaceResponseProto
-	RollEditsRequestProto
-	RollEditsResponseProto
-	RestoreFailedStorageRequestProto
-	RestoreFailedStorageResponseProto
-	RefreshNodesRequestProto
-	RefreshNodesResponseProto
-	FinalizeUpgradeRequestProto
-	FinalizeUpgradeResponseProto
-	RollingUpgradeRequestProto
-	RollingUpgradeInfoProto
-	RollingUpgradeResponseProto
-	ListCorruptFileBlocksRequestProto
-	ListCorruptFileBlocksResponseProto
-	MetaSaveRequestProto
-	MetaSaveResponseProto
-	GetFileInfoRequestProto
-	GetFileInfoResponseProto
-	IsFileClosedRequestProto
-	IsFileClosedResponseProto
-	CacheDirectiveInfoProto
-	CacheDirectiveInfoExpirationProto
-	CacheDirectiveStatsProto
-	AddCacheDirectiveRequestProto
-	AddCacheDirectiveResponseProto
-	ModifyCacheDirectiveRequestProto
-	ModifyCacheDirectiveResponseProto
-	RemoveCacheDirectiveRequestProto
-	RemoveCacheDirectiveResponseProto
-	ListCacheDirectivesRequestProto
-	CacheDirectiveEntryProto
-	ListCacheDirectivesResponseProto
-	CachePoolInfoProto
-	CachePoolStatsProto
-	AddCachePoolRequestProto
-	AddCachePoolResponseProto
-	ModifyCachePoolRequestProto
-	ModifyCachePoolResponseProto
-	RemoveCachePoolRequestProto
-	RemoveCachePoolResponseProto
-	ListCachePoolsRequestProto
-	ListCachePoolsResponseProto
-	CachePoolEntryProto
-	GetFileLinkInfoRequestProto
-	GetFileLinkInfoResponseProto
-	GetContentSummaryRequestProto
-	GetContentSummaryResponseProto
-	GetQuotaUsageRequestProto
-	GetQuotaUsageResponseProto
-	SetQuotaRequestProto
-	SetQuotaResponseProto
-	FsyncRequestProto
-	FsyncResponseProto
-	SetTimesRequestProto
-	SetTimesResponseProto
-	CreateSymlinkRequestProto
-	CreateSymlinkResponseProto
-	GetLinkTargetRequestProto
-	GetLinkTargetResponseProto
-	UpdateBlockForPipelineRequestProto
-	UpdateBlockForPipelineResponseProto
-	UpdatePipelineRequestProto
-	UpdatePipelineResponseProto
-	SetBalancerBandwidthRequestProto
-	SetBalancerBandwidthResponseProto
-	GetDataEncryptionKeyRequestProto
-	GetDataEncryptionKeyResponseProto
-	CreateSnapshotRequestProto
-	CreateSnapshotResponseProto
-	RenameSnapshotRequestProto
-	RenameSnapshotResponseProto
-	AllowSnapshotRequestProto
-	AllowSnapshotResponseProto
-	DisallowSnapshotRequestProto
-	DisallowSnapshotResponseProto
-	DeleteSnapshotRequestProto
-	DeleteSnapshotResponseProto
-	CheckAccessRequestProto
-	CheckAccessResponseProto
-	GetCurrentEditLogTxidRequestProto
-	GetCurrentEditLogTxidResponseProto
-	GetEditsFromTxidRequestProto
-	GetEditsFromTxidResponseProto
-*/
 package client
 
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import hadoop_common "."
-import hadoop_hdfs "."
-import hadoop_hdfs1 "."
-import hadoop_hdfs2 "."
-import hadoop_hdfs3 "."
-import hadoop_hdfs4 "."
-import hadoop_hdfs5 "."
 
 import (
 	context "golang.org/x/net/context"
@@ -181,12 +18,6 @@ import (
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
-
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 type CreateFlagProto int32
 
@@ -229,7 +60,7 @@ func (x *CreateFlagProto) UnmarshalJSON(data []byte) error {
 	*x = CreateFlagProto(value)
 	return nil
 }
-func (CreateFlagProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (CreateFlagProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor8, []int{0} }
 
 type AddBlockFlagProto int32
 
@@ -260,7 +91,7 @@ func (x *AddBlockFlagProto) UnmarshalJSON(data []byte) error {
 	*x = AddBlockFlagProto(value)
 	return nil
 }
-func (AddBlockFlagProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
+func (AddBlockFlagProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor8, []int{1} }
 
 type DatanodeReportTypeProto int32
 
@@ -300,7 +131,7 @@ func (x *DatanodeReportTypeProto) UnmarshalJSON(data []byte) error {
 	*x = DatanodeReportTypeProto(value)
 	return nil
 }
-func (DatanodeReportTypeProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{2} }
+func (DatanodeReportTypeProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor8, []int{2} }
 
 type SafeModeActionProto int32
 
@@ -340,7 +171,7 @@ func (x *SafeModeActionProto) UnmarshalJSON(data []byte) error {
 	*x = SafeModeActionProto(value)
 	return nil
 }
-func (SafeModeActionProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{3} }
+func (SafeModeActionProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor8, []int{3} }
 
 type RollingUpgradeActionProto int32
 
@@ -377,7 +208,7 @@ func (x *RollingUpgradeActionProto) UnmarshalJSON(data []byte) error {
 	*x = RollingUpgradeActionProto(value)
 	return nil
 }
-func (RollingUpgradeActionProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{4} }
+func (RollingUpgradeActionProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor8, []int{4} }
 
 type CacheFlagProto int32
 
@@ -408,7 +239,7 @@ func (x *CacheFlagProto) UnmarshalJSON(data []byte) error {
 	*x = CacheFlagProto(value)
 	return nil
 }
-func (CacheFlagProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{5} }
+func (CacheFlagProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor8, []int{5} }
 
 type GetBlockLocationsRequestProto struct {
 	Src              *string `protobuf:"bytes,1,req,name=src" json:"src,omitempty"`
@@ -420,7 +251,7 @@ type GetBlockLocationsRequestProto struct {
 func (m *GetBlockLocationsRequestProto) Reset()                    { *m = GetBlockLocationsRequestProto{} }
 func (m *GetBlockLocationsRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*GetBlockLocationsRequestProto) ProtoMessage()               {}
-func (*GetBlockLocationsRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (*GetBlockLocationsRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{0} }
 
 func (m *GetBlockLocationsRequestProto) GetSrc() string {
 	if m != nil && m.Src != nil {
@@ -444,16 +275,16 @@ func (m *GetBlockLocationsRequestProto) GetLength() uint64 {
 }
 
 type GetBlockLocationsResponseProto struct {
-	Locations        *hadoop_hdfs.LocatedBlocksProto `protobuf:"bytes,1,opt,name=locations" json:"locations,omitempty"`
-	XXX_unrecognized []byte                          `json:"-"`
+	Locations        *LocatedBlocksProto `protobuf:"bytes,1,opt,name=locations" json:"locations,omitempty"`
+	XXX_unrecognized []byte              `json:"-"`
 }
 
 func (m *GetBlockLocationsResponseProto) Reset()                    { *m = GetBlockLocationsResponseProto{} }
 func (m *GetBlockLocationsResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*GetBlockLocationsResponseProto) ProtoMessage()               {}
-func (*GetBlockLocationsResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
+func (*GetBlockLocationsResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{1} }
 
-func (m *GetBlockLocationsResponseProto) GetLocations() *hadoop_hdfs.LocatedBlocksProto {
+func (m *GetBlockLocationsResponseProto) GetLocations() *LocatedBlocksProto {
 	if m != nil {
 		return m.Locations
 	}
@@ -467,19 +298,19 @@ type GetServerDefaultsRequestProto struct {
 func (m *GetServerDefaultsRequestProto) Reset()                    { *m = GetServerDefaultsRequestProto{} }
 func (m *GetServerDefaultsRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*GetServerDefaultsRequestProto) ProtoMessage()               {}
-func (*GetServerDefaultsRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{2} }
+func (*GetServerDefaultsRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{2} }
 
 type GetServerDefaultsResponseProto struct {
-	ServerDefaults   *hadoop_hdfs.FsServerDefaultsProto `protobuf:"bytes,1,req,name=serverDefaults" json:"serverDefaults,omitempty"`
-	XXX_unrecognized []byte                             `json:"-"`
+	ServerDefaults   *FsServerDefaultsProto `protobuf:"bytes,1,req,name=serverDefaults" json:"serverDefaults,omitempty"`
+	XXX_unrecognized []byte                 `json:"-"`
 }
 
 func (m *GetServerDefaultsResponseProto) Reset()                    { *m = GetServerDefaultsResponseProto{} }
 func (m *GetServerDefaultsResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*GetServerDefaultsResponseProto) ProtoMessage()               {}
-func (*GetServerDefaultsResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{3} }
+func (*GetServerDefaultsResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{3} }
 
-func (m *GetServerDefaultsResponseProto) GetServerDefaults() *hadoop_hdfs.FsServerDefaultsProto {
+func (m *GetServerDefaultsResponseProto) GetServerDefaults() *FsServerDefaultsProto {
 	if m != nil {
 		return m.ServerDefaults
 	}
@@ -487,21 +318,21 @@ func (m *GetServerDefaultsResponseProto) GetServerDefaults() *hadoop_hdfs.FsServ
 }
 
 type CreateRequestProto struct {
-	Src                   *string                                  `protobuf:"bytes,1,req,name=src" json:"src,omitempty"`
-	Masked                *hadoop_hdfs.FsPermissionProto           `protobuf:"bytes,2,req,name=masked" json:"masked,omitempty"`
-	ClientName            *string                                  `protobuf:"bytes,3,req,name=clientName" json:"clientName,omitempty"`
-	CreateFlag            *uint32                                  `protobuf:"varint,4,req,name=createFlag" json:"createFlag,omitempty"`
-	CreateParent          *bool                                    `protobuf:"varint,5,req,name=createParent" json:"createParent,omitempty"`
-	Replication           *uint32                                  `protobuf:"varint,6,req,name=replication" json:"replication,omitempty"`
-	BlockSize             *uint64                                  `protobuf:"varint,7,req,name=blockSize" json:"blockSize,omitempty"`
-	CryptoProtocolVersion []hadoop_hdfs.CryptoProtocolVersionProto `protobuf:"varint,8,rep,name=cryptoProtocolVersion,enum=hadoop.hdfs.CryptoProtocolVersionProto" json:"cryptoProtocolVersion,omitempty"`
-	XXX_unrecognized      []byte                                   `json:"-"`
+	Src                   *string                      `protobuf:"bytes,1,req,name=src" json:"src,omitempty"`
+	Masked                *FsPermissionProto           `protobuf:"bytes,2,req,name=masked" json:"masked,omitempty"`
+	ClientName            *string                      `protobuf:"bytes,3,req,name=clientName" json:"clientName,omitempty"`
+	CreateFlag            *uint32                      `protobuf:"varint,4,req,name=createFlag" json:"createFlag,omitempty"`
+	CreateParent          *bool                        `protobuf:"varint,5,req,name=createParent" json:"createParent,omitempty"`
+	Replication           *uint32                      `protobuf:"varint,6,req,name=replication" json:"replication,omitempty"`
+	BlockSize             *uint64                      `protobuf:"varint,7,req,name=blockSize" json:"blockSize,omitempty"`
+	CryptoProtocolVersion []CryptoProtocolVersionProto `protobuf:"varint,8,rep,name=cryptoProtocolVersion,enum=hadoop.hdfs.CryptoProtocolVersionProto" json:"cryptoProtocolVersion,omitempty"`
+	XXX_unrecognized      []byte                       `json:"-"`
 }
 
 func (m *CreateRequestProto) Reset()                    { *m = CreateRequestProto{} }
 func (m *CreateRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*CreateRequestProto) ProtoMessage()               {}
-func (*CreateRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{4} }
+func (*CreateRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{4} }
 
 func (m *CreateRequestProto) GetSrc() string {
 	if m != nil && m.Src != nil {
@@ -510,7 +341,7 @@ func (m *CreateRequestProto) GetSrc() string {
 	return ""
 }
 
-func (m *CreateRequestProto) GetMasked() *hadoop_hdfs.FsPermissionProto {
+func (m *CreateRequestProto) GetMasked() *FsPermissionProto {
 	if m != nil {
 		return m.Masked
 	}
@@ -552,7 +383,7 @@ func (m *CreateRequestProto) GetBlockSize() uint64 {
 	return 0
 }
 
-func (m *CreateRequestProto) GetCryptoProtocolVersion() []hadoop_hdfs.CryptoProtocolVersionProto {
+func (m *CreateRequestProto) GetCryptoProtocolVersion() []CryptoProtocolVersionProto {
 	if m != nil {
 		return m.CryptoProtocolVersion
 	}
@@ -560,16 +391,16 @@ func (m *CreateRequestProto) GetCryptoProtocolVersion() []hadoop_hdfs.CryptoProt
 }
 
 type CreateResponseProto struct {
-	Fs               *hadoop_hdfs.HdfsFileStatusProto `protobuf:"bytes,1,opt,name=fs" json:"fs,omitempty"`
-	XXX_unrecognized []byte                           `json:"-"`
+	Fs               *HdfsFileStatusProto `protobuf:"bytes,1,opt,name=fs" json:"fs,omitempty"`
+	XXX_unrecognized []byte               `json:"-"`
 }
 
 func (m *CreateResponseProto) Reset()                    { *m = CreateResponseProto{} }
 func (m *CreateResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*CreateResponseProto) ProtoMessage()               {}
-func (*CreateResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{5} }
+func (*CreateResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{5} }
 
-func (m *CreateResponseProto) GetFs() *hadoop_hdfs.HdfsFileStatusProto {
+func (m *CreateResponseProto) GetFs() *HdfsFileStatusProto {
 	if m != nil {
 		return m.Fs
 	}
@@ -586,7 +417,7 @@ type AppendRequestProto struct {
 func (m *AppendRequestProto) Reset()                    { *m = AppendRequestProto{} }
 func (m *AppendRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*AppendRequestProto) ProtoMessage()               {}
-func (*AppendRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{6} }
+func (*AppendRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{6} }
 
 func (m *AppendRequestProto) GetSrc() string {
 	if m != nil && m.Src != nil {
@@ -610,24 +441,24 @@ func (m *AppendRequestProto) GetFlag() uint32 {
 }
 
 type AppendResponseProto struct {
-	Block            *hadoop_hdfs.LocatedBlockProto   `protobuf:"bytes,1,opt,name=block" json:"block,omitempty"`
-	Stat             *hadoop_hdfs.HdfsFileStatusProto `protobuf:"bytes,2,opt,name=stat" json:"stat,omitempty"`
-	XXX_unrecognized []byte                           `json:"-"`
+	Block            *LocatedBlockProto   `protobuf:"bytes,1,opt,name=block" json:"block,omitempty"`
+	Stat             *HdfsFileStatusProto `protobuf:"bytes,2,opt,name=stat" json:"stat,omitempty"`
+	XXX_unrecognized []byte               `json:"-"`
 }
 
 func (m *AppendResponseProto) Reset()                    { *m = AppendResponseProto{} }
 func (m *AppendResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*AppendResponseProto) ProtoMessage()               {}
-func (*AppendResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{7} }
+func (*AppendResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{7} }
 
-func (m *AppendResponseProto) GetBlock() *hadoop_hdfs.LocatedBlockProto {
+func (m *AppendResponseProto) GetBlock() *LocatedBlockProto {
 	if m != nil {
 		return m.Block
 	}
 	return nil
 }
 
-func (m *AppendResponseProto) GetStat() *hadoop_hdfs.HdfsFileStatusProto {
+func (m *AppendResponseProto) GetStat() *HdfsFileStatusProto {
 	if m != nil {
 		return m.Stat
 	}
@@ -643,7 +474,7 @@ type SetReplicationRequestProto struct {
 func (m *SetReplicationRequestProto) Reset()                    { *m = SetReplicationRequestProto{} }
 func (m *SetReplicationRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*SetReplicationRequestProto) ProtoMessage()               {}
-func (*SetReplicationRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{8} }
+func (*SetReplicationRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{8} }
 
 func (m *SetReplicationRequestProto) GetSrc() string {
 	if m != nil && m.Src != nil {
@@ -667,7 +498,7 @@ type SetReplicationResponseProto struct {
 func (m *SetReplicationResponseProto) Reset()                    { *m = SetReplicationResponseProto{} }
 func (m *SetReplicationResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*SetReplicationResponseProto) ProtoMessage()               {}
-func (*SetReplicationResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{9} }
+func (*SetReplicationResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{9} }
 
 func (m *SetReplicationResponseProto) GetResult() bool {
 	if m != nil && m.Result != nil {
@@ -685,7 +516,7 @@ type SetStoragePolicyRequestProto struct {
 func (m *SetStoragePolicyRequestProto) Reset()                    { *m = SetStoragePolicyRequestProto{} }
 func (m *SetStoragePolicyRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*SetStoragePolicyRequestProto) ProtoMessage()               {}
-func (*SetStoragePolicyRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{10} }
+func (*SetStoragePolicyRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{10} }
 
 func (m *SetStoragePolicyRequestProto) GetSrc() string {
 	if m != nil && m.Src != nil {
@@ -708,7 +539,7 @@ type SetStoragePolicyResponseProto struct {
 func (m *SetStoragePolicyResponseProto) Reset()                    { *m = SetStoragePolicyResponseProto{} }
 func (m *SetStoragePolicyResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*SetStoragePolicyResponseProto) ProtoMessage()               {}
-func (*SetStoragePolicyResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{11} }
+func (*SetStoragePolicyResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{11} }
 
 type UnsetStoragePolicyRequestProto struct {
 	Src              *string `protobuf:"bytes,1,req,name=src" json:"src,omitempty"`
@@ -718,7 +549,7 @@ type UnsetStoragePolicyRequestProto struct {
 func (m *UnsetStoragePolicyRequestProto) Reset()                    { *m = UnsetStoragePolicyRequestProto{} }
 func (m *UnsetStoragePolicyRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*UnsetStoragePolicyRequestProto) ProtoMessage()               {}
-func (*UnsetStoragePolicyRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{12} }
+func (*UnsetStoragePolicyRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{12} }
 
 func (m *UnsetStoragePolicyRequestProto) GetSrc() string {
 	if m != nil && m.Src != nil {
@@ -735,7 +566,7 @@ func (m *UnsetStoragePolicyResponseProto) Reset()         { *m = UnsetStoragePol
 func (m *UnsetStoragePolicyResponseProto) String() string { return proto.CompactTextString(m) }
 func (*UnsetStoragePolicyResponseProto) ProtoMessage()    {}
 func (*UnsetStoragePolicyResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{13}
+	return fileDescriptor8, []int{13}
 }
 
 type GetStoragePolicyRequestProto struct {
@@ -746,7 +577,7 @@ type GetStoragePolicyRequestProto struct {
 func (m *GetStoragePolicyRequestProto) Reset()                    { *m = GetStoragePolicyRequestProto{} }
 func (m *GetStoragePolicyRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*GetStoragePolicyRequestProto) ProtoMessage()               {}
-func (*GetStoragePolicyRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{14} }
+func (*GetStoragePolicyRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{14} }
 
 func (m *GetStoragePolicyRequestProto) GetPath() string {
 	if m != nil && m.Path != nil {
@@ -756,16 +587,16 @@ func (m *GetStoragePolicyRequestProto) GetPath() string {
 }
 
 type GetStoragePolicyResponseProto struct {
-	StoragePolicy    *hadoop_hdfs.BlockStoragePolicyProto `protobuf:"bytes,1,req,name=storagePolicy" json:"storagePolicy,omitempty"`
-	XXX_unrecognized []byte                               `json:"-"`
+	StoragePolicy    *BlockStoragePolicyProto `protobuf:"bytes,1,req,name=storagePolicy" json:"storagePolicy,omitempty"`
+	XXX_unrecognized []byte                   `json:"-"`
 }
 
 func (m *GetStoragePolicyResponseProto) Reset()                    { *m = GetStoragePolicyResponseProto{} }
 func (m *GetStoragePolicyResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*GetStoragePolicyResponseProto) ProtoMessage()               {}
-func (*GetStoragePolicyResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{15} }
+func (*GetStoragePolicyResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{15} }
 
-func (m *GetStoragePolicyResponseProto) GetStoragePolicy() *hadoop_hdfs.BlockStoragePolicyProto {
+func (m *GetStoragePolicyResponseProto) GetStoragePolicy() *BlockStoragePolicyProto {
 	if m != nil {
 		return m.StoragePolicy
 	}
@@ -779,21 +610,21 @@ type GetStoragePoliciesRequestProto struct {
 func (m *GetStoragePoliciesRequestProto) Reset()                    { *m = GetStoragePoliciesRequestProto{} }
 func (m *GetStoragePoliciesRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*GetStoragePoliciesRequestProto) ProtoMessage()               {}
-func (*GetStoragePoliciesRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{16} }
+func (*GetStoragePoliciesRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{16} }
 
 type GetStoragePoliciesResponseProto struct {
-	Policies         []*hadoop_hdfs.BlockStoragePolicyProto `protobuf:"bytes,1,rep,name=policies" json:"policies,omitempty"`
-	XXX_unrecognized []byte                                 `json:"-"`
+	Policies         []*BlockStoragePolicyProto `protobuf:"bytes,1,rep,name=policies" json:"policies,omitempty"`
+	XXX_unrecognized []byte                     `json:"-"`
 }
 
 func (m *GetStoragePoliciesResponseProto) Reset()         { *m = GetStoragePoliciesResponseProto{} }
 func (m *GetStoragePoliciesResponseProto) String() string { return proto.CompactTextString(m) }
 func (*GetStoragePoliciesResponseProto) ProtoMessage()    {}
 func (*GetStoragePoliciesResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{17}
+	return fileDescriptor8, []int{17}
 }
 
-func (m *GetStoragePoliciesResponseProto) GetPolicies() []*hadoop_hdfs.BlockStoragePolicyProto {
+func (m *GetStoragePoliciesResponseProto) GetPolicies() []*BlockStoragePolicyProto {
 	if m != nil {
 		return m.Policies
 	}
@@ -801,15 +632,15 @@ func (m *GetStoragePoliciesResponseProto) GetPolicies() []*hadoop_hdfs.BlockStor
 }
 
 type SetPermissionRequestProto struct {
-	Src              *string                        `protobuf:"bytes,1,req,name=src" json:"src,omitempty"`
-	Permission       *hadoop_hdfs.FsPermissionProto `protobuf:"bytes,2,req,name=permission" json:"permission,omitempty"`
-	XXX_unrecognized []byte                         `json:"-"`
+	Src              *string            `protobuf:"bytes,1,req,name=src" json:"src,omitempty"`
+	Permission       *FsPermissionProto `protobuf:"bytes,2,req,name=permission" json:"permission,omitempty"`
+	XXX_unrecognized []byte             `json:"-"`
 }
 
 func (m *SetPermissionRequestProto) Reset()                    { *m = SetPermissionRequestProto{} }
 func (m *SetPermissionRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*SetPermissionRequestProto) ProtoMessage()               {}
-func (*SetPermissionRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{18} }
+func (*SetPermissionRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{18} }
 
 func (m *SetPermissionRequestProto) GetSrc() string {
 	if m != nil && m.Src != nil {
@@ -818,7 +649,7 @@ func (m *SetPermissionRequestProto) GetSrc() string {
 	return ""
 }
 
-func (m *SetPermissionRequestProto) GetPermission() *hadoop_hdfs.FsPermissionProto {
+func (m *SetPermissionRequestProto) GetPermission() *FsPermissionProto {
 	if m != nil {
 		return m.Permission
 	}
@@ -832,7 +663,7 @@ type SetPermissionResponseProto struct {
 func (m *SetPermissionResponseProto) Reset()                    { *m = SetPermissionResponseProto{} }
 func (m *SetPermissionResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*SetPermissionResponseProto) ProtoMessage()               {}
-func (*SetPermissionResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{19} }
+func (*SetPermissionResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{19} }
 
 type SetOwnerRequestProto struct {
 	Src              *string `protobuf:"bytes,1,req,name=src" json:"src,omitempty"`
@@ -844,7 +675,7 @@ type SetOwnerRequestProto struct {
 func (m *SetOwnerRequestProto) Reset()                    { *m = SetOwnerRequestProto{} }
 func (m *SetOwnerRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*SetOwnerRequestProto) ProtoMessage()               {}
-func (*SetOwnerRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{20} }
+func (*SetOwnerRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{20} }
 
 func (m *SetOwnerRequestProto) GetSrc() string {
 	if m != nil && m.Src != nil {
@@ -874,24 +705,24 @@ type SetOwnerResponseProto struct {
 func (m *SetOwnerResponseProto) Reset()                    { *m = SetOwnerResponseProto{} }
 func (m *SetOwnerResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*SetOwnerResponseProto) ProtoMessage()               {}
-func (*SetOwnerResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{21} }
+func (*SetOwnerResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{21} }
 
 type AbandonBlockRequestProto struct {
-	B                *hadoop_hdfs.ExtendedBlockProto `protobuf:"bytes,1,req,name=b" json:"b,omitempty"`
-	Src              *string                         `protobuf:"bytes,2,req,name=src" json:"src,omitempty"`
-	Holder           *string                         `protobuf:"bytes,3,req,name=holder" json:"holder,omitempty"`
-	FileId           *uint64                         `protobuf:"varint,4,opt,name=fileId,def=0" json:"fileId,omitempty"`
-	XXX_unrecognized []byte                          `json:"-"`
+	B                *ExtendedBlockProto `protobuf:"bytes,1,req,name=b" json:"b,omitempty"`
+	Src              *string             `protobuf:"bytes,2,req,name=src" json:"src,omitempty"`
+	Holder           *string             `protobuf:"bytes,3,req,name=holder" json:"holder,omitempty"`
+	FileId           *uint64             `protobuf:"varint,4,opt,name=fileId,def=0" json:"fileId,omitempty"`
+	XXX_unrecognized []byte              `json:"-"`
 }
 
 func (m *AbandonBlockRequestProto) Reset()                    { *m = AbandonBlockRequestProto{} }
 func (m *AbandonBlockRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*AbandonBlockRequestProto) ProtoMessage()               {}
-func (*AbandonBlockRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{22} }
+func (*AbandonBlockRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{22} }
 
 const Default_AbandonBlockRequestProto_FileId uint64 = 0
 
-func (m *AbandonBlockRequestProto) GetB() *hadoop_hdfs.ExtendedBlockProto {
+func (m *AbandonBlockRequestProto) GetB() *ExtendedBlockProto {
 	if m != nil {
 		return m.B
 	}
@@ -926,23 +757,23 @@ type AbandonBlockResponseProto struct {
 func (m *AbandonBlockResponseProto) Reset()                    { *m = AbandonBlockResponseProto{} }
 func (m *AbandonBlockResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*AbandonBlockResponseProto) ProtoMessage()               {}
-func (*AbandonBlockResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{23} }
+func (*AbandonBlockResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{23} }
 
 type AddBlockRequestProto struct {
-	Src              *string                          `protobuf:"bytes,1,req,name=src" json:"src,omitempty"`
-	ClientName       *string                          `protobuf:"bytes,2,req,name=clientName" json:"clientName,omitempty"`
-	Previous         *hadoop_hdfs.ExtendedBlockProto  `protobuf:"bytes,3,opt,name=previous" json:"previous,omitempty"`
-	ExcludeNodes     []*hadoop_hdfs.DatanodeInfoProto `protobuf:"bytes,4,rep,name=excludeNodes" json:"excludeNodes,omitempty"`
-	FileId           *uint64                          `protobuf:"varint,5,opt,name=fileId,def=0" json:"fileId,omitempty"`
-	FavoredNodes     []string                         `protobuf:"bytes,6,rep,name=favoredNodes" json:"favoredNodes,omitempty"`
-	Flags            []AddBlockFlagProto              `protobuf:"varint,7,rep,name=flags,enum=hadoop.hdfs.AddBlockFlagProto" json:"flags,omitempty"`
-	XXX_unrecognized []byte                           `json:"-"`
+	Src              *string              `protobuf:"bytes,1,req,name=src" json:"src,omitempty"`
+	ClientName       *string              `protobuf:"bytes,2,req,name=clientName" json:"clientName,omitempty"`
+	Previous         *ExtendedBlockProto  `protobuf:"bytes,3,opt,name=previous" json:"previous,omitempty"`
+	ExcludeNodes     []*DatanodeInfoProto `protobuf:"bytes,4,rep,name=excludeNodes" json:"excludeNodes,omitempty"`
+	FileId           *uint64              `protobuf:"varint,5,opt,name=fileId,def=0" json:"fileId,omitempty"`
+	FavoredNodes     []string             `protobuf:"bytes,6,rep,name=favoredNodes" json:"favoredNodes,omitempty"`
+	Flags            []AddBlockFlagProto  `protobuf:"varint,7,rep,name=flags,enum=hadoop.hdfs.AddBlockFlagProto" json:"flags,omitempty"`
+	XXX_unrecognized []byte               `json:"-"`
 }
 
 func (m *AddBlockRequestProto) Reset()                    { *m = AddBlockRequestProto{} }
 func (m *AddBlockRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*AddBlockRequestProto) ProtoMessage()               {}
-func (*AddBlockRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{24} }
+func (*AddBlockRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{24} }
 
 const Default_AddBlockRequestProto_FileId uint64 = 0
 
@@ -960,14 +791,14 @@ func (m *AddBlockRequestProto) GetClientName() string {
 	return ""
 }
 
-func (m *AddBlockRequestProto) GetPrevious() *hadoop_hdfs.ExtendedBlockProto {
+func (m *AddBlockRequestProto) GetPrevious() *ExtendedBlockProto {
 	if m != nil {
 		return m.Previous
 	}
 	return nil
 }
 
-func (m *AddBlockRequestProto) GetExcludeNodes() []*hadoop_hdfs.DatanodeInfoProto {
+func (m *AddBlockRequestProto) GetExcludeNodes() []*DatanodeInfoProto {
 	if m != nil {
 		return m.ExcludeNodes
 	}
@@ -996,16 +827,16 @@ func (m *AddBlockRequestProto) GetFlags() []AddBlockFlagProto {
 }
 
 type AddBlockResponseProto struct {
-	Block            *hadoop_hdfs.LocatedBlockProto `protobuf:"bytes,1,req,name=block" json:"block,omitempty"`
-	XXX_unrecognized []byte                         `json:"-"`
+	Block            *LocatedBlockProto `protobuf:"bytes,1,req,name=block" json:"block,omitempty"`
+	XXX_unrecognized []byte             `json:"-"`
 }
 
 func (m *AddBlockResponseProto) Reset()                    { *m = AddBlockResponseProto{} }
 func (m *AddBlockResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*AddBlockResponseProto) ProtoMessage()               {}
-func (*AddBlockResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{25} }
+func (*AddBlockResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{25} }
 
-func (m *AddBlockResponseProto) GetBlock() *hadoop_hdfs.LocatedBlockProto {
+func (m *AddBlockResponseProto) GetBlock() *LocatedBlockProto {
 	if m != nil {
 		return m.Block
 	}
@@ -1013,22 +844,22 @@ func (m *AddBlockResponseProto) GetBlock() *hadoop_hdfs.LocatedBlockProto {
 }
 
 type GetAdditionalDatanodeRequestProto struct {
-	Src                  *string                          `protobuf:"bytes,1,req,name=src" json:"src,omitempty"`
-	Blk                  *hadoop_hdfs.ExtendedBlockProto  `protobuf:"bytes,2,req,name=blk" json:"blk,omitempty"`
-	Existings            []*hadoop_hdfs.DatanodeInfoProto `protobuf:"bytes,3,rep,name=existings" json:"existings,omitempty"`
-	Excludes             []*hadoop_hdfs.DatanodeInfoProto `protobuf:"bytes,4,rep,name=excludes" json:"excludes,omitempty"`
-	NumAdditionalNodes   *uint32                          `protobuf:"varint,5,req,name=numAdditionalNodes" json:"numAdditionalNodes,omitempty"`
-	ClientName           *string                          `protobuf:"bytes,6,req,name=clientName" json:"clientName,omitempty"`
-	ExistingStorageUuids []string                         `protobuf:"bytes,7,rep,name=existingStorageUuids" json:"existingStorageUuids,omitempty"`
-	FileId               *uint64                          `protobuf:"varint,8,opt,name=fileId,def=0" json:"fileId,omitempty"`
-	XXX_unrecognized     []byte                           `json:"-"`
+	Src                  *string              `protobuf:"bytes,1,req,name=src" json:"src,omitempty"`
+	Blk                  *ExtendedBlockProto  `protobuf:"bytes,2,req,name=blk" json:"blk,omitempty"`
+	Existings            []*DatanodeInfoProto `protobuf:"bytes,3,rep,name=existings" json:"existings,omitempty"`
+	Excludes             []*DatanodeInfoProto `protobuf:"bytes,4,rep,name=excludes" json:"excludes,omitempty"`
+	NumAdditionalNodes   *uint32              `protobuf:"varint,5,req,name=numAdditionalNodes" json:"numAdditionalNodes,omitempty"`
+	ClientName           *string              `protobuf:"bytes,6,req,name=clientName" json:"clientName,omitempty"`
+	ExistingStorageUuids []string             `protobuf:"bytes,7,rep,name=existingStorageUuids" json:"existingStorageUuids,omitempty"`
+	FileId               *uint64              `protobuf:"varint,8,opt,name=fileId,def=0" json:"fileId,omitempty"`
+	XXX_unrecognized     []byte               `json:"-"`
 }
 
 func (m *GetAdditionalDatanodeRequestProto) Reset()         { *m = GetAdditionalDatanodeRequestProto{} }
 func (m *GetAdditionalDatanodeRequestProto) String() string { return proto.CompactTextString(m) }
 func (*GetAdditionalDatanodeRequestProto) ProtoMessage()    {}
 func (*GetAdditionalDatanodeRequestProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{26}
+	return fileDescriptor8, []int{26}
 }
 
 const Default_GetAdditionalDatanodeRequestProto_FileId uint64 = 0
@@ -1040,21 +871,21 @@ func (m *GetAdditionalDatanodeRequestProto) GetSrc() string {
 	return ""
 }
 
-func (m *GetAdditionalDatanodeRequestProto) GetBlk() *hadoop_hdfs.ExtendedBlockProto {
+func (m *GetAdditionalDatanodeRequestProto) GetBlk() *ExtendedBlockProto {
 	if m != nil {
 		return m.Blk
 	}
 	return nil
 }
 
-func (m *GetAdditionalDatanodeRequestProto) GetExistings() []*hadoop_hdfs.DatanodeInfoProto {
+func (m *GetAdditionalDatanodeRequestProto) GetExistings() []*DatanodeInfoProto {
 	if m != nil {
 		return m.Existings
 	}
 	return nil
 }
 
-func (m *GetAdditionalDatanodeRequestProto) GetExcludes() []*hadoop_hdfs.DatanodeInfoProto {
+func (m *GetAdditionalDatanodeRequestProto) GetExcludes() []*DatanodeInfoProto {
 	if m != nil {
 		return m.Excludes
 	}
@@ -1090,18 +921,18 @@ func (m *GetAdditionalDatanodeRequestProto) GetFileId() uint64 {
 }
 
 type GetAdditionalDatanodeResponseProto struct {
-	Block            *hadoop_hdfs.LocatedBlockProto `protobuf:"bytes,1,req,name=block" json:"block,omitempty"`
-	XXX_unrecognized []byte                         `json:"-"`
+	Block            *LocatedBlockProto `protobuf:"bytes,1,req,name=block" json:"block,omitempty"`
+	XXX_unrecognized []byte             `json:"-"`
 }
 
 func (m *GetAdditionalDatanodeResponseProto) Reset()         { *m = GetAdditionalDatanodeResponseProto{} }
 func (m *GetAdditionalDatanodeResponseProto) String() string { return proto.CompactTextString(m) }
 func (*GetAdditionalDatanodeResponseProto) ProtoMessage()    {}
 func (*GetAdditionalDatanodeResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{27}
+	return fileDescriptor8, []int{27}
 }
 
-func (m *GetAdditionalDatanodeResponseProto) GetBlock() *hadoop_hdfs.LocatedBlockProto {
+func (m *GetAdditionalDatanodeResponseProto) GetBlock() *LocatedBlockProto {
 	if m != nil {
 		return m.Block
 	}
@@ -1109,17 +940,17 @@ func (m *GetAdditionalDatanodeResponseProto) GetBlock() *hadoop_hdfs.LocatedBloc
 }
 
 type CompleteRequestProto struct {
-	Src              *string                         `protobuf:"bytes,1,req,name=src" json:"src,omitempty"`
-	ClientName       *string                         `protobuf:"bytes,2,req,name=clientName" json:"clientName,omitempty"`
-	Last             *hadoop_hdfs.ExtendedBlockProto `protobuf:"bytes,3,opt,name=last" json:"last,omitempty"`
-	FileId           *uint64                         `protobuf:"varint,4,opt,name=fileId,def=0" json:"fileId,omitempty"`
-	XXX_unrecognized []byte                          `json:"-"`
+	Src              *string             `protobuf:"bytes,1,req,name=src" json:"src,omitempty"`
+	ClientName       *string             `protobuf:"bytes,2,req,name=clientName" json:"clientName,omitempty"`
+	Last             *ExtendedBlockProto `protobuf:"bytes,3,opt,name=last" json:"last,omitempty"`
+	FileId           *uint64             `protobuf:"varint,4,opt,name=fileId,def=0" json:"fileId,omitempty"`
+	XXX_unrecognized []byte              `json:"-"`
 }
 
 func (m *CompleteRequestProto) Reset()                    { *m = CompleteRequestProto{} }
 func (m *CompleteRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*CompleteRequestProto) ProtoMessage()               {}
-func (*CompleteRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{28} }
+func (*CompleteRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{28} }
 
 const Default_CompleteRequestProto_FileId uint64 = 0
 
@@ -1137,7 +968,7 @@ func (m *CompleteRequestProto) GetClientName() string {
 	return ""
 }
 
-func (m *CompleteRequestProto) GetLast() *hadoop_hdfs.ExtendedBlockProto {
+func (m *CompleteRequestProto) GetLast() *ExtendedBlockProto {
 	if m != nil {
 		return m.Last
 	}
@@ -1159,7 +990,7 @@ type CompleteResponseProto struct {
 func (m *CompleteResponseProto) Reset()                    { *m = CompleteResponseProto{} }
 func (m *CompleteResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*CompleteResponseProto) ProtoMessage()               {}
-func (*CompleteResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{29} }
+func (*CompleteResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{29} }
 
 func (m *CompleteResponseProto) GetResult() bool {
 	if m != nil && m.Result != nil {
@@ -1169,16 +1000,16 @@ func (m *CompleteResponseProto) GetResult() bool {
 }
 
 type ReportBadBlocksRequestProto struct {
-	Blocks           []*hadoop_hdfs.LocatedBlockProto `protobuf:"bytes,1,rep,name=blocks" json:"blocks,omitempty"`
-	XXX_unrecognized []byte                           `json:"-"`
+	Blocks           []*LocatedBlockProto `protobuf:"bytes,1,rep,name=blocks" json:"blocks,omitempty"`
+	XXX_unrecognized []byte               `json:"-"`
 }
 
 func (m *ReportBadBlocksRequestProto) Reset()                    { *m = ReportBadBlocksRequestProto{} }
 func (m *ReportBadBlocksRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*ReportBadBlocksRequestProto) ProtoMessage()               {}
-func (*ReportBadBlocksRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{30} }
+func (*ReportBadBlocksRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{30} }
 
-func (m *ReportBadBlocksRequestProto) GetBlocks() []*hadoop_hdfs.LocatedBlockProto {
+func (m *ReportBadBlocksRequestProto) GetBlocks() []*LocatedBlockProto {
 	if m != nil {
 		return m.Blocks
 	}
@@ -1192,7 +1023,7 @@ type ReportBadBlocksResponseProto struct {
 func (m *ReportBadBlocksResponseProto) Reset()                    { *m = ReportBadBlocksResponseProto{} }
 func (m *ReportBadBlocksResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*ReportBadBlocksResponseProto) ProtoMessage()               {}
-func (*ReportBadBlocksResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{31} }
+func (*ReportBadBlocksResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{31} }
 
 type ConcatRequestProto struct {
 	Trg              *string  `protobuf:"bytes,1,req,name=trg" json:"trg,omitempty"`
@@ -1203,7 +1034,7 @@ type ConcatRequestProto struct {
 func (m *ConcatRequestProto) Reset()                    { *m = ConcatRequestProto{} }
 func (m *ConcatRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*ConcatRequestProto) ProtoMessage()               {}
-func (*ConcatRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{32} }
+func (*ConcatRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{32} }
 
 func (m *ConcatRequestProto) GetTrg() string {
 	if m != nil && m.Trg != nil {
@@ -1226,7 +1057,7 @@ type ConcatResponseProto struct {
 func (m *ConcatResponseProto) Reset()                    { *m = ConcatResponseProto{} }
 func (m *ConcatResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*ConcatResponseProto) ProtoMessage()               {}
-func (*ConcatResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{33} }
+func (*ConcatResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{33} }
 
 type TruncateRequestProto struct {
 	Src              *string `protobuf:"bytes,1,req,name=src" json:"src,omitempty"`
@@ -1238,7 +1069,7 @@ type TruncateRequestProto struct {
 func (m *TruncateRequestProto) Reset()                    { *m = TruncateRequestProto{} }
 func (m *TruncateRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*TruncateRequestProto) ProtoMessage()               {}
-func (*TruncateRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{34} }
+func (*TruncateRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{34} }
 
 func (m *TruncateRequestProto) GetSrc() string {
 	if m != nil && m.Src != nil {
@@ -1269,7 +1100,7 @@ type TruncateResponseProto struct {
 func (m *TruncateResponseProto) Reset()                    { *m = TruncateResponseProto{} }
 func (m *TruncateResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*TruncateResponseProto) ProtoMessage()               {}
-func (*TruncateResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{35} }
+func (*TruncateResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{35} }
 
 func (m *TruncateResponseProto) GetResult() bool {
 	if m != nil && m.Result != nil {
@@ -1287,7 +1118,7 @@ type RenameRequestProto struct {
 func (m *RenameRequestProto) Reset()                    { *m = RenameRequestProto{} }
 func (m *RenameRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*RenameRequestProto) ProtoMessage()               {}
-func (*RenameRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{36} }
+func (*RenameRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{36} }
 
 func (m *RenameRequestProto) GetSrc() string {
 	if m != nil && m.Src != nil {
@@ -1311,7 +1142,7 @@ type RenameResponseProto struct {
 func (m *RenameResponseProto) Reset()                    { *m = RenameResponseProto{} }
 func (m *RenameResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*RenameResponseProto) ProtoMessage()               {}
-func (*RenameResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{37} }
+func (*RenameResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{37} }
 
 func (m *RenameResponseProto) GetResult() bool {
 	if m != nil && m.Result != nil {
@@ -1330,7 +1161,7 @@ type Rename2RequestProto struct {
 func (m *Rename2RequestProto) Reset()                    { *m = Rename2RequestProto{} }
 func (m *Rename2RequestProto) String() string            { return proto.CompactTextString(m) }
 func (*Rename2RequestProto) ProtoMessage()               {}
-func (*Rename2RequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{38} }
+func (*Rename2RequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{38} }
 
 func (m *Rename2RequestProto) GetSrc() string {
 	if m != nil && m.Src != nil {
@@ -1360,7 +1191,7 @@ type Rename2ResponseProto struct {
 func (m *Rename2ResponseProto) Reset()                    { *m = Rename2ResponseProto{} }
 func (m *Rename2ResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*Rename2ResponseProto) ProtoMessage()               {}
-func (*Rename2ResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{39} }
+func (*Rename2ResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{39} }
 
 type DeleteRequestProto struct {
 	Src              *string `protobuf:"bytes,1,req,name=src" json:"src,omitempty"`
@@ -1371,7 +1202,7 @@ type DeleteRequestProto struct {
 func (m *DeleteRequestProto) Reset()                    { *m = DeleteRequestProto{} }
 func (m *DeleteRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*DeleteRequestProto) ProtoMessage()               {}
-func (*DeleteRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{40} }
+func (*DeleteRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{40} }
 
 func (m *DeleteRequestProto) GetSrc() string {
 	if m != nil && m.Src != nil {
@@ -1395,7 +1226,7 @@ type DeleteResponseProto struct {
 func (m *DeleteResponseProto) Reset()                    { *m = DeleteResponseProto{} }
 func (m *DeleteResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*DeleteResponseProto) ProtoMessage()               {}
-func (*DeleteResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{41} }
+func (*DeleteResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{41} }
 
 func (m *DeleteResponseProto) GetResult() bool {
 	if m != nil && m.Result != nil {
@@ -1405,16 +1236,16 @@ func (m *DeleteResponseProto) GetResult() bool {
 }
 
 type MkdirsRequestProto struct {
-	Src              *string                        `protobuf:"bytes,1,req,name=src" json:"src,omitempty"`
-	Masked           *hadoop_hdfs.FsPermissionProto `protobuf:"bytes,2,req,name=masked" json:"masked,omitempty"`
-	CreateParent     *bool                          `protobuf:"varint,3,req,name=createParent" json:"createParent,omitempty"`
-	XXX_unrecognized []byte                         `json:"-"`
+	Src              *string            `protobuf:"bytes,1,req,name=src" json:"src,omitempty"`
+	Masked           *FsPermissionProto `protobuf:"bytes,2,req,name=masked" json:"masked,omitempty"`
+	CreateParent     *bool              `protobuf:"varint,3,req,name=createParent" json:"createParent,omitempty"`
+	XXX_unrecognized []byte             `json:"-"`
 }
 
 func (m *MkdirsRequestProto) Reset()                    { *m = MkdirsRequestProto{} }
 func (m *MkdirsRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*MkdirsRequestProto) ProtoMessage()               {}
-func (*MkdirsRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{42} }
+func (*MkdirsRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{42} }
 
 func (m *MkdirsRequestProto) GetSrc() string {
 	if m != nil && m.Src != nil {
@@ -1423,7 +1254,7 @@ func (m *MkdirsRequestProto) GetSrc() string {
 	return ""
 }
 
-func (m *MkdirsRequestProto) GetMasked() *hadoop_hdfs.FsPermissionProto {
+func (m *MkdirsRequestProto) GetMasked() *FsPermissionProto {
 	if m != nil {
 		return m.Masked
 	}
@@ -1445,7 +1276,7 @@ type MkdirsResponseProto struct {
 func (m *MkdirsResponseProto) Reset()                    { *m = MkdirsResponseProto{} }
 func (m *MkdirsResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*MkdirsResponseProto) ProtoMessage()               {}
-func (*MkdirsResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{43} }
+func (*MkdirsResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{43} }
 
 func (m *MkdirsResponseProto) GetResult() bool {
 	if m != nil && m.Result != nil {
@@ -1464,7 +1295,7 @@ type GetListingRequestProto struct {
 func (m *GetListingRequestProto) Reset()                    { *m = GetListingRequestProto{} }
 func (m *GetListingRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*GetListingRequestProto) ProtoMessage()               {}
-func (*GetListingRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{44} }
+func (*GetListingRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{44} }
 
 func (m *GetListingRequestProto) GetSrc() string {
 	if m != nil && m.Src != nil {
@@ -1488,16 +1319,16 @@ func (m *GetListingRequestProto) GetNeedLocation() bool {
 }
 
 type GetListingResponseProto struct {
-	DirList          *hadoop_hdfs.DirectoryListingProto `protobuf:"bytes,1,opt,name=dirList" json:"dirList,omitempty"`
-	XXX_unrecognized []byte                             `json:"-"`
+	DirList          *DirectoryListingProto `protobuf:"bytes,1,opt,name=dirList" json:"dirList,omitempty"`
+	XXX_unrecognized []byte                 `json:"-"`
 }
 
 func (m *GetListingResponseProto) Reset()                    { *m = GetListingResponseProto{} }
 func (m *GetListingResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*GetListingResponseProto) ProtoMessage()               {}
-func (*GetListingResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{45} }
+func (*GetListingResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{45} }
 
-func (m *GetListingResponseProto) GetDirList() *hadoop_hdfs.DirectoryListingProto {
+func (m *GetListingResponseProto) GetDirList() *DirectoryListingProto {
 	if m != nil {
 		return m.DirList
 	}
@@ -1514,12 +1345,12 @@ func (m *GetSnapshottableDirListingRequestProto) Reset() {
 func (m *GetSnapshottableDirListingRequestProto) String() string { return proto.CompactTextString(m) }
 func (*GetSnapshottableDirListingRequestProto) ProtoMessage()    {}
 func (*GetSnapshottableDirListingRequestProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{46}
+	return fileDescriptor8, []int{46}
 }
 
 type GetSnapshottableDirListingResponseProto struct {
-	SnapshottableDirList *hadoop_hdfs.SnapshottableDirectoryListingProto `protobuf:"bytes,1,opt,name=snapshottableDirList" json:"snapshottableDirList,omitempty"`
-	XXX_unrecognized     []byte                                          `json:"-"`
+	SnapshottableDirList *SnapshottableDirectoryListingProto `protobuf:"bytes,1,opt,name=snapshottableDirList" json:"snapshottableDirList,omitempty"`
+	XXX_unrecognized     []byte                              `json:"-"`
 }
 
 func (m *GetSnapshottableDirListingResponseProto) Reset() {
@@ -1528,10 +1359,10 @@ func (m *GetSnapshottableDirListingResponseProto) Reset() {
 func (m *GetSnapshottableDirListingResponseProto) String() string { return proto.CompactTextString(m) }
 func (*GetSnapshottableDirListingResponseProto) ProtoMessage()    {}
 func (*GetSnapshottableDirListingResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{47}
+	return fileDescriptor8, []int{47}
 }
 
-func (m *GetSnapshottableDirListingResponseProto) GetSnapshottableDirList() *hadoop_hdfs.SnapshottableDirectoryListingProto {
+func (m *GetSnapshottableDirListingResponseProto) GetSnapshottableDirList() *SnapshottableDirectoryListingProto {
 	if m != nil {
 		return m.SnapshottableDirList
 	}
@@ -1549,7 +1380,7 @@ func (m *GetSnapshotDiffReportRequestProto) Reset()         { *m = GetSnapshotDi
 func (m *GetSnapshotDiffReportRequestProto) String() string { return proto.CompactTextString(m) }
 func (*GetSnapshotDiffReportRequestProto) ProtoMessage()    {}
 func (*GetSnapshotDiffReportRequestProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{48}
+	return fileDescriptor8, []int{48}
 }
 
 func (m *GetSnapshotDiffReportRequestProto) GetSnapshotRoot() string {
@@ -1574,18 +1405,18 @@ func (m *GetSnapshotDiffReportRequestProto) GetToSnapshot() string {
 }
 
 type GetSnapshotDiffReportResponseProto struct {
-	DiffReport       *hadoop_hdfs.SnapshotDiffReportProto `protobuf:"bytes,1,req,name=diffReport" json:"diffReport,omitempty"`
-	XXX_unrecognized []byte                               `json:"-"`
+	DiffReport       *SnapshotDiffReportProto `protobuf:"bytes,1,req,name=diffReport" json:"diffReport,omitempty"`
+	XXX_unrecognized []byte                   `json:"-"`
 }
 
 func (m *GetSnapshotDiffReportResponseProto) Reset()         { *m = GetSnapshotDiffReportResponseProto{} }
 func (m *GetSnapshotDiffReportResponseProto) String() string { return proto.CompactTextString(m) }
 func (*GetSnapshotDiffReportResponseProto) ProtoMessage()    {}
 func (*GetSnapshotDiffReportResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{49}
+	return fileDescriptor8, []int{49}
 }
 
-func (m *GetSnapshotDiffReportResponseProto) GetDiffReport() *hadoop_hdfs.SnapshotDiffReportProto {
+func (m *GetSnapshotDiffReportResponseProto) GetDiffReport() *SnapshotDiffReportProto {
 	if m != nil {
 		return m.DiffReport
 	}
@@ -1600,7 +1431,7 @@ type RenewLeaseRequestProto struct {
 func (m *RenewLeaseRequestProto) Reset()                    { *m = RenewLeaseRequestProto{} }
 func (m *RenewLeaseRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*RenewLeaseRequestProto) ProtoMessage()               {}
-func (*RenewLeaseRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{50} }
+func (*RenewLeaseRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{50} }
 
 func (m *RenewLeaseRequestProto) GetClientName() string {
 	if m != nil && m.ClientName != nil {
@@ -1616,7 +1447,7 @@ type RenewLeaseResponseProto struct {
 func (m *RenewLeaseResponseProto) Reset()                    { *m = RenewLeaseResponseProto{} }
 func (m *RenewLeaseResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*RenewLeaseResponseProto) ProtoMessage()               {}
-func (*RenewLeaseResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{51} }
+func (*RenewLeaseResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{51} }
 
 type RecoverLeaseRequestProto struct {
 	Src              *string `protobuf:"bytes,1,req,name=src" json:"src,omitempty"`
@@ -1627,7 +1458,7 @@ type RecoverLeaseRequestProto struct {
 func (m *RecoverLeaseRequestProto) Reset()                    { *m = RecoverLeaseRequestProto{} }
 func (m *RecoverLeaseRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*RecoverLeaseRequestProto) ProtoMessage()               {}
-func (*RecoverLeaseRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{52} }
+func (*RecoverLeaseRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{52} }
 
 func (m *RecoverLeaseRequestProto) GetSrc() string {
 	if m != nil && m.Src != nil {
@@ -1651,7 +1482,7 @@ type RecoverLeaseResponseProto struct {
 func (m *RecoverLeaseResponseProto) Reset()                    { *m = RecoverLeaseResponseProto{} }
 func (m *RecoverLeaseResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*RecoverLeaseResponseProto) ProtoMessage()               {}
-func (*RecoverLeaseResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{53} }
+func (*RecoverLeaseResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{53} }
 
 func (m *RecoverLeaseResponseProto) GetResult() bool {
 	if m != nil && m.Result != nil {
@@ -1667,7 +1498,7 @@ type GetFsStatusRequestProto struct {
 func (m *GetFsStatusRequestProto) Reset()                    { *m = GetFsStatusRequestProto{} }
 func (m *GetFsStatusRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*GetFsStatusRequestProto) ProtoMessage()               {}
-func (*GetFsStatusRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{54} }
+func (*GetFsStatusRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{54} }
 
 type GetFsStatsResponseProto struct {
 	Capacity              *uint64 `protobuf:"varint,1,req,name=capacity" json:"capacity,omitempty"`
@@ -1685,7 +1516,7 @@ type GetFsStatsResponseProto struct {
 func (m *GetFsStatsResponseProto) Reset()                    { *m = GetFsStatsResponseProto{} }
 func (m *GetFsStatsResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*GetFsStatsResponseProto) ProtoMessage()               {}
-func (*GetFsStatsResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{55} }
+func (*GetFsStatsResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{55} }
 
 func (m *GetFsStatsResponseProto) GetCapacity() uint64 {
 	if m != nil && m.Capacity != nil {
@@ -1758,7 +1589,7 @@ type GetDatanodeReportRequestProto struct {
 func (m *GetDatanodeReportRequestProto) Reset()                    { *m = GetDatanodeReportRequestProto{} }
 func (m *GetDatanodeReportRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*GetDatanodeReportRequestProto) ProtoMessage()               {}
-func (*GetDatanodeReportRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{56} }
+func (*GetDatanodeReportRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{56} }
 
 func (m *GetDatanodeReportRequestProto) GetType() DatanodeReportTypeProto {
 	if m != nil && m.Type != nil {
@@ -1768,16 +1599,16 @@ func (m *GetDatanodeReportRequestProto) GetType() DatanodeReportTypeProto {
 }
 
 type GetDatanodeReportResponseProto struct {
-	Di               []*hadoop_hdfs.DatanodeInfoProto `protobuf:"bytes,1,rep,name=di" json:"di,omitempty"`
-	XXX_unrecognized []byte                           `json:"-"`
+	Di               []*DatanodeInfoProto `protobuf:"bytes,1,rep,name=di" json:"di,omitempty"`
+	XXX_unrecognized []byte               `json:"-"`
 }
 
 func (m *GetDatanodeReportResponseProto) Reset()                    { *m = GetDatanodeReportResponseProto{} }
 func (m *GetDatanodeReportResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*GetDatanodeReportResponseProto) ProtoMessage()               {}
-func (*GetDatanodeReportResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{57} }
+func (*GetDatanodeReportResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{57} }
 
-func (m *GetDatanodeReportResponseProto) GetDi() []*hadoop_hdfs.DatanodeInfoProto {
+func (m *GetDatanodeReportResponseProto) GetDi() []*DatanodeInfoProto {
 	if m != nil {
 		return m.Di
 	}
@@ -1793,7 +1624,7 @@ func (m *GetDatanodeStorageReportRequestProto) Reset()         { *m = GetDatanod
 func (m *GetDatanodeStorageReportRequestProto) String() string { return proto.CompactTextString(m) }
 func (*GetDatanodeStorageReportRequestProto) ProtoMessage()    {}
 func (*GetDatanodeStorageReportRequestProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{58}
+	return fileDescriptor8, []int{58}
 }
 
 func (m *GetDatanodeStorageReportRequestProto) GetType() DatanodeReportTypeProto {
@@ -1804,24 +1635,24 @@ func (m *GetDatanodeStorageReportRequestProto) GetType() DatanodeReportTypeProto
 }
 
 type DatanodeStorageReportProto struct {
-	DatanodeInfo     *hadoop_hdfs.DatanodeInfoProto    `protobuf:"bytes,1,req,name=datanodeInfo" json:"datanodeInfo,omitempty"`
-	StorageReports   []*hadoop_hdfs.StorageReportProto `protobuf:"bytes,2,rep,name=storageReports" json:"storageReports,omitempty"`
-	XXX_unrecognized []byte                            `json:"-"`
+	DatanodeInfo     *DatanodeInfoProto    `protobuf:"bytes,1,req,name=datanodeInfo" json:"datanodeInfo,omitempty"`
+	StorageReports   []*StorageReportProto `protobuf:"bytes,2,rep,name=storageReports" json:"storageReports,omitempty"`
+	XXX_unrecognized []byte                `json:"-"`
 }
 
 func (m *DatanodeStorageReportProto) Reset()                    { *m = DatanodeStorageReportProto{} }
 func (m *DatanodeStorageReportProto) String() string            { return proto.CompactTextString(m) }
 func (*DatanodeStorageReportProto) ProtoMessage()               {}
-func (*DatanodeStorageReportProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{59} }
+func (*DatanodeStorageReportProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{59} }
 
-func (m *DatanodeStorageReportProto) GetDatanodeInfo() *hadoop_hdfs.DatanodeInfoProto {
+func (m *DatanodeStorageReportProto) GetDatanodeInfo() *DatanodeInfoProto {
 	if m != nil {
 		return m.DatanodeInfo
 	}
 	return nil
 }
 
-func (m *DatanodeStorageReportProto) GetStorageReports() []*hadoop_hdfs.StorageReportProto {
+func (m *DatanodeStorageReportProto) GetStorageReports() []*StorageReportProto {
 	if m != nil {
 		return m.StorageReports
 	}
@@ -1837,7 +1668,7 @@ func (m *GetDatanodeStorageReportResponseProto) Reset()         { *m = GetDatano
 func (m *GetDatanodeStorageReportResponseProto) String() string { return proto.CompactTextString(m) }
 func (*GetDatanodeStorageReportResponseProto) ProtoMessage()    {}
 func (*GetDatanodeStorageReportResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{60}
+	return fileDescriptor8, []int{60}
 }
 
 func (m *GetDatanodeStorageReportResponseProto) GetDatanodeStorageReports() []*DatanodeStorageReportProto {
@@ -1856,7 +1687,7 @@ func (m *GetPreferredBlockSizeRequestProto) Reset()         { *m = GetPreferredB
 func (m *GetPreferredBlockSizeRequestProto) String() string { return proto.CompactTextString(m) }
 func (*GetPreferredBlockSizeRequestProto) ProtoMessage()    {}
 func (*GetPreferredBlockSizeRequestProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{61}
+	return fileDescriptor8, []int{61}
 }
 
 func (m *GetPreferredBlockSizeRequestProto) GetFilename() string {
@@ -1875,7 +1706,7 @@ func (m *GetPreferredBlockSizeResponseProto) Reset()         { *m = GetPreferred
 func (m *GetPreferredBlockSizeResponseProto) String() string { return proto.CompactTextString(m) }
 func (*GetPreferredBlockSizeResponseProto) ProtoMessage()    {}
 func (*GetPreferredBlockSizeResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{62}
+	return fileDescriptor8, []int{62}
 }
 
 func (m *GetPreferredBlockSizeResponseProto) GetBsize() uint64 {
@@ -1894,7 +1725,7 @@ type SetSafeModeRequestProto struct {
 func (m *SetSafeModeRequestProto) Reset()                    { *m = SetSafeModeRequestProto{} }
 func (m *SetSafeModeRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*SetSafeModeRequestProto) ProtoMessage()               {}
-func (*SetSafeModeRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{63} }
+func (*SetSafeModeRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{63} }
 
 const Default_SetSafeModeRequestProto_Checked bool = false
 
@@ -1920,7 +1751,7 @@ type SetSafeModeResponseProto struct {
 func (m *SetSafeModeResponseProto) Reset()                    { *m = SetSafeModeResponseProto{} }
 func (m *SetSafeModeResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*SetSafeModeResponseProto) ProtoMessage()               {}
-func (*SetSafeModeResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{64} }
+func (*SetSafeModeResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{64} }
 
 func (m *SetSafeModeResponseProto) GetResult() bool {
 	if m != nil && m.Result != nil {
@@ -1938,7 +1769,7 @@ type SaveNamespaceRequestProto struct {
 func (m *SaveNamespaceRequestProto) Reset()                    { *m = SaveNamespaceRequestProto{} }
 func (m *SaveNamespaceRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*SaveNamespaceRequestProto) ProtoMessage()               {}
-func (*SaveNamespaceRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{65} }
+func (*SaveNamespaceRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{65} }
 
 const Default_SaveNamespaceRequestProto_TimeWindow uint64 = 0
 const Default_SaveNamespaceRequestProto_TxGap uint64 = 0
@@ -1965,7 +1796,7 @@ type SaveNamespaceResponseProto struct {
 func (m *SaveNamespaceResponseProto) Reset()                    { *m = SaveNamespaceResponseProto{} }
 func (m *SaveNamespaceResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*SaveNamespaceResponseProto) ProtoMessage()               {}
-func (*SaveNamespaceResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{66} }
+func (*SaveNamespaceResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{66} }
 
 const Default_SaveNamespaceResponseProto_Saved bool = true
 
@@ -1983,7 +1814,7 @@ type RollEditsRequestProto struct {
 func (m *RollEditsRequestProto) Reset()                    { *m = RollEditsRequestProto{} }
 func (m *RollEditsRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*RollEditsRequestProto) ProtoMessage()               {}
-func (*RollEditsRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{67} }
+func (*RollEditsRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{67} }
 
 type RollEditsResponseProto struct {
 	NewSegmentTxId   *uint64 `protobuf:"varint,1,req,name=newSegmentTxId" json:"newSegmentTxId,omitempty"`
@@ -1993,7 +1824,7 @@ type RollEditsResponseProto struct {
 func (m *RollEditsResponseProto) Reset()                    { *m = RollEditsResponseProto{} }
 func (m *RollEditsResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*RollEditsResponseProto) ProtoMessage()               {}
-func (*RollEditsResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{68} }
+func (*RollEditsResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{68} }
 
 func (m *RollEditsResponseProto) GetNewSegmentTxId() uint64 {
 	if m != nil && m.NewSegmentTxId != nil {
@@ -2011,7 +1842,7 @@ func (m *RestoreFailedStorageRequestProto) Reset()         { *m = RestoreFailedS
 func (m *RestoreFailedStorageRequestProto) String() string { return proto.CompactTextString(m) }
 func (*RestoreFailedStorageRequestProto) ProtoMessage()    {}
 func (*RestoreFailedStorageRequestProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{69}
+	return fileDescriptor8, []int{69}
 }
 
 func (m *RestoreFailedStorageRequestProto) GetArg() string {
@@ -2030,7 +1861,7 @@ func (m *RestoreFailedStorageResponseProto) Reset()         { *m = RestoreFailed
 func (m *RestoreFailedStorageResponseProto) String() string { return proto.CompactTextString(m) }
 func (*RestoreFailedStorageResponseProto) ProtoMessage()    {}
 func (*RestoreFailedStorageResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{70}
+	return fileDescriptor8, []int{70}
 }
 
 func (m *RestoreFailedStorageResponseProto) GetResult() bool {
@@ -2047,7 +1878,7 @@ type RefreshNodesRequestProto struct {
 func (m *RefreshNodesRequestProto) Reset()                    { *m = RefreshNodesRequestProto{} }
 func (m *RefreshNodesRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*RefreshNodesRequestProto) ProtoMessage()               {}
-func (*RefreshNodesRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{71} }
+func (*RefreshNodesRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{71} }
 
 type RefreshNodesResponseProto struct {
 	XXX_unrecognized []byte `json:"-"`
@@ -2056,7 +1887,7 @@ type RefreshNodesResponseProto struct {
 func (m *RefreshNodesResponseProto) Reset()                    { *m = RefreshNodesResponseProto{} }
 func (m *RefreshNodesResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*RefreshNodesResponseProto) ProtoMessage()               {}
-func (*RefreshNodesResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{72} }
+func (*RefreshNodesResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{72} }
 
 type FinalizeUpgradeRequestProto struct {
 	XXX_unrecognized []byte `json:"-"`
@@ -2065,7 +1896,7 @@ type FinalizeUpgradeRequestProto struct {
 func (m *FinalizeUpgradeRequestProto) Reset()                    { *m = FinalizeUpgradeRequestProto{} }
 func (m *FinalizeUpgradeRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*FinalizeUpgradeRequestProto) ProtoMessage()               {}
-func (*FinalizeUpgradeRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{73} }
+func (*FinalizeUpgradeRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{73} }
 
 type FinalizeUpgradeResponseProto struct {
 	XXX_unrecognized []byte `json:"-"`
@@ -2074,7 +1905,7 @@ type FinalizeUpgradeResponseProto struct {
 func (m *FinalizeUpgradeResponseProto) Reset()                    { *m = FinalizeUpgradeResponseProto{} }
 func (m *FinalizeUpgradeResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*FinalizeUpgradeResponseProto) ProtoMessage()               {}
-func (*FinalizeUpgradeResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{74} }
+func (*FinalizeUpgradeResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{74} }
 
 type RollingUpgradeRequestProto struct {
 	Action           *RollingUpgradeActionProto `protobuf:"varint,1,req,name=action,enum=hadoop.hdfs.RollingUpgradeActionProto" json:"action,omitempty"`
@@ -2084,7 +1915,7 @@ type RollingUpgradeRequestProto struct {
 func (m *RollingUpgradeRequestProto) Reset()                    { *m = RollingUpgradeRequestProto{} }
 func (m *RollingUpgradeRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*RollingUpgradeRequestProto) ProtoMessage()               {}
-func (*RollingUpgradeRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{75} }
+func (*RollingUpgradeRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{75} }
 
 func (m *RollingUpgradeRequestProto) GetAction() RollingUpgradeActionProto {
 	if m != nil && m.Action != nil {
@@ -2094,19 +1925,19 @@ func (m *RollingUpgradeRequestProto) GetAction() RollingUpgradeActionProto {
 }
 
 type RollingUpgradeInfoProto struct {
-	Status                *hadoop_hdfs.RollingUpgradeStatusProto `protobuf:"bytes,1,req,name=status" json:"status,omitempty"`
-	StartTime             *uint64                                `protobuf:"varint,2,req,name=startTime" json:"startTime,omitempty"`
-	FinalizeTime          *uint64                                `protobuf:"varint,3,req,name=finalizeTime" json:"finalizeTime,omitempty"`
-	CreatedRollbackImages *bool                                  `protobuf:"varint,4,req,name=createdRollbackImages" json:"createdRollbackImages,omitempty"`
-	XXX_unrecognized      []byte                                 `json:"-"`
+	Status                *RollingUpgradeStatusProto `protobuf:"bytes,1,req,name=status" json:"status,omitempty"`
+	StartTime             *uint64                    `protobuf:"varint,2,req,name=startTime" json:"startTime,omitempty"`
+	FinalizeTime          *uint64                    `protobuf:"varint,3,req,name=finalizeTime" json:"finalizeTime,omitempty"`
+	CreatedRollbackImages *bool                      `protobuf:"varint,4,req,name=createdRollbackImages" json:"createdRollbackImages,omitempty"`
+	XXX_unrecognized      []byte                     `json:"-"`
 }
 
 func (m *RollingUpgradeInfoProto) Reset()                    { *m = RollingUpgradeInfoProto{} }
 func (m *RollingUpgradeInfoProto) String() string            { return proto.CompactTextString(m) }
 func (*RollingUpgradeInfoProto) ProtoMessage()               {}
-func (*RollingUpgradeInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{76} }
+func (*RollingUpgradeInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{76} }
 
-func (m *RollingUpgradeInfoProto) GetStatus() *hadoop_hdfs.RollingUpgradeStatusProto {
+func (m *RollingUpgradeInfoProto) GetStatus() *RollingUpgradeStatusProto {
 	if m != nil {
 		return m.Status
 	}
@@ -2142,7 +1973,7 @@ type RollingUpgradeResponseProto struct {
 func (m *RollingUpgradeResponseProto) Reset()                    { *m = RollingUpgradeResponseProto{} }
 func (m *RollingUpgradeResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*RollingUpgradeResponseProto) ProtoMessage()               {}
-func (*RollingUpgradeResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{77} }
+func (*RollingUpgradeResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{77} }
 
 func (m *RollingUpgradeResponseProto) GetRollingUpgradeInfo() *RollingUpgradeInfoProto {
 	if m != nil {
@@ -2161,7 +1992,7 @@ func (m *ListCorruptFileBlocksRequestProto) Reset()         { *m = ListCorruptFi
 func (m *ListCorruptFileBlocksRequestProto) String() string { return proto.CompactTextString(m) }
 func (*ListCorruptFileBlocksRequestProto) ProtoMessage()    {}
 func (*ListCorruptFileBlocksRequestProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{78}
+	return fileDescriptor8, []int{78}
 }
 
 func (m *ListCorruptFileBlocksRequestProto) GetPath() string {
@@ -2179,18 +2010,18 @@ func (m *ListCorruptFileBlocksRequestProto) GetCookie() string {
 }
 
 type ListCorruptFileBlocksResponseProto struct {
-	Corrupt          *hadoop_hdfs.CorruptFileBlocksProto `protobuf:"bytes,1,req,name=corrupt" json:"corrupt,omitempty"`
-	XXX_unrecognized []byte                              `json:"-"`
+	Corrupt          *CorruptFileBlocksProto `protobuf:"bytes,1,req,name=corrupt" json:"corrupt,omitempty"`
+	XXX_unrecognized []byte                  `json:"-"`
 }
 
 func (m *ListCorruptFileBlocksResponseProto) Reset()         { *m = ListCorruptFileBlocksResponseProto{} }
 func (m *ListCorruptFileBlocksResponseProto) String() string { return proto.CompactTextString(m) }
 func (*ListCorruptFileBlocksResponseProto) ProtoMessage()    {}
 func (*ListCorruptFileBlocksResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{79}
+	return fileDescriptor8, []int{79}
 }
 
-func (m *ListCorruptFileBlocksResponseProto) GetCorrupt() *hadoop_hdfs.CorruptFileBlocksProto {
+func (m *ListCorruptFileBlocksResponseProto) GetCorrupt() *CorruptFileBlocksProto {
 	if m != nil {
 		return m.Corrupt
 	}
@@ -2205,7 +2036,7 @@ type MetaSaveRequestProto struct {
 func (m *MetaSaveRequestProto) Reset()                    { *m = MetaSaveRequestProto{} }
 func (m *MetaSaveRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*MetaSaveRequestProto) ProtoMessage()               {}
-func (*MetaSaveRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{80} }
+func (*MetaSaveRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{80} }
 
 func (m *MetaSaveRequestProto) GetFilename() string {
 	if m != nil && m.Filename != nil {
@@ -2221,7 +2052,7 @@ type MetaSaveResponseProto struct {
 func (m *MetaSaveResponseProto) Reset()                    { *m = MetaSaveResponseProto{} }
 func (m *MetaSaveResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*MetaSaveResponseProto) ProtoMessage()               {}
-func (*MetaSaveResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{81} }
+func (*MetaSaveResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{81} }
 
 type GetFileInfoRequestProto struct {
 	Src              *string `protobuf:"bytes,1,req,name=src" json:"src,omitempty"`
@@ -2231,7 +2062,7 @@ type GetFileInfoRequestProto struct {
 func (m *GetFileInfoRequestProto) Reset()                    { *m = GetFileInfoRequestProto{} }
 func (m *GetFileInfoRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*GetFileInfoRequestProto) ProtoMessage()               {}
-func (*GetFileInfoRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{82} }
+func (*GetFileInfoRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{82} }
 
 func (m *GetFileInfoRequestProto) GetSrc() string {
 	if m != nil && m.Src != nil {
@@ -2241,16 +2072,16 @@ func (m *GetFileInfoRequestProto) GetSrc() string {
 }
 
 type GetFileInfoResponseProto struct {
-	Fs               *hadoop_hdfs.HdfsFileStatusProto `protobuf:"bytes,1,opt,name=fs" json:"fs,omitempty"`
-	XXX_unrecognized []byte                           `json:"-"`
+	Fs               *HdfsFileStatusProto `protobuf:"bytes,1,opt,name=fs" json:"fs,omitempty"`
+	XXX_unrecognized []byte               `json:"-"`
 }
 
 func (m *GetFileInfoResponseProto) Reset()                    { *m = GetFileInfoResponseProto{} }
 func (m *GetFileInfoResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*GetFileInfoResponseProto) ProtoMessage()               {}
-func (*GetFileInfoResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{83} }
+func (*GetFileInfoResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{83} }
 
-func (m *GetFileInfoResponseProto) GetFs() *hadoop_hdfs.HdfsFileStatusProto {
+func (m *GetFileInfoResponseProto) GetFs() *HdfsFileStatusProto {
 	if m != nil {
 		return m.Fs
 	}
@@ -2265,7 +2096,7 @@ type IsFileClosedRequestProto struct {
 func (m *IsFileClosedRequestProto) Reset()                    { *m = IsFileClosedRequestProto{} }
 func (m *IsFileClosedRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*IsFileClosedRequestProto) ProtoMessage()               {}
-func (*IsFileClosedRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{84} }
+func (*IsFileClosedRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{84} }
 
 func (m *IsFileClosedRequestProto) GetSrc() string {
 	if m != nil && m.Src != nil {
@@ -2282,7 +2113,7 @@ type IsFileClosedResponseProto struct {
 func (m *IsFileClosedResponseProto) Reset()                    { *m = IsFileClosedResponseProto{} }
 func (m *IsFileClosedResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*IsFileClosedResponseProto) ProtoMessage()               {}
-func (*IsFileClosedResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{85} }
+func (*IsFileClosedResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{85} }
 
 func (m *IsFileClosedResponseProto) GetResult() bool {
 	if m != nil && m.Result != nil {
@@ -2303,7 +2134,7 @@ type CacheDirectiveInfoProto struct {
 func (m *CacheDirectiveInfoProto) Reset()                    { *m = CacheDirectiveInfoProto{} }
 func (m *CacheDirectiveInfoProto) String() string            { return proto.CompactTextString(m) }
 func (*CacheDirectiveInfoProto) ProtoMessage()               {}
-func (*CacheDirectiveInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{86} }
+func (*CacheDirectiveInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{86} }
 
 func (m *CacheDirectiveInfoProto) GetId() int64 {
 	if m != nil && m.Id != nil {
@@ -2350,7 +2181,7 @@ func (m *CacheDirectiveInfoExpirationProto) Reset()         { *m = CacheDirectiv
 func (m *CacheDirectiveInfoExpirationProto) String() string { return proto.CompactTextString(m) }
 func (*CacheDirectiveInfoExpirationProto) ProtoMessage()    {}
 func (*CacheDirectiveInfoExpirationProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{87}
+	return fileDescriptor8, []int{87}
 }
 
 func (m *CacheDirectiveInfoExpirationProto) GetMillis() int64 {
@@ -2379,7 +2210,7 @@ type CacheDirectiveStatsProto struct {
 func (m *CacheDirectiveStatsProto) Reset()                    { *m = CacheDirectiveStatsProto{} }
 func (m *CacheDirectiveStatsProto) String() string            { return proto.CompactTextString(m) }
 func (*CacheDirectiveStatsProto) ProtoMessage()               {}
-func (*CacheDirectiveStatsProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{88} }
+func (*CacheDirectiveStatsProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{88} }
 
 func (m *CacheDirectiveStatsProto) GetBytesNeeded() int64 {
 	if m != nil && m.BytesNeeded != nil {
@@ -2425,7 +2256,7 @@ type AddCacheDirectiveRequestProto struct {
 func (m *AddCacheDirectiveRequestProto) Reset()                    { *m = AddCacheDirectiveRequestProto{} }
 func (m *AddCacheDirectiveRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*AddCacheDirectiveRequestProto) ProtoMessage()               {}
-func (*AddCacheDirectiveRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{89} }
+func (*AddCacheDirectiveRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{89} }
 
 func (m *AddCacheDirectiveRequestProto) GetInfo() *CacheDirectiveInfoProto {
 	if m != nil {
@@ -2449,7 +2280,7 @@ type AddCacheDirectiveResponseProto struct {
 func (m *AddCacheDirectiveResponseProto) Reset()                    { *m = AddCacheDirectiveResponseProto{} }
 func (m *AddCacheDirectiveResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*AddCacheDirectiveResponseProto) ProtoMessage()               {}
-func (*AddCacheDirectiveResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{90} }
+func (*AddCacheDirectiveResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{90} }
 
 func (m *AddCacheDirectiveResponseProto) GetId() int64 {
 	if m != nil && m.Id != nil {
@@ -2468,7 +2299,7 @@ func (m *ModifyCacheDirectiveRequestProto) Reset()         { *m = ModifyCacheDir
 func (m *ModifyCacheDirectiveRequestProto) String() string { return proto.CompactTextString(m) }
 func (*ModifyCacheDirectiveRequestProto) ProtoMessage()    {}
 func (*ModifyCacheDirectiveRequestProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{91}
+	return fileDescriptor8, []int{91}
 }
 
 func (m *ModifyCacheDirectiveRequestProto) GetInfo() *CacheDirectiveInfoProto {
@@ -2493,7 +2324,7 @@ func (m *ModifyCacheDirectiveResponseProto) Reset()         { *m = ModifyCacheDi
 func (m *ModifyCacheDirectiveResponseProto) String() string { return proto.CompactTextString(m) }
 func (*ModifyCacheDirectiveResponseProto) ProtoMessage()    {}
 func (*ModifyCacheDirectiveResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{92}
+	return fileDescriptor8, []int{92}
 }
 
 type RemoveCacheDirectiveRequestProto struct {
@@ -2505,7 +2336,7 @@ func (m *RemoveCacheDirectiveRequestProto) Reset()         { *m = RemoveCacheDir
 func (m *RemoveCacheDirectiveRequestProto) String() string { return proto.CompactTextString(m) }
 func (*RemoveCacheDirectiveRequestProto) ProtoMessage()    {}
 func (*RemoveCacheDirectiveRequestProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{93}
+	return fileDescriptor8, []int{93}
 }
 
 func (m *RemoveCacheDirectiveRequestProto) GetId() int64 {
@@ -2523,7 +2354,7 @@ func (m *RemoveCacheDirectiveResponseProto) Reset()         { *m = RemoveCacheDi
 func (m *RemoveCacheDirectiveResponseProto) String() string { return proto.CompactTextString(m) }
 func (*RemoveCacheDirectiveResponseProto) ProtoMessage()    {}
 func (*RemoveCacheDirectiveResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{94}
+	return fileDescriptor8, []int{94}
 }
 
 type ListCacheDirectivesRequestProto struct {
@@ -2536,7 +2367,7 @@ func (m *ListCacheDirectivesRequestProto) Reset()         { *m = ListCacheDirect
 func (m *ListCacheDirectivesRequestProto) String() string { return proto.CompactTextString(m) }
 func (*ListCacheDirectivesRequestProto) ProtoMessage()    {}
 func (*ListCacheDirectivesRequestProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{95}
+	return fileDescriptor8, []int{95}
 }
 
 func (m *ListCacheDirectivesRequestProto) GetPrevId() int64 {
@@ -2562,7 +2393,7 @@ type CacheDirectiveEntryProto struct {
 func (m *CacheDirectiveEntryProto) Reset()                    { *m = CacheDirectiveEntryProto{} }
 func (m *CacheDirectiveEntryProto) String() string            { return proto.CompactTextString(m) }
 func (*CacheDirectiveEntryProto) ProtoMessage()               {}
-func (*CacheDirectiveEntryProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{96} }
+func (*CacheDirectiveEntryProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{96} }
 
 func (m *CacheDirectiveEntryProto) GetInfo() *CacheDirectiveInfoProto {
 	if m != nil {
@@ -2588,7 +2419,7 @@ func (m *ListCacheDirectivesResponseProto) Reset()         { *m = ListCacheDirec
 func (m *ListCacheDirectivesResponseProto) String() string { return proto.CompactTextString(m) }
 func (*ListCacheDirectivesResponseProto) ProtoMessage()    {}
 func (*ListCacheDirectivesResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{97}
+	return fileDescriptor8, []int{97}
 }
 
 func (m *ListCacheDirectivesResponseProto) GetElements() []*CacheDirectiveEntryProto {
@@ -2619,7 +2450,7 @@ type CachePoolInfoProto struct {
 func (m *CachePoolInfoProto) Reset()                    { *m = CachePoolInfoProto{} }
 func (m *CachePoolInfoProto) String() string            { return proto.CompactTextString(m) }
 func (*CachePoolInfoProto) ProtoMessage()               {}
-func (*CachePoolInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{98} }
+func (*CachePoolInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{98} }
 
 const Default_CachePoolInfoProto_DefaultReplication uint32 = 1
 
@@ -2684,7 +2515,7 @@ type CachePoolStatsProto struct {
 func (m *CachePoolStatsProto) Reset()                    { *m = CachePoolStatsProto{} }
 func (m *CachePoolStatsProto) String() string            { return proto.CompactTextString(m) }
 func (*CachePoolStatsProto) ProtoMessage()               {}
-func (*CachePoolStatsProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{99} }
+func (*CachePoolStatsProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{99} }
 
 func (m *CachePoolStatsProto) GetBytesNeeded() int64 {
 	if m != nil && m.BytesNeeded != nil {
@@ -2729,7 +2560,7 @@ type AddCachePoolRequestProto struct {
 func (m *AddCachePoolRequestProto) Reset()                    { *m = AddCachePoolRequestProto{} }
 func (m *AddCachePoolRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*AddCachePoolRequestProto) ProtoMessage()               {}
-func (*AddCachePoolRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{100} }
+func (*AddCachePoolRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{100} }
 
 func (m *AddCachePoolRequestProto) GetInfo() *CachePoolInfoProto {
 	if m != nil {
@@ -2745,7 +2576,7 @@ type AddCachePoolResponseProto struct {
 func (m *AddCachePoolResponseProto) Reset()                    { *m = AddCachePoolResponseProto{} }
 func (m *AddCachePoolResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*AddCachePoolResponseProto) ProtoMessage()               {}
-func (*AddCachePoolResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{101} }
+func (*AddCachePoolResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{101} }
 
 type ModifyCachePoolRequestProto struct {
 	Info             *CachePoolInfoProto `protobuf:"bytes,1,req,name=info" json:"info,omitempty"`
@@ -2755,7 +2586,7 @@ type ModifyCachePoolRequestProto struct {
 func (m *ModifyCachePoolRequestProto) Reset()                    { *m = ModifyCachePoolRequestProto{} }
 func (m *ModifyCachePoolRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*ModifyCachePoolRequestProto) ProtoMessage()               {}
-func (*ModifyCachePoolRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{102} }
+func (*ModifyCachePoolRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{102} }
 
 func (m *ModifyCachePoolRequestProto) GetInfo() *CachePoolInfoProto {
 	if m != nil {
@@ -2771,7 +2602,7 @@ type ModifyCachePoolResponseProto struct {
 func (m *ModifyCachePoolResponseProto) Reset()                    { *m = ModifyCachePoolResponseProto{} }
 func (m *ModifyCachePoolResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*ModifyCachePoolResponseProto) ProtoMessage()               {}
-func (*ModifyCachePoolResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{103} }
+func (*ModifyCachePoolResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{103} }
 
 type RemoveCachePoolRequestProto struct {
 	PoolName         *string `protobuf:"bytes,1,req,name=poolName" json:"poolName,omitempty"`
@@ -2781,7 +2612,7 @@ type RemoveCachePoolRequestProto struct {
 func (m *RemoveCachePoolRequestProto) Reset()                    { *m = RemoveCachePoolRequestProto{} }
 func (m *RemoveCachePoolRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*RemoveCachePoolRequestProto) ProtoMessage()               {}
-func (*RemoveCachePoolRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{104} }
+func (*RemoveCachePoolRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{104} }
 
 func (m *RemoveCachePoolRequestProto) GetPoolName() string {
 	if m != nil && m.PoolName != nil {
@@ -2797,7 +2628,7 @@ type RemoveCachePoolResponseProto struct {
 func (m *RemoveCachePoolResponseProto) Reset()                    { *m = RemoveCachePoolResponseProto{} }
 func (m *RemoveCachePoolResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*RemoveCachePoolResponseProto) ProtoMessage()               {}
-func (*RemoveCachePoolResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{105} }
+func (*RemoveCachePoolResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{105} }
 
 type ListCachePoolsRequestProto struct {
 	PrevPoolName     *string `protobuf:"bytes,1,req,name=prevPoolName" json:"prevPoolName,omitempty"`
@@ -2807,7 +2638,7 @@ type ListCachePoolsRequestProto struct {
 func (m *ListCachePoolsRequestProto) Reset()                    { *m = ListCachePoolsRequestProto{} }
 func (m *ListCachePoolsRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*ListCachePoolsRequestProto) ProtoMessage()               {}
-func (*ListCachePoolsRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{106} }
+func (*ListCachePoolsRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{106} }
 
 func (m *ListCachePoolsRequestProto) GetPrevPoolName() string {
 	if m != nil && m.PrevPoolName != nil {
@@ -2825,7 +2656,7 @@ type ListCachePoolsResponseProto struct {
 func (m *ListCachePoolsResponseProto) Reset()                    { *m = ListCachePoolsResponseProto{} }
 func (m *ListCachePoolsResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*ListCachePoolsResponseProto) ProtoMessage()               {}
-func (*ListCachePoolsResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{107} }
+func (*ListCachePoolsResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{107} }
 
 func (m *ListCachePoolsResponseProto) GetEntries() []*CachePoolEntryProto {
 	if m != nil {
@@ -2850,7 +2681,7 @@ type CachePoolEntryProto struct {
 func (m *CachePoolEntryProto) Reset()                    { *m = CachePoolEntryProto{} }
 func (m *CachePoolEntryProto) String() string            { return proto.CompactTextString(m) }
 func (*CachePoolEntryProto) ProtoMessage()               {}
-func (*CachePoolEntryProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{108} }
+func (*CachePoolEntryProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{108} }
 
 func (m *CachePoolEntryProto) GetInfo() *CachePoolInfoProto {
 	if m != nil {
@@ -2874,7 +2705,7 @@ type GetFileLinkInfoRequestProto struct {
 func (m *GetFileLinkInfoRequestProto) Reset()                    { *m = GetFileLinkInfoRequestProto{} }
 func (m *GetFileLinkInfoRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*GetFileLinkInfoRequestProto) ProtoMessage()               {}
-func (*GetFileLinkInfoRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{109} }
+func (*GetFileLinkInfoRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{109} }
 
 func (m *GetFileLinkInfoRequestProto) GetSrc() string {
 	if m != nil && m.Src != nil {
@@ -2884,16 +2715,16 @@ func (m *GetFileLinkInfoRequestProto) GetSrc() string {
 }
 
 type GetFileLinkInfoResponseProto struct {
-	Fs               *hadoop_hdfs.HdfsFileStatusProto `protobuf:"bytes,1,opt,name=fs" json:"fs,omitempty"`
-	XXX_unrecognized []byte                           `json:"-"`
+	Fs               *HdfsFileStatusProto `protobuf:"bytes,1,opt,name=fs" json:"fs,omitempty"`
+	XXX_unrecognized []byte               `json:"-"`
 }
 
 func (m *GetFileLinkInfoResponseProto) Reset()                    { *m = GetFileLinkInfoResponseProto{} }
 func (m *GetFileLinkInfoResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*GetFileLinkInfoResponseProto) ProtoMessage()               {}
-func (*GetFileLinkInfoResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{110} }
+func (*GetFileLinkInfoResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{110} }
 
-func (m *GetFileLinkInfoResponseProto) GetFs() *hadoop_hdfs.HdfsFileStatusProto {
+func (m *GetFileLinkInfoResponseProto) GetFs() *HdfsFileStatusProto {
 	if m != nil {
 		return m.Fs
 	}
@@ -2908,7 +2739,7 @@ type GetContentSummaryRequestProto struct {
 func (m *GetContentSummaryRequestProto) Reset()                    { *m = GetContentSummaryRequestProto{} }
 func (m *GetContentSummaryRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*GetContentSummaryRequestProto) ProtoMessage()               {}
-func (*GetContentSummaryRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{111} }
+func (*GetContentSummaryRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{111} }
 
 func (m *GetContentSummaryRequestProto) GetPath() string {
 	if m != nil && m.Path != nil {
@@ -2918,18 +2749,18 @@ func (m *GetContentSummaryRequestProto) GetPath() string {
 }
 
 type GetContentSummaryResponseProto struct {
-	Summary          *hadoop_hdfs.ContentSummaryProto `protobuf:"bytes,1,req,name=summary" json:"summary,omitempty"`
-	XXX_unrecognized []byte                           `json:"-"`
+	Summary          *ContentSummaryProto `protobuf:"bytes,1,req,name=summary" json:"summary,omitempty"`
+	XXX_unrecognized []byte               `json:"-"`
 }
 
 func (m *GetContentSummaryResponseProto) Reset()         { *m = GetContentSummaryResponseProto{} }
 func (m *GetContentSummaryResponseProto) String() string { return proto.CompactTextString(m) }
 func (*GetContentSummaryResponseProto) ProtoMessage()    {}
 func (*GetContentSummaryResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{112}
+	return fileDescriptor8, []int{112}
 }
 
-func (m *GetContentSummaryResponseProto) GetSummary() *hadoop_hdfs.ContentSummaryProto {
+func (m *GetContentSummaryResponseProto) GetSummary() *ContentSummaryProto {
 	if m != nil {
 		return m.Summary
 	}
@@ -2944,7 +2775,7 @@ type GetQuotaUsageRequestProto struct {
 func (m *GetQuotaUsageRequestProto) Reset()                    { *m = GetQuotaUsageRequestProto{} }
 func (m *GetQuotaUsageRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*GetQuotaUsageRequestProto) ProtoMessage()               {}
-func (*GetQuotaUsageRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{113} }
+func (*GetQuotaUsageRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{113} }
 
 func (m *GetQuotaUsageRequestProto) GetPath() string {
 	if m != nil && m.Path != nil {
@@ -2954,16 +2785,16 @@ func (m *GetQuotaUsageRequestProto) GetPath() string {
 }
 
 type GetQuotaUsageResponseProto struct {
-	Usage            *hadoop_hdfs.QuotaUsageProto `protobuf:"bytes,1,req,name=usage" json:"usage,omitempty"`
-	XXX_unrecognized []byte                       `json:"-"`
+	Usage            *QuotaUsageProto `protobuf:"bytes,1,req,name=usage" json:"usage,omitempty"`
+	XXX_unrecognized []byte           `json:"-"`
 }
 
 func (m *GetQuotaUsageResponseProto) Reset()                    { *m = GetQuotaUsageResponseProto{} }
 func (m *GetQuotaUsageResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*GetQuotaUsageResponseProto) ProtoMessage()               {}
-func (*GetQuotaUsageResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{114} }
+func (*GetQuotaUsageResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{114} }
 
-func (m *GetQuotaUsageResponseProto) GetUsage() *hadoop_hdfs.QuotaUsageProto {
+func (m *GetQuotaUsageResponseProto) GetUsage() *QuotaUsageProto {
 	if m != nil {
 		return m.Usage
 	}
@@ -2971,17 +2802,17 @@ func (m *GetQuotaUsageResponseProto) GetUsage() *hadoop_hdfs.QuotaUsageProto {
 }
 
 type SetQuotaRequestProto struct {
-	Path              *string                       `protobuf:"bytes,1,req,name=path" json:"path,omitempty"`
-	NamespaceQuota    *uint64                       `protobuf:"varint,2,req,name=namespaceQuota" json:"namespaceQuota,omitempty"`
-	StoragespaceQuota *uint64                       `protobuf:"varint,3,req,name=storagespaceQuota" json:"storagespaceQuota,omitempty"`
-	StorageType       *hadoop_hdfs.StorageTypeProto `protobuf:"varint,4,opt,name=storageType,enum=hadoop.hdfs.StorageTypeProto" json:"storageType,omitempty"`
-	XXX_unrecognized  []byte                        `json:"-"`
+	Path              *string           `protobuf:"bytes,1,req,name=path" json:"path,omitempty"`
+	NamespaceQuota    *uint64           `protobuf:"varint,2,req,name=namespaceQuota" json:"namespaceQuota,omitempty"`
+	StoragespaceQuota *uint64           `protobuf:"varint,3,req,name=storagespaceQuota" json:"storagespaceQuota,omitempty"`
+	StorageType       *StorageTypeProto `protobuf:"varint,4,opt,name=storageType,enum=hadoop.hdfs.StorageTypeProto" json:"storageType,omitempty"`
+	XXX_unrecognized  []byte            `json:"-"`
 }
 
 func (m *SetQuotaRequestProto) Reset()                    { *m = SetQuotaRequestProto{} }
 func (m *SetQuotaRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*SetQuotaRequestProto) ProtoMessage()               {}
-func (*SetQuotaRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{115} }
+func (*SetQuotaRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{115} }
 
 func (m *SetQuotaRequestProto) GetPath() string {
 	if m != nil && m.Path != nil {
@@ -3004,11 +2835,11 @@ func (m *SetQuotaRequestProto) GetStoragespaceQuota() uint64 {
 	return 0
 }
 
-func (m *SetQuotaRequestProto) GetStorageType() hadoop_hdfs.StorageTypeProto {
+func (m *SetQuotaRequestProto) GetStorageType() StorageTypeProto {
 	if m != nil && m.StorageType != nil {
 		return *m.StorageType
 	}
-	return hadoop_hdfs.StorageTypeProto_DISK
+	return StorageTypeProto_DISK
 }
 
 type SetQuotaResponseProto struct {
@@ -3018,7 +2849,7 @@ type SetQuotaResponseProto struct {
 func (m *SetQuotaResponseProto) Reset()                    { *m = SetQuotaResponseProto{} }
 func (m *SetQuotaResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*SetQuotaResponseProto) ProtoMessage()               {}
-func (*SetQuotaResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{116} }
+func (*SetQuotaResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{116} }
 
 type FsyncRequestProto struct {
 	Src              *string `protobuf:"bytes,1,req,name=src" json:"src,omitempty"`
@@ -3031,7 +2862,7 @@ type FsyncRequestProto struct {
 func (m *FsyncRequestProto) Reset()                    { *m = FsyncRequestProto{} }
 func (m *FsyncRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*FsyncRequestProto) ProtoMessage()               {}
-func (*FsyncRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{117} }
+func (*FsyncRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{117} }
 
 const Default_FsyncRequestProto_LastBlockLength int64 = -1
 const Default_FsyncRequestProto_FileId uint64 = 0
@@ -3071,7 +2902,7 @@ type FsyncResponseProto struct {
 func (m *FsyncResponseProto) Reset()                    { *m = FsyncResponseProto{} }
 func (m *FsyncResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*FsyncResponseProto) ProtoMessage()               {}
-func (*FsyncResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{118} }
+func (*FsyncResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{118} }
 
 type SetTimesRequestProto struct {
 	Src              *string `protobuf:"bytes,1,req,name=src" json:"src,omitempty"`
@@ -3083,7 +2914,7 @@ type SetTimesRequestProto struct {
 func (m *SetTimesRequestProto) Reset()                    { *m = SetTimesRequestProto{} }
 func (m *SetTimesRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*SetTimesRequestProto) ProtoMessage()               {}
-func (*SetTimesRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{119} }
+func (*SetTimesRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{119} }
 
 func (m *SetTimesRequestProto) GetSrc() string {
 	if m != nil && m.Src != nil {
@@ -3113,20 +2944,20 @@ type SetTimesResponseProto struct {
 func (m *SetTimesResponseProto) Reset()                    { *m = SetTimesResponseProto{} }
 func (m *SetTimesResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*SetTimesResponseProto) ProtoMessage()               {}
-func (*SetTimesResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{120} }
+func (*SetTimesResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{120} }
 
 type CreateSymlinkRequestProto struct {
-	Target           *string                        `protobuf:"bytes,1,req,name=target" json:"target,omitempty"`
-	Link             *string                        `protobuf:"bytes,2,req,name=link" json:"link,omitempty"`
-	DirPerm          *hadoop_hdfs.FsPermissionProto `protobuf:"bytes,3,req,name=dirPerm" json:"dirPerm,omitempty"`
-	CreateParent     *bool                          `protobuf:"varint,4,req,name=createParent" json:"createParent,omitempty"`
-	XXX_unrecognized []byte                         `json:"-"`
+	Target           *string            `protobuf:"bytes,1,req,name=target" json:"target,omitempty"`
+	Link             *string            `protobuf:"bytes,2,req,name=link" json:"link,omitempty"`
+	DirPerm          *FsPermissionProto `protobuf:"bytes,3,req,name=dirPerm" json:"dirPerm,omitempty"`
+	CreateParent     *bool              `protobuf:"varint,4,req,name=createParent" json:"createParent,omitempty"`
+	XXX_unrecognized []byte             `json:"-"`
 }
 
 func (m *CreateSymlinkRequestProto) Reset()                    { *m = CreateSymlinkRequestProto{} }
 func (m *CreateSymlinkRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*CreateSymlinkRequestProto) ProtoMessage()               {}
-func (*CreateSymlinkRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{121} }
+func (*CreateSymlinkRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{121} }
 
 func (m *CreateSymlinkRequestProto) GetTarget() string {
 	if m != nil && m.Target != nil {
@@ -3142,7 +2973,7 @@ func (m *CreateSymlinkRequestProto) GetLink() string {
 	return ""
 }
 
-func (m *CreateSymlinkRequestProto) GetDirPerm() *hadoop_hdfs.FsPermissionProto {
+func (m *CreateSymlinkRequestProto) GetDirPerm() *FsPermissionProto {
 	if m != nil {
 		return m.DirPerm
 	}
@@ -3163,7 +2994,7 @@ type CreateSymlinkResponseProto struct {
 func (m *CreateSymlinkResponseProto) Reset()                    { *m = CreateSymlinkResponseProto{} }
 func (m *CreateSymlinkResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*CreateSymlinkResponseProto) ProtoMessage()               {}
-func (*CreateSymlinkResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{122} }
+func (*CreateSymlinkResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{122} }
 
 type GetLinkTargetRequestProto struct {
 	Path             *string `protobuf:"bytes,1,req,name=path" json:"path,omitempty"`
@@ -3173,7 +3004,7 @@ type GetLinkTargetRequestProto struct {
 func (m *GetLinkTargetRequestProto) Reset()                    { *m = GetLinkTargetRequestProto{} }
 func (m *GetLinkTargetRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*GetLinkTargetRequestProto) ProtoMessage()               {}
-func (*GetLinkTargetRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{123} }
+func (*GetLinkTargetRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{123} }
 
 func (m *GetLinkTargetRequestProto) GetPath() string {
 	if m != nil && m.Path != nil {
@@ -3190,7 +3021,7 @@ type GetLinkTargetResponseProto struct {
 func (m *GetLinkTargetResponseProto) Reset()                    { *m = GetLinkTargetResponseProto{} }
 func (m *GetLinkTargetResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*GetLinkTargetResponseProto) ProtoMessage()               {}
-func (*GetLinkTargetResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{124} }
+func (*GetLinkTargetResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{124} }
 
 func (m *GetLinkTargetResponseProto) GetTargetPath() string {
 	if m != nil && m.TargetPath != nil {
@@ -3200,19 +3031,19 @@ func (m *GetLinkTargetResponseProto) GetTargetPath() string {
 }
 
 type UpdateBlockForPipelineRequestProto struct {
-	Block            *hadoop_hdfs.ExtendedBlockProto `protobuf:"bytes,1,req,name=block" json:"block,omitempty"`
-	ClientName       *string                         `protobuf:"bytes,2,req,name=clientName" json:"clientName,omitempty"`
-	XXX_unrecognized []byte                          `json:"-"`
+	Block            *ExtendedBlockProto `protobuf:"bytes,1,req,name=block" json:"block,omitempty"`
+	ClientName       *string             `protobuf:"bytes,2,req,name=clientName" json:"clientName,omitempty"`
+	XXX_unrecognized []byte              `json:"-"`
 }
 
 func (m *UpdateBlockForPipelineRequestProto) Reset()         { *m = UpdateBlockForPipelineRequestProto{} }
 func (m *UpdateBlockForPipelineRequestProto) String() string { return proto.CompactTextString(m) }
 func (*UpdateBlockForPipelineRequestProto) ProtoMessage()    {}
 func (*UpdateBlockForPipelineRequestProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{125}
+	return fileDescriptor8, []int{125}
 }
 
-func (m *UpdateBlockForPipelineRequestProto) GetBlock() *hadoop_hdfs.ExtendedBlockProto {
+func (m *UpdateBlockForPipelineRequestProto) GetBlock() *ExtendedBlockProto {
 	if m != nil {
 		return m.Block
 	}
@@ -3227,18 +3058,18 @@ func (m *UpdateBlockForPipelineRequestProto) GetClientName() string {
 }
 
 type UpdateBlockForPipelineResponseProto struct {
-	Block            *hadoop_hdfs.LocatedBlockProto `protobuf:"bytes,1,req,name=block" json:"block,omitempty"`
-	XXX_unrecognized []byte                         `json:"-"`
+	Block            *LocatedBlockProto `protobuf:"bytes,1,req,name=block" json:"block,omitempty"`
+	XXX_unrecognized []byte             `json:"-"`
 }
 
 func (m *UpdateBlockForPipelineResponseProto) Reset()         { *m = UpdateBlockForPipelineResponseProto{} }
 func (m *UpdateBlockForPipelineResponseProto) String() string { return proto.CompactTextString(m) }
 func (*UpdateBlockForPipelineResponseProto) ProtoMessage()    {}
 func (*UpdateBlockForPipelineResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{126}
+	return fileDescriptor8, []int{126}
 }
 
-func (m *UpdateBlockForPipelineResponseProto) GetBlock() *hadoop_hdfs.LocatedBlockProto {
+func (m *UpdateBlockForPipelineResponseProto) GetBlock() *LocatedBlockProto {
 	if m != nil {
 		return m.Block
 	}
@@ -3246,18 +3077,18 @@ func (m *UpdateBlockForPipelineResponseProto) GetBlock() *hadoop_hdfs.LocatedBlo
 }
 
 type UpdatePipelineRequestProto struct {
-	ClientName       *string                         `protobuf:"bytes,1,req,name=clientName" json:"clientName,omitempty"`
-	OldBlock         *hadoop_hdfs.ExtendedBlockProto `protobuf:"bytes,2,req,name=oldBlock" json:"oldBlock,omitempty"`
-	NewBlock         *hadoop_hdfs.ExtendedBlockProto `protobuf:"bytes,3,req,name=newBlock" json:"newBlock,omitempty"`
-	NewNodes         []*hadoop_hdfs.DatanodeIDProto  `protobuf:"bytes,4,rep,name=newNodes" json:"newNodes,omitempty"`
-	StorageIDs       []string                        `protobuf:"bytes,5,rep,name=storageIDs" json:"storageIDs,omitempty"`
-	XXX_unrecognized []byte                          `json:"-"`
+	ClientName       *string             `protobuf:"bytes,1,req,name=clientName" json:"clientName,omitempty"`
+	OldBlock         *ExtendedBlockProto `protobuf:"bytes,2,req,name=oldBlock" json:"oldBlock,omitempty"`
+	NewBlock         *ExtendedBlockProto `protobuf:"bytes,3,req,name=newBlock" json:"newBlock,omitempty"`
+	NewNodes         []*DatanodeIDProto  `protobuf:"bytes,4,rep,name=newNodes" json:"newNodes,omitempty"`
+	StorageIDs       []string            `protobuf:"bytes,5,rep,name=storageIDs" json:"storageIDs,omitempty"`
+	XXX_unrecognized []byte              `json:"-"`
 }
 
 func (m *UpdatePipelineRequestProto) Reset()                    { *m = UpdatePipelineRequestProto{} }
 func (m *UpdatePipelineRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*UpdatePipelineRequestProto) ProtoMessage()               {}
-func (*UpdatePipelineRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{127} }
+func (*UpdatePipelineRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{127} }
 
 func (m *UpdatePipelineRequestProto) GetClientName() string {
 	if m != nil && m.ClientName != nil {
@@ -3266,21 +3097,21 @@ func (m *UpdatePipelineRequestProto) GetClientName() string {
 	return ""
 }
 
-func (m *UpdatePipelineRequestProto) GetOldBlock() *hadoop_hdfs.ExtendedBlockProto {
+func (m *UpdatePipelineRequestProto) GetOldBlock() *ExtendedBlockProto {
 	if m != nil {
 		return m.OldBlock
 	}
 	return nil
 }
 
-func (m *UpdatePipelineRequestProto) GetNewBlock() *hadoop_hdfs.ExtendedBlockProto {
+func (m *UpdatePipelineRequestProto) GetNewBlock() *ExtendedBlockProto {
 	if m != nil {
 		return m.NewBlock
 	}
 	return nil
 }
 
-func (m *UpdatePipelineRequestProto) GetNewNodes() []*hadoop_hdfs.DatanodeIDProto {
+func (m *UpdatePipelineRequestProto) GetNewNodes() []*DatanodeIDProto {
 	if m != nil {
 		return m.NewNodes
 	}
@@ -3301,7 +3132,7 @@ type UpdatePipelineResponseProto struct {
 func (m *UpdatePipelineResponseProto) Reset()                    { *m = UpdatePipelineResponseProto{} }
 func (m *UpdatePipelineResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*UpdatePipelineResponseProto) ProtoMessage()               {}
-func (*UpdatePipelineResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{128} }
+func (*UpdatePipelineResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{128} }
 
 type SetBalancerBandwidthRequestProto struct {
 	Bandwidth        *int64 `protobuf:"varint,1,req,name=bandwidth" json:"bandwidth,omitempty"`
@@ -3312,7 +3143,7 @@ func (m *SetBalancerBandwidthRequestProto) Reset()         { *m = SetBalancerBan
 func (m *SetBalancerBandwidthRequestProto) String() string { return proto.CompactTextString(m) }
 func (*SetBalancerBandwidthRequestProto) ProtoMessage()    {}
 func (*SetBalancerBandwidthRequestProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{129}
+	return fileDescriptor8, []int{129}
 }
 
 func (m *SetBalancerBandwidthRequestProto) GetBandwidth() int64 {
@@ -3330,7 +3161,7 @@ func (m *SetBalancerBandwidthResponseProto) Reset()         { *m = SetBalancerBa
 func (m *SetBalancerBandwidthResponseProto) String() string { return proto.CompactTextString(m) }
 func (*SetBalancerBandwidthResponseProto) ProtoMessage()    {}
 func (*SetBalancerBandwidthResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{130}
+	return fileDescriptor8, []int{130}
 }
 
 type GetDataEncryptionKeyRequestProto struct {
@@ -3341,22 +3172,22 @@ func (m *GetDataEncryptionKeyRequestProto) Reset()         { *m = GetDataEncrypt
 func (m *GetDataEncryptionKeyRequestProto) String() string { return proto.CompactTextString(m) }
 func (*GetDataEncryptionKeyRequestProto) ProtoMessage()    {}
 func (*GetDataEncryptionKeyRequestProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{131}
+	return fileDescriptor8, []int{131}
 }
 
 type GetDataEncryptionKeyResponseProto struct {
-	DataEncryptionKey *hadoop_hdfs.DataEncryptionKeyProto `protobuf:"bytes,1,opt,name=dataEncryptionKey" json:"dataEncryptionKey,omitempty"`
-	XXX_unrecognized  []byte                              `json:"-"`
+	DataEncryptionKey *DataEncryptionKeyProto `protobuf:"bytes,1,opt,name=dataEncryptionKey" json:"dataEncryptionKey,omitempty"`
+	XXX_unrecognized  []byte                  `json:"-"`
 }
 
 func (m *GetDataEncryptionKeyResponseProto) Reset()         { *m = GetDataEncryptionKeyResponseProto{} }
 func (m *GetDataEncryptionKeyResponseProto) String() string { return proto.CompactTextString(m) }
 func (*GetDataEncryptionKeyResponseProto) ProtoMessage()    {}
 func (*GetDataEncryptionKeyResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{132}
+	return fileDescriptor8, []int{132}
 }
 
-func (m *GetDataEncryptionKeyResponseProto) GetDataEncryptionKey() *hadoop_hdfs.DataEncryptionKeyProto {
+func (m *GetDataEncryptionKeyResponseProto) GetDataEncryptionKey() *DataEncryptionKeyProto {
 	if m != nil {
 		return m.DataEncryptionKey
 	}
@@ -3372,7 +3203,7 @@ type CreateSnapshotRequestProto struct {
 func (m *CreateSnapshotRequestProto) Reset()                    { *m = CreateSnapshotRequestProto{} }
 func (m *CreateSnapshotRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*CreateSnapshotRequestProto) ProtoMessage()               {}
-func (*CreateSnapshotRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{133} }
+func (*CreateSnapshotRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{133} }
 
 func (m *CreateSnapshotRequestProto) GetSnapshotRoot() string {
 	if m != nil && m.SnapshotRoot != nil {
@@ -3396,7 +3227,7 @@ type CreateSnapshotResponseProto struct {
 func (m *CreateSnapshotResponseProto) Reset()                    { *m = CreateSnapshotResponseProto{} }
 func (m *CreateSnapshotResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*CreateSnapshotResponseProto) ProtoMessage()               {}
-func (*CreateSnapshotResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{134} }
+func (*CreateSnapshotResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{134} }
 
 func (m *CreateSnapshotResponseProto) GetSnapshotPath() string {
 	if m != nil && m.SnapshotPath != nil {
@@ -3415,7 +3246,7 @@ type RenameSnapshotRequestProto struct {
 func (m *RenameSnapshotRequestProto) Reset()                    { *m = RenameSnapshotRequestProto{} }
 func (m *RenameSnapshotRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*RenameSnapshotRequestProto) ProtoMessage()               {}
-func (*RenameSnapshotRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{135} }
+func (*RenameSnapshotRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{135} }
 
 func (m *RenameSnapshotRequestProto) GetSnapshotRoot() string {
 	if m != nil && m.SnapshotRoot != nil {
@@ -3445,7 +3276,7 @@ type RenameSnapshotResponseProto struct {
 func (m *RenameSnapshotResponseProto) Reset()                    { *m = RenameSnapshotResponseProto{} }
 func (m *RenameSnapshotResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*RenameSnapshotResponseProto) ProtoMessage()               {}
-func (*RenameSnapshotResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{136} }
+func (*RenameSnapshotResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{136} }
 
 type AllowSnapshotRequestProto struct {
 	SnapshotRoot     *string `protobuf:"bytes,1,req,name=snapshotRoot" json:"snapshotRoot,omitempty"`
@@ -3455,7 +3286,7 @@ type AllowSnapshotRequestProto struct {
 func (m *AllowSnapshotRequestProto) Reset()                    { *m = AllowSnapshotRequestProto{} }
 func (m *AllowSnapshotRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*AllowSnapshotRequestProto) ProtoMessage()               {}
-func (*AllowSnapshotRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{137} }
+func (*AllowSnapshotRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{137} }
 
 func (m *AllowSnapshotRequestProto) GetSnapshotRoot() string {
 	if m != nil && m.SnapshotRoot != nil {
@@ -3471,7 +3302,7 @@ type AllowSnapshotResponseProto struct {
 func (m *AllowSnapshotResponseProto) Reset()                    { *m = AllowSnapshotResponseProto{} }
 func (m *AllowSnapshotResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*AllowSnapshotResponseProto) ProtoMessage()               {}
-func (*AllowSnapshotResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{138} }
+func (*AllowSnapshotResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{138} }
 
 type DisallowSnapshotRequestProto struct {
 	SnapshotRoot     *string `protobuf:"bytes,1,req,name=snapshotRoot" json:"snapshotRoot,omitempty"`
@@ -3481,7 +3312,7 @@ type DisallowSnapshotRequestProto struct {
 func (m *DisallowSnapshotRequestProto) Reset()                    { *m = DisallowSnapshotRequestProto{} }
 func (m *DisallowSnapshotRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*DisallowSnapshotRequestProto) ProtoMessage()               {}
-func (*DisallowSnapshotRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{139} }
+func (*DisallowSnapshotRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{139} }
 
 func (m *DisallowSnapshotRequestProto) GetSnapshotRoot() string {
 	if m != nil && m.SnapshotRoot != nil {
@@ -3497,7 +3328,7 @@ type DisallowSnapshotResponseProto struct {
 func (m *DisallowSnapshotResponseProto) Reset()                    { *m = DisallowSnapshotResponseProto{} }
 func (m *DisallowSnapshotResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*DisallowSnapshotResponseProto) ProtoMessage()               {}
-func (*DisallowSnapshotResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{140} }
+func (*DisallowSnapshotResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{140} }
 
 type DeleteSnapshotRequestProto struct {
 	SnapshotRoot     *string `protobuf:"bytes,1,req,name=snapshotRoot" json:"snapshotRoot,omitempty"`
@@ -3508,7 +3339,7 @@ type DeleteSnapshotRequestProto struct {
 func (m *DeleteSnapshotRequestProto) Reset()                    { *m = DeleteSnapshotRequestProto{} }
 func (m *DeleteSnapshotRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*DeleteSnapshotRequestProto) ProtoMessage()               {}
-func (*DeleteSnapshotRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{141} }
+func (*DeleteSnapshotRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{141} }
 
 func (m *DeleteSnapshotRequestProto) GetSnapshotRoot() string {
 	if m != nil && m.SnapshotRoot != nil {
@@ -3531,18 +3362,18 @@ type DeleteSnapshotResponseProto struct {
 func (m *DeleteSnapshotResponseProto) Reset()                    { *m = DeleteSnapshotResponseProto{} }
 func (m *DeleteSnapshotResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*DeleteSnapshotResponseProto) ProtoMessage()               {}
-func (*DeleteSnapshotResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{142} }
+func (*DeleteSnapshotResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{142} }
 
 type CheckAccessRequestProto struct {
-	Path             *string                                   `protobuf:"bytes,1,req,name=path" json:"path,omitempty"`
-	Mode             *hadoop_hdfs1.AclEntryProto_FsActionProto `protobuf:"varint,2,req,name=mode,enum=hadoop.hdfs.AclEntryProto_FsActionProto" json:"mode,omitempty"`
-	XXX_unrecognized []byte                                    `json:"-"`
+	Path             *string                      `protobuf:"bytes,1,req,name=path" json:"path,omitempty"`
+	Mode             *AclEntryProto_FsActionProto `protobuf:"varint,2,req,name=mode,enum=hadoop.hdfs.AclEntryProto_FsActionProto" json:"mode,omitempty"`
+	XXX_unrecognized []byte                       `json:"-"`
 }
 
 func (m *CheckAccessRequestProto) Reset()                    { *m = CheckAccessRequestProto{} }
 func (m *CheckAccessRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*CheckAccessRequestProto) ProtoMessage()               {}
-func (*CheckAccessRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{143} }
+func (*CheckAccessRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{143} }
 
 func (m *CheckAccessRequestProto) GetPath() string {
 	if m != nil && m.Path != nil {
@@ -3551,11 +3382,11 @@ func (m *CheckAccessRequestProto) GetPath() string {
 	return ""
 }
 
-func (m *CheckAccessRequestProto) GetMode() hadoop_hdfs1.AclEntryProto_FsActionProto {
+func (m *CheckAccessRequestProto) GetMode() AclEntryProto_FsActionProto {
 	if m != nil && m.Mode != nil {
 		return *m.Mode
 	}
-	return hadoop_hdfs1.AclEntryProto_NONE
+	return AclEntryProto_NONE
 }
 
 type CheckAccessResponseProto struct {
@@ -3565,7 +3396,7 @@ type CheckAccessResponseProto struct {
 func (m *CheckAccessResponseProto) Reset()                    { *m = CheckAccessResponseProto{} }
 func (m *CheckAccessResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*CheckAccessResponseProto) ProtoMessage()               {}
-func (*CheckAccessResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{144} }
+func (*CheckAccessResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{144} }
 
 type GetCurrentEditLogTxidRequestProto struct {
 	XXX_unrecognized []byte `json:"-"`
@@ -3575,7 +3406,7 @@ func (m *GetCurrentEditLogTxidRequestProto) Reset()         { *m = GetCurrentEdi
 func (m *GetCurrentEditLogTxidRequestProto) String() string { return proto.CompactTextString(m) }
 func (*GetCurrentEditLogTxidRequestProto) ProtoMessage()    {}
 func (*GetCurrentEditLogTxidRequestProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{145}
+	return fileDescriptor8, []int{145}
 }
 
 type GetCurrentEditLogTxidResponseProto struct {
@@ -3587,7 +3418,7 @@ func (m *GetCurrentEditLogTxidResponseProto) Reset()         { *m = GetCurrentEd
 func (m *GetCurrentEditLogTxidResponseProto) String() string { return proto.CompactTextString(m) }
 func (*GetCurrentEditLogTxidResponseProto) ProtoMessage()    {}
 func (*GetCurrentEditLogTxidResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{146}
+	return fileDescriptor8, []int{146}
 }
 
 func (m *GetCurrentEditLogTxidResponseProto) GetTxid() int64 {
@@ -3605,7 +3436,7 @@ type GetEditsFromTxidRequestProto struct {
 func (m *GetEditsFromTxidRequestProto) Reset()                    { *m = GetEditsFromTxidRequestProto{} }
 func (m *GetEditsFromTxidRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*GetEditsFromTxidRequestProto) ProtoMessage()               {}
-func (*GetEditsFromTxidRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{147} }
+func (*GetEditsFromTxidRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{147} }
 
 func (m *GetEditsFromTxidRequestProto) GetTxid() int64 {
 	if m != nil && m.Txid != nil {
@@ -3615,16 +3446,16 @@ func (m *GetEditsFromTxidRequestProto) GetTxid() int64 {
 }
 
 type GetEditsFromTxidResponseProto struct {
-	EventsList       *hadoop_hdfs4.EventsListProto `protobuf:"bytes,1,req,name=eventsList" json:"eventsList,omitempty"`
-	XXX_unrecognized []byte                        `json:"-"`
+	EventsList       *EventsListProto `protobuf:"bytes,1,req,name=eventsList" json:"eventsList,omitempty"`
+	XXX_unrecognized []byte           `json:"-"`
 }
 
 func (m *GetEditsFromTxidResponseProto) Reset()                    { *m = GetEditsFromTxidResponseProto{} }
 func (m *GetEditsFromTxidResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*GetEditsFromTxidResponseProto) ProtoMessage()               {}
-func (*GetEditsFromTxidResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{148} }
+func (*GetEditsFromTxidResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{148} }
 
-func (m *GetEditsFromTxidResponseProto) GetEventsList() *hadoop_hdfs4.EventsListProto {
+func (m *GetEditsFromTxidResponseProto) GetEventsList() *EventsListProto {
 	if m != nil {
 		return m.EventsList
 	}
@@ -3869,25 +3700,25 @@ type ClientNamenodeProtocolClient interface {
 	DeleteSnapshot(ctx context.Context, in *DeleteSnapshotRequestProto, opts ...grpc.CallOption) (*DeleteSnapshotResponseProto, error)
 	GetSnapshotDiffReport(ctx context.Context, in *GetSnapshotDiffReportRequestProto, opts ...grpc.CallOption) (*GetSnapshotDiffReportResponseProto, error)
 	IsFileClosed(ctx context.Context, in *IsFileClosedRequestProto, opts ...grpc.CallOption) (*IsFileClosedResponseProto, error)
-	ModifyAclEntries(ctx context.Context, in *hadoop_hdfs1.ModifyAclEntriesRequestProto, opts ...grpc.CallOption) (*hadoop_hdfs1.ModifyAclEntriesResponseProto, error)
-	RemoveAclEntries(ctx context.Context, in *hadoop_hdfs1.RemoveAclEntriesRequestProto, opts ...grpc.CallOption) (*hadoop_hdfs1.RemoveAclEntriesResponseProto, error)
-	RemoveDefaultAcl(ctx context.Context, in *hadoop_hdfs1.RemoveDefaultAclRequestProto, opts ...grpc.CallOption) (*hadoop_hdfs1.RemoveDefaultAclResponseProto, error)
-	RemoveAcl(ctx context.Context, in *hadoop_hdfs1.RemoveAclRequestProto, opts ...grpc.CallOption) (*hadoop_hdfs1.RemoveAclResponseProto, error)
-	SetAcl(ctx context.Context, in *hadoop_hdfs1.SetAclRequestProto, opts ...grpc.CallOption) (*hadoop_hdfs1.SetAclResponseProto, error)
-	GetAclStatus(ctx context.Context, in *hadoop_hdfs1.GetAclStatusRequestProto, opts ...grpc.CallOption) (*hadoop_hdfs1.GetAclStatusResponseProto, error)
-	SetXAttr(ctx context.Context, in *hadoop_hdfs2.SetXAttrRequestProto, opts ...grpc.CallOption) (*hadoop_hdfs2.SetXAttrResponseProto, error)
-	GetXAttrs(ctx context.Context, in *hadoop_hdfs2.GetXAttrsRequestProto, opts ...grpc.CallOption) (*hadoop_hdfs2.GetXAttrsResponseProto, error)
-	ListXAttrs(ctx context.Context, in *hadoop_hdfs2.ListXAttrsRequestProto, opts ...grpc.CallOption) (*hadoop_hdfs2.ListXAttrsResponseProto, error)
-	RemoveXAttr(ctx context.Context, in *hadoop_hdfs2.RemoveXAttrRequestProto, opts ...grpc.CallOption) (*hadoop_hdfs2.RemoveXAttrResponseProto, error)
+	ModifyAclEntries(ctx context.Context, in *ModifyAclEntriesRequestProto, opts ...grpc.CallOption) (*ModifyAclEntriesResponseProto, error)
+	RemoveAclEntries(ctx context.Context, in *RemoveAclEntriesRequestProto, opts ...grpc.CallOption) (*RemoveAclEntriesResponseProto, error)
+	RemoveDefaultAcl(ctx context.Context, in *RemoveDefaultAclRequestProto, opts ...grpc.CallOption) (*RemoveDefaultAclResponseProto, error)
+	RemoveAcl(ctx context.Context, in *RemoveAclRequestProto, opts ...grpc.CallOption) (*RemoveAclResponseProto, error)
+	SetAcl(ctx context.Context, in *SetAclRequestProto, opts ...grpc.CallOption) (*SetAclResponseProto, error)
+	GetAclStatus(ctx context.Context, in *GetAclStatusRequestProto, opts ...grpc.CallOption) (*GetAclStatusResponseProto, error)
+	SetXAttr(ctx context.Context, in *SetXAttrRequestProto, opts ...grpc.CallOption) (*SetXAttrResponseProto, error)
+	GetXAttrs(ctx context.Context, in *GetXAttrsRequestProto, opts ...grpc.CallOption) (*GetXAttrsResponseProto, error)
+	ListXAttrs(ctx context.Context, in *ListXAttrsRequestProto, opts ...grpc.CallOption) (*ListXAttrsResponseProto, error)
+	RemoveXAttr(ctx context.Context, in *RemoveXAttrRequestProto, opts ...grpc.CallOption) (*RemoveXAttrResponseProto, error)
 	CheckAccess(ctx context.Context, in *CheckAccessRequestProto, opts ...grpc.CallOption) (*CheckAccessResponseProto, error)
-	CreateEncryptionZone(ctx context.Context, in *hadoop_hdfs3.CreateEncryptionZoneRequestProto, opts ...grpc.CallOption) (*hadoop_hdfs3.CreateEncryptionZoneResponseProto, error)
-	ListEncryptionZones(ctx context.Context, in *hadoop_hdfs3.ListEncryptionZonesRequestProto, opts ...grpc.CallOption) (*hadoop_hdfs3.ListEncryptionZonesResponseProto, error)
-	GetEZForPath(ctx context.Context, in *hadoop_hdfs3.GetEZForPathRequestProto, opts ...grpc.CallOption) (*hadoop_hdfs3.GetEZForPathResponseProto, error)
-	SetErasureCodingPolicy(ctx context.Context, in *hadoop_hdfs5.SetErasureCodingPolicyRequestProto, opts ...grpc.CallOption) (*hadoop_hdfs5.SetErasureCodingPolicyResponseProto, error)
+	CreateEncryptionZone(ctx context.Context, in *CreateEncryptionZoneRequestProto, opts ...grpc.CallOption) (*CreateEncryptionZoneResponseProto, error)
+	ListEncryptionZones(ctx context.Context, in *ListEncryptionZonesRequestProto, opts ...grpc.CallOption) (*ListEncryptionZonesResponseProto, error)
+	GetEZForPath(ctx context.Context, in *GetEZForPathRequestProto, opts ...grpc.CallOption) (*GetEZForPathResponseProto, error)
+	SetErasureCodingPolicy(ctx context.Context, in *SetErasureCodingPolicyRequestProto, opts ...grpc.CallOption) (*SetErasureCodingPolicyResponseProto, error)
 	GetCurrentEditLogTxid(ctx context.Context, in *GetCurrentEditLogTxidRequestProto, opts ...grpc.CallOption) (*GetCurrentEditLogTxidResponseProto, error)
 	GetEditsFromTxid(ctx context.Context, in *GetEditsFromTxidRequestProto, opts ...grpc.CallOption) (*GetEditsFromTxidResponseProto, error)
-	GetErasureCodingPolicies(ctx context.Context, in *hadoop_hdfs5.GetErasureCodingPoliciesRequestProto, opts ...grpc.CallOption) (*hadoop_hdfs5.GetErasureCodingPoliciesResponseProto, error)
-	GetErasureCodingPolicy(ctx context.Context, in *hadoop_hdfs5.GetErasureCodingPolicyRequestProto, opts ...grpc.CallOption) (*hadoop_hdfs5.GetErasureCodingPolicyResponseProto, error)
+	GetErasureCodingPolicies(ctx context.Context, in *GetErasureCodingPoliciesRequestProto, opts ...grpc.CallOption) (*GetErasureCodingPoliciesResponseProto, error)
+	GetErasureCodingPolicy(ctx context.Context, in *GetErasureCodingPolicyRequestProto, opts ...grpc.CallOption) (*GetErasureCodingPolicyResponseProto, error)
 	GetQuotaUsage(ctx context.Context, in *GetQuotaUsageRequestProto, opts ...grpc.CallOption) (*GetQuotaUsageResponseProto, error)
 }
 
@@ -4520,8 +4351,8 @@ func (c *clientNamenodeProtocolClient) IsFileClosed(ctx context.Context, in *IsF
 	return out, nil
 }
 
-func (c *clientNamenodeProtocolClient) ModifyAclEntries(ctx context.Context, in *hadoop_hdfs1.ModifyAclEntriesRequestProto, opts ...grpc.CallOption) (*hadoop_hdfs1.ModifyAclEntriesResponseProto, error) {
-	out := new(hadoop_hdfs1.ModifyAclEntriesResponseProto)
+func (c *clientNamenodeProtocolClient) ModifyAclEntries(ctx context.Context, in *ModifyAclEntriesRequestProto, opts ...grpc.CallOption) (*ModifyAclEntriesResponseProto, error) {
+	out := new(ModifyAclEntriesResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.hdfs.ClientNamenodeProtocol/modifyAclEntries", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -4529,8 +4360,8 @@ func (c *clientNamenodeProtocolClient) ModifyAclEntries(ctx context.Context, in 
 	return out, nil
 }
 
-func (c *clientNamenodeProtocolClient) RemoveAclEntries(ctx context.Context, in *hadoop_hdfs1.RemoveAclEntriesRequestProto, opts ...grpc.CallOption) (*hadoop_hdfs1.RemoveAclEntriesResponseProto, error) {
-	out := new(hadoop_hdfs1.RemoveAclEntriesResponseProto)
+func (c *clientNamenodeProtocolClient) RemoveAclEntries(ctx context.Context, in *RemoveAclEntriesRequestProto, opts ...grpc.CallOption) (*RemoveAclEntriesResponseProto, error) {
+	out := new(RemoveAclEntriesResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.hdfs.ClientNamenodeProtocol/removeAclEntries", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -4538,8 +4369,8 @@ func (c *clientNamenodeProtocolClient) RemoveAclEntries(ctx context.Context, in 
 	return out, nil
 }
 
-func (c *clientNamenodeProtocolClient) RemoveDefaultAcl(ctx context.Context, in *hadoop_hdfs1.RemoveDefaultAclRequestProto, opts ...grpc.CallOption) (*hadoop_hdfs1.RemoveDefaultAclResponseProto, error) {
-	out := new(hadoop_hdfs1.RemoveDefaultAclResponseProto)
+func (c *clientNamenodeProtocolClient) RemoveDefaultAcl(ctx context.Context, in *RemoveDefaultAclRequestProto, opts ...grpc.CallOption) (*RemoveDefaultAclResponseProto, error) {
+	out := new(RemoveDefaultAclResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.hdfs.ClientNamenodeProtocol/removeDefaultAcl", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -4547,8 +4378,8 @@ func (c *clientNamenodeProtocolClient) RemoveDefaultAcl(ctx context.Context, in 
 	return out, nil
 }
 
-func (c *clientNamenodeProtocolClient) RemoveAcl(ctx context.Context, in *hadoop_hdfs1.RemoveAclRequestProto, opts ...grpc.CallOption) (*hadoop_hdfs1.RemoveAclResponseProto, error) {
-	out := new(hadoop_hdfs1.RemoveAclResponseProto)
+func (c *clientNamenodeProtocolClient) RemoveAcl(ctx context.Context, in *RemoveAclRequestProto, opts ...grpc.CallOption) (*RemoveAclResponseProto, error) {
+	out := new(RemoveAclResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.hdfs.ClientNamenodeProtocol/removeAcl", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -4556,8 +4387,8 @@ func (c *clientNamenodeProtocolClient) RemoveAcl(ctx context.Context, in *hadoop
 	return out, nil
 }
 
-func (c *clientNamenodeProtocolClient) SetAcl(ctx context.Context, in *hadoop_hdfs1.SetAclRequestProto, opts ...grpc.CallOption) (*hadoop_hdfs1.SetAclResponseProto, error) {
-	out := new(hadoop_hdfs1.SetAclResponseProto)
+func (c *clientNamenodeProtocolClient) SetAcl(ctx context.Context, in *SetAclRequestProto, opts ...grpc.CallOption) (*SetAclResponseProto, error) {
+	out := new(SetAclResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.hdfs.ClientNamenodeProtocol/setAcl", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -4565,8 +4396,8 @@ func (c *clientNamenodeProtocolClient) SetAcl(ctx context.Context, in *hadoop_hd
 	return out, nil
 }
 
-func (c *clientNamenodeProtocolClient) GetAclStatus(ctx context.Context, in *hadoop_hdfs1.GetAclStatusRequestProto, opts ...grpc.CallOption) (*hadoop_hdfs1.GetAclStatusResponseProto, error) {
-	out := new(hadoop_hdfs1.GetAclStatusResponseProto)
+func (c *clientNamenodeProtocolClient) GetAclStatus(ctx context.Context, in *GetAclStatusRequestProto, opts ...grpc.CallOption) (*GetAclStatusResponseProto, error) {
+	out := new(GetAclStatusResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.hdfs.ClientNamenodeProtocol/getAclStatus", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -4574,8 +4405,8 @@ func (c *clientNamenodeProtocolClient) GetAclStatus(ctx context.Context, in *had
 	return out, nil
 }
 
-func (c *clientNamenodeProtocolClient) SetXAttr(ctx context.Context, in *hadoop_hdfs2.SetXAttrRequestProto, opts ...grpc.CallOption) (*hadoop_hdfs2.SetXAttrResponseProto, error) {
-	out := new(hadoop_hdfs2.SetXAttrResponseProto)
+func (c *clientNamenodeProtocolClient) SetXAttr(ctx context.Context, in *SetXAttrRequestProto, opts ...grpc.CallOption) (*SetXAttrResponseProto, error) {
+	out := new(SetXAttrResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.hdfs.ClientNamenodeProtocol/setXAttr", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -4583,8 +4414,8 @@ func (c *clientNamenodeProtocolClient) SetXAttr(ctx context.Context, in *hadoop_
 	return out, nil
 }
 
-func (c *clientNamenodeProtocolClient) GetXAttrs(ctx context.Context, in *hadoop_hdfs2.GetXAttrsRequestProto, opts ...grpc.CallOption) (*hadoop_hdfs2.GetXAttrsResponseProto, error) {
-	out := new(hadoop_hdfs2.GetXAttrsResponseProto)
+func (c *clientNamenodeProtocolClient) GetXAttrs(ctx context.Context, in *GetXAttrsRequestProto, opts ...grpc.CallOption) (*GetXAttrsResponseProto, error) {
+	out := new(GetXAttrsResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.hdfs.ClientNamenodeProtocol/getXAttrs", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -4592,8 +4423,8 @@ func (c *clientNamenodeProtocolClient) GetXAttrs(ctx context.Context, in *hadoop
 	return out, nil
 }
 
-func (c *clientNamenodeProtocolClient) ListXAttrs(ctx context.Context, in *hadoop_hdfs2.ListXAttrsRequestProto, opts ...grpc.CallOption) (*hadoop_hdfs2.ListXAttrsResponseProto, error) {
-	out := new(hadoop_hdfs2.ListXAttrsResponseProto)
+func (c *clientNamenodeProtocolClient) ListXAttrs(ctx context.Context, in *ListXAttrsRequestProto, opts ...grpc.CallOption) (*ListXAttrsResponseProto, error) {
+	out := new(ListXAttrsResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.hdfs.ClientNamenodeProtocol/listXAttrs", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -4601,8 +4432,8 @@ func (c *clientNamenodeProtocolClient) ListXAttrs(ctx context.Context, in *hadoo
 	return out, nil
 }
 
-func (c *clientNamenodeProtocolClient) RemoveXAttr(ctx context.Context, in *hadoop_hdfs2.RemoveXAttrRequestProto, opts ...grpc.CallOption) (*hadoop_hdfs2.RemoveXAttrResponseProto, error) {
-	out := new(hadoop_hdfs2.RemoveXAttrResponseProto)
+func (c *clientNamenodeProtocolClient) RemoveXAttr(ctx context.Context, in *RemoveXAttrRequestProto, opts ...grpc.CallOption) (*RemoveXAttrResponseProto, error) {
+	out := new(RemoveXAttrResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.hdfs.ClientNamenodeProtocol/removeXAttr", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -4619,8 +4450,8 @@ func (c *clientNamenodeProtocolClient) CheckAccess(ctx context.Context, in *Chec
 	return out, nil
 }
 
-func (c *clientNamenodeProtocolClient) CreateEncryptionZone(ctx context.Context, in *hadoop_hdfs3.CreateEncryptionZoneRequestProto, opts ...grpc.CallOption) (*hadoop_hdfs3.CreateEncryptionZoneResponseProto, error) {
-	out := new(hadoop_hdfs3.CreateEncryptionZoneResponseProto)
+func (c *clientNamenodeProtocolClient) CreateEncryptionZone(ctx context.Context, in *CreateEncryptionZoneRequestProto, opts ...grpc.CallOption) (*CreateEncryptionZoneResponseProto, error) {
+	out := new(CreateEncryptionZoneResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.hdfs.ClientNamenodeProtocol/createEncryptionZone", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -4628,8 +4459,8 @@ func (c *clientNamenodeProtocolClient) CreateEncryptionZone(ctx context.Context,
 	return out, nil
 }
 
-func (c *clientNamenodeProtocolClient) ListEncryptionZones(ctx context.Context, in *hadoop_hdfs3.ListEncryptionZonesRequestProto, opts ...grpc.CallOption) (*hadoop_hdfs3.ListEncryptionZonesResponseProto, error) {
-	out := new(hadoop_hdfs3.ListEncryptionZonesResponseProto)
+func (c *clientNamenodeProtocolClient) ListEncryptionZones(ctx context.Context, in *ListEncryptionZonesRequestProto, opts ...grpc.CallOption) (*ListEncryptionZonesResponseProto, error) {
+	out := new(ListEncryptionZonesResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.hdfs.ClientNamenodeProtocol/listEncryptionZones", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -4637,8 +4468,8 @@ func (c *clientNamenodeProtocolClient) ListEncryptionZones(ctx context.Context, 
 	return out, nil
 }
 
-func (c *clientNamenodeProtocolClient) GetEZForPath(ctx context.Context, in *hadoop_hdfs3.GetEZForPathRequestProto, opts ...grpc.CallOption) (*hadoop_hdfs3.GetEZForPathResponseProto, error) {
-	out := new(hadoop_hdfs3.GetEZForPathResponseProto)
+func (c *clientNamenodeProtocolClient) GetEZForPath(ctx context.Context, in *GetEZForPathRequestProto, opts ...grpc.CallOption) (*GetEZForPathResponseProto, error) {
+	out := new(GetEZForPathResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.hdfs.ClientNamenodeProtocol/getEZForPath", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -4646,8 +4477,8 @@ func (c *clientNamenodeProtocolClient) GetEZForPath(ctx context.Context, in *had
 	return out, nil
 }
 
-func (c *clientNamenodeProtocolClient) SetErasureCodingPolicy(ctx context.Context, in *hadoop_hdfs5.SetErasureCodingPolicyRequestProto, opts ...grpc.CallOption) (*hadoop_hdfs5.SetErasureCodingPolicyResponseProto, error) {
-	out := new(hadoop_hdfs5.SetErasureCodingPolicyResponseProto)
+func (c *clientNamenodeProtocolClient) SetErasureCodingPolicy(ctx context.Context, in *SetErasureCodingPolicyRequestProto, opts ...grpc.CallOption) (*SetErasureCodingPolicyResponseProto, error) {
+	out := new(SetErasureCodingPolicyResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.hdfs.ClientNamenodeProtocol/setErasureCodingPolicy", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -4673,8 +4504,8 @@ func (c *clientNamenodeProtocolClient) GetEditsFromTxid(ctx context.Context, in 
 	return out, nil
 }
 
-func (c *clientNamenodeProtocolClient) GetErasureCodingPolicies(ctx context.Context, in *hadoop_hdfs5.GetErasureCodingPoliciesRequestProto, opts ...grpc.CallOption) (*hadoop_hdfs5.GetErasureCodingPoliciesResponseProto, error) {
-	out := new(hadoop_hdfs5.GetErasureCodingPoliciesResponseProto)
+func (c *clientNamenodeProtocolClient) GetErasureCodingPolicies(ctx context.Context, in *GetErasureCodingPoliciesRequestProto, opts ...grpc.CallOption) (*GetErasureCodingPoliciesResponseProto, error) {
+	out := new(GetErasureCodingPoliciesResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.hdfs.ClientNamenodeProtocol/getErasureCodingPolicies", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -4682,8 +4513,8 @@ func (c *clientNamenodeProtocolClient) GetErasureCodingPolicies(ctx context.Cont
 	return out, nil
 }
 
-func (c *clientNamenodeProtocolClient) GetErasureCodingPolicy(ctx context.Context, in *hadoop_hdfs5.GetErasureCodingPolicyRequestProto, opts ...grpc.CallOption) (*hadoop_hdfs5.GetErasureCodingPolicyResponseProto, error) {
-	out := new(hadoop_hdfs5.GetErasureCodingPolicyResponseProto)
+func (c *clientNamenodeProtocolClient) GetErasureCodingPolicy(ctx context.Context, in *GetErasureCodingPolicyRequestProto, opts ...grpc.CallOption) (*GetErasureCodingPolicyResponseProto, error) {
+	out := new(GetErasureCodingPolicyResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.hdfs.ClientNamenodeProtocol/getErasureCodingPolicy", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -4772,25 +4603,25 @@ type ClientNamenodeProtocolServer interface {
 	DeleteSnapshot(context.Context, *DeleteSnapshotRequestProto) (*DeleteSnapshotResponseProto, error)
 	GetSnapshotDiffReport(context.Context, *GetSnapshotDiffReportRequestProto) (*GetSnapshotDiffReportResponseProto, error)
 	IsFileClosed(context.Context, *IsFileClosedRequestProto) (*IsFileClosedResponseProto, error)
-	ModifyAclEntries(context.Context, *hadoop_hdfs1.ModifyAclEntriesRequestProto) (*hadoop_hdfs1.ModifyAclEntriesResponseProto, error)
-	RemoveAclEntries(context.Context, *hadoop_hdfs1.RemoveAclEntriesRequestProto) (*hadoop_hdfs1.RemoveAclEntriesResponseProto, error)
-	RemoveDefaultAcl(context.Context, *hadoop_hdfs1.RemoveDefaultAclRequestProto) (*hadoop_hdfs1.RemoveDefaultAclResponseProto, error)
-	RemoveAcl(context.Context, *hadoop_hdfs1.RemoveAclRequestProto) (*hadoop_hdfs1.RemoveAclResponseProto, error)
-	SetAcl(context.Context, *hadoop_hdfs1.SetAclRequestProto) (*hadoop_hdfs1.SetAclResponseProto, error)
-	GetAclStatus(context.Context, *hadoop_hdfs1.GetAclStatusRequestProto) (*hadoop_hdfs1.GetAclStatusResponseProto, error)
-	SetXAttr(context.Context, *hadoop_hdfs2.SetXAttrRequestProto) (*hadoop_hdfs2.SetXAttrResponseProto, error)
-	GetXAttrs(context.Context, *hadoop_hdfs2.GetXAttrsRequestProto) (*hadoop_hdfs2.GetXAttrsResponseProto, error)
-	ListXAttrs(context.Context, *hadoop_hdfs2.ListXAttrsRequestProto) (*hadoop_hdfs2.ListXAttrsResponseProto, error)
-	RemoveXAttr(context.Context, *hadoop_hdfs2.RemoveXAttrRequestProto) (*hadoop_hdfs2.RemoveXAttrResponseProto, error)
+	ModifyAclEntries(context.Context, *ModifyAclEntriesRequestProto) (*ModifyAclEntriesResponseProto, error)
+	RemoveAclEntries(context.Context, *RemoveAclEntriesRequestProto) (*RemoveAclEntriesResponseProto, error)
+	RemoveDefaultAcl(context.Context, *RemoveDefaultAclRequestProto) (*RemoveDefaultAclResponseProto, error)
+	RemoveAcl(context.Context, *RemoveAclRequestProto) (*RemoveAclResponseProto, error)
+	SetAcl(context.Context, *SetAclRequestProto) (*SetAclResponseProto, error)
+	GetAclStatus(context.Context, *GetAclStatusRequestProto) (*GetAclStatusResponseProto, error)
+	SetXAttr(context.Context, *SetXAttrRequestProto) (*SetXAttrResponseProto, error)
+	GetXAttrs(context.Context, *GetXAttrsRequestProto) (*GetXAttrsResponseProto, error)
+	ListXAttrs(context.Context, *ListXAttrsRequestProto) (*ListXAttrsResponseProto, error)
+	RemoveXAttr(context.Context, *RemoveXAttrRequestProto) (*RemoveXAttrResponseProto, error)
 	CheckAccess(context.Context, *CheckAccessRequestProto) (*CheckAccessResponseProto, error)
-	CreateEncryptionZone(context.Context, *hadoop_hdfs3.CreateEncryptionZoneRequestProto) (*hadoop_hdfs3.CreateEncryptionZoneResponseProto, error)
-	ListEncryptionZones(context.Context, *hadoop_hdfs3.ListEncryptionZonesRequestProto) (*hadoop_hdfs3.ListEncryptionZonesResponseProto, error)
-	GetEZForPath(context.Context, *hadoop_hdfs3.GetEZForPathRequestProto) (*hadoop_hdfs3.GetEZForPathResponseProto, error)
-	SetErasureCodingPolicy(context.Context, *hadoop_hdfs5.SetErasureCodingPolicyRequestProto) (*hadoop_hdfs5.SetErasureCodingPolicyResponseProto, error)
+	CreateEncryptionZone(context.Context, *CreateEncryptionZoneRequestProto) (*CreateEncryptionZoneResponseProto, error)
+	ListEncryptionZones(context.Context, *ListEncryptionZonesRequestProto) (*ListEncryptionZonesResponseProto, error)
+	GetEZForPath(context.Context, *GetEZForPathRequestProto) (*GetEZForPathResponseProto, error)
+	SetErasureCodingPolicy(context.Context, *SetErasureCodingPolicyRequestProto) (*SetErasureCodingPolicyResponseProto, error)
 	GetCurrentEditLogTxid(context.Context, *GetCurrentEditLogTxidRequestProto) (*GetCurrentEditLogTxidResponseProto, error)
 	GetEditsFromTxid(context.Context, *GetEditsFromTxidRequestProto) (*GetEditsFromTxidResponseProto, error)
-	GetErasureCodingPolicies(context.Context, *hadoop_hdfs5.GetErasureCodingPoliciesRequestProto) (*hadoop_hdfs5.GetErasureCodingPoliciesResponseProto, error)
-	GetErasureCodingPolicy(context.Context, *hadoop_hdfs5.GetErasureCodingPolicyRequestProto) (*hadoop_hdfs5.GetErasureCodingPolicyResponseProto, error)
+	GetErasureCodingPolicies(context.Context, *GetErasureCodingPoliciesRequestProto) (*GetErasureCodingPoliciesResponseProto, error)
+	GetErasureCodingPolicy(context.Context, *GetErasureCodingPolicyRequestProto) (*GetErasureCodingPolicyResponseProto, error)
 	GetQuotaUsage(context.Context, *GetQuotaUsageRequestProto) (*GetQuotaUsageResponseProto, error)
 }
 
@@ -6041,7 +5872,7 @@ func _ClientNamenodeProtocol_IsFileClosed_Handler(srv interface{}, ctx context.C
 }
 
 func _ClientNamenodeProtocol_ModifyAclEntries_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_hdfs1.ModifyAclEntriesRequestProto)
+	in := new(ModifyAclEntriesRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -6053,13 +5884,13 @@ func _ClientNamenodeProtocol_ModifyAclEntries_Handler(srv interface{}, ctx conte
 		FullMethod: "/hadoop.hdfs.ClientNamenodeProtocol/ModifyAclEntries",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ClientNamenodeProtocolServer).ModifyAclEntries(ctx, req.(*hadoop_hdfs1.ModifyAclEntriesRequestProto))
+		return srv.(ClientNamenodeProtocolServer).ModifyAclEntries(ctx, req.(*ModifyAclEntriesRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ClientNamenodeProtocol_RemoveAclEntries_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_hdfs1.RemoveAclEntriesRequestProto)
+	in := new(RemoveAclEntriesRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -6071,13 +5902,13 @@ func _ClientNamenodeProtocol_RemoveAclEntries_Handler(srv interface{}, ctx conte
 		FullMethod: "/hadoop.hdfs.ClientNamenodeProtocol/RemoveAclEntries",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ClientNamenodeProtocolServer).RemoveAclEntries(ctx, req.(*hadoop_hdfs1.RemoveAclEntriesRequestProto))
+		return srv.(ClientNamenodeProtocolServer).RemoveAclEntries(ctx, req.(*RemoveAclEntriesRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ClientNamenodeProtocol_RemoveDefaultAcl_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_hdfs1.RemoveDefaultAclRequestProto)
+	in := new(RemoveDefaultAclRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -6089,13 +5920,13 @@ func _ClientNamenodeProtocol_RemoveDefaultAcl_Handler(srv interface{}, ctx conte
 		FullMethod: "/hadoop.hdfs.ClientNamenodeProtocol/RemoveDefaultAcl",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ClientNamenodeProtocolServer).RemoveDefaultAcl(ctx, req.(*hadoop_hdfs1.RemoveDefaultAclRequestProto))
+		return srv.(ClientNamenodeProtocolServer).RemoveDefaultAcl(ctx, req.(*RemoveDefaultAclRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ClientNamenodeProtocol_RemoveAcl_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_hdfs1.RemoveAclRequestProto)
+	in := new(RemoveAclRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -6107,13 +5938,13 @@ func _ClientNamenodeProtocol_RemoveAcl_Handler(srv interface{}, ctx context.Cont
 		FullMethod: "/hadoop.hdfs.ClientNamenodeProtocol/RemoveAcl",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ClientNamenodeProtocolServer).RemoveAcl(ctx, req.(*hadoop_hdfs1.RemoveAclRequestProto))
+		return srv.(ClientNamenodeProtocolServer).RemoveAcl(ctx, req.(*RemoveAclRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ClientNamenodeProtocol_SetAcl_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_hdfs1.SetAclRequestProto)
+	in := new(SetAclRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -6125,13 +5956,13 @@ func _ClientNamenodeProtocol_SetAcl_Handler(srv interface{}, ctx context.Context
 		FullMethod: "/hadoop.hdfs.ClientNamenodeProtocol/SetAcl",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ClientNamenodeProtocolServer).SetAcl(ctx, req.(*hadoop_hdfs1.SetAclRequestProto))
+		return srv.(ClientNamenodeProtocolServer).SetAcl(ctx, req.(*SetAclRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ClientNamenodeProtocol_GetAclStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_hdfs1.GetAclStatusRequestProto)
+	in := new(GetAclStatusRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -6143,13 +5974,13 @@ func _ClientNamenodeProtocol_GetAclStatus_Handler(srv interface{}, ctx context.C
 		FullMethod: "/hadoop.hdfs.ClientNamenodeProtocol/GetAclStatus",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ClientNamenodeProtocolServer).GetAclStatus(ctx, req.(*hadoop_hdfs1.GetAclStatusRequestProto))
+		return srv.(ClientNamenodeProtocolServer).GetAclStatus(ctx, req.(*GetAclStatusRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ClientNamenodeProtocol_SetXAttr_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_hdfs2.SetXAttrRequestProto)
+	in := new(SetXAttrRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -6161,13 +5992,13 @@ func _ClientNamenodeProtocol_SetXAttr_Handler(srv interface{}, ctx context.Conte
 		FullMethod: "/hadoop.hdfs.ClientNamenodeProtocol/SetXAttr",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ClientNamenodeProtocolServer).SetXAttr(ctx, req.(*hadoop_hdfs2.SetXAttrRequestProto))
+		return srv.(ClientNamenodeProtocolServer).SetXAttr(ctx, req.(*SetXAttrRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ClientNamenodeProtocol_GetXAttrs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_hdfs2.GetXAttrsRequestProto)
+	in := new(GetXAttrsRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -6179,13 +6010,13 @@ func _ClientNamenodeProtocol_GetXAttrs_Handler(srv interface{}, ctx context.Cont
 		FullMethod: "/hadoop.hdfs.ClientNamenodeProtocol/GetXAttrs",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ClientNamenodeProtocolServer).GetXAttrs(ctx, req.(*hadoop_hdfs2.GetXAttrsRequestProto))
+		return srv.(ClientNamenodeProtocolServer).GetXAttrs(ctx, req.(*GetXAttrsRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ClientNamenodeProtocol_ListXAttrs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_hdfs2.ListXAttrsRequestProto)
+	in := new(ListXAttrsRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -6197,13 +6028,13 @@ func _ClientNamenodeProtocol_ListXAttrs_Handler(srv interface{}, ctx context.Con
 		FullMethod: "/hadoop.hdfs.ClientNamenodeProtocol/ListXAttrs",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ClientNamenodeProtocolServer).ListXAttrs(ctx, req.(*hadoop_hdfs2.ListXAttrsRequestProto))
+		return srv.(ClientNamenodeProtocolServer).ListXAttrs(ctx, req.(*ListXAttrsRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ClientNamenodeProtocol_RemoveXAttr_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_hdfs2.RemoveXAttrRequestProto)
+	in := new(RemoveXAttrRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -6215,7 +6046,7 @@ func _ClientNamenodeProtocol_RemoveXAttr_Handler(srv interface{}, ctx context.Co
 		FullMethod: "/hadoop.hdfs.ClientNamenodeProtocol/RemoveXAttr",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ClientNamenodeProtocolServer).RemoveXAttr(ctx, req.(*hadoop_hdfs2.RemoveXAttrRequestProto))
+		return srv.(ClientNamenodeProtocolServer).RemoveXAttr(ctx, req.(*RemoveXAttrRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -6239,7 +6070,7 @@ func _ClientNamenodeProtocol_CheckAccess_Handler(srv interface{}, ctx context.Co
 }
 
 func _ClientNamenodeProtocol_CreateEncryptionZone_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_hdfs3.CreateEncryptionZoneRequestProto)
+	in := new(CreateEncryptionZoneRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -6251,13 +6082,13 @@ func _ClientNamenodeProtocol_CreateEncryptionZone_Handler(srv interface{}, ctx c
 		FullMethod: "/hadoop.hdfs.ClientNamenodeProtocol/CreateEncryptionZone",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ClientNamenodeProtocolServer).CreateEncryptionZone(ctx, req.(*hadoop_hdfs3.CreateEncryptionZoneRequestProto))
+		return srv.(ClientNamenodeProtocolServer).CreateEncryptionZone(ctx, req.(*CreateEncryptionZoneRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ClientNamenodeProtocol_ListEncryptionZones_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_hdfs3.ListEncryptionZonesRequestProto)
+	in := new(ListEncryptionZonesRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -6269,13 +6100,13 @@ func _ClientNamenodeProtocol_ListEncryptionZones_Handler(srv interface{}, ctx co
 		FullMethod: "/hadoop.hdfs.ClientNamenodeProtocol/ListEncryptionZones",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ClientNamenodeProtocolServer).ListEncryptionZones(ctx, req.(*hadoop_hdfs3.ListEncryptionZonesRequestProto))
+		return srv.(ClientNamenodeProtocolServer).ListEncryptionZones(ctx, req.(*ListEncryptionZonesRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ClientNamenodeProtocol_GetEZForPath_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_hdfs3.GetEZForPathRequestProto)
+	in := new(GetEZForPathRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -6287,13 +6118,13 @@ func _ClientNamenodeProtocol_GetEZForPath_Handler(srv interface{}, ctx context.C
 		FullMethod: "/hadoop.hdfs.ClientNamenodeProtocol/GetEZForPath",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ClientNamenodeProtocolServer).GetEZForPath(ctx, req.(*hadoop_hdfs3.GetEZForPathRequestProto))
+		return srv.(ClientNamenodeProtocolServer).GetEZForPath(ctx, req.(*GetEZForPathRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ClientNamenodeProtocol_SetErasureCodingPolicy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_hdfs5.SetErasureCodingPolicyRequestProto)
+	in := new(SetErasureCodingPolicyRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -6305,7 +6136,7 @@ func _ClientNamenodeProtocol_SetErasureCodingPolicy_Handler(srv interface{}, ctx
 		FullMethod: "/hadoop.hdfs.ClientNamenodeProtocol/SetErasureCodingPolicy",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ClientNamenodeProtocolServer).SetErasureCodingPolicy(ctx, req.(*hadoop_hdfs5.SetErasureCodingPolicyRequestProto))
+		return srv.(ClientNamenodeProtocolServer).SetErasureCodingPolicy(ctx, req.(*SetErasureCodingPolicyRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -6347,7 +6178,7 @@ func _ClientNamenodeProtocol_GetEditsFromTxid_Handler(srv interface{}, ctx conte
 }
 
 func _ClientNamenodeProtocol_GetErasureCodingPolicies_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_hdfs5.GetErasureCodingPoliciesRequestProto)
+	in := new(GetErasureCodingPoliciesRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -6359,13 +6190,13 @@ func _ClientNamenodeProtocol_GetErasureCodingPolicies_Handler(srv interface{}, c
 		FullMethod: "/hadoop.hdfs.ClientNamenodeProtocol/GetErasureCodingPolicies",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ClientNamenodeProtocolServer).GetErasureCodingPolicies(ctx, req.(*hadoop_hdfs5.GetErasureCodingPoliciesRequestProto))
+		return srv.(ClientNamenodeProtocolServer).GetErasureCodingPolicies(ctx, req.(*GetErasureCodingPoliciesRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ClientNamenodeProtocol_GetErasureCodingPolicy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_hdfs5.GetErasureCodingPolicyRequestProto)
+	in := new(GetErasureCodingPolicyRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -6377,7 +6208,7 @@ func _ClientNamenodeProtocol_GetErasureCodingPolicy_Handler(srv interface{}, ctx
 		FullMethod: "/hadoop.hdfs.ClientNamenodeProtocol/GetErasureCodingPolicy",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ClientNamenodeProtocolServer).GetErasureCodingPolicy(ctx, req.(*hadoop_hdfs5.GetErasureCodingPolicyRequestProto))
+		return srv.(ClientNamenodeProtocolServer).GetErasureCodingPolicy(ctx, req.(*GetErasureCodingPolicyRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -6762,12 +6593,12 @@ var _ClientNamenodeProtocol_serviceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: fileDescriptor0,
+	Metadata: fileDescriptor8,
 }
 
-func init() { proto.RegisterFile("ClientNamenodeProtocol.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("ClientNamenodeProtocol.proto", fileDescriptor8) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor8 = []byte{
 	// 5446 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xc4, 0x3c, 0x5d, 0x6f, 0x1c, 0x47,
 	0x72, 0x58, 0x7e, 0x48, 0x64, 0x49, 0xa2, 0xe8, 0x11, 0x25, 0x51, 0x2b, 0x59, 0xa4, 0x46, 0x92,

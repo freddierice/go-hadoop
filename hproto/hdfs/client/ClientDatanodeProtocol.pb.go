@@ -2,48 +2,12 @@
 // source: ClientDatanodeProtocol.proto
 // DO NOT EDIT!
 
-/*
-Package client is a generated protocol buffer package.
-
-It is generated from these files:
-	ClientDatanodeProtocol.proto
-
-It has these top-level messages:
-	GetReplicaVisibleLengthRequestProto
-	GetReplicaVisibleLengthResponseProto
-	RefreshNamenodesRequestProto
-	RefreshNamenodesResponseProto
-	DeleteBlockPoolRequestProto
-	DeleteBlockPoolResponseProto
-	GetBlockLocalPathInfoRequestProto
-	GetBlockLocalPathInfoResponseProto
-	ShutdownDatanodeRequestProto
-	ShutdownDatanodeResponseProto
-	EvictWritersRequestProto
-	EvictWritersResponseProto
-	GetDatanodeInfoRequestProto
-	GetDatanodeInfoResponseProto
-	TriggerBlockReportRequestProto
-	TriggerBlockReportResponseProto
-	GetBalancerBandwidthRequestProto
-	GetBalancerBandwidthResponseProto
-	SubmitDiskBalancerPlanRequestProto
-	SubmitDiskBalancerPlanResponseProto
-	CancelPlanRequestProto
-	CancelPlanResponseProto
-	QueryPlanStatusRequestProto
-	QueryPlanStatusResponseProto
-	DiskBalancerSettingRequestProto
-	DiskBalancerSettingResponseProto
-*/
 package client
 
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import hadoop_common "."
-import hadoop_hdfs "."
-import hadoop_hdfs1 "."
 
 import (
 	context "golang.org/x/net/context"
@@ -55,27 +19,21 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
-
 // *
 // block - block for which visible length is requested
 type GetReplicaVisibleLengthRequestProto struct {
-	Block            *hadoop_hdfs.ExtendedBlockProto `protobuf:"bytes,1,req,name=block" json:"block,omitempty"`
-	XXX_unrecognized []byte                          `json:"-"`
+	Block            *ExtendedBlockProto `protobuf:"bytes,1,req,name=block" json:"block,omitempty"`
+	XXX_unrecognized []byte              `json:"-"`
 }
 
 func (m *GetReplicaVisibleLengthRequestProto) Reset()         { *m = GetReplicaVisibleLengthRequestProto{} }
 func (m *GetReplicaVisibleLengthRequestProto) String() string { return proto.CompactTextString(m) }
 func (*GetReplicaVisibleLengthRequestProto) ProtoMessage()    {}
 func (*GetReplicaVisibleLengthRequestProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{0}
+	return fileDescriptor4, []int{0}
 }
 
-func (m *GetReplicaVisibleLengthRequestProto) GetBlock() *hadoop_hdfs.ExtendedBlockProto {
+func (m *GetReplicaVisibleLengthRequestProto) GetBlock() *ExtendedBlockProto {
 	if m != nil {
 		return m.Block
 	}
@@ -93,7 +51,7 @@ func (m *GetReplicaVisibleLengthResponseProto) Reset()         { *m = GetReplica
 func (m *GetReplicaVisibleLengthResponseProto) String() string { return proto.CompactTextString(m) }
 func (*GetReplicaVisibleLengthResponseProto) ProtoMessage()    {}
 func (*GetReplicaVisibleLengthResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{1}
+	return fileDescriptor4, []int{1}
 }
 
 func (m *GetReplicaVisibleLengthResponseProto) GetLength() uint64 {
@@ -112,7 +70,7 @@ type RefreshNamenodesRequestProto struct {
 func (m *RefreshNamenodesRequestProto) Reset()                    { *m = RefreshNamenodesRequestProto{} }
 func (m *RefreshNamenodesRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*RefreshNamenodesRequestProto) ProtoMessage()               {}
-func (*RefreshNamenodesRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{2} }
+func (*RefreshNamenodesRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{2} }
 
 // *
 // void response
@@ -123,7 +81,7 @@ type RefreshNamenodesResponseProto struct {
 func (m *RefreshNamenodesResponseProto) Reset()                    { *m = RefreshNamenodesResponseProto{} }
 func (m *RefreshNamenodesResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*RefreshNamenodesResponseProto) ProtoMessage()               {}
-func (*RefreshNamenodesResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{3} }
+func (*RefreshNamenodesResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{3} }
 
 // *
 // blockPool - block pool to be deleted
@@ -138,7 +96,7 @@ type DeleteBlockPoolRequestProto struct {
 func (m *DeleteBlockPoolRequestProto) Reset()                    { *m = DeleteBlockPoolRequestProto{} }
 func (m *DeleteBlockPoolRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*DeleteBlockPoolRequestProto) ProtoMessage()               {}
-func (*DeleteBlockPoolRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{4} }
+func (*DeleteBlockPoolRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{4} }
 
 func (m *DeleteBlockPoolRequestProto) GetBlockPool() string {
 	if m != nil && m.BlockPool != nil {
@@ -163,7 +121,7 @@ type DeleteBlockPoolResponseProto struct {
 func (m *DeleteBlockPoolResponseProto) Reset()                    { *m = DeleteBlockPoolResponseProto{} }
 func (m *DeleteBlockPoolResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*DeleteBlockPoolResponseProto) ProtoMessage()               {}
-func (*DeleteBlockPoolResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{5} }
+func (*DeleteBlockPoolResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{5} }
 
 // *
 // Gets the file information where block and its metadata is stored
@@ -172,19 +130,19 @@ func (*DeleteBlockPoolResponseProto) Descriptor() ([]byte, []int) { return fileD
 //
 // This message is deprecated in favor of file descriptor passing.
 type GetBlockLocalPathInfoRequestProto struct {
-	Block            *hadoop_hdfs.ExtendedBlockProto `protobuf:"bytes,1,req,name=block" json:"block,omitempty"`
-	Token            *hadoop_common.TokenProto       `protobuf:"bytes,2,req,name=token" json:"token,omitempty"`
-	XXX_unrecognized []byte                          `json:"-"`
+	Block            *ExtendedBlockProto       `protobuf:"bytes,1,req,name=block" json:"block,omitempty"`
+	Token            *hadoop_common.TokenProto `protobuf:"bytes,2,req,name=token" json:"token,omitempty"`
+	XXX_unrecognized []byte                    `json:"-"`
 }
 
 func (m *GetBlockLocalPathInfoRequestProto) Reset()         { *m = GetBlockLocalPathInfoRequestProto{} }
 func (m *GetBlockLocalPathInfoRequestProto) String() string { return proto.CompactTextString(m) }
 func (*GetBlockLocalPathInfoRequestProto) ProtoMessage()    {}
 func (*GetBlockLocalPathInfoRequestProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{6}
+	return fileDescriptor4, []int{6}
 }
 
-func (m *GetBlockLocalPathInfoRequestProto) GetBlock() *hadoop_hdfs.ExtendedBlockProto {
+func (m *GetBlockLocalPathInfoRequestProto) GetBlock() *ExtendedBlockProto {
 	if m != nil {
 		return m.Block
 	}
@@ -205,20 +163,20 @@ func (m *GetBlockLocalPathInfoRequestProto) GetToken() *hadoop_common.TokenProto
 //
 // This message is deprecated in favor of file descriptor passing.
 type GetBlockLocalPathInfoResponseProto struct {
-	Block            *hadoop_hdfs.ExtendedBlockProto `protobuf:"bytes,1,req,name=block" json:"block,omitempty"`
-	LocalPath        *string                         `protobuf:"bytes,2,req,name=localPath" json:"localPath,omitempty"`
-	LocalMetaPath    *string                         `protobuf:"bytes,3,req,name=localMetaPath" json:"localMetaPath,omitempty"`
-	XXX_unrecognized []byte                          `json:"-"`
+	Block            *ExtendedBlockProto `protobuf:"bytes,1,req,name=block" json:"block,omitempty"`
+	LocalPath        *string             `protobuf:"bytes,2,req,name=localPath" json:"localPath,omitempty"`
+	LocalMetaPath    *string             `protobuf:"bytes,3,req,name=localMetaPath" json:"localMetaPath,omitempty"`
+	XXX_unrecognized []byte              `json:"-"`
 }
 
 func (m *GetBlockLocalPathInfoResponseProto) Reset()         { *m = GetBlockLocalPathInfoResponseProto{} }
 func (m *GetBlockLocalPathInfoResponseProto) String() string { return proto.CompactTextString(m) }
 func (*GetBlockLocalPathInfoResponseProto) ProtoMessage()    {}
 func (*GetBlockLocalPathInfoResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{7}
+	return fileDescriptor4, []int{7}
 }
 
-func (m *GetBlockLocalPathInfoResponseProto) GetBlock() *hadoop_hdfs.ExtendedBlockProto {
+func (m *GetBlockLocalPathInfoResponseProto) GetBlock() *ExtendedBlockProto {
 	if m != nil {
 		return m.Block
 	}
@@ -251,7 +209,7 @@ type ShutdownDatanodeRequestProto struct {
 func (m *ShutdownDatanodeRequestProto) Reset()                    { *m = ShutdownDatanodeRequestProto{} }
 func (m *ShutdownDatanodeRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*ShutdownDatanodeRequestProto) ProtoMessage()               {}
-func (*ShutdownDatanodeRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{8} }
+func (*ShutdownDatanodeRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{8} }
 
 func (m *ShutdownDatanodeRequestProto) GetForUpgrade() bool {
 	if m != nil && m.ForUpgrade != nil {
@@ -267,7 +225,7 @@ type ShutdownDatanodeResponseProto struct {
 func (m *ShutdownDatanodeResponseProto) Reset()                    { *m = ShutdownDatanodeResponseProto{} }
 func (m *ShutdownDatanodeResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*ShutdownDatanodeResponseProto) ProtoMessage()               {}
-func (*ShutdownDatanodeResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{9} }
+func (*ShutdownDatanodeResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{9} }
 
 // * Tell datanode to evict active clients that are writing
 type EvictWritersRequestProto struct {
@@ -277,7 +235,7 @@ type EvictWritersRequestProto struct {
 func (m *EvictWritersRequestProto) Reset()                    { *m = EvictWritersRequestProto{} }
 func (m *EvictWritersRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*EvictWritersRequestProto) ProtoMessage()               {}
-func (*EvictWritersRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{10} }
+func (*EvictWritersRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{10} }
 
 type EvictWritersResponseProto struct {
 	XXX_unrecognized []byte `json:"-"`
@@ -286,7 +244,7 @@ type EvictWritersResponseProto struct {
 func (m *EvictWritersResponseProto) Reset()                    { *m = EvictWritersResponseProto{} }
 func (m *EvictWritersResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*EvictWritersResponseProto) ProtoMessage()               {}
-func (*EvictWritersResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{11} }
+func (*EvictWritersResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{11} }
 
 // *
 // Ping datanode for liveness and quick info
@@ -297,19 +255,19 @@ type GetDatanodeInfoRequestProto struct {
 func (m *GetDatanodeInfoRequestProto) Reset()                    { *m = GetDatanodeInfoRequestProto{} }
 func (m *GetDatanodeInfoRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*GetDatanodeInfoRequestProto) ProtoMessage()               {}
-func (*GetDatanodeInfoRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{12} }
+func (*GetDatanodeInfoRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{12} }
 
 type GetDatanodeInfoResponseProto struct {
-	LocalInfo        *hadoop_hdfs.DatanodeLocalInfoProto `protobuf:"bytes,1,req,name=localInfo" json:"localInfo,omitempty"`
-	XXX_unrecognized []byte                              `json:"-"`
+	LocalInfo        *DatanodeLocalInfoProto `protobuf:"bytes,1,req,name=localInfo" json:"localInfo,omitempty"`
+	XXX_unrecognized []byte                  `json:"-"`
 }
 
 func (m *GetDatanodeInfoResponseProto) Reset()                    { *m = GetDatanodeInfoResponseProto{} }
 func (m *GetDatanodeInfoResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*GetDatanodeInfoResponseProto) ProtoMessage()               {}
-func (*GetDatanodeInfoResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{13} }
+func (*GetDatanodeInfoResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{13} }
 
-func (m *GetDatanodeInfoResponseProto) GetLocalInfo() *hadoop_hdfs.DatanodeLocalInfoProto {
+func (m *GetDatanodeInfoResponseProto) GetLocalInfo() *DatanodeLocalInfoProto {
 	if m != nil {
 		return m.LocalInfo
 	}
@@ -324,7 +282,7 @@ type TriggerBlockReportRequestProto struct {
 func (m *TriggerBlockReportRequestProto) Reset()                    { *m = TriggerBlockReportRequestProto{} }
 func (m *TriggerBlockReportRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*TriggerBlockReportRequestProto) ProtoMessage()               {}
-func (*TriggerBlockReportRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{14} }
+func (*TriggerBlockReportRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{14} }
 
 func (m *TriggerBlockReportRequestProto) GetIncremental() bool {
 	if m != nil && m.Incremental != nil {
@@ -341,7 +299,7 @@ func (m *TriggerBlockReportResponseProto) Reset()         { *m = TriggerBlockRep
 func (m *TriggerBlockReportResponseProto) String() string { return proto.CompactTextString(m) }
 func (*TriggerBlockReportResponseProto) ProtoMessage()    {}
 func (*TriggerBlockReportResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{15}
+	return fileDescriptor4, []int{15}
 }
 
 type GetBalancerBandwidthRequestProto struct {
@@ -352,7 +310,7 @@ func (m *GetBalancerBandwidthRequestProto) Reset()         { *m = GetBalancerBan
 func (m *GetBalancerBandwidthRequestProto) String() string { return proto.CompactTextString(m) }
 func (*GetBalancerBandwidthRequestProto) ProtoMessage()    {}
 func (*GetBalancerBandwidthRequestProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{16}
+	return fileDescriptor4, []int{16}
 }
 
 // *
@@ -366,7 +324,7 @@ func (m *GetBalancerBandwidthResponseProto) Reset()         { *m = GetBalancerBa
 func (m *GetBalancerBandwidthResponseProto) String() string { return proto.CompactTextString(m) }
 func (*GetBalancerBandwidthResponseProto) ProtoMessage()    {}
 func (*GetBalancerBandwidthResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{17}
+	return fileDescriptor4, []int{17}
 }
 
 func (m *GetBalancerBandwidthResponseProto) GetBandwidth() uint64 {
@@ -391,7 +349,7 @@ func (m *SubmitDiskBalancerPlanRequestProto) Reset()         { *m = SubmitDiskBa
 func (m *SubmitDiskBalancerPlanRequestProto) String() string { return proto.CompactTextString(m) }
 func (*SubmitDiskBalancerPlanRequestProto) ProtoMessage()    {}
 func (*SubmitDiskBalancerPlanRequestProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{18}
+	return fileDescriptor4, []int{18}
 }
 
 func (m *SubmitDiskBalancerPlanRequestProto) GetPlanID() string {
@@ -432,7 +390,7 @@ func (m *SubmitDiskBalancerPlanResponseProto) Reset()         { *m = SubmitDiskB
 func (m *SubmitDiskBalancerPlanResponseProto) String() string { return proto.CompactTextString(m) }
 func (*SubmitDiskBalancerPlanResponseProto) ProtoMessage()    {}
 func (*SubmitDiskBalancerPlanResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{19}
+	return fileDescriptor4, []int{19}
 }
 
 // *
@@ -446,7 +404,7 @@ type CancelPlanRequestProto struct {
 func (m *CancelPlanRequestProto) Reset()                    { *m = CancelPlanRequestProto{} }
 func (m *CancelPlanRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*CancelPlanRequestProto) ProtoMessage()               {}
-func (*CancelPlanRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{20} }
+func (*CancelPlanRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{20} }
 
 func (m *CancelPlanRequestProto) GetPlanID() string {
 	if m != nil && m.PlanID != nil {
@@ -464,7 +422,7 @@ type CancelPlanResponseProto struct {
 func (m *CancelPlanResponseProto) Reset()                    { *m = CancelPlanResponseProto{} }
 func (m *CancelPlanResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*CancelPlanResponseProto) ProtoMessage()               {}
-func (*CancelPlanResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{21} }
+func (*CancelPlanResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{21} }
 
 // *
 // This message allows a client to query data node to see
@@ -477,7 +435,7 @@ type QueryPlanStatusRequestProto struct {
 func (m *QueryPlanStatusRequestProto) Reset()                    { *m = QueryPlanStatusRequestProto{} }
 func (m *QueryPlanStatusRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*QueryPlanStatusRequestProto) ProtoMessage()               {}
-func (*QueryPlanStatusRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{22} }
+func (*QueryPlanStatusRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{22} }
 
 // *
 // This message describes a plan if it is in progress
@@ -491,7 +449,7 @@ type QueryPlanStatusResponseProto struct {
 func (m *QueryPlanStatusResponseProto) Reset()                    { *m = QueryPlanStatusResponseProto{} }
 func (m *QueryPlanStatusResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*QueryPlanStatusResponseProto) ProtoMessage()               {}
-func (*QueryPlanStatusResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{23} }
+func (*QueryPlanStatusResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{23} }
 
 func (m *QueryPlanStatusResponseProto) GetResult() uint32 {
 	if m != nil && m.Result != nil {
@@ -526,7 +484,7 @@ func (m *DiskBalancerSettingRequestProto) Reset()         { *m = DiskBalancerSet
 func (m *DiskBalancerSettingRequestProto) String() string { return proto.CompactTextString(m) }
 func (*DiskBalancerSettingRequestProto) ProtoMessage()    {}
 func (*DiskBalancerSettingRequestProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{24}
+	return fileDescriptor4, []int{24}
 }
 
 func (m *DiskBalancerSettingRequestProto) GetKey() string {
@@ -547,7 +505,7 @@ func (m *DiskBalancerSettingResponseProto) Reset()         { *m = DiskBalancerSe
 func (m *DiskBalancerSettingResponseProto) String() string { return proto.CompactTextString(m) }
 func (*DiskBalancerSettingResponseProto) ProtoMessage()    {}
 func (*DiskBalancerSettingResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{25}
+	return fileDescriptor4, []int{25}
 }
 
 func (m *DiskBalancerSettingResponseProto) GetValue() string {
@@ -614,9 +572,9 @@ type ClientDatanodeProtocolServiceClient interface {
 	ShutdownDatanode(ctx context.Context, in *ShutdownDatanodeRequestProto, opts ...grpc.CallOption) (*ShutdownDatanodeResponseProto, error)
 	EvictWriters(ctx context.Context, in *EvictWritersRequestProto, opts ...grpc.CallOption) (*EvictWritersResponseProto, error)
 	GetDatanodeInfo(ctx context.Context, in *GetDatanodeInfoRequestProto, opts ...grpc.CallOption) (*GetDatanodeInfoResponseProto, error)
-	GetReconfigurationStatus(ctx context.Context, in *hadoop_hdfs1.GetReconfigurationStatusRequestProto, opts ...grpc.CallOption) (*hadoop_hdfs1.GetReconfigurationStatusResponseProto, error)
-	StartReconfiguration(ctx context.Context, in *hadoop_hdfs1.StartReconfigurationRequestProto, opts ...grpc.CallOption) (*hadoop_hdfs1.StartReconfigurationResponseProto, error)
-	ListReconfigurableProperties(ctx context.Context, in *hadoop_hdfs1.ListReconfigurablePropertiesRequestProto, opts ...grpc.CallOption) (*hadoop_hdfs1.ListReconfigurablePropertiesResponseProto, error)
+	GetReconfigurationStatus(ctx context.Context, in *GetReconfigurationStatusRequestProto, opts ...grpc.CallOption) (*GetReconfigurationStatusResponseProto, error)
+	StartReconfiguration(ctx context.Context, in *StartReconfigurationRequestProto, opts ...grpc.CallOption) (*StartReconfigurationResponseProto, error)
+	ListReconfigurableProperties(ctx context.Context, in *ListReconfigurablePropertiesRequestProto, opts ...grpc.CallOption) (*ListReconfigurablePropertiesResponseProto, error)
 	TriggerBlockReport(ctx context.Context, in *TriggerBlockReportRequestProto, opts ...grpc.CallOption) (*TriggerBlockReportResponseProto, error)
 	// *
 	// Returns the balancer bandwidth value of datanode.
@@ -706,8 +664,8 @@ func (c *clientDatanodeProtocolServiceClient) GetDatanodeInfo(ctx context.Contex
 	return out, nil
 }
 
-func (c *clientDatanodeProtocolServiceClient) GetReconfigurationStatus(ctx context.Context, in *hadoop_hdfs1.GetReconfigurationStatusRequestProto, opts ...grpc.CallOption) (*hadoop_hdfs1.GetReconfigurationStatusResponseProto, error) {
-	out := new(hadoop_hdfs1.GetReconfigurationStatusResponseProto)
+func (c *clientDatanodeProtocolServiceClient) GetReconfigurationStatus(ctx context.Context, in *GetReconfigurationStatusRequestProto, opts ...grpc.CallOption) (*GetReconfigurationStatusResponseProto, error) {
+	out := new(GetReconfigurationStatusResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.hdfs.ClientDatanodeProtocolService/getReconfigurationStatus", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -715,8 +673,8 @@ func (c *clientDatanodeProtocolServiceClient) GetReconfigurationStatus(ctx conte
 	return out, nil
 }
 
-func (c *clientDatanodeProtocolServiceClient) StartReconfiguration(ctx context.Context, in *hadoop_hdfs1.StartReconfigurationRequestProto, opts ...grpc.CallOption) (*hadoop_hdfs1.StartReconfigurationResponseProto, error) {
-	out := new(hadoop_hdfs1.StartReconfigurationResponseProto)
+func (c *clientDatanodeProtocolServiceClient) StartReconfiguration(ctx context.Context, in *StartReconfigurationRequestProto, opts ...grpc.CallOption) (*StartReconfigurationResponseProto, error) {
+	out := new(StartReconfigurationResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.hdfs.ClientDatanodeProtocolService/startReconfiguration", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -724,8 +682,8 @@ func (c *clientDatanodeProtocolServiceClient) StartReconfiguration(ctx context.C
 	return out, nil
 }
 
-func (c *clientDatanodeProtocolServiceClient) ListReconfigurableProperties(ctx context.Context, in *hadoop_hdfs1.ListReconfigurablePropertiesRequestProto, opts ...grpc.CallOption) (*hadoop_hdfs1.ListReconfigurablePropertiesResponseProto, error) {
-	out := new(hadoop_hdfs1.ListReconfigurablePropertiesResponseProto)
+func (c *clientDatanodeProtocolServiceClient) ListReconfigurableProperties(ctx context.Context, in *ListReconfigurablePropertiesRequestProto, opts ...grpc.CallOption) (*ListReconfigurablePropertiesResponseProto, error) {
+	out := new(ListReconfigurablePropertiesResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.hdfs.ClientDatanodeProtocolService/listReconfigurableProperties", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -807,9 +765,9 @@ type ClientDatanodeProtocolServiceServer interface {
 	ShutdownDatanode(context.Context, *ShutdownDatanodeRequestProto) (*ShutdownDatanodeResponseProto, error)
 	EvictWriters(context.Context, *EvictWritersRequestProto) (*EvictWritersResponseProto, error)
 	GetDatanodeInfo(context.Context, *GetDatanodeInfoRequestProto) (*GetDatanodeInfoResponseProto, error)
-	GetReconfigurationStatus(context.Context, *hadoop_hdfs1.GetReconfigurationStatusRequestProto) (*hadoop_hdfs1.GetReconfigurationStatusResponseProto, error)
-	StartReconfiguration(context.Context, *hadoop_hdfs1.StartReconfigurationRequestProto) (*hadoop_hdfs1.StartReconfigurationResponseProto, error)
-	ListReconfigurableProperties(context.Context, *hadoop_hdfs1.ListReconfigurablePropertiesRequestProto) (*hadoop_hdfs1.ListReconfigurablePropertiesResponseProto, error)
+	GetReconfigurationStatus(context.Context, *GetReconfigurationStatusRequestProto) (*GetReconfigurationStatusResponseProto, error)
+	StartReconfiguration(context.Context, *StartReconfigurationRequestProto) (*StartReconfigurationResponseProto, error)
+	ListReconfigurableProperties(context.Context, *ListReconfigurablePropertiesRequestProto) (*ListReconfigurablePropertiesResponseProto, error)
 	TriggerBlockReport(context.Context, *TriggerBlockReportRequestProto) (*TriggerBlockReportResponseProto, error)
 	// *
 	// Returns the balancer bandwidth value of datanode.
@@ -959,7 +917,7 @@ func _ClientDatanodeProtocolService_GetDatanodeInfo_Handler(srv interface{}, ctx
 }
 
 func _ClientDatanodeProtocolService_GetReconfigurationStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_hdfs1.GetReconfigurationStatusRequestProto)
+	in := new(GetReconfigurationStatusRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -971,13 +929,13 @@ func _ClientDatanodeProtocolService_GetReconfigurationStatus_Handler(srv interfa
 		FullMethod: "/hadoop.hdfs.ClientDatanodeProtocolService/GetReconfigurationStatus",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ClientDatanodeProtocolServiceServer).GetReconfigurationStatus(ctx, req.(*hadoop_hdfs1.GetReconfigurationStatusRequestProto))
+		return srv.(ClientDatanodeProtocolServiceServer).GetReconfigurationStatus(ctx, req.(*GetReconfigurationStatusRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ClientDatanodeProtocolService_StartReconfiguration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_hdfs1.StartReconfigurationRequestProto)
+	in := new(StartReconfigurationRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -989,13 +947,13 @@ func _ClientDatanodeProtocolService_StartReconfiguration_Handler(srv interface{}
 		FullMethod: "/hadoop.hdfs.ClientDatanodeProtocolService/StartReconfiguration",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ClientDatanodeProtocolServiceServer).StartReconfiguration(ctx, req.(*hadoop_hdfs1.StartReconfigurationRequestProto))
+		return srv.(ClientDatanodeProtocolServiceServer).StartReconfiguration(ctx, req.(*StartReconfigurationRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ClientDatanodeProtocolService_ListReconfigurableProperties_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_hdfs1.ListReconfigurablePropertiesRequestProto)
+	in := new(ListReconfigurablePropertiesRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -1007,7 +965,7 @@ func _ClientDatanodeProtocolService_ListReconfigurableProperties_Handler(srv int
 		FullMethod: "/hadoop.hdfs.ClientDatanodeProtocolService/ListReconfigurableProperties",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ClientDatanodeProtocolServiceServer).ListReconfigurableProperties(ctx, req.(*hadoop_hdfs1.ListReconfigurablePropertiesRequestProto))
+		return srv.(ClientDatanodeProtocolServiceServer).ListReconfigurableProperties(ctx, req.(*ListReconfigurablePropertiesRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1190,12 +1148,12 @@ var _ClientDatanodeProtocolService_serviceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: fileDescriptor0,
+	Metadata: fileDescriptor4,
 }
 
-func init() { proto.RegisterFile("ClientDatanodeProtocol.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("ClientDatanodeProtocol.proto", fileDescriptor4) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor4 = []byte{
 	// 1069 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xac, 0x57, 0xdd, 0x6e, 0xdc, 0x44,
 	0x14, 0x96, 0xdb, 0x04, 0xa5, 0x27, 0xf4, 0x47, 0xa3, 0x76, 0x9b, 0x38, 0x9b, 0x9f, 0x3a, 0x09,

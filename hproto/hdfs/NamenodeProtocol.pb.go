@@ -2,43 +2,12 @@
 // source: NamenodeProtocol.proto
 // DO NOT EDIT!
 
-/*
-Package hdfs is a generated protocol buffer package.
-
-It is generated from these files:
-	NamenodeProtocol.proto
-
-It has these top-level messages:
-	GetBlocksRequestProto
-	GetBlocksResponseProto
-	GetBlockKeysRequestProto
-	GetBlockKeysResponseProto
-	GetTransactionIdRequestProto
-	GetTransactionIdResponseProto
-	RollEditLogRequestProto
-	RollEditLogResponseProto
-	GetMostRecentCheckpointTxIdRequestProto
-	GetMostRecentCheckpointTxIdResponseProto
-	ErrorReportRequestProto
-	ErrorReportResponseProto
-	RegisterRequestProto
-	RegisterResponseProto
-	StartCheckpointRequestProto
-	StartCheckpointResponseProto
-	EndCheckpointRequestProto
-	EndCheckpointResponseProto
-	GetEditLogManifestRequestProto
-	GetEditLogManifestResponseProto
-	IsUpgradeFinalizedRequestProto
-	IsUpgradeFinalizedResponseProto
-*/
 package hdfs
 
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import hadoop_hdfs "."
-import hadoop_hdfs1 "."
 
 import (
 	context "golang.org/x/net/context"
@@ -49,12 +18,6 @@ import (
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
-
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 // *
 // Get list of blocks for a given datanode with the total length
@@ -70,7 +33,7 @@ type GetBlocksRequestProto struct {
 func (m *GetBlocksRequestProto) Reset()                    { *m = GetBlocksRequestProto{} }
 func (m *GetBlocksRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*GetBlocksRequestProto) ProtoMessage()               {}
-func (*GetBlocksRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (*GetBlocksRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{0} }
 
 func (m *GetBlocksRequestProto) GetDatanode() *hadoop_hdfs.DatanodeIDProto {
 	if m != nil {
@@ -89,16 +52,16 @@ func (m *GetBlocksRequestProto) GetSize() uint64 {
 // *
 // blocks - List of returned blocks
 type GetBlocksResponseProto struct {
-	Blocks           *hadoop_hdfs1.BlocksWithLocationsProto `protobuf:"bytes,1,req,name=blocks" json:"blocks,omitempty"`
-	XXX_unrecognized []byte                                 `json:"-"`
+	Blocks           *BlocksWithLocationsProto `protobuf:"bytes,1,req,name=blocks" json:"blocks,omitempty"`
+	XXX_unrecognized []byte                    `json:"-"`
 }
 
 func (m *GetBlocksResponseProto) Reset()                    { *m = GetBlocksResponseProto{} }
 func (m *GetBlocksResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*GetBlocksResponseProto) ProtoMessage()               {}
-func (*GetBlocksResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
+func (*GetBlocksResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{1} }
 
-func (m *GetBlocksResponseProto) GetBlocks() *hadoop_hdfs1.BlocksWithLocationsProto {
+func (m *GetBlocksResponseProto) GetBlocks() *BlocksWithLocationsProto {
 	if m != nil {
 		return m.Blocks
 	}
@@ -114,21 +77,21 @@ type GetBlockKeysRequestProto struct {
 func (m *GetBlockKeysRequestProto) Reset()                    { *m = GetBlockKeysRequestProto{} }
 func (m *GetBlockKeysRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*GetBlockKeysRequestProto) ProtoMessage()               {}
-func (*GetBlockKeysRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{2} }
+func (*GetBlockKeysRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{2} }
 
 // *
 // keys - Information about block keys at the active namenode
 type GetBlockKeysResponseProto struct {
-	Keys             *hadoop_hdfs1.ExportedBlockKeysProto `protobuf:"bytes,1,opt,name=keys" json:"keys,omitempty"`
-	XXX_unrecognized []byte                               `json:"-"`
+	Keys             *ExportedBlockKeysProto `protobuf:"bytes,1,opt,name=keys" json:"keys,omitempty"`
+	XXX_unrecognized []byte                  `json:"-"`
 }
 
 func (m *GetBlockKeysResponseProto) Reset()                    { *m = GetBlockKeysResponseProto{} }
 func (m *GetBlockKeysResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*GetBlockKeysResponseProto) ProtoMessage()               {}
-func (*GetBlockKeysResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{3} }
+func (*GetBlockKeysResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{3} }
 
-func (m *GetBlockKeysResponseProto) GetKeys() *hadoop_hdfs1.ExportedBlockKeysProto {
+func (m *GetBlockKeysResponseProto) GetKeys() *ExportedBlockKeysProto {
 	if m != nil {
 		return m.Keys
 	}
@@ -144,7 +107,7 @@ type GetTransactionIdRequestProto struct {
 func (m *GetTransactionIdRequestProto) Reset()                    { *m = GetTransactionIdRequestProto{} }
 func (m *GetTransactionIdRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*GetTransactionIdRequestProto) ProtoMessage()               {}
-func (*GetTransactionIdRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{4} }
+func (*GetTransactionIdRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{4} }
 
 // *
 // txId - Transaction ID of the most recently persisted edit log record
@@ -156,7 +119,7 @@ type GetTransactionIdResponseProto struct {
 func (m *GetTransactionIdResponseProto) Reset()                    { *m = GetTransactionIdResponseProto{} }
 func (m *GetTransactionIdResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*GetTransactionIdResponseProto) ProtoMessage()               {}
-func (*GetTransactionIdResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{5} }
+func (*GetTransactionIdResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{5} }
 
 func (m *GetTransactionIdResponseProto) GetTxId() uint64 {
 	if m != nil && m.TxId != nil {
@@ -174,21 +137,21 @@ type RollEditLogRequestProto struct {
 func (m *RollEditLogRequestProto) Reset()                    { *m = RollEditLogRequestProto{} }
 func (m *RollEditLogRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*RollEditLogRequestProto) ProtoMessage()               {}
-func (*RollEditLogRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{6} }
+func (*RollEditLogRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{6} }
 
 // *
 // signature - A unique token to identify checkpoint transaction
 type RollEditLogResponseProto struct {
-	Signature        *hadoop_hdfs1.CheckpointSignatureProto `protobuf:"bytes,1,req,name=signature" json:"signature,omitempty"`
-	XXX_unrecognized []byte                                 `json:"-"`
+	Signature        *CheckpointSignatureProto `protobuf:"bytes,1,req,name=signature" json:"signature,omitempty"`
+	XXX_unrecognized []byte                    `json:"-"`
 }
 
 func (m *RollEditLogResponseProto) Reset()                    { *m = RollEditLogResponseProto{} }
 func (m *RollEditLogResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*RollEditLogResponseProto) ProtoMessage()               {}
-func (*RollEditLogResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{7} }
+func (*RollEditLogResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{7} }
 
-func (m *RollEditLogResponseProto) GetSignature() *hadoop_hdfs1.CheckpointSignatureProto {
+func (m *RollEditLogResponseProto) GetSignature() *CheckpointSignatureProto {
 	if m != nil {
 		return m.Signature
 	}
@@ -207,7 +170,7 @@ func (m *GetMostRecentCheckpointTxIdRequestProto) Reset() {
 func (m *GetMostRecentCheckpointTxIdRequestProto) String() string { return proto.CompactTextString(m) }
 func (*GetMostRecentCheckpointTxIdRequestProto) ProtoMessage()    {}
 func (*GetMostRecentCheckpointTxIdRequestProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{8}
+	return fileDescriptor1, []int{8}
 }
 
 type GetMostRecentCheckpointTxIdResponseProto struct {
@@ -221,7 +184,7 @@ func (m *GetMostRecentCheckpointTxIdResponseProto) Reset() {
 func (m *GetMostRecentCheckpointTxIdResponseProto) String() string { return proto.CompactTextString(m) }
 func (*GetMostRecentCheckpointTxIdResponseProto) ProtoMessage()    {}
 func (*GetMostRecentCheckpointTxIdResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{9}
+	return fileDescriptor1, []int{9}
 }
 
 func (m *GetMostRecentCheckpointTxIdResponseProto) GetTxId() uint64 {
@@ -236,18 +199,18 @@ func (m *GetMostRecentCheckpointTxIdResponseProto) GetTxId() uint64 {
 // errorCode - error code indicating the error
 // msg - Free text description of the error
 type ErrorReportRequestProto struct {
-	Registration     *hadoop_hdfs1.NamenodeRegistrationProto `protobuf:"bytes,1,req,name=registration" json:"registration,omitempty"`
-	ErrorCode        *uint32                                 `protobuf:"varint,2,req,name=errorCode" json:"errorCode,omitempty"`
-	Msg              *string                                 `protobuf:"bytes,3,req,name=msg" json:"msg,omitempty"`
-	XXX_unrecognized []byte                                  `json:"-"`
+	Registration     *NamenodeRegistrationProto `protobuf:"bytes,1,req,name=registration" json:"registration,omitempty"`
+	ErrorCode        *uint32                    `protobuf:"varint,2,req,name=errorCode" json:"errorCode,omitempty"`
+	Msg              *string                    `protobuf:"bytes,3,req,name=msg" json:"msg,omitempty"`
+	XXX_unrecognized []byte                     `json:"-"`
 }
 
 func (m *ErrorReportRequestProto) Reset()                    { *m = ErrorReportRequestProto{} }
 func (m *ErrorReportRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*ErrorReportRequestProto) ProtoMessage()               {}
-func (*ErrorReportRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{10} }
+func (*ErrorReportRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{10} }
 
-func (m *ErrorReportRequestProto) GetRegistration() *hadoop_hdfs1.NamenodeRegistrationProto {
+func (m *ErrorReportRequestProto) GetRegistration() *NamenodeRegistrationProto {
 	if m != nil {
 		return m.Registration
 	}
@@ -277,21 +240,21 @@ type ErrorReportResponseProto struct {
 func (m *ErrorReportResponseProto) Reset()                    { *m = ErrorReportResponseProto{} }
 func (m *ErrorReportResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*ErrorReportResponseProto) ProtoMessage()               {}
-func (*ErrorReportResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{11} }
+func (*ErrorReportResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{11} }
 
 // *
 // registration - Information of the namenode registering with primary namenode
 type RegisterRequestProto struct {
-	Registration     *hadoop_hdfs1.NamenodeRegistrationProto `protobuf:"bytes,1,req,name=registration" json:"registration,omitempty"`
-	XXX_unrecognized []byte                                  `json:"-"`
+	Registration     *NamenodeRegistrationProto `protobuf:"bytes,1,req,name=registration" json:"registration,omitempty"`
+	XXX_unrecognized []byte                     `json:"-"`
 }
 
 func (m *RegisterRequestProto) Reset()                    { *m = RegisterRequestProto{} }
 func (m *RegisterRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*RegisterRequestProto) ProtoMessage()               {}
-func (*RegisterRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{12} }
+func (*RegisterRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{12} }
 
-func (m *RegisterRequestProto) GetRegistration() *hadoop_hdfs1.NamenodeRegistrationProto {
+func (m *RegisterRequestProto) GetRegistration() *NamenodeRegistrationProto {
 	if m != nil {
 		return m.Registration
 	}
@@ -302,16 +265,16 @@ func (m *RegisterRequestProto) GetRegistration() *hadoop_hdfs1.NamenodeRegistrat
 // registration - Updated registration information of the newly registered
 //                datanode.
 type RegisterResponseProto struct {
-	Registration     *hadoop_hdfs1.NamenodeRegistrationProto `protobuf:"bytes,1,req,name=registration" json:"registration,omitempty"`
-	XXX_unrecognized []byte                                  `json:"-"`
+	Registration     *NamenodeRegistrationProto `protobuf:"bytes,1,req,name=registration" json:"registration,omitempty"`
+	XXX_unrecognized []byte                     `json:"-"`
 }
 
 func (m *RegisterResponseProto) Reset()                    { *m = RegisterResponseProto{} }
 func (m *RegisterResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*RegisterResponseProto) ProtoMessage()               {}
-func (*RegisterResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{13} }
+func (*RegisterResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{13} }
 
-func (m *RegisterResponseProto) GetRegistration() *hadoop_hdfs1.NamenodeRegistrationProto {
+func (m *RegisterResponseProto) GetRegistration() *NamenodeRegistrationProto {
 	if m != nil {
 		return m.Registration
 	}
@@ -322,16 +285,16 @@ func (m *RegisterResponseProto) GetRegistration() *hadoop_hdfs1.NamenodeRegistra
 // Start checkpoint request
 // registration - Namenode that is starting the checkpoint
 type StartCheckpointRequestProto struct {
-	Registration     *hadoop_hdfs1.NamenodeRegistrationProto `protobuf:"bytes,1,req,name=registration" json:"registration,omitempty"`
-	XXX_unrecognized []byte                                  `json:"-"`
+	Registration     *NamenodeRegistrationProto `protobuf:"bytes,1,req,name=registration" json:"registration,omitempty"`
+	XXX_unrecognized []byte                     `json:"-"`
 }
 
 func (m *StartCheckpointRequestProto) Reset()                    { *m = StartCheckpointRequestProto{} }
 func (m *StartCheckpointRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*StartCheckpointRequestProto) ProtoMessage()               {}
-func (*StartCheckpointRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{14} }
+func (*StartCheckpointRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{14} }
 
-func (m *StartCheckpointRequestProto) GetRegistration() *hadoop_hdfs1.NamenodeRegistrationProto {
+func (m *StartCheckpointRequestProto) GetRegistration() *NamenodeRegistrationProto {
 	if m != nil {
 		return m.Registration
 	}
@@ -342,16 +305,16 @@ func (m *StartCheckpointRequestProto) GetRegistration() *hadoop_hdfs1.NamenodeRe
 // command - Command returned by the active namenode to be
 //           be handled by the caller.
 type StartCheckpointResponseProto struct {
-	Command          *hadoop_hdfs1.NamenodeCommandProto `protobuf:"bytes,1,req,name=command" json:"command,omitempty"`
-	XXX_unrecognized []byte                             `json:"-"`
+	Command          *NamenodeCommandProto `protobuf:"bytes,1,req,name=command" json:"command,omitempty"`
+	XXX_unrecognized []byte                `json:"-"`
 }
 
 func (m *StartCheckpointResponseProto) Reset()                    { *m = StartCheckpointResponseProto{} }
 func (m *StartCheckpointResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*StartCheckpointResponseProto) ProtoMessage()               {}
-func (*StartCheckpointResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{15} }
+func (*StartCheckpointResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{15} }
 
-func (m *StartCheckpointResponseProto) GetCommand() *hadoop_hdfs1.NamenodeCommandProto {
+func (m *StartCheckpointResponseProto) GetCommand() *NamenodeCommandProto {
 	if m != nil {
 		return m.Command
 	}
@@ -364,24 +327,24 @@ func (m *StartCheckpointResponseProto) GetCommand() *hadoop_hdfs1.NamenodeComman
 // signature - unique token to identify checkpoint transaction,
 //             that was received when checkpoint was started.
 type EndCheckpointRequestProto struct {
-	Registration     *hadoop_hdfs1.NamenodeRegistrationProto `protobuf:"bytes,1,req,name=registration" json:"registration,omitempty"`
-	Signature        *hadoop_hdfs1.CheckpointSignatureProto  `protobuf:"bytes,2,req,name=signature" json:"signature,omitempty"`
-	XXX_unrecognized []byte                                  `json:"-"`
+	Registration     *NamenodeRegistrationProto `protobuf:"bytes,1,req,name=registration" json:"registration,omitempty"`
+	Signature        *CheckpointSignatureProto  `protobuf:"bytes,2,req,name=signature" json:"signature,omitempty"`
+	XXX_unrecognized []byte                     `json:"-"`
 }
 
 func (m *EndCheckpointRequestProto) Reset()                    { *m = EndCheckpointRequestProto{} }
 func (m *EndCheckpointRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*EndCheckpointRequestProto) ProtoMessage()               {}
-func (*EndCheckpointRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{16} }
+func (*EndCheckpointRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{16} }
 
-func (m *EndCheckpointRequestProto) GetRegistration() *hadoop_hdfs1.NamenodeRegistrationProto {
+func (m *EndCheckpointRequestProto) GetRegistration() *NamenodeRegistrationProto {
 	if m != nil {
 		return m.Registration
 	}
 	return nil
 }
 
-func (m *EndCheckpointRequestProto) GetSignature() *hadoop_hdfs1.CheckpointSignatureProto {
+func (m *EndCheckpointRequestProto) GetSignature() *CheckpointSignatureProto {
 	if m != nil {
 		return m.Signature
 	}
@@ -397,7 +360,7 @@ type EndCheckpointResponseProto struct {
 func (m *EndCheckpointResponseProto) Reset()                    { *m = EndCheckpointResponseProto{} }
 func (m *EndCheckpointResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*EndCheckpointResponseProto) ProtoMessage()               {}
-func (*EndCheckpointResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{17} }
+func (*EndCheckpointResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{17} }
 
 // *
 // sinceTxId - return the editlog information for transactions >= sinceTxId
@@ -409,7 +372,7 @@ type GetEditLogManifestRequestProto struct {
 func (m *GetEditLogManifestRequestProto) Reset()                    { *m = GetEditLogManifestRequestProto{} }
 func (m *GetEditLogManifestRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*GetEditLogManifestRequestProto) ProtoMessage()               {}
-func (*GetEditLogManifestRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{18} }
+func (*GetEditLogManifestRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{18} }
 
 func (m *GetEditLogManifestRequestProto) GetSinceTxId() uint64 {
 	if m != nil && m.SinceTxId != nil {
@@ -422,18 +385,18 @@ func (m *GetEditLogManifestRequestProto) GetSinceTxId() uint64 {
 // manifest - Enumeration of editlogs from namenode for
 //            logs >= sinceTxId in the request
 type GetEditLogManifestResponseProto struct {
-	Manifest         *hadoop_hdfs1.RemoteEditLogManifestProto `protobuf:"bytes,1,req,name=manifest" json:"manifest,omitempty"`
-	XXX_unrecognized []byte                                   `json:"-"`
+	Manifest         *RemoteEditLogManifestProto `protobuf:"bytes,1,req,name=manifest" json:"manifest,omitempty"`
+	XXX_unrecognized []byte                      `json:"-"`
 }
 
 func (m *GetEditLogManifestResponseProto) Reset()         { *m = GetEditLogManifestResponseProto{} }
 func (m *GetEditLogManifestResponseProto) String() string { return proto.CompactTextString(m) }
 func (*GetEditLogManifestResponseProto) ProtoMessage()    {}
 func (*GetEditLogManifestResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{19}
+	return fileDescriptor1, []int{19}
 }
 
-func (m *GetEditLogManifestResponseProto) GetManifest() *hadoop_hdfs1.RemoteEditLogManifestProto {
+func (m *GetEditLogManifestResponseProto) GetManifest() *RemoteEditLogManifestProto {
 	if m != nil {
 		return m.Manifest
 	}
@@ -449,7 +412,7 @@ type IsUpgradeFinalizedRequestProto struct {
 func (m *IsUpgradeFinalizedRequestProto) Reset()                    { *m = IsUpgradeFinalizedRequestProto{} }
 func (m *IsUpgradeFinalizedRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*IsUpgradeFinalizedRequestProto) ProtoMessage()               {}
-func (*IsUpgradeFinalizedRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{20} }
+func (*IsUpgradeFinalizedRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{20} }
 
 type IsUpgradeFinalizedResponseProto struct {
 	IsUpgradeFinalized *bool  `protobuf:"varint,1,req,name=isUpgradeFinalized" json:"isUpgradeFinalized,omitempty"`
@@ -460,7 +423,7 @@ func (m *IsUpgradeFinalizedResponseProto) Reset()         { *m = IsUpgradeFinali
 func (m *IsUpgradeFinalizedResponseProto) String() string { return proto.CompactTextString(m) }
 func (*IsUpgradeFinalizedResponseProto) ProtoMessage()    {}
 func (*IsUpgradeFinalizedResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{21}
+	return fileDescriptor1, []int{21}
 }
 
 func (m *IsUpgradeFinalizedResponseProto) GetIsUpgradeFinalized() bool {
@@ -524,7 +487,7 @@ type NamenodeProtocolServiceClient interface {
 	RollEditLog(ctx context.Context, in *RollEditLogRequestProto, opts ...grpc.CallOption) (*RollEditLogResponseProto, error)
 	// *
 	// Request info about the version running on this NameNode
-	VersionRequest(ctx context.Context, in *hadoop_hdfs1.VersionRequestProto, opts ...grpc.CallOption) (*hadoop_hdfs1.VersionResponseProto, error)
+	VersionRequest(ctx context.Context, in *VersionRequestProto, opts ...grpc.CallOption) (*VersionResponseProto, error)
 	// *
 	// Report from a sub-ordinate namenode of an error to the active namenode.
 	// Active namenode may decide to unregister the reporting namenode
@@ -600,8 +563,8 @@ func (c *namenodeProtocolServiceClient) RollEditLog(ctx context.Context, in *Rol
 	return out, nil
 }
 
-func (c *namenodeProtocolServiceClient) VersionRequest(ctx context.Context, in *hadoop_hdfs1.VersionRequestProto, opts ...grpc.CallOption) (*hadoop_hdfs1.VersionResponseProto, error) {
-	out := new(hadoop_hdfs1.VersionResponseProto)
+func (c *namenodeProtocolServiceClient) VersionRequest(ctx context.Context, in *VersionRequestProto, opts ...grpc.CallOption) (*VersionResponseProto, error) {
+	out := new(VersionResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.hdfs.namenode.NamenodeProtocolService/versionRequest", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -684,7 +647,7 @@ type NamenodeProtocolServiceServer interface {
 	RollEditLog(context.Context, *RollEditLogRequestProto) (*RollEditLogResponseProto, error)
 	// *
 	// Request info about the version running on this NameNode
-	VersionRequest(context.Context, *hadoop_hdfs1.VersionRequestProto) (*hadoop_hdfs1.VersionResponseProto, error)
+	VersionRequest(context.Context, *VersionRequestProto) (*VersionResponseProto, error)
 	// *
 	// Report from a sub-ordinate namenode of an error to the active namenode.
 	// Active namenode may decide to unregister the reporting namenode
@@ -802,7 +765,7 @@ func _NamenodeProtocolService_RollEditLog_Handler(srv interface{}, ctx context.C
 }
 
 func _NamenodeProtocolService_VersionRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_hdfs1.VersionRequestProto)
+	in := new(VersionRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -814,7 +777,7 @@ func _NamenodeProtocolService_VersionRequest_Handler(srv interface{}, ctx contex
 		FullMethod: "/hadoop.hdfs.namenode.NamenodeProtocolService/VersionRequest",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NamenodeProtocolServiceServer).VersionRequest(ctx, req.(*hadoop_hdfs1.VersionRequestProto))
+		return srv.(NamenodeProtocolServiceServer).VersionRequest(ctx, req.(*VersionRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -981,12 +944,12 @@ var _NamenodeProtocolService_serviceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: fileDescriptor0,
+	Metadata: fileDescriptor1,
 }
 
-func init() { proto.RegisterFile("NamenodeProtocol.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("NamenodeProtocol.proto", fileDescriptor1) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor1 = []byte{
 	// 881 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xb4, 0x57, 0x5d, 0x53, 0xf3, 0x44,
 	0x14, 0x9e, 0x00, 0xa3, 0xf4, 0x00, 0xca, 0xec, 0xf0, 0x51, 0x42, 0xe5, 0x23, 0x0e, 0x82, 0xa2,

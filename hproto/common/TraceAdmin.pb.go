@@ -2,22 +2,6 @@
 // source: TraceAdmin.proto
 // DO NOT EDIT!
 
-/*
-Package common is a generated protocol buffer package.
-
-It is generated from these files:
-	TraceAdmin.proto
-
-It has these top-level messages:
-	ListSpanReceiversRequestProto
-	SpanReceiverListInfo
-	ListSpanReceiversResponseProto
-	ConfigPair
-	AddSpanReceiverRequestProto
-	AddSpanReceiverResponseProto
-	RemoveSpanReceiverRequestProto
-	RemoveSpanReceiverResponseProto
-*/
 package common
 
 import proto "github.com/golang/protobuf/proto"
@@ -34,12 +18,6 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
-
 type ListSpanReceiversRequestProto struct {
 	XXX_unrecognized []byte `json:"-"`
 }
@@ -47,7 +25,7 @@ type ListSpanReceiversRequestProto struct {
 func (m *ListSpanReceiversRequestProto) Reset()                    { *m = ListSpanReceiversRequestProto{} }
 func (m *ListSpanReceiversRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*ListSpanReceiversRequestProto) ProtoMessage()               {}
-func (*ListSpanReceiversRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (*ListSpanReceiversRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{0} }
 
 type SpanReceiverListInfo struct {
 	Id               *int64  `protobuf:"varint,1,req,name=id" json:"id,omitempty"`
@@ -58,7 +36,7 @@ type SpanReceiverListInfo struct {
 func (m *SpanReceiverListInfo) Reset()                    { *m = SpanReceiverListInfo{} }
 func (m *SpanReceiverListInfo) String() string            { return proto.CompactTextString(m) }
 func (*SpanReceiverListInfo) ProtoMessage()               {}
-func (*SpanReceiverListInfo) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
+func (*SpanReceiverListInfo) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{1} }
 
 func (m *SpanReceiverListInfo) GetId() int64 {
 	if m != nil && m.Id != nil {
@@ -82,7 +60,7 @@ type ListSpanReceiversResponseProto struct {
 func (m *ListSpanReceiversResponseProto) Reset()                    { *m = ListSpanReceiversResponseProto{} }
 func (m *ListSpanReceiversResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*ListSpanReceiversResponseProto) ProtoMessage()               {}
-func (*ListSpanReceiversResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{2} }
+func (*ListSpanReceiversResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{2} }
 
 func (m *ListSpanReceiversResponseProto) GetDescriptions() []*SpanReceiverListInfo {
 	if m != nil {
@@ -100,7 +78,7 @@ type ConfigPair struct {
 func (m *ConfigPair) Reset()                    { *m = ConfigPair{} }
 func (m *ConfigPair) String() string            { return proto.CompactTextString(m) }
 func (*ConfigPair) ProtoMessage()               {}
-func (*ConfigPair) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{3} }
+func (*ConfigPair) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{3} }
 
 func (m *ConfigPair) GetKey() string {
 	if m != nil && m.Key != nil {
@@ -125,7 +103,7 @@ type AddSpanReceiverRequestProto struct {
 func (m *AddSpanReceiverRequestProto) Reset()                    { *m = AddSpanReceiverRequestProto{} }
 func (m *AddSpanReceiverRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*AddSpanReceiverRequestProto) ProtoMessage()               {}
-func (*AddSpanReceiverRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{4} }
+func (*AddSpanReceiverRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{4} }
 
 func (m *AddSpanReceiverRequestProto) GetClassName() string {
 	if m != nil && m.ClassName != nil {
@@ -149,7 +127,7 @@ type AddSpanReceiverResponseProto struct {
 func (m *AddSpanReceiverResponseProto) Reset()                    { *m = AddSpanReceiverResponseProto{} }
 func (m *AddSpanReceiverResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*AddSpanReceiverResponseProto) ProtoMessage()               {}
-func (*AddSpanReceiverResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{5} }
+func (*AddSpanReceiverResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{5} }
 
 func (m *AddSpanReceiverResponseProto) GetId() int64 {
 	if m != nil && m.Id != nil {
@@ -166,7 +144,7 @@ type RemoveSpanReceiverRequestProto struct {
 func (m *RemoveSpanReceiverRequestProto) Reset()                    { *m = RemoveSpanReceiverRequestProto{} }
 func (m *RemoveSpanReceiverRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*RemoveSpanReceiverRequestProto) ProtoMessage()               {}
-func (*RemoveSpanReceiverRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{6} }
+func (*RemoveSpanReceiverRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{6} }
 
 func (m *RemoveSpanReceiverRequestProto) GetId() int64 {
 	if m != nil && m.Id != nil {
@@ -182,7 +160,7 @@ type RemoveSpanReceiverResponseProto struct {
 func (m *RemoveSpanReceiverResponseProto) Reset()                    { *m = RemoveSpanReceiverResponseProto{} }
 func (m *RemoveSpanReceiverResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*RemoveSpanReceiverResponseProto) ProtoMessage()               {}
-func (*RemoveSpanReceiverResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{7} }
+func (*RemoveSpanReceiverResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{7} }
 
 func init() {
 	proto.RegisterType((*ListSpanReceiversRequestProto)(nil), "hadoop.common.ListSpanReceiversRequestProto")
@@ -330,12 +308,12 @@ var _TraceAdminService_serviceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: fileDescriptor0,
+	Metadata: fileDescriptor9,
 }
 
-func init() { proto.RegisterFile("TraceAdmin.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("TraceAdmin.proto", fileDescriptor9) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor9 = []byte{
 	// 385 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0x8c, 0x92, 0xdf, 0x4e, 0xe2, 0x40,
 	0x14, 0xc6, 0xd3, 0x92, 0xdd, 0x84, 0xb3, 0xec, 0x2e, 0x4c, 0xb8, 0x00, 0x96, 0x05, 0xad, 0x37,

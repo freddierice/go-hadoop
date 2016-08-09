@@ -2,45 +2,29 @@
 // source: editlog.proto
 // DO NOT EDIT!
 
-/*
-Package hdfs is a generated protocol buffer package.
-
-It is generated from these files:
-	editlog.proto
-
-It has these top-level messages:
-	AclEditLogProto
-	XAttrEditLogProto
-*/
 package hdfs
 
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
-import hadoop_hdfs1 "."
 import hadoop_hdfs2 "."
+import hadoop_hdfs3 "."
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
-
 type AclEditLogProto struct {
 	Src              *string                       `protobuf:"bytes,1,req,name=src" json:"src,omitempty"`
-	Entries          []*hadoop_hdfs1.AclEntryProto `protobuf:"bytes,2,rep,name=entries" json:"entries,omitempty"`
+	Entries          []*hadoop_hdfs2.AclEntryProto `protobuf:"bytes,2,rep,name=entries" json:"entries,omitempty"`
 	XXX_unrecognized []byte                        `json:"-"`
 }
 
 func (m *AclEditLogProto) Reset()                    { *m = AclEditLogProto{} }
 func (m *AclEditLogProto) String() string            { return proto.CompactTextString(m) }
 func (*AclEditLogProto) ProtoMessage()               {}
-func (*AclEditLogProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (*AclEditLogProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{0} }
 
 func (m *AclEditLogProto) GetSrc() string {
 	if m != nil && m.Src != nil {
@@ -49,7 +33,7 @@ func (m *AclEditLogProto) GetSrc() string {
 	return ""
 }
 
-func (m *AclEditLogProto) GetEntries() []*hadoop_hdfs1.AclEntryProto {
+func (m *AclEditLogProto) GetEntries() []*hadoop_hdfs2.AclEntryProto {
 	if m != nil {
 		return m.Entries
 	}
@@ -58,14 +42,14 @@ func (m *AclEditLogProto) GetEntries() []*hadoop_hdfs1.AclEntryProto {
 
 type XAttrEditLogProto struct {
 	Src              *string                    `protobuf:"bytes,1,opt,name=src" json:"src,omitempty"`
-	XAttrs           []*hadoop_hdfs2.XAttrProto `protobuf:"bytes,2,rep,name=xAttrs" json:"xAttrs,omitempty"`
+	XAttrs           []*hadoop_hdfs3.XAttrProto `protobuf:"bytes,2,rep,name=xAttrs" json:"xAttrs,omitempty"`
 	XXX_unrecognized []byte                     `json:"-"`
 }
 
 func (m *XAttrEditLogProto) Reset()                    { *m = XAttrEditLogProto{} }
 func (m *XAttrEditLogProto) String() string            { return proto.CompactTextString(m) }
 func (*XAttrEditLogProto) ProtoMessage()               {}
-func (*XAttrEditLogProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
+func (*XAttrEditLogProto) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{1} }
 
 func (m *XAttrEditLogProto) GetSrc() string {
 	if m != nil && m.Src != nil {
@@ -74,7 +58,7 @@ func (m *XAttrEditLogProto) GetSrc() string {
 	return ""
 }
 
-func (m *XAttrEditLogProto) GetXAttrs() []*hadoop_hdfs2.XAttrProto {
+func (m *XAttrEditLogProto) GetXAttrs() []*hadoop_hdfs3.XAttrProto {
 	if m != nil {
 		return m.XAttrs
 	}
@@ -86,9 +70,9 @@ func init() {
 	proto.RegisterType((*XAttrEditLogProto)(nil), "hadoop.hdfs.XAttrEditLogProto")
 }
 
-func init() { proto.RegisterFile("editlog.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("editlog.proto", fileDescriptor8) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor8 = []byte{
 	// 194 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xe2, 0xe2, 0x4d, 0x4d, 0xc9, 0x2c,
 	0xc9, 0xc9, 0x4f, 0xd7, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0xe2, 0xce, 0x48, 0x4c, 0xc9, 0xcf,

@@ -2,23 +2,6 @@
 // source: HAServiceProtocol.proto
 // DO NOT EDIT!
 
-/*
-Package common is a generated protocol buffer package.
-
-It is generated from these files:
-	HAServiceProtocol.proto
-
-It has these top-level messages:
-	HAStateChangeRequestInfoProto
-	MonitorHealthRequestProto
-	MonitorHealthResponseProto
-	TransitionToActiveRequestProto
-	TransitionToActiveResponseProto
-	TransitionToStandbyRequestProto
-	TransitionToStandbyResponseProto
-	GetServiceStatusRequestProto
-	GetServiceStatusResponseProto
-*/
 package common
 
 import proto "github.com/golang/protobuf/proto"
@@ -34,12 +17,6 @@ import (
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
-
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 type HAServiceStateProto int32
 
@@ -76,7 +53,7 @@ func (x *HAServiceStateProto) UnmarshalJSON(data []byte) error {
 	*x = HAServiceStateProto(value)
 	return nil
 }
-func (HAServiceStateProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (HAServiceStateProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor12, []int{0} }
 
 type HARequestSource int32
 
@@ -113,7 +90,7 @@ func (x *HARequestSource) UnmarshalJSON(data []byte) error {
 	*x = HARequestSource(value)
 	return nil
 }
-func (HARequestSource) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
+func (HARequestSource) EnumDescriptor() ([]byte, []int) { return fileDescriptor12, []int{1} }
 
 type HAStateChangeRequestInfoProto struct {
 	ReqSource        *HARequestSource `protobuf:"varint,1,req,name=reqSource,enum=hadoop.common.HARequestSource" json:"reqSource,omitempty"`
@@ -123,7 +100,7 @@ type HAStateChangeRequestInfoProto struct {
 func (m *HAStateChangeRequestInfoProto) Reset()                    { *m = HAStateChangeRequestInfoProto{} }
 func (m *HAStateChangeRequestInfoProto) String() string            { return proto.CompactTextString(m) }
 func (*HAStateChangeRequestInfoProto) ProtoMessage()               {}
-func (*HAStateChangeRequestInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (*HAStateChangeRequestInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{0} }
 
 func (m *HAStateChangeRequestInfoProto) GetReqSource() HARequestSource {
 	if m != nil && m.ReqSource != nil {
@@ -141,7 +118,7 @@ type MonitorHealthRequestProto struct {
 func (m *MonitorHealthRequestProto) Reset()                    { *m = MonitorHealthRequestProto{} }
 func (m *MonitorHealthRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*MonitorHealthRequestProto) ProtoMessage()               {}
-func (*MonitorHealthRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
+func (*MonitorHealthRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{1} }
 
 // *
 // void response
@@ -152,7 +129,7 @@ type MonitorHealthResponseProto struct {
 func (m *MonitorHealthResponseProto) Reset()                    { *m = MonitorHealthResponseProto{} }
 func (m *MonitorHealthResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*MonitorHealthResponseProto) ProtoMessage()               {}
-func (*MonitorHealthResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{2} }
+func (*MonitorHealthResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{2} }
 
 // *
 // void request
@@ -164,7 +141,7 @@ type TransitionToActiveRequestProto struct {
 func (m *TransitionToActiveRequestProto) Reset()                    { *m = TransitionToActiveRequestProto{} }
 func (m *TransitionToActiveRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*TransitionToActiveRequestProto) ProtoMessage()               {}
-func (*TransitionToActiveRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{3} }
+func (*TransitionToActiveRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{3} }
 
 func (m *TransitionToActiveRequestProto) GetReqInfo() *HAStateChangeRequestInfoProto {
 	if m != nil {
@@ -179,10 +156,12 @@ type TransitionToActiveResponseProto struct {
 	XXX_unrecognized []byte `json:"-"`
 }
 
-func (m *TransitionToActiveResponseProto) Reset()                    { *m = TransitionToActiveResponseProto{} }
-func (m *TransitionToActiveResponseProto) String() string            { return proto.CompactTextString(m) }
-func (*TransitionToActiveResponseProto) ProtoMessage()               {}
-func (*TransitionToActiveResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{4} }
+func (m *TransitionToActiveResponseProto) Reset()         { *m = TransitionToActiveResponseProto{} }
+func (m *TransitionToActiveResponseProto) String() string { return proto.CompactTextString(m) }
+func (*TransitionToActiveResponseProto) ProtoMessage()    {}
+func (*TransitionToActiveResponseProto) Descriptor() ([]byte, []int) {
+	return fileDescriptor12, []int{4}
+}
 
 // *
 // void request
@@ -191,10 +170,12 @@ type TransitionToStandbyRequestProto struct {
 	XXX_unrecognized []byte                         `json:"-"`
 }
 
-func (m *TransitionToStandbyRequestProto) Reset()                    { *m = TransitionToStandbyRequestProto{} }
-func (m *TransitionToStandbyRequestProto) String() string            { return proto.CompactTextString(m) }
-func (*TransitionToStandbyRequestProto) ProtoMessage()               {}
-func (*TransitionToStandbyRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{5} }
+func (m *TransitionToStandbyRequestProto) Reset()         { *m = TransitionToStandbyRequestProto{} }
+func (m *TransitionToStandbyRequestProto) String() string { return proto.CompactTextString(m) }
+func (*TransitionToStandbyRequestProto) ProtoMessage()    {}
+func (*TransitionToStandbyRequestProto) Descriptor() ([]byte, []int) {
+	return fileDescriptor12, []int{5}
+}
 
 func (m *TransitionToStandbyRequestProto) GetReqInfo() *HAStateChangeRequestInfoProto {
 	if m != nil {
@@ -213,7 +194,7 @@ func (m *TransitionToStandbyResponseProto) Reset()         { *m = TransitionToSt
 func (m *TransitionToStandbyResponseProto) String() string { return proto.CompactTextString(m) }
 func (*TransitionToStandbyResponseProto) ProtoMessage()    {}
 func (*TransitionToStandbyResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{6}
+	return fileDescriptor12, []int{6}
 }
 
 // *
@@ -225,7 +206,7 @@ type GetServiceStatusRequestProto struct {
 func (m *GetServiceStatusRequestProto) Reset()                    { *m = GetServiceStatusRequestProto{} }
 func (m *GetServiceStatusRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*GetServiceStatusRequestProto) ProtoMessage()               {}
-func (*GetServiceStatusRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{7} }
+func (*GetServiceStatusRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{7} }
 
 // *
 // Returns the state of the service
@@ -242,7 +223,7 @@ type GetServiceStatusResponseProto struct {
 func (m *GetServiceStatusResponseProto) Reset()                    { *m = GetServiceStatusResponseProto{} }
 func (m *GetServiceStatusResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*GetServiceStatusResponseProto) ProtoMessage()               {}
-func (*GetServiceStatusResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{8} }
+func (*GetServiceStatusResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{8} }
 
 func (m *GetServiceStatusResponseProto) GetState() HAServiceStateProto {
 	if m != nil && m.State != nil {
@@ -463,12 +444,12 @@ var _HAServiceProtocolService_serviceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: fileDescriptor0,
+	Metadata: fileDescriptor12,
 }
 
-func init() { proto.RegisterFile("HAServiceProtocol.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("HAServiceProtocol.proto", fileDescriptor12) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor12 = []byte{
 	// 527 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xb4, 0x54, 0xdf, 0x6e, 0x93, 0x50,
 	0x18, 0x97, 0x2e, 0x3a, 0xf7, 0xcd, 0x6d, 0xe4, 0x34, 0xd1, 0x8a, 0x5b, 0xad, 0x5c, 0x98, 0x3a,

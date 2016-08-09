@@ -2,18 +2,6 @@
 // source: RefreshUserMappingsProtocol.proto
 // DO NOT EDIT!
 
-/*
-Package common is a generated protocol buffer package.
-
-It is generated from these files:
-	RefreshUserMappingsProtocol.proto
-
-It has these top-level messages:
-	RefreshUserToGroupsMappingsRequestProto
-	RefreshUserToGroupsMappingsResponseProto
-	RefreshSuperUserGroupsConfigurationRequestProto
-	RefreshSuperUserGroupsConfigurationResponseProto
-*/
 package common
 
 import proto "github.com/golang/protobuf/proto"
@@ -30,12 +18,6 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
-
 // *
 //  Refresh user to group mappings request.
 type RefreshUserToGroupsMappingsRequestProto struct {
@@ -48,7 +30,7 @@ func (m *RefreshUserToGroupsMappingsRequestProto) Reset() {
 func (m *RefreshUserToGroupsMappingsRequestProto) String() string { return proto.CompactTextString(m) }
 func (*RefreshUserToGroupsMappingsRequestProto) ProtoMessage()    {}
 func (*RefreshUserToGroupsMappingsRequestProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{0}
+	return fileDescriptor10, []int{0}
 }
 
 // *
@@ -63,7 +45,7 @@ func (m *RefreshUserToGroupsMappingsResponseProto) Reset() {
 func (m *RefreshUserToGroupsMappingsResponseProto) String() string { return proto.CompactTextString(m) }
 func (*RefreshUserToGroupsMappingsResponseProto) ProtoMessage()    {}
 func (*RefreshUserToGroupsMappingsResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{1}
+	return fileDescriptor10, []int{1}
 }
 
 // *
@@ -80,7 +62,7 @@ func (m *RefreshSuperUserGroupsConfigurationRequestProto) String() string {
 }
 func (*RefreshSuperUserGroupsConfigurationRequestProto) ProtoMessage() {}
 func (*RefreshSuperUserGroupsConfigurationRequestProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{2}
+	return fileDescriptor10, []int{2}
 }
 
 // *
@@ -97,7 +79,7 @@ func (m *RefreshSuperUserGroupsConfigurationResponseProto) String() string {
 }
 func (*RefreshSuperUserGroupsConfigurationResponseProto) ProtoMessage() {}
 func (*RefreshSuperUserGroupsConfigurationResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{3}
+	return fileDescriptor10, []int{3}
 }
 
 func init() {
@@ -217,12 +199,12 @@ var _RefreshUserMappingsProtocolService_serviceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: fileDescriptor0,
+	Metadata: fileDescriptor10,
 }
 
-func init() { proto.RegisterFile("RefreshUserMappingsProtocol.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("RefreshUserMappingsProtocol.proto", fileDescriptor10) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor10 = []byte{
 	// 249 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xe2, 0x52, 0x0c, 0x4a, 0x4d, 0x2b,
 	0x4a, 0x2d, 0xce, 0x08, 0x2d, 0x4e, 0x2d, 0xf2, 0x4d, 0x2c, 0x28, 0xc8, 0xcc, 0x4b, 0x2f, 0x0e,

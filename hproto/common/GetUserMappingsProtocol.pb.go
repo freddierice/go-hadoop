@@ -2,16 +2,6 @@
 // source: GetUserMappingsProtocol.proto
 // DO NOT EDIT!
 
-/*
-Package common is a generated protocol buffer package.
-
-It is generated from these files:
-	GetUserMappingsProtocol.proto
-
-It has these top-level messages:
-	GetGroupsForUserRequestProto
-	GetGroupsForUserResponseProto
-*/
 package common
 
 import proto "github.com/golang/protobuf/proto"
@@ -28,12 +18,6 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
-
 // *
 //  Get groups for user request.
 type GetGroupsForUserRequestProto struct {
@@ -44,7 +28,7 @@ type GetGroupsForUserRequestProto struct {
 func (m *GetGroupsForUserRequestProto) Reset()                    { *m = GetGroupsForUserRequestProto{} }
 func (m *GetGroupsForUserRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*GetGroupsForUserRequestProto) ProtoMessage()               {}
-func (*GetGroupsForUserRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (*GetGroupsForUserRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{0} }
 
 func (m *GetGroupsForUserRequestProto) GetUser() string {
 	if m != nil && m.User != nil {
@@ -63,7 +47,7 @@ type GetGroupsForUserResponseProto struct {
 func (m *GetGroupsForUserResponseProto) Reset()                    { *m = GetGroupsForUserResponseProto{} }
 func (m *GetGroupsForUserResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*GetGroupsForUserResponseProto) ProtoMessage()               {}
-func (*GetGroupsForUserResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
+func (*GetGroupsForUserResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{1} }
 
 func (m *GetGroupsForUserResponseProto) GetGroups() []string {
 	if m != nil {
@@ -150,12 +134,12 @@ var _GetUserMappingsProtocolService_serviceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: fileDescriptor0,
+	Metadata: fileDescriptor3,
 }
 
-func init() { proto.RegisterFile("GetUserMappingsProtocol.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("GetUserMappingsProtocol.proto", fileDescriptor3) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor3 = []byte{
 	// 209 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xe2, 0x92, 0x75, 0x4f, 0x2d, 0x09,
 	0x2d, 0x4e, 0x2d, 0xf2, 0x4d, 0x2c, 0x28, 0xc8, 0xcc, 0x4b, 0x2f, 0x0e, 0x28, 0xca, 0x2f, 0xc9,

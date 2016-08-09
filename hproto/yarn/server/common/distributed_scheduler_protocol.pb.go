@@ -2,21 +2,12 @@
 // source: distributed_scheduler_protocol.proto
 // DO NOT EDIT!
 
-/*
-Package common is a generated protocol buffer package.
-
-It is generated from these files:
-	distributed_scheduler_protocol.proto
-
-It has these top-level messages:
-*/
 package common
 
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import hadoop_yarn1 "."
-import hadoop_yarn3 "."
 
 import (
 	context "golang.org/x/net/context"
@@ -27,12 +18,6 @@ import (
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
-
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ context.Context
@@ -45,9 +30,9 @@ const _ = grpc.SupportPackageIsVersion3
 // Client API for DistributedSchedulerProtocolService service
 
 type DistributedSchedulerProtocolServiceClient interface {
-	RegisterApplicationMasterForDistributedScheduling(ctx context.Context, in *hadoop_yarn1.RegisterApplicationMasterRequestProto, opts ...grpc.CallOption) (*hadoop_yarn3.DistSchedRegisterResponseProto, error)
+	RegisterApplicationMasterForDistributedScheduling(ctx context.Context, in *hadoop_yarn1.RegisterApplicationMasterRequestProto, opts ...grpc.CallOption) (*DistSchedRegisterResponseProto, error)
 	FinishApplicationMaster(ctx context.Context, in *hadoop_yarn1.FinishApplicationMasterRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.FinishApplicationMasterResponseProto, error)
-	AllocateForDistributedScheduling(ctx context.Context, in *hadoop_yarn3.DistSchedAllocateRequestProto, opts ...grpc.CallOption) (*hadoop_yarn3.DistSchedAllocateResponseProto, error)
+	AllocateForDistributedScheduling(ctx context.Context, in *DistSchedAllocateRequestProto, opts ...grpc.CallOption) (*DistSchedAllocateResponseProto, error)
 }
 
 type distributedSchedulerProtocolServiceClient struct {
@@ -58,8 +43,8 @@ func NewDistributedSchedulerProtocolServiceClient(cc *grpc.ClientConn) Distribut
 	return &distributedSchedulerProtocolServiceClient{cc}
 }
 
-func (c *distributedSchedulerProtocolServiceClient) RegisterApplicationMasterForDistributedScheduling(ctx context.Context, in *hadoop_yarn1.RegisterApplicationMasterRequestProto, opts ...grpc.CallOption) (*hadoop_yarn3.DistSchedRegisterResponseProto, error) {
-	out := new(hadoop_yarn3.DistSchedRegisterResponseProto)
+func (c *distributedSchedulerProtocolServiceClient) RegisterApplicationMasterForDistributedScheduling(ctx context.Context, in *hadoop_yarn1.RegisterApplicationMasterRequestProto, opts ...grpc.CallOption) (*DistSchedRegisterResponseProto, error) {
+	out := new(DistSchedRegisterResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.DistributedSchedulerProtocolService/registerApplicationMasterForDistributedScheduling", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -76,8 +61,8 @@ func (c *distributedSchedulerProtocolServiceClient) FinishApplicationMaster(ctx 
 	return out, nil
 }
 
-func (c *distributedSchedulerProtocolServiceClient) AllocateForDistributedScheduling(ctx context.Context, in *hadoop_yarn3.DistSchedAllocateRequestProto, opts ...grpc.CallOption) (*hadoop_yarn3.DistSchedAllocateResponseProto, error) {
-	out := new(hadoop_yarn3.DistSchedAllocateResponseProto)
+func (c *distributedSchedulerProtocolServiceClient) AllocateForDistributedScheduling(ctx context.Context, in *DistSchedAllocateRequestProto, opts ...grpc.CallOption) (*DistSchedAllocateResponseProto, error) {
+	out := new(DistSchedAllocateResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.DistributedSchedulerProtocolService/allocateForDistributedScheduling", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -88,9 +73,9 @@ func (c *distributedSchedulerProtocolServiceClient) AllocateForDistributedSchedu
 // Server API for DistributedSchedulerProtocolService service
 
 type DistributedSchedulerProtocolServiceServer interface {
-	RegisterApplicationMasterForDistributedScheduling(context.Context, *hadoop_yarn1.RegisterApplicationMasterRequestProto) (*hadoop_yarn3.DistSchedRegisterResponseProto, error)
+	RegisterApplicationMasterForDistributedScheduling(context.Context, *hadoop_yarn1.RegisterApplicationMasterRequestProto) (*DistSchedRegisterResponseProto, error)
 	FinishApplicationMaster(context.Context, *hadoop_yarn1.FinishApplicationMasterRequestProto) (*hadoop_yarn1.FinishApplicationMasterResponseProto, error)
-	AllocateForDistributedScheduling(context.Context, *hadoop_yarn3.DistSchedAllocateRequestProto) (*hadoop_yarn3.DistSchedAllocateResponseProto, error)
+	AllocateForDistributedScheduling(context.Context, *DistSchedAllocateRequestProto) (*DistSchedAllocateResponseProto, error)
 }
 
 func RegisterDistributedSchedulerProtocolServiceServer(s *grpc.Server, srv DistributedSchedulerProtocolServiceServer) {
@@ -134,7 +119,7 @@ func _DistributedSchedulerProtocolService_FinishApplicationMaster_Handler(srv in
 }
 
 func _DistributedSchedulerProtocolService_AllocateForDistributedScheduling_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn3.DistSchedAllocateRequestProto)
+	in := new(DistSchedAllocateRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -146,7 +131,7 @@ func _DistributedSchedulerProtocolService_AllocateForDistributedScheduling_Handl
 		FullMethod: "/hadoop.yarn.DistributedSchedulerProtocolService/AllocateForDistributedScheduling",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DistributedSchedulerProtocolServiceServer).AllocateForDistributedScheduling(ctx, req.(*hadoop_yarn3.DistSchedAllocateRequestProto))
+		return srv.(DistributedSchedulerProtocolServiceServer).AllocateForDistributedScheduling(ctx, req.(*DistSchedAllocateRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -169,12 +154,12 @@ var _DistributedSchedulerProtocolService_serviceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: fileDescriptor0,
+	Metadata: fileDescriptor4,
 }
 
-func init() { proto.RegisterFile("distributed_scheduler_protocol.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("distributed_scheduler_protocol.proto", fileDescriptor4) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor4 = []byte{
 	// 274 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0x8c, 0x91, 0x41, 0x4a, 0xc4, 0x30,
 	0x14, 0x86, 0x09, 0xee, 0xe2, 0x2e, 0x1b, 0xb1, 0xcc, 0x42, 0x50, 0x10, 0x14, 0x82, 0x33, 0x37,

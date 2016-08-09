@@ -2,50 +2,6 @@
 // source: hdfs.proto
 // DO NOT EDIT!
 
-/*
-Package client is a generated protocol buffer package.
-
-It is generated from these files:
-	hdfs.proto
-
-It has these top-level messages:
-	ExtendedBlockProto
-	DatanodeIDProto
-	DatanodeLocalInfoProto
-	DatanodeInfosProto
-	DatanodeInfoProto
-	DatanodeStorageProto
-	StorageReportProto
-	ContentSummaryProto
-	QuotaUsageProto
-	StorageTypeQuotaInfosProto
-	StorageTypeQuotaInfoProto
-	CorruptFileBlocksProto
-	FsPermissionProto
-	StorageTypesProto
-	BlockStoragePolicyProto
-	LocatedBlockProto
-	DataEncryptionKeyProto
-	FileEncryptionInfoProto
-	PerFileEncryptionInfoProto
-	ZoneEncryptionInfoProto
-	CipherOptionProto
-	LocatedBlocksProto
-	ECSchemaOptionEntryProto
-	ECSchemaProto
-	ErasureCodingPolicyProto
-	HdfsFileStatusProto
-	FsServerDefaultsProto
-	DirectoryListingProto
-	SnapshottableDirectoryStatusProto
-	SnapshottableDirectoryListingProto
-	SnapshotDiffReportEntryProto
-	SnapshotDiffReportProto
-	BlockProto
-	SnapshotInfoProto
-	RollingUpgradeStatusProto
-	StorageUuidsProto
-*/
 package client
 
 import proto "github.com/golang/protobuf/proto"
@@ -57,12 +13,6 @@ import hadoop_common "."
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
-
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 // *
 // Types of recognized storage media.
@@ -104,7 +54,7 @@ func (x *StorageTypeProto) UnmarshalJSON(data []byte) error {
 	*x = StorageTypeProto(value)
 	return nil
 }
-func (StorageTypeProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (StorageTypeProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor1, []int{0} }
 
 // *
 // Cipher suite.
@@ -140,7 +90,7 @@ func (x *CipherSuiteProto) UnmarshalJSON(data []byte) error {
 	*x = CipherSuiteProto(value)
 	return nil
 }
-func (CipherSuiteProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
+func (CipherSuiteProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor1, []int{1} }
 
 // *
 // Crypto protocol version used to access encrypted files.
@@ -176,7 +126,7 @@ func (x *CryptoProtocolVersionProto) UnmarshalJSON(data []byte) error {
 	*x = CryptoProtocolVersionProto(value)
 	return nil
 }
-func (CryptoProtocolVersionProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{2} }
+func (CryptoProtocolVersionProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor1, []int{2} }
 
 // *
 // Checksum algorithms/types used in HDFS
@@ -217,7 +167,7 @@ func (x *ChecksumTypeProto) UnmarshalJSON(data []byte) error {
 	*x = ChecksumTypeProto(value)
 	return nil
 }
-func (ChecksumTypeProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{3} }
+func (ChecksumTypeProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor1, []int{3} }
 
 type DatanodeInfoProto_AdminState int32
 
@@ -261,7 +211,7 @@ func (x *DatanodeInfoProto_AdminState) UnmarshalJSON(data []byte) error {
 	return nil
 }
 func (DatanodeInfoProto_AdminState) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{4, 0}
+	return fileDescriptor1, []int{4, 0}
 }
 
 type DatanodeStorageProto_StorageState int32
@@ -297,7 +247,7 @@ func (x *DatanodeStorageProto_StorageState) UnmarshalJSON(data []byte) error {
 	return nil
 }
 func (DatanodeStorageProto_StorageState) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{5, 0}
+	return fileDescriptor1, []int{5, 0}
 }
 
 type HdfsFileStatusProto_FileType int32
@@ -336,7 +286,7 @@ func (x *HdfsFileStatusProto_FileType) UnmarshalJSON(data []byte) error {
 	return nil
 }
 func (HdfsFileStatusProto_FileType) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{25, 0}
+	return fileDescriptor1, []int{25, 0}
 }
 
 // *
@@ -352,7 +302,7 @@ type ExtendedBlockProto struct {
 func (m *ExtendedBlockProto) Reset()                    { *m = ExtendedBlockProto{} }
 func (m *ExtendedBlockProto) String() string            { return proto.CompactTextString(m) }
 func (*ExtendedBlockProto) ProtoMessage()               {}
-func (*ExtendedBlockProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (*ExtendedBlockProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{0} }
 
 const Default_ExtendedBlockProto_NumBytes uint64 = 0
 
@@ -403,7 +353,7 @@ type DatanodeIDProto struct {
 func (m *DatanodeIDProto) Reset()                    { *m = DatanodeIDProto{} }
 func (m *DatanodeIDProto) String() string            { return proto.CompactTextString(m) }
 func (*DatanodeIDProto) ProtoMessage()               {}
-func (*DatanodeIDProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
+func (*DatanodeIDProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{1} }
 
 const Default_DatanodeIDProto_InfoSecurePort uint32 = 0
 
@@ -468,7 +418,7 @@ type DatanodeLocalInfoProto struct {
 func (m *DatanodeLocalInfoProto) Reset()                    { *m = DatanodeLocalInfoProto{} }
 func (m *DatanodeLocalInfoProto) String() string            { return proto.CompactTextString(m) }
 func (*DatanodeLocalInfoProto) ProtoMessage()               {}
-func (*DatanodeLocalInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{2} }
+func (*DatanodeLocalInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{2} }
 
 func (m *DatanodeLocalInfoProto) GetSoftwareVersion() string {
 	if m != nil && m.SoftwareVersion != nil {
@@ -501,7 +451,7 @@ type DatanodeInfosProto struct {
 func (m *DatanodeInfosProto) Reset()                    { *m = DatanodeInfosProto{} }
 func (m *DatanodeInfosProto) String() string            { return proto.CompactTextString(m) }
 func (*DatanodeInfosProto) ProtoMessage()               {}
-func (*DatanodeInfosProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{3} }
+func (*DatanodeInfosProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{3} }
 
 func (m *DatanodeInfosProto) GetDatanodes() []*DatanodeInfoProto {
 	if m != nil {
@@ -532,7 +482,7 @@ type DatanodeInfoProto struct {
 func (m *DatanodeInfoProto) Reset()                    { *m = DatanodeInfoProto{} }
 func (m *DatanodeInfoProto) String() string            { return proto.CompactTextString(m) }
 func (*DatanodeInfoProto) ProtoMessage()               {}
-func (*DatanodeInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{4} }
+func (*DatanodeInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{4} }
 
 const Default_DatanodeInfoProto_Capacity uint64 = 0
 const Default_DatanodeInfoProto_DfsUsed uint64 = 0
@@ -648,7 +598,7 @@ type DatanodeStorageProto struct {
 func (m *DatanodeStorageProto) Reset()                    { *m = DatanodeStorageProto{} }
 func (m *DatanodeStorageProto) String() string            { return proto.CompactTextString(m) }
 func (*DatanodeStorageProto) ProtoMessage()               {}
-func (*DatanodeStorageProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{5} }
+func (*DatanodeStorageProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{5} }
 
 const Default_DatanodeStorageProto_State DatanodeStorageProto_StorageState = DatanodeStorageProto_NORMAL
 const Default_DatanodeStorageProto_StorageType StorageTypeProto = StorageTypeProto_DISK
@@ -688,7 +638,7 @@ type StorageReportProto struct {
 func (m *StorageReportProto) Reset()                    { *m = StorageReportProto{} }
 func (m *StorageReportProto) String() string            { return proto.CompactTextString(m) }
 func (*StorageReportProto) ProtoMessage()               {}
-func (*StorageReportProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{6} }
+func (*StorageReportProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{6} }
 
 const Default_StorageReportProto_Failed bool = false
 const Default_StorageReportProto_Capacity uint64 = 0
@@ -761,7 +711,7 @@ type ContentSummaryProto struct {
 func (m *ContentSummaryProto) Reset()                    { *m = ContentSummaryProto{} }
 func (m *ContentSummaryProto) String() string            { return proto.CompactTextString(m) }
 func (*ContentSummaryProto) ProtoMessage()               {}
-func (*ContentSummaryProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{7} }
+func (*ContentSummaryProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{7} }
 
 func (m *ContentSummaryProto) GetLength() uint64 {
 	if m != nil && m.Length != nil {
@@ -826,7 +776,7 @@ type QuotaUsageProto struct {
 func (m *QuotaUsageProto) Reset()                    { *m = QuotaUsageProto{} }
 func (m *QuotaUsageProto) String() string            { return proto.CompactTextString(m) }
 func (*QuotaUsageProto) ProtoMessage()               {}
-func (*QuotaUsageProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{8} }
+func (*QuotaUsageProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{8} }
 
 func (m *QuotaUsageProto) GetFileAndDirectoryCount() uint64 {
 	if m != nil && m.FileAndDirectoryCount != nil {
@@ -873,7 +823,7 @@ type StorageTypeQuotaInfosProto struct {
 func (m *StorageTypeQuotaInfosProto) Reset()                    { *m = StorageTypeQuotaInfosProto{} }
 func (m *StorageTypeQuotaInfosProto) String() string            { return proto.CompactTextString(m) }
 func (*StorageTypeQuotaInfosProto) ProtoMessage()               {}
-func (*StorageTypeQuotaInfosProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{9} }
+func (*StorageTypeQuotaInfosProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{9} }
 
 func (m *StorageTypeQuotaInfosProto) GetTypeQuotaInfo() []*StorageTypeQuotaInfoProto {
 	if m != nil {
@@ -892,7 +842,7 @@ type StorageTypeQuotaInfoProto struct {
 func (m *StorageTypeQuotaInfoProto) Reset()                    { *m = StorageTypeQuotaInfoProto{} }
 func (m *StorageTypeQuotaInfoProto) String() string            { return proto.CompactTextString(m) }
 func (*StorageTypeQuotaInfoProto) ProtoMessage()               {}
-func (*StorageTypeQuotaInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{10} }
+func (*StorageTypeQuotaInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{10} }
 
 func (m *StorageTypeQuotaInfoProto) GetType() StorageTypeProto {
 	if m != nil && m.Type != nil {
@@ -928,7 +878,7 @@ type CorruptFileBlocksProto struct {
 func (m *CorruptFileBlocksProto) Reset()                    { *m = CorruptFileBlocksProto{} }
 func (m *CorruptFileBlocksProto) String() string            { return proto.CompactTextString(m) }
 func (*CorruptFileBlocksProto) ProtoMessage()               {}
-func (*CorruptFileBlocksProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{11} }
+func (*CorruptFileBlocksProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{11} }
 
 func (m *CorruptFileBlocksProto) GetFiles() []string {
 	if m != nil {
@@ -954,7 +904,7 @@ type FsPermissionProto struct {
 func (m *FsPermissionProto) Reset()                    { *m = FsPermissionProto{} }
 func (m *FsPermissionProto) String() string            { return proto.CompactTextString(m) }
 func (*FsPermissionProto) ProtoMessage()               {}
-func (*FsPermissionProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{12} }
+func (*FsPermissionProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{12} }
 
 func (m *FsPermissionProto) GetPerm() uint32 {
 	if m != nil && m.Perm != nil {
@@ -973,7 +923,7 @@ type StorageTypesProto struct {
 func (m *StorageTypesProto) Reset()                    { *m = StorageTypesProto{} }
 func (m *StorageTypesProto) String() string            { return proto.CompactTextString(m) }
 func (*StorageTypesProto) ProtoMessage()               {}
-func (*StorageTypesProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{13} }
+func (*StorageTypesProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{13} }
 
 func (m *StorageTypesProto) GetStorageTypes() []StorageTypeProto {
 	if m != nil {
@@ -999,7 +949,7 @@ type BlockStoragePolicyProto struct {
 func (m *BlockStoragePolicyProto) Reset()                    { *m = BlockStoragePolicyProto{} }
 func (m *BlockStoragePolicyProto) String() string            { return proto.CompactTextString(m) }
 func (*BlockStoragePolicyProto) ProtoMessage()               {}
-func (*BlockStoragePolicyProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{14} }
+func (*BlockStoragePolicyProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{14} }
 
 func (m *BlockStoragePolicyProto) GetPolicyId() uint32 {
 	if m != nil && m.PolicyId != nil {
@@ -1056,7 +1006,7 @@ type LocatedBlockProto struct {
 func (m *LocatedBlockProto) Reset()                    { *m = LocatedBlockProto{} }
 func (m *LocatedBlockProto) String() string            { return proto.CompactTextString(m) }
 func (*LocatedBlockProto) ProtoMessage()               {}
-func (*LocatedBlockProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{15} }
+func (*LocatedBlockProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{15} }
 
 func (m *LocatedBlockProto) GetB() *ExtendedBlockProto {
 	if m != nil {
@@ -1141,7 +1091,7 @@ type DataEncryptionKeyProto struct {
 func (m *DataEncryptionKeyProto) Reset()                    { *m = DataEncryptionKeyProto{} }
 func (m *DataEncryptionKeyProto) String() string            { return proto.CompactTextString(m) }
 func (*DataEncryptionKeyProto) ProtoMessage()               {}
-func (*DataEncryptionKeyProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{16} }
+func (*DataEncryptionKeyProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{16} }
 
 func (m *DataEncryptionKeyProto) GetKeyId() uint32 {
 	if m != nil && m.KeyId != nil {
@@ -1200,7 +1150,7 @@ type FileEncryptionInfoProto struct {
 func (m *FileEncryptionInfoProto) Reset()                    { *m = FileEncryptionInfoProto{} }
 func (m *FileEncryptionInfoProto) String() string            { return proto.CompactTextString(m) }
 func (*FileEncryptionInfoProto) ProtoMessage()               {}
-func (*FileEncryptionInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{17} }
+func (*FileEncryptionInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{17} }
 
 func (m *FileEncryptionInfoProto) GetSuite() CipherSuiteProto {
 	if m != nil && m.Suite != nil {
@@ -1257,7 +1207,7 @@ type PerFileEncryptionInfoProto struct {
 func (m *PerFileEncryptionInfoProto) Reset()                    { *m = PerFileEncryptionInfoProto{} }
 func (m *PerFileEncryptionInfoProto) String() string            { return proto.CompactTextString(m) }
 func (*PerFileEncryptionInfoProto) ProtoMessage()               {}
-func (*PerFileEncryptionInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{18} }
+func (*PerFileEncryptionInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{18} }
 
 func (m *PerFileEncryptionInfoProto) GetKey() []byte {
 	if m != nil {
@@ -1293,7 +1243,7 @@ type ZoneEncryptionInfoProto struct {
 func (m *ZoneEncryptionInfoProto) Reset()                    { *m = ZoneEncryptionInfoProto{} }
 func (m *ZoneEncryptionInfoProto) String() string            { return proto.CompactTextString(m) }
 func (*ZoneEncryptionInfoProto) ProtoMessage()               {}
-func (*ZoneEncryptionInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{19} }
+func (*ZoneEncryptionInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{19} }
 
 func (m *ZoneEncryptionInfoProto) GetSuite() CipherSuiteProto {
 	if m != nil && m.Suite != nil {
@@ -1330,7 +1280,7 @@ type CipherOptionProto struct {
 func (m *CipherOptionProto) Reset()                    { *m = CipherOptionProto{} }
 func (m *CipherOptionProto) String() string            { return proto.CompactTextString(m) }
 func (*CipherOptionProto) ProtoMessage()               {}
-func (*CipherOptionProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{20} }
+func (*CipherOptionProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{20} }
 
 func (m *CipherOptionProto) GetSuite() CipherSuiteProto {
 	if m != nil && m.Suite != nil {
@@ -1384,7 +1334,7 @@ type LocatedBlocksProto struct {
 func (m *LocatedBlocksProto) Reset()                    { *m = LocatedBlocksProto{} }
 func (m *LocatedBlocksProto) String() string            { return proto.CompactTextString(m) }
 func (*LocatedBlocksProto) ProtoMessage()               {}
-func (*LocatedBlocksProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{21} }
+func (*LocatedBlocksProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{21} }
 
 func (m *LocatedBlocksProto) GetFileLength() uint64 {
 	if m != nil && m.FileLength != nil {
@@ -1446,7 +1396,7 @@ type ECSchemaOptionEntryProto struct {
 func (m *ECSchemaOptionEntryProto) Reset()                    { *m = ECSchemaOptionEntryProto{} }
 func (m *ECSchemaOptionEntryProto) String() string            { return proto.CompactTextString(m) }
 func (*ECSchemaOptionEntryProto) ProtoMessage()               {}
-func (*ECSchemaOptionEntryProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{22} }
+func (*ECSchemaOptionEntryProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{22} }
 
 func (m *ECSchemaOptionEntryProto) GetKey() string {
 	if m != nil && m.Key != nil {
@@ -1475,7 +1425,7 @@ type ECSchemaProto struct {
 func (m *ECSchemaProto) Reset()                    { *m = ECSchemaProto{} }
 func (m *ECSchemaProto) String() string            { return proto.CompactTextString(m) }
 func (*ECSchemaProto) ProtoMessage()               {}
-func (*ECSchemaProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{23} }
+func (*ECSchemaProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{23} }
 
 func (m *ECSchemaProto) GetCodecName() string {
 	if m != nil && m.CodecName != nil {
@@ -1516,7 +1466,7 @@ type ErasureCodingPolicyProto struct {
 func (m *ErasureCodingPolicyProto) Reset()                    { *m = ErasureCodingPolicyProto{} }
 func (m *ErasureCodingPolicyProto) String() string            { return proto.CompactTextString(m) }
 func (*ErasureCodingPolicyProto) ProtoMessage()               {}
-func (*ErasureCodingPolicyProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{24} }
+func (*ErasureCodingPolicyProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{24} }
 
 func (m *ErasureCodingPolicyProto) GetName() string {
 	if m != nil && m.Name != nil {
@@ -1578,7 +1528,7 @@ type HdfsFileStatusProto struct {
 func (m *HdfsFileStatusProto) Reset()                    { *m = HdfsFileStatusProto{} }
 func (m *HdfsFileStatusProto) String() string            { return proto.CompactTextString(m) }
 func (*HdfsFileStatusProto) ProtoMessage()               {}
-func (*HdfsFileStatusProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{25} }
+func (*HdfsFileStatusProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{25} }
 
 const Default_HdfsFileStatusProto_BlockReplication uint32 = 0
 const Default_HdfsFileStatusProto_Blocksize uint64 = 0
@@ -1722,7 +1672,7 @@ type FsServerDefaultsProto struct {
 func (m *FsServerDefaultsProto) Reset()                    { *m = FsServerDefaultsProto{} }
 func (m *FsServerDefaultsProto) String() string            { return proto.CompactTextString(m) }
 func (*FsServerDefaultsProto) ProtoMessage()               {}
-func (*FsServerDefaultsProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{26} }
+func (*FsServerDefaultsProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{26} }
 
 const Default_FsServerDefaultsProto_EncryptDataTransfer bool = false
 const Default_FsServerDefaultsProto_TrashInterval uint64 = 0
@@ -1795,7 +1745,7 @@ type DirectoryListingProto struct {
 func (m *DirectoryListingProto) Reset()                    { *m = DirectoryListingProto{} }
 func (m *DirectoryListingProto) String() string            { return proto.CompactTextString(m) }
 func (*DirectoryListingProto) ProtoMessage()               {}
-func (*DirectoryListingProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{27} }
+func (*DirectoryListingProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{27} }
 
 func (m *DirectoryListingProto) GetPartialListing() []*HdfsFileStatusProto {
 	if m != nil {
@@ -1828,7 +1778,7 @@ func (m *SnapshottableDirectoryStatusProto) Reset()         { *m = Snapshottable
 func (m *SnapshottableDirectoryStatusProto) String() string { return proto.CompactTextString(m) }
 func (*SnapshottableDirectoryStatusProto) ProtoMessage()    {}
 func (*SnapshottableDirectoryStatusProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{28}
+	return fileDescriptor1, []int{28}
 }
 
 func (m *SnapshottableDirectoryStatusProto) GetDirStatus() *HdfsFileStatusProto {
@@ -1870,7 +1820,7 @@ func (m *SnapshottableDirectoryListingProto) Reset()         { *m = Snapshottabl
 func (m *SnapshottableDirectoryListingProto) String() string { return proto.CompactTextString(m) }
 func (*SnapshottableDirectoryListingProto) ProtoMessage()    {}
 func (*SnapshottableDirectoryListingProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{29}
+	return fileDescriptor1, []int{29}
 }
 
 func (m *SnapshottableDirectoryListingProto) GetSnapshottableDirListing() []*SnapshottableDirectoryStatusProto {
@@ -1892,7 +1842,7 @@ type SnapshotDiffReportEntryProto struct {
 func (m *SnapshotDiffReportEntryProto) Reset()                    { *m = SnapshotDiffReportEntryProto{} }
 func (m *SnapshotDiffReportEntryProto) String() string            { return proto.CompactTextString(m) }
 func (*SnapshotDiffReportEntryProto) ProtoMessage()               {}
-func (*SnapshotDiffReportEntryProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{30} }
+func (*SnapshotDiffReportEntryProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{30} }
 
 func (m *SnapshotDiffReportEntryProto) GetFullpath() []byte {
 	if m != nil {
@@ -1929,7 +1879,7 @@ type SnapshotDiffReportProto struct {
 func (m *SnapshotDiffReportProto) Reset()                    { *m = SnapshotDiffReportProto{} }
 func (m *SnapshotDiffReportProto) String() string            { return proto.CompactTextString(m) }
 func (*SnapshotDiffReportProto) ProtoMessage()               {}
-func (*SnapshotDiffReportProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{31} }
+func (*SnapshotDiffReportProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{31} }
 
 func (m *SnapshotDiffReportProto) GetSnapshotRoot() string {
 	if m != nil && m.SnapshotRoot != nil {
@@ -1977,7 +1927,7 @@ type BlockProto struct {
 func (m *BlockProto) Reset()                    { *m = BlockProto{} }
 func (m *BlockProto) String() string            { return proto.CompactTextString(m) }
 func (*BlockProto) ProtoMessage()               {}
-func (*BlockProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{32} }
+func (*BlockProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{32} }
 
 const Default_BlockProto_NumBytes uint64 = 0
 
@@ -2018,7 +1968,7 @@ type SnapshotInfoProto struct {
 func (m *SnapshotInfoProto) Reset()                    { *m = SnapshotInfoProto{} }
 func (m *SnapshotInfoProto) String() string            { return proto.CompactTextString(m) }
 func (*SnapshotInfoProto) ProtoMessage()               {}
-func (*SnapshotInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{33} }
+func (*SnapshotInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{33} }
 
 func (m *SnapshotInfoProto) GetSnapshotName() string {
 	if m != nil && m.SnapshotName != nil {
@@ -2073,7 +2023,7 @@ type RollingUpgradeStatusProto struct {
 func (m *RollingUpgradeStatusProto) Reset()                    { *m = RollingUpgradeStatusProto{} }
 func (m *RollingUpgradeStatusProto) String() string            { return proto.CompactTextString(m) }
 func (*RollingUpgradeStatusProto) ProtoMessage()               {}
-func (*RollingUpgradeStatusProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{34} }
+func (*RollingUpgradeStatusProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{34} }
 
 const Default_RollingUpgradeStatusProto_Finalized bool = false
 
@@ -2101,7 +2051,7 @@ type StorageUuidsProto struct {
 func (m *StorageUuidsProto) Reset()                    { *m = StorageUuidsProto{} }
 func (m *StorageUuidsProto) String() string            { return proto.CompactTextString(m) }
 func (*StorageUuidsProto) ProtoMessage()               {}
-func (*StorageUuidsProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{35} }
+func (*StorageUuidsProto) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{35} }
 
 func (m *StorageUuidsProto) GetStorageUuids() []string {
 	if m != nil {
@@ -2156,9 +2106,9 @@ func init() {
 	proto.RegisterEnum("hadoop.hdfs.HdfsFileStatusProto_FileType", HdfsFileStatusProto_FileType_name, HdfsFileStatusProto_FileType_value)
 }
 
-func init() { proto.RegisterFile("hdfs.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("hdfs.proto", fileDescriptor1) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor1 = []byte{
 	// 2929 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xd4, 0x59, 0x4b, 0x73, 0x1b, 0xc7,
 	0x11, 0xce, 0xe2, 0x41, 0x82, 0x4d, 0x12, 0x02, 0x47, 0x2f, 0x4a, 0xf1, 0x43, 0xde, 0x58, 0x96,

@@ -2,15 +2,6 @@
 // source: HAZKInfo.proto
 // DO NOT EDIT!
 
-/*
-Package hdfs is a generated protocol buffer package.
-
-It is generated from these files:
-	HAZKInfo.proto
-
-It has these top-level messages:
-	ActiveNodeInfo
-*/
 package hdfs
 
 import proto "github.com/golang/protobuf/proto"
@@ -21,12 +12,6 @@ import math "math"
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
-
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 type ActiveNodeInfo struct {
 	NameserviceId    *string `protobuf:"bytes,1,req,name=nameserviceId" json:"nameserviceId,omitempty"`
@@ -40,7 +25,7 @@ type ActiveNodeInfo struct {
 func (m *ActiveNodeInfo) Reset()                    { *m = ActiveNodeInfo{} }
 func (m *ActiveNodeInfo) String() string            { return proto.CompactTextString(m) }
 func (*ActiveNodeInfo) ProtoMessage()               {}
-func (*ActiveNodeInfo) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (*ActiveNodeInfo) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{0} }
 
 func (m *ActiveNodeInfo) GetNameserviceId() string {
 	if m != nil && m.NameserviceId != nil {
@@ -81,9 +66,9 @@ func init() {
 	proto.RegisterType((*ActiveNodeInfo)(nil), "hadoop.hdfs.ActiveNodeInfo")
 }
 
-func init() { proto.RegisterFile("HAZKInfo.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("HAZKInfo.proto", fileDescriptor7) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor7 = []byte{
 	// 194 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xe2, 0xe2, 0xf3, 0x70, 0x8c, 0xf2,
 	0xf6, 0xcc, 0x4b, 0xcb, 0xd7, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0xe2, 0xce, 0x48, 0x4c, 0xc9,

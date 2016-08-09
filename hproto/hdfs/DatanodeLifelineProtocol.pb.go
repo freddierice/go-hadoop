@@ -2,21 +2,11 @@
 // source: DatanodeLifelineProtocol.proto
 // DO NOT EDIT!
 
-/*
-Package hdfs is a generated protocol buffer package.
-
-It is generated from these files:
-	DatanodeLifelineProtocol.proto
-
-It has these top-level messages:
-	LifelineResponseProto
-*/
 package hdfs
 
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
-import hadoop_hdfs_datanode "."
 
 import (
 	context "golang.org/x/net/context"
@@ -28,12 +18,6 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
-
 // Unlike heartbeats, the response is empty. There is no command dispatch.
 type LifelineResponseProto struct {
 	XXX_unrecognized []byte `json:"-"`
@@ -42,7 +26,7 @@ type LifelineResponseProto struct {
 func (m *LifelineResponseProto) Reset()                    { *m = LifelineResponseProto{} }
 func (m *LifelineResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*LifelineResponseProto) ProtoMessage()               {}
-func (*LifelineResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (*LifelineResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{0} }
 
 func init() {
 	proto.RegisterType((*LifelineResponseProto)(nil), "hadoop.hdfs.datanodelifeline.LifelineResponseProto")
@@ -59,7 +43,7 @@ const _ = grpc.SupportPackageIsVersion3
 // Client API for DatanodeLifelineProtocolService service
 
 type DatanodeLifelineProtocolServiceClient interface {
-	SendLifeline(ctx context.Context, in *hadoop_hdfs_datanode.HeartbeatRequestProto, opts ...grpc.CallOption) (*LifelineResponseProto, error)
+	SendLifeline(ctx context.Context, in *HeartbeatRequestProto, opts ...grpc.CallOption) (*LifelineResponseProto, error)
 }
 
 type datanodeLifelineProtocolServiceClient struct {
@@ -70,7 +54,7 @@ func NewDatanodeLifelineProtocolServiceClient(cc *grpc.ClientConn) DatanodeLifel
 	return &datanodeLifelineProtocolServiceClient{cc}
 }
 
-func (c *datanodeLifelineProtocolServiceClient) SendLifeline(ctx context.Context, in *hadoop_hdfs_datanode.HeartbeatRequestProto, opts ...grpc.CallOption) (*LifelineResponseProto, error) {
+func (c *datanodeLifelineProtocolServiceClient) SendLifeline(ctx context.Context, in *HeartbeatRequestProto, opts ...grpc.CallOption) (*LifelineResponseProto, error) {
 	out := new(LifelineResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.hdfs.datanodelifeline.DatanodeLifelineProtocolService/sendLifeline", in, out, c.cc, opts...)
 	if err != nil {
@@ -82,7 +66,7 @@ func (c *datanodeLifelineProtocolServiceClient) SendLifeline(ctx context.Context
 // Server API for DatanodeLifelineProtocolService service
 
 type DatanodeLifelineProtocolServiceServer interface {
-	SendLifeline(context.Context, *hadoop_hdfs_datanode.HeartbeatRequestProto) (*LifelineResponseProto, error)
+	SendLifeline(context.Context, *HeartbeatRequestProto) (*LifelineResponseProto, error)
 }
 
 func RegisterDatanodeLifelineProtocolServiceServer(s *grpc.Server, srv DatanodeLifelineProtocolServiceServer) {
@@ -90,7 +74,7 @@ func RegisterDatanodeLifelineProtocolServiceServer(s *grpc.Server, srv DatanodeL
 }
 
 func _DatanodeLifelineProtocolService_SendLifeline_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_hdfs_datanode.HeartbeatRequestProto)
+	in := new(HeartbeatRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -102,7 +86,7 @@ func _DatanodeLifelineProtocolService_SendLifeline_Handler(srv interface{}, ctx 
 		FullMethod: "/hadoop.hdfs.datanodelifeline.DatanodeLifelineProtocolService/SendLifeline",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DatanodeLifelineProtocolServiceServer).SendLifeline(ctx, req.(*hadoop_hdfs_datanode.HeartbeatRequestProto))
+		return srv.(DatanodeLifelineProtocolServiceServer).SendLifeline(ctx, req.(*HeartbeatRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -117,12 +101,12 @@ var _DatanodeLifelineProtocolService_serviceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: fileDescriptor0,
+	Metadata: fileDescriptor2,
 }
 
-func init() { proto.RegisterFile("DatanodeLifelineProtocol.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("DatanodeLifelineProtocol.proto", fileDescriptor2) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor2 = []byte{
 	// 185 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xe2, 0x92, 0x73, 0x49, 0x2c, 0x49,
 	0xcc, 0xcb, 0x4f, 0x49, 0xf5, 0xc9, 0x4c, 0x4b, 0xcd, 0xc9, 0xcc, 0x4b, 0x0d, 0x28, 0xca, 0x2f,

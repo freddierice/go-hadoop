@@ -2,17 +2,6 @@
 // source: GenericRefreshProtocol.proto
 // DO NOT EDIT!
 
-/*
-Package common is a generated protocol buffer package.
-
-It is generated from these files:
-	GenericRefreshProtocol.proto
-
-It has these top-level messages:
-	GenericRefreshRequestProto
-	GenericRefreshResponseProto
-	GenericRefreshResponseCollectionProto
-*/
 package common
 
 import proto "github.com/golang/protobuf/proto"
@@ -29,12 +18,6 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
-
 // *
 //  Refresh request.
 type GenericRefreshRequestProto struct {
@@ -46,7 +29,7 @@ type GenericRefreshRequestProto struct {
 func (m *GenericRefreshRequestProto) Reset()                    { *m = GenericRefreshRequestProto{} }
 func (m *GenericRefreshRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*GenericRefreshRequestProto) ProtoMessage()               {}
-func (*GenericRefreshRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (*GenericRefreshRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{0} }
 
 func (m *GenericRefreshRequestProto) GetIdentifier() string {
 	if m != nil && m.Identifier != nil {
@@ -74,7 +57,7 @@ type GenericRefreshResponseProto struct {
 func (m *GenericRefreshResponseProto) Reset()                    { *m = GenericRefreshResponseProto{} }
 func (m *GenericRefreshResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*GenericRefreshResponseProto) ProtoMessage()               {}
-func (*GenericRefreshResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
+func (*GenericRefreshResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{1} }
 
 func (m *GenericRefreshResponseProto) GetExitStatus() int32 {
 	if m != nil && m.ExitStatus != nil {
@@ -108,7 +91,7 @@ func (m *GenericRefreshResponseCollectionProto) Reset()         { *m = GenericRe
 func (m *GenericRefreshResponseCollectionProto) String() string { return proto.CompactTextString(m) }
 func (*GenericRefreshResponseCollectionProto) ProtoMessage()    {}
 func (*GenericRefreshResponseCollectionProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{2}
+	return fileDescriptor7, []int{2}
 }
 
 func (m *GenericRefreshResponseCollectionProto) GetResponses() []*GenericRefreshResponseProto {
@@ -193,12 +176,12 @@ var _GenericRefreshProtocolService_serviceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: fileDescriptor0,
+	Metadata: fileDescriptor7,
 }
 
-func init() { proto.RegisterFile("GenericRefreshProtocol.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("GenericRefreshProtocol.proto", fileDescriptor7) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor7 = []byte{
 	// 292 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0x8c, 0x92, 0xc1, 0x4a, 0xc3, 0x40,
 	0x10, 0x86, 0x59, 0xa3, 0x48, 0xa7, 0x78, 0xd9, 0x53, 0x68, 0x55, 0x42, 0x40, 0xa8, 0x1e, 0x72,

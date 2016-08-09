@@ -2,29 +2,6 @@
 // source: HdfsServer.proto
 // DO NOT EDIT!
 
-/*
-Package hdfs is a generated protocol buffer package.
-
-It is generated from these files:
-	HdfsServer.proto
-
-It has these top-level messages:
-	BlockKeyProto
-	ExportedBlockKeysProto
-	BlockWithLocationsProto
-	BlocksWithLocationsProto
-	RemoteEditLogProto
-	RemoteEditLogManifestProto
-	NamespaceInfoProto
-	RecoveringBlockProto
-	CheckpointSignatureProto
-	CheckpointCommandProto
-	NamenodeCommandProto
-	VersionRequestProto
-	VersionResponseProto
-	StorageInfoProto
-	NamenodeRegistrationProto
-*/
 package hdfs
 
 import proto "github.com/golang/protobuf/proto"
@@ -36,12 +13,6 @@ import hadoop_hdfs "."
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
-
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 // *
 // State of a block replica at a datanode
@@ -86,7 +57,7 @@ func (x *ReplicaStateProto) UnmarshalJSON(data []byte) error {
 	*x = ReplicaStateProto(value)
 	return nil
 }
-func (ReplicaStateProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (ReplicaStateProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor3, []int{0} }
 
 type NamenodeCommandProto_Type int32
 
@@ -121,7 +92,7 @@ func (x *NamenodeCommandProto_Type) UnmarshalJSON(data []byte) error {
 	return nil
 }
 func (NamenodeCommandProto_Type) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{10, 0}
+	return fileDescriptor3, []int{10, 0}
 }
 
 type NamenodeRegistrationProto_NamenodeRoleProto int32
@@ -160,7 +131,7 @@ func (x *NamenodeRegistrationProto_NamenodeRoleProto) UnmarshalJSON(data []byte)
 	return nil
 }
 func (NamenodeRegistrationProto_NamenodeRoleProto) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{14, 0}
+	return fileDescriptor3, []int{14, 0}
 }
 
 // *
@@ -175,7 +146,7 @@ type BlockKeyProto struct {
 func (m *BlockKeyProto) Reset()                    { *m = BlockKeyProto{} }
 func (m *BlockKeyProto) String() string            { return proto.CompactTextString(m) }
 func (*BlockKeyProto) ProtoMessage()               {}
-func (*BlockKeyProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (*BlockKeyProto) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{0} }
 
 func (m *BlockKeyProto) GetKeyId() uint32 {
 	if m != nil && m.KeyId != nil {
@@ -212,7 +183,7 @@ type ExportedBlockKeysProto struct {
 func (m *ExportedBlockKeysProto) Reset()                    { *m = ExportedBlockKeysProto{} }
 func (m *ExportedBlockKeysProto) String() string            { return proto.CompactTextString(m) }
 func (*ExportedBlockKeysProto) ProtoMessage()               {}
-func (*ExportedBlockKeysProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
+func (*ExportedBlockKeysProto) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{1} }
 
 func (m *ExportedBlockKeysProto) GetIsBlockTokenEnabled() bool {
 	if m != nil && m.IsBlockTokenEnabled != nil {
@@ -265,7 +236,7 @@ type BlockWithLocationsProto struct {
 func (m *BlockWithLocationsProto) Reset()                    { *m = BlockWithLocationsProto{} }
 func (m *BlockWithLocationsProto) String() string            { return proto.CompactTextString(m) }
 func (*BlockWithLocationsProto) ProtoMessage()               {}
-func (*BlockWithLocationsProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{2} }
+func (*BlockWithLocationsProto) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{2} }
 
 func (m *BlockWithLocationsProto) GetBlock() *hadoop_hdfs.BlockProto {
 	if m != nil {
@@ -326,7 +297,7 @@ type BlocksWithLocationsProto struct {
 func (m *BlocksWithLocationsProto) Reset()                    { *m = BlocksWithLocationsProto{} }
 func (m *BlocksWithLocationsProto) String() string            { return proto.CompactTextString(m) }
 func (*BlocksWithLocationsProto) ProtoMessage()               {}
-func (*BlocksWithLocationsProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{3} }
+func (*BlocksWithLocationsProto) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{3} }
 
 func (m *BlocksWithLocationsProto) GetBlocks() []*BlockWithLocationsProto {
 	if m != nil {
@@ -347,7 +318,7 @@ type RemoteEditLogProto struct {
 func (m *RemoteEditLogProto) Reset()                    { *m = RemoteEditLogProto{} }
 func (m *RemoteEditLogProto) String() string            { return proto.CompactTextString(m) }
 func (*RemoteEditLogProto) ProtoMessage()               {}
-func (*RemoteEditLogProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{4} }
+func (*RemoteEditLogProto) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{4} }
 
 const Default_RemoteEditLogProto_IsInProgress bool = false
 
@@ -383,7 +354,7 @@ type RemoteEditLogManifestProto struct {
 func (m *RemoteEditLogManifestProto) Reset()                    { *m = RemoteEditLogManifestProto{} }
 func (m *RemoteEditLogManifestProto) String() string            { return proto.CompactTextString(m) }
 func (*RemoteEditLogManifestProto) ProtoMessage()               {}
-func (*RemoteEditLogManifestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{5} }
+func (*RemoteEditLogManifestProto) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{5} }
 
 func (m *RemoteEditLogManifestProto) GetLogs() []*RemoteEditLogProto {
 	if m != nil {
@@ -414,7 +385,7 @@ type NamespaceInfoProto struct {
 func (m *NamespaceInfoProto) Reset()                    { *m = NamespaceInfoProto{} }
 func (m *NamespaceInfoProto) String() string            { return proto.CompactTextString(m) }
 func (*NamespaceInfoProto) ProtoMessage()               {}
-func (*NamespaceInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{6} }
+func (*NamespaceInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{6} }
 
 const Default_NamespaceInfoProto_Capabilities uint64 = 0
 
@@ -475,7 +446,7 @@ type RecoveringBlockProto struct {
 func (m *RecoveringBlockProto) Reset()                    { *m = RecoveringBlockProto{} }
 func (m *RecoveringBlockProto) String() string            { return proto.CompactTextString(m) }
 func (*RecoveringBlockProto) ProtoMessage()               {}
-func (*RecoveringBlockProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{7} }
+func (*RecoveringBlockProto) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{7} }
 
 func (m *RecoveringBlockProto) GetNewGenStamp() uint64 {
 	if m != nil && m.NewGenStamp != nil {
@@ -525,7 +496,7 @@ type CheckpointSignatureProto struct {
 func (m *CheckpointSignatureProto) Reset()                    { *m = CheckpointSignatureProto{} }
 func (m *CheckpointSignatureProto) String() string            { return proto.CompactTextString(m) }
 func (*CheckpointSignatureProto) ProtoMessage()               {}
-func (*CheckpointSignatureProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{8} }
+func (*CheckpointSignatureProto) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{8} }
 
 func (m *CheckpointSignatureProto) GetBlockPoolId() string {
 	if m != nil && m.BlockPoolId != nil {
@@ -571,7 +542,7 @@ type CheckpointCommandProto struct {
 func (m *CheckpointCommandProto) Reset()                    { *m = CheckpointCommandProto{} }
 func (m *CheckpointCommandProto) String() string            { return proto.CompactTextString(m) }
 func (*CheckpointCommandProto) ProtoMessage()               {}
-func (*CheckpointCommandProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{9} }
+func (*CheckpointCommandProto) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{9} }
 
 func (m *CheckpointCommandProto) GetSignature() *CheckpointSignatureProto {
 	if m != nil {
@@ -599,7 +570,7 @@ type NamenodeCommandProto struct {
 func (m *NamenodeCommandProto) Reset()                    { *m = NamenodeCommandProto{} }
 func (m *NamenodeCommandProto) String() string            { return proto.CompactTextString(m) }
 func (*NamenodeCommandProto) ProtoMessage()               {}
-func (*NamenodeCommandProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{10} }
+func (*NamenodeCommandProto) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{10} }
 
 func (m *NamenodeCommandProto) GetAction() uint32 {
 	if m != nil && m.Action != nil {
@@ -631,7 +602,7 @@ type VersionRequestProto struct {
 func (m *VersionRequestProto) Reset()                    { *m = VersionRequestProto{} }
 func (m *VersionRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*VersionRequestProto) ProtoMessage()               {}
-func (*VersionRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{11} }
+func (*VersionRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{11} }
 
 // *
 // Version response from namenode.
@@ -643,7 +614,7 @@ type VersionResponseProto struct {
 func (m *VersionResponseProto) Reset()                    { *m = VersionResponseProto{} }
 func (m *VersionResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*VersionResponseProto) ProtoMessage()               {}
-func (*VersionResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{12} }
+func (*VersionResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{12} }
 
 func (m *VersionResponseProto) GetInfo() *NamespaceInfoProto {
 	if m != nil {
@@ -665,7 +636,7 @@ type StorageInfoProto struct {
 func (m *StorageInfoProto) Reset()                    { *m = StorageInfoProto{} }
 func (m *StorageInfoProto) String() string            { return proto.CompactTextString(m) }
 func (*StorageInfoProto) ProtoMessage()               {}
-func (*StorageInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{13} }
+func (*StorageInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{13} }
 
 func (m *StorageInfoProto) GetLayoutVersion() uint32 {
 	if m != nil && m.LayoutVersion != nil {
@@ -708,7 +679,7 @@ type NamenodeRegistrationProto struct {
 func (m *NamenodeRegistrationProto) Reset()                    { *m = NamenodeRegistrationProto{} }
 func (m *NamenodeRegistrationProto) String() string            { return proto.CompactTextString(m) }
 func (*NamenodeRegistrationProto) ProtoMessage()               {}
-func (*NamenodeRegistrationProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{14} }
+func (*NamenodeRegistrationProto) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{14} }
 
 const Default_NamenodeRegistrationProto_Role NamenodeRegistrationProto_NamenodeRoleProto = NamenodeRegistrationProto_NAMENODE
 
@@ -761,9 +732,9 @@ func init() {
 	proto.RegisterEnum("hadoop.hdfs.NamenodeRegistrationProto_NamenodeRoleProto", NamenodeRegistrationProto_NamenodeRoleProto_name, NamenodeRegistrationProto_NamenodeRoleProto_value)
 }
 
-func init() { proto.RegisterFile("HdfsServer.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("HdfsServer.proto", fileDescriptor3) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor3 = []byte{
 	// 1241 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xa4, 0x56, 0x4f, 0x6f, 0x1b, 0x45,
 	0x14, 0xc7, 0x7f, 0x92, 0x38, 0x2f, 0x71, 0xea, 0x4c, 0xd3, 0xd6, 0x44, 0xd0, 0x46, 0x4b, 0x5b,

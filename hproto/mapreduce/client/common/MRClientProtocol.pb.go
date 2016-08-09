@@ -2,21 +2,12 @@
 // source: MRClientProtocol.proto
 // DO NOT EDIT!
 
-/*
-Package common is a generated protocol buffer package.
-
-It is generated from these files:
-	MRClientProtocol.proto
-
-It has these top-level messages:
-*/
 package common
 
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import hadoop_common "."
-import hadoop_mapreduce1 "."
 
 import (
 	context "golang.org/x/net/context"
@@ -27,12 +18,6 @@ import (
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
-
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ context.Context
@@ -45,18 +30,18 @@ const _ = grpc.SupportPackageIsVersion3
 // Client API for MRClientProtocolService service
 
 type MRClientProtocolServiceClient interface {
-	GetJobReport(ctx context.Context, in *hadoop_mapreduce1.GetJobReportRequestProto, opts ...grpc.CallOption) (*hadoop_mapreduce1.GetJobReportResponseProto, error)
-	GetTaskReport(ctx context.Context, in *hadoop_mapreduce1.GetTaskReportRequestProto, opts ...grpc.CallOption) (*hadoop_mapreduce1.GetTaskReportResponseProto, error)
-	GetTaskAttemptReport(ctx context.Context, in *hadoop_mapreduce1.GetTaskAttemptReportRequestProto, opts ...grpc.CallOption) (*hadoop_mapreduce1.GetTaskAttemptReportResponseProto, error)
-	GetCounters(ctx context.Context, in *hadoop_mapreduce1.GetCountersRequestProto, opts ...grpc.CallOption) (*hadoop_mapreduce1.GetCountersResponseProto, error)
-	GetTaskAttemptCompletionEvents(ctx context.Context, in *hadoop_mapreduce1.GetTaskAttemptCompletionEventsRequestProto, opts ...grpc.CallOption) (*hadoop_mapreduce1.GetTaskAttemptCompletionEventsResponseProto, error)
-	GetTaskReports(ctx context.Context, in *hadoop_mapreduce1.GetTaskReportsRequestProto, opts ...grpc.CallOption) (*hadoop_mapreduce1.GetTaskReportsResponseProto, error)
-	GetDiagnostics(ctx context.Context, in *hadoop_mapreduce1.GetDiagnosticsRequestProto, opts ...grpc.CallOption) (*hadoop_mapreduce1.GetDiagnosticsResponseProto, error)
+	GetJobReport(ctx context.Context, in *GetJobReportRequestProto, opts ...grpc.CallOption) (*GetJobReportResponseProto, error)
+	GetTaskReport(ctx context.Context, in *GetTaskReportRequestProto, opts ...grpc.CallOption) (*GetTaskReportResponseProto, error)
+	GetTaskAttemptReport(ctx context.Context, in *GetTaskAttemptReportRequestProto, opts ...grpc.CallOption) (*GetTaskAttemptReportResponseProto, error)
+	GetCounters(ctx context.Context, in *GetCountersRequestProto, opts ...grpc.CallOption) (*GetCountersResponseProto, error)
+	GetTaskAttemptCompletionEvents(ctx context.Context, in *GetTaskAttemptCompletionEventsRequestProto, opts ...grpc.CallOption) (*GetTaskAttemptCompletionEventsResponseProto, error)
+	GetTaskReports(ctx context.Context, in *GetTaskReportsRequestProto, opts ...grpc.CallOption) (*GetTaskReportsResponseProto, error)
+	GetDiagnostics(ctx context.Context, in *GetDiagnosticsRequestProto, opts ...grpc.CallOption) (*GetDiagnosticsResponseProto, error)
 	GetDelegationToken(ctx context.Context, in *hadoop_common.GetDelegationTokenRequestProto, opts ...grpc.CallOption) (*hadoop_common.GetDelegationTokenResponseProto, error)
-	KillJob(ctx context.Context, in *hadoop_mapreduce1.KillJobRequestProto, opts ...grpc.CallOption) (*hadoop_mapreduce1.KillJobResponseProto, error)
-	KillTask(ctx context.Context, in *hadoop_mapreduce1.KillTaskRequestProto, opts ...grpc.CallOption) (*hadoop_mapreduce1.KillTaskResponseProto, error)
-	KillTaskAttempt(ctx context.Context, in *hadoop_mapreduce1.KillTaskAttemptRequestProto, opts ...grpc.CallOption) (*hadoop_mapreduce1.KillTaskAttemptResponseProto, error)
-	FailTaskAttempt(ctx context.Context, in *hadoop_mapreduce1.FailTaskAttemptRequestProto, opts ...grpc.CallOption) (*hadoop_mapreduce1.FailTaskAttemptResponseProto, error)
+	KillJob(ctx context.Context, in *KillJobRequestProto, opts ...grpc.CallOption) (*KillJobResponseProto, error)
+	KillTask(ctx context.Context, in *KillTaskRequestProto, opts ...grpc.CallOption) (*KillTaskResponseProto, error)
+	KillTaskAttempt(ctx context.Context, in *KillTaskAttemptRequestProto, opts ...grpc.CallOption) (*KillTaskAttemptResponseProto, error)
+	FailTaskAttempt(ctx context.Context, in *FailTaskAttemptRequestProto, opts ...grpc.CallOption) (*FailTaskAttemptResponseProto, error)
 	RenewDelegationToken(ctx context.Context, in *hadoop_common.RenewDelegationTokenRequestProto, opts ...grpc.CallOption) (*hadoop_common.RenewDelegationTokenResponseProto, error)
 	CancelDelegationToken(ctx context.Context, in *hadoop_common.CancelDelegationTokenRequestProto, opts ...grpc.CallOption) (*hadoop_common.CancelDelegationTokenResponseProto, error)
 }
@@ -69,8 +54,8 @@ func NewMRClientProtocolServiceClient(cc *grpc.ClientConn) MRClientProtocolServi
 	return &mRClientProtocolServiceClient{cc}
 }
 
-func (c *mRClientProtocolServiceClient) GetJobReport(ctx context.Context, in *hadoop_mapreduce1.GetJobReportRequestProto, opts ...grpc.CallOption) (*hadoop_mapreduce1.GetJobReportResponseProto, error) {
-	out := new(hadoop_mapreduce1.GetJobReportResponseProto)
+func (c *mRClientProtocolServiceClient) GetJobReport(ctx context.Context, in *GetJobReportRequestProto, opts ...grpc.CallOption) (*GetJobReportResponseProto, error) {
+	out := new(GetJobReportResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.mapreduce.MRClientProtocolService/getJobReport", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -78,8 +63,8 @@ func (c *mRClientProtocolServiceClient) GetJobReport(ctx context.Context, in *ha
 	return out, nil
 }
 
-func (c *mRClientProtocolServiceClient) GetTaskReport(ctx context.Context, in *hadoop_mapreduce1.GetTaskReportRequestProto, opts ...grpc.CallOption) (*hadoop_mapreduce1.GetTaskReportResponseProto, error) {
-	out := new(hadoop_mapreduce1.GetTaskReportResponseProto)
+func (c *mRClientProtocolServiceClient) GetTaskReport(ctx context.Context, in *GetTaskReportRequestProto, opts ...grpc.CallOption) (*GetTaskReportResponseProto, error) {
+	out := new(GetTaskReportResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.mapreduce.MRClientProtocolService/getTaskReport", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -87,8 +72,8 @@ func (c *mRClientProtocolServiceClient) GetTaskReport(ctx context.Context, in *h
 	return out, nil
 }
 
-func (c *mRClientProtocolServiceClient) GetTaskAttemptReport(ctx context.Context, in *hadoop_mapreduce1.GetTaskAttemptReportRequestProto, opts ...grpc.CallOption) (*hadoop_mapreduce1.GetTaskAttemptReportResponseProto, error) {
-	out := new(hadoop_mapreduce1.GetTaskAttemptReportResponseProto)
+func (c *mRClientProtocolServiceClient) GetTaskAttemptReport(ctx context.Context, in *GetTaskAttemptReportRequestProto, opts ...grpc.CallOption) (*GetTaskAttemptReportResponseProto, error) {
+	out := new(GetTaskAttemptReportResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.mapreduce.MRClientProtocolService/getTaskAttemptReport", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -96,8 +81,8 @@ func (c *mRClientProtocolServiceClient) GetTaskAttemptReport(ctx context.Context
 	return out, nil
 }
 
-func (c *mRClientProtocolServiceClient) GetCounters(ctx context.Context, in *hadoop_mapreduce1.GetCountersRequestProto, opts ...grpc.CallOption) (*hadoop_mapreduce1.GetCountersResponseProto, error) {
-	out := new(hadoop_mapreduce1.GetCountersResponseProto)
+func (c *mRClientProtocolServiceClient) GetCounters(ctx context.Context, in *GetCountersRequestProto, opts ...grpc.CallOption) (*GetCountersResponseProto, error) {
+	out := new(GetCountersResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.mapreduce.MRClientProtocolService/getCounters", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -105,8 +90,8 @@ func (c *mRClientProtocolServiceClient) GetCounters(ctx context.Context, in *had
 	return out, nil
 }
 
-func (c *mRClientProtocolServiceClient) GetTaskAttemptCompletionEvents(ctx context.Context, in *hadoop_mapreduce1.GetTaskAttemptCompletionEventsRequestProto, opts ...grpc.CallOption) (*hadoop_mapreduce1.GetTaskAttemptCompletionEventsResponseProto, error) {
-	out := new(hadoop_mapreduce1.GetTaskAttemptCompletionEventsResponseProto)
+func (c *mRClientProtocolServiceClient) GetTaskAttemptCompletionEvents(ctx context.Context, in *GetTaskAttemptCompletionEventsRequestProto, opts ...grpc.CallOption) (*GetTaskAttemptCompletionEventsResponseProto, error) {
+	out := new(GetTaskAttemptCompletionEventsResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.mapreduce.MRClientProtocolService/getTaskAttemptCompletionEvents", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -114,8 +99,8 @@ func (c *mRClientProtocolServiceClient) GetTaskAttemptCompletionEvents(ctx conte
 	return out, nil
 }
 
-func (c *mRClientProtocolServiceClient) GetTaskReports(ctx context.Context, in *hadoop_mapreduce1.GetTaskReportsRequestProto, opts ...grpc.CallOption) (*hadoop_mapreduce1.GetTaskReportsResponseProto, error) {
-	out := new(hadoop_mapreduce1.GetTaskReportsResponseProto)
+func (c *mRClientProtocolServiceClient) GetTaskReports(ctx context.Context, in *GetTaskReportsRequestProto, opts ...grpc.CallOption) (*GetTaskReportsResponseProto, error) {
+	out := new(GetTaskReportsResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.mapreduce.MRClientProtocolService/getTaskReports", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -123,8 +108,8 @@ func (c *mRClientProtocolServiceClient) GetTaskReports(ctx context.Context, in *
 	return out, nil
 }
 
-func (c *mRClientProtocolServiceClient) GetDiagnostics(ctx context.Context, in *hadoop_mapreduce1.GetDiagnosticsRequestProto, opts ...grpc.CallOption) (*hadoop_mapreduce1.GetDiagnosticsResponseProto, error) {
-	out := new(hadoop_mapreduce1.GetDiagnosticsResponseProto)
+func (c *mRClientProtocolServiceClient) GetDiagnostics(ctx context.Context, in *GetDiagnosticsRequestProto, opts ...grpc.CallOption) (*GetDiagnosticsResponseProto, error) {
+	out := new(GetDiagnosticsResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.mapreduce.MRClientProtocolService/getDiagnostics", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -141,8 +126,8 @@ func (c *mRClientProtocolServiceClient) GetDelegationToken(ctx context.Context, 
 	return out, nil
 }
 
-func (c *mRClientProtocolServiceClient) KillJob(ctx context.Context, in *hadoop_mapreduce1.KillJobRequestProto, opts ...grpc.CallOption) (*hadoop_mapreduce1.KillJobResponseProto, error) {
-	out := new(hadoop_mapreduce1.KillJobResponseProto)
+func (c *mRClientProtocolServiceClient) KillJob(ctx context.Context, in *KillJobRequestProto, opts ...grpc.CallOption) (*KillJobResponseProto, error) {
+	out := new(KillJobResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.mapreduce.MRClientProtocolService/killJob", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -150,8 +135,8 @@ func (c *mRClientProtocolServiceClient) KillJob(ctx context.Context, in *hadoop_
 	return out, nil
 }
 
-func (c *mRClientProtocolServiceClient) KillTask(ctx context.Context, in *hadoop_mapreduce1.KillTaskRequestProto, opts ...grpc.CallOption) (*hadoop_mapreduce1.KillTaskResponseProto, error) {
-	out := new(hadoop_mapreduce1.KillTaskResponseProto)
+func (c *mRClientProtocolServiceClient) KillTask(ctx context.Context, in *KillTaskRequestProto, opts ...grpc.CallOption) (*KillTaskResponseProto, error) {
+	out := new(KillTaskResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.mapreduce.MRClientProtocolService/killTask", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -159,8 +144,8 @@ func (c *mRClientProtocolServiceClient) KillTask(ctx context.Context, in *hadoop
 	return out, nil
 }
 
-func (c *mRClientProtocolServiceClient) KillTaskAttempt(ctx context.Context, in *hadoop_mapreduce1.KillTaskAttemptRequestProto, opts ...grpc.CallOption) (*hadoop_mapreduce1.KillTaskAttemptResponseProto, error) {
-	out := new(hadoop_mapreduce1.KillTaskAttemptResponseProto)
+func (c *mRClientProtocolServiceClient) KillTaskAttempt(ctx context.Context, in *KillTaskAttemptRequestProto, opts ...grpc.CallOption) (*KillTaskAttemptResponseProto, error) {
+	out := new(KillTaskAttemptResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.mapreduce.MRClientProtocolService/killTaskAttempt", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -168,8 +153,8 @@ func (c *mRClientProtocolServiceClient) KillTaskAttempt(ctx context.Context, in 
 	return out, nil
 }
 
-func (c *mRClientProtocolServiceClient) FailTaskAttempt(ctx context.Context, in *hadoop_mapreduce1.FailTaskAttemptRequestProto, opts ...grpc.CallOption) (*hadoop_mapreduce1.FailTaskAttemptResponseProto, error) {
-	out := new(hadoop_mapreduce1.FailTaskAttemptResponseProto)
+func (c *mRClientProtocolServiceClient) FailTaskAttempt(ctx context.Context, in *FailTaskAttemptRequestProto, opts ...grpc.CallOption) (*FailTaskAttemptResponseProto, error) {
+	out := new(FailTaskAttemptResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.mapreduce.MRClientProtocolService/failTaskAttempt", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -198,18 +183,18 @@ func (c *mRClientProtocolServiceClient) CancelDelegationToken(ctx context.Contex
 // Server API for MRClientProtocolService service
 
 type MRClientProtocolServiceServer interface {
-	GetJobReport(context.Context, *hadoop_mapreduce1.GetJobReportRequestProto) (*hadoop_mapreduce1.GetJobReportResponseProto, error)
-	GetTaskReport(context.Context, *hadoop_mapreduce1.GetTaskReportRequestProto) (*hadoop_mapreduce1.GetTaskReportResponseProto, error)
-	GetTaskAttemptReport(context.Context, *hadoop_mapreduce1.GetTaskAttemptReportRequestProto) (*hadoop_mapreduce1.GetTaskAttemptReportResponseProto, error)
-	GetCounters(context.Context, *hadoop_mapreduce1.GetCountersRequestProto) (*hadoop_mapreduce1.GetCountersResponseProto, error)
-	GetTaskAttemptCompletionEvents(context.Context, *hadoop_mapreduce1.GetTaskAttemptCompletionEventsRequestProto) (*hadoop_mapreduce1.GetTaskAttemptCompletionEventsResponseProto, error)
-	GetTaskReports(context.Context, *hadoop_mapreduce1.GetTaskReportsRequestProto) (*hadoop_mapreduce1.GetTaskReportsResponseProto, error)
-	GetDiagnostics(context.Context, *hadoop_mapreduce1.GetDiagnosticsRequestProto) (*hadoop_mapreduce1.GetDiagnosticsResponseProto, error)
+	GetJobReport(context.Context, *GetJobReportRequestProto) (*GetJobReportResponseProto, error)
+	GetTaskReport(context.Context, *GetTaskReportRequestProto) (*GetTaskReportResponseProto, error)
+	GetTaskAttemptReport(context.Context, *GetTaskAttemptReportRequestProto) (*GetTaskAttemptReportResponseProto, error)
+	GetCounters(context.Context, *GetCountersRequestProto) (*GetCountersResponseProto, error)
+	GetTaskAttemptCompletionEvents(context.Context, *GetTaskAttemptCompletionEventsRequestProto) (*GetTaskAttemptCompletionEventsResponseProto, error)
+	GetTaskReports(context.Context, *GetTaskReportsRequestProto) (*GetTaskReportsResponseProto, error)
+	GetDiagnostics(context.Context, *GetDiagnosticsRequestProto) (*GetDiagnosticsResponseProto, error)
 	GetDelegationToken(context.Context, *hadoop_common.GetDelegationTokenRequestProto) (*hadoop_common.GetDelegationTokenResponseProto, error)
-	KillJob(context.Context, *hadoop_mapreduce1.KillJobRequestProto) (*hadoop_mapreduce1.KillJobResponseProto, error)
-	KillTask(context.Context, *hadoop_mapreduce1.KillTaskRequestProto) (*hadoop_mapreduce1.KillTaskResponseProto, error)
-	KillTaskAttempt(context.Context, *hadoop_mapreduce1.KillTaskAttemptRequestProto) (*hadoop_mapreduce1.KillTaskAttemptResponseProto, error)
-	FailTaskAttempt(context.Context, *hadoop_mapreduce1.FailTaskAttemptRequestProto) (*hadoop_mapreduce1.FailTaskAttemptResponseProto, error)
+	KillJob(context.Context, *KillJobRequestProto) (*KillJobResponseProto, error)
+	KillTask(context.Context, *KillTaskRequestProto) (*KillTaskResponseProto, error)
+	KillTaskAttempt(context.Context, *KillTaskAttemptRequestProto) (*KillTaskAttemptResponseProto, error)
+	FailTaskAttempt(context.Context, *FailTaskAttemptRequestProto) (*FailTaskAttemptResponseProto, error)
 	RenewDelegationToken(context.Context, *hadoop_common.RenewDelegationTokenRequestProto) (*hadoop_common.RenewDelegationTokenResponseProto, error)
 	CancelDelegationToken(context.Context, *hadoop_common.CancelDelegationTokenRequestProto) (*hadoop_common.CancelDelegationTokenResponseProto, error)
 }
@@ -219,7 +204,7 @@ func RegisterMRClientProtocolServiceServer(s *grpc.Server, srv MRClientProtocolS
 }
 
 func _MRClientProtocolService_GetJobReport_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_mapreduce1.GetJobReportRequestProto)
+	in := new(GetJobReportRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -231,13 +216,13 @@ func _MRClientProtocolService_GetJobReport_Handler(srv interface{}, ctx context.
 		FullMethod: "/hadoop.mapreduce.MRClientProtocolService/GetJobReport",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MRClientProtocolServiceServer).GetJobReport(ctx, req.(*hadoop_mapreduce1.GetJobReportRequestProto))
+		return srv.(MRClientProtocolServiceServer).GetJobReport(ctx, req.(*GetJobReportRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _MRClientProtocolService_GetTaskReport_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_mapreduce1.GetTaskReportRequestProto)
+	in := new(GetTaskReportRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -249,13 +234,13 @@ func _MRClientProtocolService_GetTaskReport_Handler(srv interface{}, ctx context
 		FullMethod: "/hadoop.mapreduce.MRClientProtocolService/GetTaskReport",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MRClientProtocolServiceServer).GetTaskReport(ctx, req.(*hadoop_mapreduce1.GetTaskReportRequestProto))
+		return srv.(MRClientProtocolServiceServer).GetTaskReport(ctx, req.(*GetTaskReportRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _MRClientProtocolService_GetTaskAttemptReport_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_mapreduce1.GetTaskAttemptReportRequestProto)
+	in := new(GetTaskAttemptReportRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -267,13 +252,13 @@ func _MRClientProtocolService_GetTaskAttemptReport_Handler(srv interface{}, ctx 
 		FullMethod: "/hadoop.mapreduce.MRClientProtocolService/GetTaskAttemptReport",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MRClientProtocolServiceServer).GetTaskAttemptReport(ctx, req.(*hadoop_mapreduce1.GetTaskAttemptReportRequestProto))
+		return srv.(MRClientProtocolServiceServer).GetTaskAttemptReport(ctx, req.(*GetTaskAttemptReportRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _MRClientProtocolService_GetCounters_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_mapreduce1.GetCountersRequestProto)
+	in := new(GetCountersRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -285,13 +270,13 @@ func _MRClientProtocolService_GetCounters_Handler(srv interface{}, ctx context.C
 		FullMethod: "/hadoop.mapreduce.MRClientProtocolService/GetCounters",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MRClientProtocolServiceServer).GetCounters(ctx, req.(*hadoop_mapreduce1.GetCountersRequestProto))
+		return srv.(MRClientProtocolServiceServer).GetCounters(ctx, req.(*GetCountersRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _MRClientProtocolService_GetTaskAttemptCompletionEvents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_mapreduce1.GetTaskAttemptCompletionEventsRequestProto)
+	in := new(GetTaskAttemptCompletionEventsRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -303,13 +288,13 @@ func _MRClientProtocolService_GetTaskAttemptCompletionEvents_Handler(srv interfa
 		FullMethod: "/hadoop.mapreduce.MRClientProtocolService/GetTaskAttemptCompletionEvents",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MRClientProtocolServiceServer).GetTaskAttemptCompletionEvents(ctx, req.(*hadoop_mapreduce1.GetTaskAttemptCompletionEventsRequestProto))
+		return srv.(MRClientProtocolServiceServer).GetTaskAttemptCompletionEvents(ctx, req.(*GetTaskAttemptCompletionEventsRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _MRClientProtocolService_GetTaskReports_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_mapreduce1.GetTaskReportsRequestProto)
+	in := new(GetTaskReportsRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -321,13 +306,13 @@ func _MRClientProtocolService_GetTaskReports_Handler(srv interface{}, ctx contex
 		FullMethod: "/hadoop.mapreduce.MRClientProtocolService/GetTaskReports",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MRClientProtocolServiceServer).GetTaskReports(ctx, req.(*hadoop_mapreduce1.GetTaskReportsRequestProto))
+		return srv.(MRClientProtocolServiceServer).GetTaskReports(ctx, req.(*GetTaskReportsRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _MRClientProtocolService_GetDiagnostics_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_mapreduce1.GetDiagnosticsRequestProto)
+	in := new(GetDiagnosticsRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -339,7 +324,7 @@ func _MRClientProtocolService_GetDiagnostics_Handler(srv interface{}, ctx contex
 		FullMethod: "/hadoop.mapreduce.MRClientProtocolService/GetDiagnostics",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MRClientProtocolServiceServer).GetDiagnostics(ctx, req.(*hadoop_mapreduce1.GetDiagnosticsRequestProto))
+		return srv.(MRClientProtocolServiceServer).GetDiagnostics(ctx, req.(*GetDiagnosticsRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -363,7 +348,7 @@ func _MRClientProtocolService_GetDelegationToken_Handler(srv interface{}, ctx co
 }
 
 func _MRClientProtocolService_KillJob_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_mapreduce1.KillJobRequestProto)
+	in := new(KillJobRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -375,13 +360,13 @@ func _MRClientProtocolService_KillJob_Handler(srv interface{}, ctx context.Conte
 		FullMethod: "/hadoop.mapreduce.MRClientProtocolService/KillJob",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MRClientProtocolServiceServer).KillJob(ctx, req.(*hadoop_mapreduce1.KillJobRequestProto))
+		return srv.(MRClientProtocolServiceServer).KillJob(ctx, req.(*KillJobRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _MRClientProtocolService_KillTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_mapreduce1.KillTaskRequestProto)
+	in := new(KillTaskRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -393,13 +378,13 @@ func _MRClientProtocolService_KillTask_Handler(srv interface{}, ctx context.Cont
 		FullMethod: "/hadoop.mapreduce.MRClientProtocolService/KillTask",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MRClientProtocolServiceServer).KillTask(ctx, req.(*hadoop_mapreduce1.KillTaskRequestProto))
+		return srv.(MRClientProtocolServiceServer).KillTask(ctx, req.(*KillTaskRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _MRClientProtocolService_KillTaskAttempt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_mapreduce1.KillTaskAttemptRequestProto)
+	in := new(KillTaskAttemptRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -411,13 +396,13 @@ func _MRClientProtocolService_KillTaskAttempt_Handler(srv interface{}, ctx conte
 		FullMethod: "/hadoop.mapreduce.MRClientProtocolService/KillTaskAttempt",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MRClientProtocolServiceServer).KillTaskAttempt(ctx, req.(*hadoop_mapreduce1.KillTaskAttemptRequestProto))
+		return srv.(MRClientProtocolServiceServer).KillTaskAttempt(ctx, req.(*KillTaskAttemptRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _MRClientProtocolService_FailTaskAttempt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_mapreduce1.FailTaskAttemptRequestProto)
+	in := new(FailTaskAttemptRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -429,7 +414,7 @@ func _MRClientProtocolService_FailTaskAttempt_Handler(srv interface{}, ctx conte
 		FullMethod: "/hadoop.mapreduce.MRClientProtocolService/FailTaskAttempt",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MRClientProtocolServiceServer).FailTaskAttempt(ctx, req.(*hadoop_mapreduce1.FailTaskAttemptRequestProto))
+		return srv.(MRClientProtocolServiceServer).FailTaskAttempt(ctx, req.(*FailTaskAttemptRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -532,12 +517,12 @@ var _MRClientProtocolService_serviceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: fileDescriptor0,
+	Metadata: fileDescriptor1,
 }
 
-func init() { proto.RegisterFile("MRClientProtocol.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("MRClientProtocol.proto", fileDescriptor1) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor1 = []byte{
 	// 473 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0x94, 0x95, 0x4f, 0x6f, 0xd3, 0x30,
 	0x18, 0xc6, 0xd5, 0x13, 0xc8, 0x8c, 0x31, 0x59, 0x83, 0x49, 0x15, 0xe2, 0x06, 0x88, 0xc1, 0x02,

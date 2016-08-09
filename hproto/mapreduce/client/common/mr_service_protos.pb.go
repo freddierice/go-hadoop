@@ -7,6 +7,9 @@ Package common is a generated protocol buffer package.
 
 It is generated from these files:
 	mr_service_protos.proto
+	MRClientProtocol.proto
+	mr_protos.proto
+	HSAdminRefreshProtocol.proto
 
 It has these top-level messages:
 	GetJobReportRequestProto
@@ -31,6 +34,27 @@ It has these top-level messages:
 	KillTaskAttemptResponseProto
 	FailTaskAttemptRequestProto
 	FailTaskAttemptResponseProto
+	JobIdProto
+	TaskIdProto
+	TaskAttemptIdProto
+	CounterProto
+	CounterGroupProto
+	CountersProto
+	TaskReportProto
+	TaskAttemptReportProto
+	JobReportProto
+	AMInfoProto
+	TaskAttemptCompletionEventProto
+	StringCounterMapProto
+	StringCounterGroupMapProto
+	RefreshAdminAclsRequestProto
+	RefreshAdminAclsResponseProto
+	RefreshLoadedJobCacheRequestProto
+	RefreshLoadedJobCacheResponseProto
+	RefreshJobRetentionSettingsRequestProto
+	RefreshJobRetentionSettingsResponseProto
+	RefreshLogRetentionSettingsRequestProto
+	RefreshLogRetentionSettingsResponseProto
 */
 package common
 
@@ -38,7 +62,6 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "."
-import hadoop_mapreduce "."
 import _ "."
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -53,8 +76,8 @@ var _ = math.Inf
 const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 type GetJobReportRequestProto struct {
-	JobId            *hadoop_mapreduce.JobIdProto `protobuf:"bytes,1,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte                       `json:"-"`
+	JobId            *JobIdProto `protobuf:"bytes,1,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_unrecognized []byte      `json:"-"`
 }
 
 func (m *GetJobReportRequestProto) Reset()                    { *m = GetJobReportRequestProto{} }
@@ -62,7 +85,7 @@ func (m *GetJobReportRequestProto) String() string            { return proto.Com
 func (*GetJobReportRequestProto) ProtoMessage()               {}
 func (*GetJobReportRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
 
-func (m *GetJobReportRequestProto) GetJobId() *hadoop_mapreduce.JobIdProto {
+func (m *GetJobReportRequestProto) GetJobId() *JobIdProto {
 	if m != nil {
 		return m.JobId
 	}
@@ -70,8 +93,8 @@ func (m *GetJobReportRequestProto) GetJobId() *hadoop_mapreduce.JobIdProto {
 }
 
 type GetJobReportResponseProto struct {
-	JobReport        *hadoop_mapreduce.JobReportProto `protobuf:"bytes,1,opt,name=job_report,json=jobReport" json:"job_report,omitempty"`
-	XXX_unrecognized []byte                           `json:"-"`
+	JobReport        *JobReportProto `protobuf:"bytes,1,opt,name=job_report,json=jobReport" json:"job_report,omitempty"`
+	XXX_unrecognized []byte          `json:"-"`
 }
 
 func (m *GetJobReportResponseProto) Reset()                    { *m = GetJobReportResponseProto{} }
@@ -79,7 +102,7 @@ func (m *GetJobReportResponseProto) String() string            { return proto.Co
 func (*GetJobReportResponseProto) ProtoMessage()               {}
 func (*GetJobReportResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
 
-func (m *GetJobReportResponseProto) GetJobReport() *hadoop_mapreduce.JobReportProto {
+func (m *GetJobReportResponseProto) GetJobReport() *JobReportProto {
 	if m != nil {
 		return m.JobReport
 	}
@@ -87,8 +110,8 @@ func (m *GetJobReportResponseProto) GetJobReport() *hadoop_mapreduce.JobReportPr
 }
 
 type GetTaskReportRequestProto struct {
-	TaskId           *hadoop_mapreduce.TaskIdProto `protobuf:"bytes,1,opt,name=task_id,json=taskId" json:"task_id,omitempty"`
-	XXX_unrecognized []byte                        `json:"-"`
+	TaskId           *TaskIdProto `protobuf:"bytes,1,opt,name=task_id,json=taskId" json:"task_id,omitempty"`
+	XXX_unrecognized []byte       `json:"-"`
 }
 
 func (m *GetTaskReportRequestProto) Reset()                    { *m = GetTaskReportRequestProto{} }
@@ -96,7 +119,7 @@ func (m *GetTaskReportRequestProto) String() string            { return proto.Co
 func (*GetTaskReportRequestProto) ProtoMessage()               {}
 func (*GetTaskReportRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{2} }
 
-func (m *GetTaskReportRequestProto) GetTaskId() *hadoop_mapreduce.TaskIdProto {
+func (m *GetTaskReportRequestProto) GetTaskId() *TaskIdProto {
 	if m != nil {
 		return m.TaskId
 	}
@@ -104,8 +127,8 @@ func (m *GetTaskReportRequestProto) GetTaskId() *hadoop_mapreduce.TaskIdProto {
 }
 
 type GetTaskReportResponseProto struct {
-	TaskReport       *hadoop_mapreduce.TaskReportProto `protobuf:"bytes,1,opt,name=task_report,json=taskReport" json:"task_report,omitempty"`
-	XXX_unrecognized []byte                            `json:"-"`
+	TaskReport       *TaskReportProto `protobuf:"bytes,1,opt,name=task_report,json=taskReport" json:"task_report,omitempty"`
+	XXX_unrecognized []byte           `json:"-"`
 }
 
 func (m *GetTaskReportResponseProto) Reset()                    { *m = GetTaskReportResponseProto{} }
@@ -113,7 +136,7 @@ func (m *GetTaskReportResponseProto) String() string            { return proto.C
 func (*GetTaskReportResponseProto) ProtoMessage()               {}
 func (*GetTaskReportResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{3} }
 
-func (m *GetTaskReportResponseProto) GetTaskReport() *hadoop_mapreduce.TaskReportProto {
+func (m *GetTaskReportResponseProto) GetTaskReport() *TaskReportProto {
 	if m != nil {
 		return m.TaskReport
 	}
@@ -121,8 +144,8 @@ func (m *GetTaskReportResponseProto) GetTaskReport() *hadoop_mapreduce.TaskRepor
 }
 
 type GetTaskAttemptReportRequestProto struct {
-	TaskAttemptId    *hadoop_mapreduce.TaskAttemptIdProto `protobuf:"bytes,1,opt,name=task_attempt_id,json=taskAttemptId" json:"task_attempt_id,omitempty"`
-	XXX_unrecognized []byte                               `json:"-"`
+	TaskAttemptId    *TaskAttemptIdProto `protobuf:"bytes,1,opt,name=task_attempt_id,json=taskAttemptId" json:"task_attempt_id,omitempty"`
+	XXX_unrecognized []byte              `json:"-"`
 }
 
 func (m *GetTaskAttemptReportRequestProto) Reset()         { *m = GetTaskAttemptReportRequestProto{} }
@@ -132,7 +155,7 @@ func (*GetTaskAttemptReportRequestProto) Descriptor() ([]byte, []int) {
 	return fileDescriptor0, []int{4}
 }
 
-func (m *GetTaskAttemptReportRequestProto) GetTaskAttemptId() *hadoop_mapreduce.TaskAttemptIdProto {
+func (m *GetTaskAttemptReportRequestProto) GetTaskAttemptId() *TaskAttemptIdProto {
 	if m != nil {
 		return m.TaskAttemptId
 	}
@@ -140,8 +163,8 @@ func (m *GetTaskAttemptReportRequestProto) GetTaskAttemptId() *hadoop_mapreduce.
 }
 
 type GetTaskAttemptReportResponseProto struct {
-	TaskAttemptReport *hadoop_mapreduce.TaskAttemptReportProto `protobuf:"bytes,1,opt,name=task_attempt_report,json=taskAttemptReport" json:"task_attempt_report,omitempty"`
-	XXX_unrecognized  []byte                                   `json:"-"`
+	TaskAttemptReport *TaskAttemptReportProto `protobuf:"bytes,1,opt,name=task_attempt_report,json=taskAttemptReport" json:"task_attempt_report,omitempty"`
+	XXX_unrecognized  []byte                  `json:"-"`
 }
 
 func (m *GetTaskAttemptReportResponseProto) Reset()         { *m = GetTaskAttemptReportResponseProto{} }
@@ -151,7 +174,7 @@ func (*GetTaskAttemptReportResponseProto) Descriptor() ([]byte, []int) {
 	return fileDescriptor0, []int{5}
 }
 
-func (m *GetTaskAttemptReportResponseProto) GetTaskAttemptReport() *hadoop_mapreduce.TaskAttemptReportProto {
+func (m *GetTaskAttemptReportResponseProto) GetTaskAttemptReport() *TaskAttemptReportProto {
 	if m != nil {
 		return m.TaskAttemptReport
 	}
@@ -159,8 +182,8 @@ func (m *GetTaskAttemptReportResponseProto) GetTaskAttemptReport() *hadoop_mapre
 }
 
 type GetCountersRequestProto struct {
-	JobId            *hadoop_mapreduce.JobIdProto `protobuf:"bytes,1,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte                       `json:"-"`
+	JobId            *JobIdProto `protobuf:"bytes,1,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_unrecognized []byte      `json:"-"`
 }
 
 func (m *GetCountersRequestProto) Reset()                    { *m = GetCountersRequestProto{} }
@@ -168,7 +191,7 @@ func (m *GetCountersRequestProto) String() string            { return proto.Comp
 func (*GetCountersRequestProto) ProtoMessage()               {}
 func (*GetCountersRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{6} }
 
-func (m *GetCountersRequestProto) GetJobId() *hadoop_mapreduce.JobIdProto {
+func (m *GetCountersRequestProto) GetJobId() *JobIdProto {
 	if m != nil {
 		return m.JobId
 	}
@@ -176,8 +199,8 @@ func (m *GetCountersRequestProto) GetJobId() *hadoop_mapreduce.JobIdProto {
 }
 
 type GetCountersResponseProto struct {
-	Counters         *hadoop_mapreduce.CountersProto `protobuf:"bytes,1,opt,name=counters" json:"counters,omitempty"`
-	XXX_unrecognized []byte                          `json:"-"`
+	Counters         *CountersProto `protobuf:"bytes,1,opt,name=counters" json:"counters,omitempty"`
+	XXX_unrecognized []byte         `json:"-"`
 }
 
 func (m *GetCountersResponseProto) Reset()                    { *m = GetCountersResponseProto{} }
@@ -185,7 +208,7 @@ func (m *GetCountersResponseProto) String() string            { return proto.Com
 func (*GetCountersResponseProto) ProtoMessage()               {}
 func (*GetCountersResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{7} }
 
-func (m *GetCountersResponseProto) GetCounters() *hadoop_mapreduce.CountersProto {
+func (m *GetCountersResponseProto) GetCounters() *CountersProto {
 	if m != nil {
 		return m.Counters
 	}
@@ -193,10 +216,10 @@ func (m *GetCountersResponseProto) GetCounters() *hadoop_mapreduce.CountersProto
 }
 
 type GetTaskAttemptCompletionEventsRequestProto struct {
-	JobId            *hadoop_mapreduce.JobIdProto `protobuf:"bytes,1,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	FromEventId      *int32                       `protobuf:"varint,2,opt,name=from_event_id,json=fromEventId" json:"from_event_id,omitempty"`
-	MaxEvents        *int32                       `protobuf:"varint,3,opt,name=max_events,json=maxEvents" json:"max_events,omitempty"`
-	XXX_unrecognized []byte                       `json:"-"`
+	JobId            *JobIdProto `protobuf:"bytes,1,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	FromEventId      *int32      `protobuf:"varint,2,opt,name=from_event_id,json=fromEventId" json:"from_event_id,omitempty"`
+	MaxEvents        *int32      `protobuf:"varint,3,opt,name=max_events,json=maxEvents" json:"max_events,omitempty"`
+	XXX_unrecognized []byte      `json:"-"`
 }
 
 func (m *GetTaskAttemptCompletionEventsRequestProto) Reset() {
@@ -210,7 +233,7 @@ func (*GetTaskAttemptCompletionEventsRequestProto) Descriptor() ([]byte, []int) 
 	return fileDescriptor0, []int{8}
 }
 
-func (m *GetTaskAttemptCompletionEventsRequestProto) GetJobId() *hadoop_mapreduce.JobIdProto {
+func (m *GetTaskAttemptCompletionEventsRequestProto) GetJobId() *JobIdProto {
 	if m != nil {
 		return m.JobId
 	}
@@ -232,8 +255,8 @@ func (m *GetTaskAttemptCompletionEventsRequestProto) GetMaxEvents() int32 {
 }
 
 type GetTaskAttemptCompletionEventsResponseProto struct {
-	CompletionEvents []*hadoop_mapreduce.TaskAttemptCompletionEventProto `protobuf:"bytes,1,rep,name=completion_events,json=completionEvents" json:"completion_events,omitempty"`
-	XXX_unrecognized []byte                                              `json:"-"`
+	CompletionEvents []*TaskAttemptCompletionEventProto `protobuf:"bytes,1,rep,name=completion_events,json=completionEvents" json:"completion_events,omitempty"`
+	XXX_unrecognized []byte                             `json:"-"`
 }
 
 func (m *GetTaskAttemptCompletionEventsResponseProto) Reset() {
@@ -247,7 +270,7 @@ func (*GetTaskAttemptCompletionEventsResponseProto) Descriptor() ([]byte, []int)
 	return fileDescriptor0, []int{9}
 }
 
-func (m *GetTaskAttemptCompletionEventsResponseProto) GetCompletionEvents() []*hadoop_mapreduce.TaskAttemptCompletionEventProto {
+func (m *GetTaskAttemptCompletionEventsResponseProto) GetCompletionEvents() []*TaskAttemptCompletionEventProto {
 	if m != nil {
 		return m.CompletionEvents
 	}
@@ -255,9 +278,9 @@ func (m *GetTaskAttemptCompletionEventsResponseProto) GetCompletionEvents() []*h
 }
 
 type GetTaskReportsRequestProto struct {
-	JobId            *hadoop_mapreduce.JobIdProto    `protobuf:"bytes,1,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	TaskType         *hadoop_mapreduce.TaskTypeProto `protobuf:"varint,2,opt,name=task_type,json=taskType,enum=hadoop.mapreduce.TaskTypeProto" json:"task_type,omitempty"`
-	XXX_unrecognized []byte                          `json:"-"`
+	JobId            *JobIdProto    `protobuf:"bytes,1,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	TaskType         *TaskTypeProto `protobuf:"varint,2,opt,name=task_type,json=taskType,enum=hadoop.mapreduce.TaskTypeProto" json:"task_type,omitempty"`
+	XXX_unrecognized []byte         `json:"-"`
 }
 
 func (m *GetTaskReportsRequestProto) Reset()                    { *m = GetTaskReportsRequestProto{} }
@@ -265,23 +288,23 @@ func (m *GetTaskReportsRequestProto) String() string            { return proto.C
 func (*GetTaskReportsRequestProto) ProtoMessage()               {}
 func (*GetTaskReportsRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{10} }
 
-func (m *GetTaskReportsRequestProto) GetJobId() *hadoop_mapreduce.JobIdProto {
+func (m *GetTaskReportsRequestProto) GetJobId() *JobIdProto {
 	if m != nil {
 		return m.JobId
 	}
 	return nil
 }
 
-func (m *GetTaskReportsRequestProto) GetTaskType() hadoop_mapreduce.TaskTypeProto {
+func (m *GetTaskReportsRequestProto) GetTaskType() TaskTypeProto {
 	if m != nil && m.TaskType != nil {
 		return *m.TaskType
 	}
-	return hadoop_mapreduce.TaskTypeProto_MAP
+	return TaskTypeProto_MAP
 }
 
 type GetTaskReportsResponseProto struct {
-	TaskReports      []*hadoop_mapreduce.TaskReportProto `protobuf:"bytes,1,rep,name=task_reports,json=taskReports" json:"task_reports,omitempty"`
-	XXX_unrecognized []byte                              `json:"-"`
+	TaskReports      []*TaskReportProto `protobuf:"bytes,1,rep,name=task_reports,json=taskReports" json:"task_reports,omitempty"`
+	XXX_unrecognized []byte             `json:"-"`
 }
 
 func (m *GetTaskReportsResponseProto) Reset()                    { *m = GetTaskReportsResponseProto{} }
@@ -289,7 +312,7 @@ func (m *GetTaskReportsResponseProto) String() string            { return proto.
 func (*GetTaskReportsResponseProto) ProtoMessage()               {}
 func (*GetTaskReportsResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{11} }
 
-func (m *GetTaskReportsResponseProto) GetTaskReports() []*hadoop_mapreduce.TaskReportProto {
+func (m *GetTaskReportsResponseProto) GetTaskReports() []*TaskReportProto {
 	if m != nil {
 		return m.TaskReports
 	}
@@ -297,8 +320,8 @@ func (m *GetTaskReportsResponseProto) GetTaskReports() []*hadoop_mapreduce.TaskR
 }
 
 type GetDiagnosticsRequestProto struct {
-	TaskAttemptId    *hadoop_mapreduce.TaskAttemptIdProto `protobuf:"bytes,1,opt,name=task_attempt_id,json=taskAttemptId" json:"task_attempt_id,omitempty"`
-	XXX_unrecognized []byte                               `json:"-"`
+	TaskAttemptId    *TaskAttemptIdProto `protobuf:"bytes,1,opt,name=task_attempt_id,json=taskAttemptId" json:"task_attempt_id,omitempty"`
+	XXX_unrecognized []byte              `json:"-"`
 }
 
 func (m *GetDiagnosticsRequestProto) Reset()                    { *m = GetDiagnosticsRequestProto{} }
@@ -306,7 +329,7 @@ func (m *GetDiagnosticsRequestProto) String() string            { return proto.C
 func (*GetDiagnosticsRequestProto) ProtoMessage()               {}
 func (*GetDiagnosticsRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{12} }
 
-func (m *GetDiagnosticsRequestProto) GetTaskAttemptId() *hadoop_mapreduce.TaskAttemptIdProto {
+func (m *GetDiagnosticsRequestProto) GetTaskAttemptId() *TaskAttemptIdProto {
 	if m != nil {
 		return m.TaskAttemptId
 	}
@@ -331,8 +354,8 @@ func (m *GetDiagnosticsResponseProto) GetDiagnostics() []string {
 }
 
 type KillJobRequestProto struct {
-	JobId            *hadoop_mapreduce.JobIdProto `protobuf:"bytes,1,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte                       `json:"-"`
+	JobId            *JobIdProto `protobuf:"bytes,1,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_unrecognized []byte      `json:"-"`
 }
 
 func (m *KillJobRequestProto) Reset()                    { *m = KillJobRequestProto{} }
@@ -340,7 +363,7 @@ func (m *KillJobRequestProto) String() string            { return proto.CompactT
 func (*KillJobRequestProto) ProtoMessage()               {}
 func (*KillJobRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{14} }
 
-func (m *KillJobRequestProto) GetJobId() *hadoop_mapreduce.JobIdProto {
+func (m *KillJobRequestProto) GetJobId() *JobIdProto {
 	if m != nil {
 		return m.JobId
 	}
@@ -357,8 +380,8 @@ func (*KillJobResponseProto) ProtoMessage()               {}
 func (*KillJobResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{15} }
 
 type KillTaskRequestProto struct {
-	TaskId           *hadoop_mapreduce.TaskIdProto `protobuf:"bytes,1,opt,name=task_id,json=taskId" json:"task_id,omitempty"`
-	XXX_unrecognized []byte                        `json:"-"`
+	TaskId           *TaskIdProto `protobuf:"bytes,1,opt,name=task_id,json=taskId" json:"task_id,omitempty"`
+	XXX_unrecognized []byte       `json:"-"`
 }
 
 func (m *KillTaskRequestProto) Reset()                    { *m = KillTaskRequestProto{} }
@@ -366,7 +389,7 @@ func (m *KillTaskRequestProto) String() string            { return proto.Compact
 func (*KillTaskRequestProto) ProtoMessage()               {}
 func (*KillTaskRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{16} }
 
-func (m *KillTaskRequestProto) GetTaskId() *hadoop_mapreduce.TaskIdProto {
+func (m *KillTaskRequestProto) GetTaskId() *TaskIdProto {
 	if m != nil {
 		return m.TaskId
 	}
@@ -383,8 +406,8 @@ func (*KillTaskResponseProto) ProtoMessage()               {}
 func (*KillTaskResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{17} }
 
 type KillTaskAttemptRequestProto struct {
-	TaskAttemptId    *hadoop_mapreduce.TaskAttemptIdProto `protobuf:"bytes,1,opt,name=task_attempt_id,json=taskAttemptId" json:"task_attempt_id,omitempty"`
-	XXX_unrecognized []byte                               `json:"-"`
+	TaskAttemptId    *TaskAttemptIdProto `protobuf:"bytes,1,opt,name=task_attempt_id,json=taskAttemptId" json:"task_attempt_id,omitempty"`
+	XXX_unrecognized []byte              `json:"-"`
 }
 
 func (m *KillTaskAttemptRequestProto) Reset()                    { *m = KillTaskAttemptRequestProto{} }
@@ -392,7 +415,7 @@ func (m *KillTaskAttemptRequestProto) String() string            { return proto.
 func (*KillTaskAttemptRequestProto) ProtoMessage()               {}
 func (*KillTaskAttemptRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{18} }
 
-func (m *KillTaskAttemptRequestProto) GetTaskAttemptId() *hadoop_mapreduce.TaskAttemptIdProto {
+func (m *KillTaskAttemptRequestProto) GetTaskAttemptId() *TaskAttemptIdProto {
 	if m != nil {
 		return m.TaskAttemptId
 	}
@@ -409,8 +432,8 @@ func (*KillTaskAttemptResponseProto) ProtoMessage()               {}
 func (*KillTaskAttemptResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{19} }
 
 type FailTaskAttemptRequestProto struct {
-	TaskAttemptId    *hadoop_mapreduce.TaskAttemptIdProto `protobuf:"bytes,1,opt,name=task_attempt_id,json=taskAttemptId" json:"task_attempt_id,omitempty"`
-	XXX_unrecognized []byte                               `json:"-"`
+	TaskAttemptId    *TaskAttemptIdProto `protobuf:"bytes,1,opt,name=task_attempt_id,json=taskAttemptId" json:"task_attempt_id,omitempty"`
+	XXX_unrecognized []byte              `json:"-"`
 }
 
 func (m *FailTaskAttemptRequestProto) Reset()                    { *m = FailTaskAttemptRequestProto{} }
@@ -418,7 +441,7 @@ func (m *FailTaskAttemptRequestProto) String() string            { return proto.
 func (*FailTaskAttemptRequestProto) ProtoMessage()               {}
 func (*FailTaskAttemptRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{20} }
 
-func (m *FailTaskAttemptRequestProto) GetTaskAttemptId() *hadoop_mapreduce.TaskAttemptIdProto {
+func (m *FailTaskAttemptRequestProto) GetTaskAttemptId() *TaskAttemptIdProto {
 	if m != nil {
 		return m.TaskAttemptId
 	}

@@ -2,18 +2,6 @@
 // source: yarn_server_nodemanager_service_protos.proto
 // DO NOT EDIT!
 
-/*
-Package nodemanager is a generated protocol buffer package.
-
-It is generated from these files:
-	yarn_server_nodemanager_service_protos.proto
-
-It has these top-level messages:
-	LocalResourceStatusProto
-	LocalizerStatusProto
-	ResourceLocalizationSpecProto
-	LocalizerHeartbeatResponseProto
-*/
 package nodemanager
 
 import proto "github.com/golang/protobuf/proto"
@@ -25,12 +13,6 @@ import hadoop_yarn "."
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
-
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 type ResourceStatusTypeProto int32
 
@@ -67,7 +49,7 @@ func (x *ResourceStatusTypeProto) UnmarshalJSON(data []byte) error {
 	*x = ResourceStatusTypeProto(value)
 	return nil
 }
-func (ResourceStatusTypeProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (ResourceStatusTypeProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor2, []int{0} }
 
 type LocalizerActionProto int32
 
@@ -101,7 +83,7 @@ func (x *LocalizerActionProto) UnmarshalJSON(data []byte) error {
 	*x = LocalizerActionProto(value)
 	return nil
 }
-func (LocalizerActionProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
+func (LocalizerActionProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor2, []int{1} }
 
 type LocalResourceStatusProto struct {
 	Resource         *hadoop_yarn.LocalResourceProto       `protobuf:"bytes,1,opt,name=resource" json:"resource,omitempty"`
@@ -115,7 +97,7 @@ type LocalResourceStatusProto struct {
 func (m *LocalResourceStatusProto) Reset()                    { *m = LocalResourceStatusProto{} }
 func (m *LocalResourceStatusProto) String() string            { return proto.CompactTextString(m) }
 func (*LocalResourceStatusProto) ProtoMessage()               {}
-func (*LocalResourceStatusProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (*LocalResourceStatusProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{0} }
 
 func (m *LocalResourceStatusProto) GetResource() *hadoop_yarn.LocalResourceProto {
 	if m != nil {
@@ -161,7 +143,7 @@ type LocalizerStatusProto struct {
 func (m *LocalizerStatusProto) Reset()                    { *m = LocalizerStatusProto{} }
 func (m *LocalizerStatusProto) String() string            { return proto.CompactTextString(m) }
 func (*LocalizerStatusProto) ProtoMessage()               {}
-func (*LocalizerStatusProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
+func (*LocalizerStatusProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{1} }
 
 func (m *LocalizerStatusProto) GetLocalizerId() string {
 	if m != nil && m.LocalizerId != nil {
@@ -186,7 +168,7 @@ type ResourceLocalizationSpecProto struct {
 func (m *ResourceLocalizationSpecProto) Reset()                    { *m = ResourceLocalizationSpecProto{} }
 func (m *ResourceLocalizationSpecProto) String() string            { return proto.CompactTextString(m) }
 func (*ResourceLocalizationSpecProto) ProtoMessage()               {}
-func (*ResourceLocalizationSpecProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{2} }
+func (*ResourceLocalizationSpecProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{2} }
 
 func (m *ResourceLocalizationSpecProto) GetResource() *hadoop_yarn.LocalResourceProto {
 	if m != nil {
@@ -211,7 +193,7 @@ type LocalizerHeartbeatResponseProto struct {
 func (m *LocalizerHeartbeatResponseProto) Reset()                    { *m = LocalizerHeartbeatResponseProto{} }
 func (m *LocalizerHeartbeatResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*LocalizerHeartbeatResponseProto) ProtoMessage()               {}
-func (*LocalizerHeartbeatResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{3} }
+func (*LocalizerHeartbeatResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{3} }
 
 func (m *LocalizerHeartbeatResponseProto) GetAction() LocalizerActionProto {
 	if m != nil && m.Action != nil {
@@ -236,9 +218,9 @@ func init() {
 	proto.RegisterEnum("hadoop.yarn.LocalizerActionProto", LocalizerActionProto_name, LocalizerActionProto_value)
 }
 
-func init() { proto.RegisterFile("yarn_server_nodemanager_service_protos.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("yarn_server_nodemanager_service_protos.proto", fileDescriptor2) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor2 = []byte{
 	// 488 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xac, 0x93, 0xcf, 0x6e, 0xd3, 0x40,
 	0x10, 0xc6, 0xb5, 0x71, 0x29, 0xcd, 0x04, 0x50, 0xba, 0x6a, 0x85, 0x85, 0x8a, 0x4a, 0x2d, 0x90,

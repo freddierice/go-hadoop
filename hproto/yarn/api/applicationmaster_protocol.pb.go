@@ -2,20 +2,11 @@
 // source: applicationmaster_protocol.proto
 // DO NOT EDIT!
 
-/*
-Package api is a generated protocol buffer package.
-
-It is generated from these files:
-	applicationmaster_protocol.proto
-
-It has these top-level messages:
-*/
 package api
 
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
-import hadoop_yarn1 "."
 
 import (
 	context "golang.org/x/net/context"
@@ -26,12 +17,6 @@ import (
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
-
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ context.Context
@@ -44,9 +29,9 @@ const _ = grpc.SupportPackageIsVersion3
 // Client API for ApplicationMasterProtocolService service
 
 type ApplicationMasterProtocolServiceClient interface {
-	RegisterApplicationMaster(ctx context.Context, in *hadoop_yarn1.RegisterApplicationMasterRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.RegisterApplicationMasterResponseProto, error)
-	FinishApplicationMaster(ctx context.Context, in *hadoop_yarn1.FinishApplicationMasterRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.FinishApplicationMasterResponseProto, error)
-	Allocate(ctx context.Context, in *hadoop_yarn1.AllocateRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.AllocateResponseProto, error)
+	RegisterApplicationMaster(ctx context.Context, in *RegisterApplicationMasterRequestProto, opts ...grpc.CallOption) (*RegisterApplicationMasterResponseProto, error)
+	FinishApplicationMaster(ctx context.Context, in *FinishApplicationMasterRequestProto, opts ...grpc.CallOption) (*FinishApplicationMasterResponseProto, error)
+	Allocate(ctx context.Context, in *AllocateRequestProto, opts ...grpc.CallOption) (*AllocateResponseProto, error)
 }
 
 type applicationMasterProtocolServiceClient struct {
@@ -57,8 +42,8 @@ func NewApplicationMasterProtocolServiceClient(cc *grpc.ClientConn) ApplicationM
 	return &applicationMasterProtocolServiceClient{cc}
 }
 
-func (c *applicationMasterProtocolServiceClient) RegisterApplicationMaster(ctx context.Context, in *hadoop_yarn1.RegisterApplicationMasterRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.RegisterApplicationMasterResponseProto, error) {
-	out := new(hadoop_yarn1.RegisterApplicationMasterResponseProto)
+func (c *applicationMasterProtocolServiceClient) RegisterApplicationMaster(ctx context.Context, in *RegisterApplicationMasterRequestProto, opts ...grpc.CallOption) (*RegisterApplicationMasterResponseProto, error) {
+	out := new(RegisterApplicationMasterResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ApplicationMasterProtocolService/registerApplicationMaster", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -66,8 +51,8 @@ func (c *applicationMasterProtocolServiceClient) RegisterApplicationMaster(ctx c
 	return out, nil
 }
 
-func (c *applicationMasterProtocolServiceClient) FinishApplicationMaster(ctx context.Context, in *hadoop_yarn1.FinishApplicationMasterRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.FinishApplicationMasterResponseProto, error) {
-	out := new(hadoop_yarn1.FinishApplicationMasterResponseProto)
+func (c *applicationMasterProtocolServiceClient) FinishApplicationMaster(ctx context.Context, in *FinishApplicationMasterRequestProto, opts ...grpc.CallOption) (*FinishApplicationMasterResponseProto, error) {
+	out := new(FinishApplicationMasterResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ApplicationMasterProtocolService/finishApplicationMaster", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -75,8 +60,8 @@ func (c *applicationMasterProtocolServiceClient) FinishApplicationMaster(ctx con
 	return out, nil
 }
 
-func (c *applicationMasterProtocolServiceClient) Allocate(ctx context.Context, in *hadoop_yarn1.AllocateRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.AllocateResponseProto, error) {
-	out := new(hadoop_yarn1.AllocateResponseProto)
+func (c *applicationMasterProtocolServiceClient) Allocate(ctx context.Context, in *AllocateRequestProto, opts ...grpc.CallOption) (*AllocateResponseProto, error) {
+	out := new(AllocateResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ApplicationMasterProtocolService/allocate", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -87,9 +72,9 @@ func (c *applicationMasterProtocolServiceClient) Allocate(ctx context.Context, i
 // Server API for ApplicationMasterProtocolService service
 
 type ApplicationMasterProtocolServiceServer interface {
-	RegisterApplicationMaster(context.Context, *hadoop_yarn1.RegisterApplicationMasterRequestProto) (*hadoop_yarn1.RegisterApplicationMasterResponseProto, error)
-	FinishApplicationMaster(context.Context, *hadoop_yarn1.FinishApplicationMasterRequestProto) (*hadoop_yarn1.FinishApplicationMasterResponseProto, error)
-	Allocate(context.Context, *hadoop_yarn1.AllocateRequestProto) (*hadoop_yarn1.AllocateResponseProto, error)
+	RegisterApplicationMaster(context.Context, *RegisterApplicationMasterRequestProto) (*RegisterApplicationMasterResponseProto, error)
+	FinishApplicationMaster(context.Context, *FinishApplicationMasterRequestProto) (*FinishApplicationMasterResponseProto, error)
+	Allocate(context.Context, *AllocateRequestProto) (*AllocateResponseProto, error)
 }
 
 func RegisterApplicationMasterProtocolServiceServer(s *grpc.Server, srv ApplicationMasterProtocolServiceServer) {
@@ -97,7 +82,7 @@ func RegisterApplicationMasterProtocolServiceServer(s *grpc.Server, srv Applicat
 }
 
 func _ApplicationMasterProtocolService_RegisterApplicationMaster_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn1.RegisterApplicationMasterRequestProto)
+	in := new(RegisterApplicationMasterRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -109,13 +94,13 @@ func _ApplicationMasterProtocolService_RegisterApplicationMaster_Handler(srv int
 		FullMethod: "/hadoop.yarn.ApplicationMasterProtocolService/RegisterApplicationMaster",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ApplicationMasterProtocolServiceServer).RegisterApplicationMaster(ctx, req.(*hadoop_yarn1.RegisterApplicationMasterRequestProto))
+		return srv.(ApplicationMasterProtocolServiceServer).RegisterApplicationMaster(ctx, req.(*RegisterApplicationMasterRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ApplicationMasterProtocolService_FinishApplicationMaster_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn1.FinishApplicationMasterRequestProto)
+	in := new(FinishApplicationMasterRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -127,13 +112,13 @@ func _ApplicationMasterProtocolService_FinishApplicationMaster_Handler(srv inter
 		FullMethod: "/hadoop.yarn.ApplicationMasterProtocolService/FinishApplicationMaster",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ApplicationMasterProtocolServiceServer).FinishApplicationMaster(ctx, req.(*hadoop_yarn1.FinishApplicationMasterRequestProto))
+		return srv.(ApplicationMasterProtocolServiceServer).FinishApplicationMaster(ctx, req.(*FinishApplicationMasterRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ApplicationMasterProtocolService_Allocate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn1.AllocateRequestProto)
+	in := new(AllocateRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -145,7 +130,7 @@ func _ApplicationMasterProtocolService_Allocate_Handler(srv interface{}, ctx con
 		FullMethod: "/hadoop.yarn.ApplicationMasterProtocolService/Allocate",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ApplicationMasterProtocolServiceServer).Allocate(ctx, req.(*hadoop_yarn1.AllocateRequestProto))
+		return srv.(ApplicationMasterProtocolServiceServer).Allocate(ctx, req.(*AllocateRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -168,12 +153,12 @@ var _ApplicationMasterProtocolService_serviceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: fileDescriptor0,
+	Metadata: fileDescriptor5,
 }
 
-func init() { proto.RegisterFile("applicationmaster_protocol.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("applicationmaster_protocol.proto", fileDescriptor5) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor5 = []byte{
 	// 227 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xe2, 0x52, 0x48, 0x2c, 0x28, 0xc8,
 	0xc9, 0x4c, 0x4e, 0x2c, 0xc9, 0xcc, 0xcf, 0xcb, 0x4d, 0x2c, 0x2e, 0x49, 0x2d, 0x8a, 0x2f, 0x28,

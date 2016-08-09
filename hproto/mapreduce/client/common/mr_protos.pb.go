@@ -2,27 +2,6 @@
 // source: mr_protos.proto
 // DO NOT EDIT!
 
-/*
-Package common is a generated protocol buffer package.
-
-It is generated from these files:
-	mr_protos.proto
-
-It has these top-level messages:
-	JobIdProto
-	TaskIdProto
-	TaskAttemptIdProto
-	CounterProto
-	CounterGroupProto
-	CountersProto
-	TaskReportProto
-	TaskAttemptReportProto
-	JobReportProto
-	AMInfoProto
-	TaskAttemptCompletionEventProto
-	StringCounterMapProto
-	StringCounterGroupMapProto
-*/
 package common
 
 import proto "github.com/golang/protobuf/proto"
@@ -34,12 +13,6 @@ import hadoop_yarn "."
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
-
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 type TaskTypeProto int32
 
@@ -73,7 +46,7 @@ func (x *TaskTypeProto) UnmarshalJSON(data []byte) error {
 	*x = TaskTypeProto(value)
 	return nil
 }
-func (TaskTypeProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (TaskTypeProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor2, []int{0} }
 
 type TaskStateProto int32
 
@@ -119,7 +92,7 @@ func (x *TaskStateProto) UnmarshalJSON(data []byte) error {
 	*x = TaskStateProto(value)
 	return nil
 }
-func (TaskStateProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
+func (TaskStateProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor2, []int{1} }
 
 type PhaseProto int32
 
@@ -165,7 +138,7 @@ func (x *PhaseProto) UnmarshalJSON(data []byte) error {
 	*x = PhaseProto(value)
 	return nil
 }
-func (PhaseProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{2} }
+func (PhaseProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor2, []int{2} }
 
 type TaskAttemptStateProto int32
 
@@ -214,7 +187,7 @@ func (x *TaskAttemptStateProto) UnmarshalJSON(data []byte) error {
 	*x = TaskAttemptStateProto(value)
 	return nil
 }
-func (TaskAttemptStateProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{3} }
+func (TaskAttemptStateProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor2, []int{3} }
 
 type JobStateProto int32
 
@@ -263,7 +236,7 @@ func (x *JobStateProto) UnmarshalJSON(data []byte) error {
 	*x = JobStateProto(value)
 	return nil
 }
-func (JobStateProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{4} }
+func (JobStateProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor2, []int{4} }
 
 type TaskAttemptCompletionEventStatusProto int32
 
@@ -307,7 +280,7 @@ func (x *TaskAttemptCompletionEventStatusProto) UnmarshalJSON(data []byte) error
 	return nil
 }
 func (TaskAttemptCompletionEventStatusProto) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{5}
+	return fileDescriptor2, []int{5}
 }
 
 type JobIdProto struct {
@@ -319,7 +292,7 @@ type JobIdProto struct {
 func (m *JobIdProto) Reset()                    { *m = JobIdProto{} }
 func (m *JobIdProto) String() string            { return proto.CompactTextString(m) }
 func (*JobIdProto) ProtoMessage()               {}
-func (*JobIdProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (*JobIdProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{0} }
 
 func (m *JobIdProto) GetAppId() *hadoop_yarn.ApplicationIdProto {
 	if m != nil {
@@ -345,7 +318,7 @@ type TaskIdProto struct {
 func (m *TaskIdProto) Reset()                    { *m = TaskIdProto{} }
 func (m *TaskIdProto) String() string            { return proto.CompactTextString(m) }
 func (*TaskIdProto) ProtoMessage()               {}
-func (*TaskIdProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
+func (*TaskIdProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{1} }
 
 func (m *TaskIdProto) GetJobId() *JobIdProto {
 	if m != nil {
@@ -377,7 +350,7 @@ type TaskAttemptIdProto struct {
 func (m *TaskAttemptIdProto) Reset()                    { *m = TaskAttemptIdProto{} }
 func (m *TaskAttemptIdProto) String() string            { return proto.CompactTextString(m) }
 func (*TaskAttemptIdProto) ProtoMessage()               {}
-func (*TaskAttemptIdProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{2} }
+func (*TaskAttemptIdProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{2} }
 
 func (m *TaskAttemptIdProto) GetTaskId() *TaskIdProto {
 	if m != nil {
@@ -403,7 +376,7 @@ type CounterProto struct {
 func (m *CounterProto) Reset()                    { *m = CounterProto{} }
 func (m *CounterProto) String() string            { return proto.CompactTextString(m) }
 func (*CounterProto) ProtoMessage()               {}
-func (*CounterProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{3} }
+func (*CounterProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{3} }
 
 func (m *CounterProto) GetName() string {
 	if m != nil && m.Name != nil {
@@ -436,7 +409,7 @@ type CounterGroupProto struct {
 func (m *CounterGroupProto) Reset()                    { *m = CounterGroupProto{} }
 func (m *CounterGroupProto) String() string            { return proto.CompactTextString(m) }
 func (*CounterGroupProto) ProtoMessage()               {}
-func (*CounterGroupProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{4} }
+func (*CounterGroupProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{4} }
 
 func (m *CounterGroupProto) GetName() string {
 	if m != nil && m.Name != nil {
@@ -467,7 +440,7 @@ type CountersProto struct {
 func (m *CountersProto) Reset()                    { *m = CountersProto{} }
 func (m *CountersProto) String() string            { return proto.CompactTextString(m) }
 func (*CountersProto) ProtoMessage()               {}
-func (*CountersProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{5} }
+func (*CountersProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{5} }
 
 func (m *CountersProto) GetCounterGroups() []*StringCounterGroupMapProto {
 	if m != nil {
@@ -492,7 +465,7 @@ type TaskReportProto struct {
 func (m *TaskReportProto) Reset()                    { *m = TaskReportProto{} }
 func (m *TaskReportProto) String() string            { return proto.CompactTextString(m) }
 func (*TaskReportProto) ProtoMessage()               {}
-func (*TaskReportProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{6} }
+func (*TaskReportProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{6} }
 
 func (m *TaskReportProto) GetTaskId() *TaskIdProto {
 	if m != nil {
@@ -579,7 +552,7 @@ type TaskAttemptReportProto struct {
 func (m *TaskAttemptReportProto) Reset()                    { *m = TaskAttemptReportProto{} }
 func (m *TaskAttemptReportProto) String() string            { return proto.CompactTextString(m) }
 func (*TaskAttemptReportProto) ProtoMessage()               {}
-func (*TaskAttemptReportProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{7} }
+func (*TaskAttemptReportProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{7} }
 
 func (m *TaskAttemptReportProto) GetTaskAttemptId() *TaskAttemptIdProto {
 	if m != nil {
@@ -711,7 +684,7 @@ type JobReportProto struct {
 func (m *JobReportProto) Reset()                    { *m = JobReportProto{} }
 func (m *JobReportProto) String() string            { return proto.CompactTextString(m) }
 func (*JobReportProto) ProtoMessage()               {}
-func (*JobReportProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{8} }
+func (*JobReportProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{8} }
 
 const Default_JobReportProto_IsUber bool = false
 
@@ -854,7 +827,7 @@ type AMInfoProto struct {
 func (m *AMInfoProto) Reset()                    { *m = AMInfoProto{} }
 func (m *AMInfoProto) String() string            { return proto.CompactTextString(m) }
 func (*AMInfoProto) ProtoMessage()               {}
-func (*AMInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{9} }
+func (*AMInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{9} }
 
 func (m *AMInfoProto) GetApplicationAttemptId() *hadoop_yarn.ApplicationAttemptIdProto {
 	if m != nil {
@@ -911,7 +884,7 @@ func (m *TaskAttemptCompletionEventProto) Reset()         { *m = TaskAttemptComp
 func (m *TaskAttemptCompletionEventProto) String() string { return proto.CompactTextString(m) }
 func (*TaskAttemptCompletionEventProto) ProtoMessage()    {}
 func (*TaskAttemptCompletionEventProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{10}
+	return fileDescriptor2, []int{10}
 }
 
 func (m *TaskAttemptCompletionEventProto) GetAttemptId() *TaskAttemptIdProto {
@@ -958,7 +931,7 @@ type StringCounterMapProto struct {
 func (m *StringCounterMapProto) Reset()                    { *m = StringCounterMapProto{} }
 func (m *StringCounterMapProto) String() string            { return proto.CompactTextString(m) }
 func (*StringCounterMapProto) ProtoMessage()               {}
-func (*StringCounterMapProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{11} }
+func (*StringCounterMapProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{11} }
 
 func (m *StringCounterMapProto) GetKey() string {
 	if m != nil && m.Key != nil {
@@ -983,7 +956,7 @@ type StringCounterGroupMapProto struct {
 func (m *StringCounterGroupMapProto) Reset()                    { *m = StringCounterGroupMapProto{} }
 func (m *StringCounterGroupMapProto) String() string            { return proto.CompactTextString(m) }
 func (*StringCounterGroupMapProto) ProtoMessage()               {}
-func (*StringCounterGroupMapProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{12} }
+func (*StringCounterGroupMapProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{12} }
 
 func (m *StringCounterGroupMapProto) GetKey() string {
 	if m != nil && m.Key != nil {
@@ -1021,9 +994,9 @@ func init() {
 	proto.RegisterEnum("hadoop.mapreduce.TaskAttemptCompletionEventStatusProto", TaskAttemptCompletionEventStatusProto_name, TaskAttemptCompletionEventStatusProto_value)
 }
 
-func init() { proto.RegisterFile("mr_protos.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("mr_protos.proto", fileDescriptor2) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor2 = []byte{
 	// 1552 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xcc, 0x58, 0xdd, 0x6e, 0x1b, 0x45,
 	0x14, 0x96, 0xed, 0xac, 0x7f, 0x8e, 0xe3, 0xbf, 0x69, 0x1b, 0xb9, 0x11, 0x6d, 0x8a, 0x69, 0x69,

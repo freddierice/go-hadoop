@@ -7,9 +7,77 @@ Package common is a generated protocol buffer package.
 
 It is generated from these files:
 	ProtobufRpcEngine.proto
+	RefreshCallQueueProtocol.proto
+	Security.proto
+	GetUserMappingsProtocol.proto
+	IpcConnectionContext.proto
+	RpcHeader.proto
+	RefreshAuthorizationPolicyProtocol.proto
+	GenericRefreshProtocol.proto
+	ZKFCProtocol.proto
+	TraceAdmin.proto
+	RefreshUserMappingsProtocol.proto
+	ProtocolInfo.proto
+	HAServiceProtocol.proto
 
 It has these top-level messages:
 	RequestHeaderProto
+	RefreshCallQueueRequestProto
+	RefreshCallQueueResponseProto
+	TokenProto
+	CredentialsKVProto
+	CredentialsProto
+	GetDelegationTokenRequestProto
+	GetDelegationTokenResponseProto
+	RenewDelegationTokenRequestProto
+	RenewDelegationTokenResponseProto
+	CancelDelegationTokenRequestProto
+	CancelDelegationTokenResponseProto
+	GetGroupsForUserRequestProto
+	GetGroupsForUserResponseProto
+	UserInformationProto
+	IpcConnectionContextProto
+	RPCTraceInfoProto
+	RPCCallerContextProto
+	RpcRequestHeaderProto
+	RpcResponseHeaderProto
+	RpcSaslProto
+	RefreshServiceAclRequestProto
+	RefreshServiceAclResponseProto
+	GenericRefreshRequestProto
+	GenericRefreshResponseProto
+	GenericRefreshResponseCollectionProto
+	CedeActiveRequestProto
+	CedeActiveResponseProto
+	GracefulFailoverRequestProto
+	GracefulFailoverResponseProto
+	ListSpanReceiversRequestProto
+	SpanReceiverListInfo
+	ListSpanReceiversResponseProto
+	ConfigPair
+	AddSpanReceiverRequestProto
+	AddSpanReceiverResponseProto
+	RemoveSpanReceiverRequestProto
+	RemoveSpanReceiverResponseProto
+	RefreshUserToGroupsMappingsRequestProto
+	RefreshUserToGroupsMappingsResponseProto
+	RefreshSuperUserGroupsConfigurationRequestProto
+	RefreshSuperUserGroupsConfigurationResponseProto
+	GetProtocolVersionsRequestProto
+	ProtocolVersionProto
+	GetProtocolVersionsResponseProto
+	GetProtocolSignatureRequestProto
+	GetProtocolSignatureResponseProto
+	ProtocolSignatureProto
+	HAStateChangeRequestInfoProto
+	MonitorHealthRequestProto
+	MonitorHealthResponseProto
+	TransitionToActiveRequestProto
+	TransitionToActiveResponseProto
+	TransitionToStandbyRequestProto
+	TransitionToStandbyResponseProto
+	GetServiceStatusRequestProto
+	GetServiceStatusResponseProto
 */
 package common
 

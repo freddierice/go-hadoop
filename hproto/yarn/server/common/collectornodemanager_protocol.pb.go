@@ -2,20 +2,11 @@
 // source: collectornodemanager_protocol.proto
 // DO NOT EDIT!
 
-/*
-Package common is a generated protocol buffer package.
-
-It is generated from these files:
-	collectornodemanager_protocol.proto
-
-It has these top-level messages:
-*/
 package common
 
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
-import hadoop_yarn3 "."
 
 import (
 	context "golang.org/x/net/context"
@@ -26,12 +17,6 @@ import (
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
-
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ context.Context
@@ -44,8 +29,8 @@ const _ = grpc.SupportPackageIsVersion3
 // Client API for CollectorNodemanagerProtocolService service
 
 type CollectorNodemanagerProtocolServiceClient interface {
-	ReportNewCollectorInfo(ctx context.Context, in *hadoop_yarn3.ReportNewCollectorInfoRequestProto, opts ...grpc.CallOption) (*hadoop_yarn3.ReportNewCollectorInfoResponseProto, error)
-	GetTimelineCollectorContext(ctx context.Context, in *hadoop_yarn3.GetTimelineCollectorContextRequestProto, opts ...grpc.CallOption) (*hadoop_yarn3.GetTimelineCollectorContextResponseProto, error)
+	ReportNewCollectorInfo(ctx context.Context, in *ReportNewCollectorInfoRequestProto, opts ...grpc.CallOption) (*ReportNewCollectorInfoResponseProto, error)
+	GetTimelineCollectorContext(ctx context.Context, in *GetTimelineCollectorContextRequestProto, opts ...grpc.CallOption) (*GetTimelineCollectorContextResponseProto, error)
 }
 
 type collectorNodemanagerProtocolServiceClient struct {
@@ -56,8 +41,8 @@ func NewCollectorNodemanagerProtocolServiceClient(cc *grpc.ClientConn) Collector
 	return &collectorNodemanagerProtocolServiceClient{cc}
 }
 
-func (c *collectorNodemanagerProtocolServiceClient) ReportNewCollectorInfo(ctx context.Context, in *hadoop_yarn3.ReportNewCollectorInfoRequestProto, opts ...grpc.CallOption) (*hadoop_yarn3.ReportNewCollectorInfoResponseProto, error) {
-	out := new(hadoop_yarn3.ReportNewCollectorInfoResponseProto)
+func (c *collectorNodemanagerProtocolServiceClient) ReportNewCollectorInfo(ctx context.Context, in *ReportNewCollectorInfoRequestProto, opts ...grpc.CallOption) (*ReportNewCollectorInfoResponseProto, error) {
+	out := new(ReportNewCollectorInfoResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.CollectorNodemanagerProtocolService/reportNewCollectorInfo", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -65,8 +50,8 @@ func (c *collectorNodemanagerProtocolServiceClient) ReportNewCollectorInfo(ctx c
 	return out, nil
 }
 
-func (c *collectorNodemanagerProtocolServiceClient) GetTimelineCollectorContext(ctx context.Context, in *hadoop_yarn3.GetTimelineCollectorContextRequestProto, opts ...grpc.CallOption) (*hadoop_yarn3.GetTimelineCollectorContextResponseProto, error) {
-	out := new(hadoop_yarn3.GetTimelineCollectorContextResponseProto)
+func (c *collectorNodemanagerProtocolServiceClient) GetTimelineCollectorContext(ctx context.Context, in *GetTimelineCollectorContextRequestProto, opts ...grpc.CallOption) (*GetTimelineCollectorContextResponseProto, error) {
+	out := new(GetTimelineCollectorContextResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.CollectorNodemanagerProtocolService/getTimelineCollectorContext", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -77,8 +62,8 @@ func (c *collectorNodemanagerProtocolServiceClient) GetTimelineCollectorContext(
 // Server API for CollectorNodemanagerProtocolService service
 
 type CollectorNodemanagerProtocolServiceServer interface {
-	ReportNewCollectorInfo(context.Context, *hadoop_yarn3.ReportNewCollectorInfoRequestProto) (*hadoop_yarn3.ReportNewCollectorInfoResponseProto, error)
-	GetTimelineCollectorContext(context.Context, *hadoop_yarn3.GetTimelineCollectorContextRequestProto) (*hadoop_yarn3.GetTimelineCollectorContextResponseProto, error)
+	ReportNewCollectorInfo(context.Context, *ReportNewCollectorInfoRequestProto) (*ReportNewCollectorInfoResponseProto, error)
+	GetTimelineCollectorContext(context.Context, *GetTimelineCollectorContextRequestProto) (*GetTimelineCollectorContextResponseProto, error)
 }
 
 func RegisterCollectorNodemanagerProtocolServiceServer(s *grpc.Server, srv CollectorNodemanagerProtocolServiceServer) {
@@ -86,7 +71,7 @@ func RegisterCollectorNodemanagerProtocolServiceServer(s *grpc.Server, srv Colle
 }
 
 func _CollectorNodemanagerProtocolService_ReportNewCollectorInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn3.ReportNewCollectorInfoRequestProto)
+	in := new(ReportNewCollectorInfoRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -98,13 +83,13 @@ func _CollectorNodemanagerProtocolService_ReportNewCollectorInfo_Handler(srv int
 		FullMethod: "/hadoop.yarn.CollectorNodemanagerProtocolService/ReportNewCollectorInfo",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CollectorNodemanagerProtocolServiceServer).ReportNewCollectorInfo(ctx, req.(*hadoop_yarn3.ReportNewCollectorInfoRequestProto))
+		return srv.(CollectorNodemanagerProtocolServiceServer).ReportNewCollectorInfo(ctx, req.(*ReportNewCollectorInfoRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _CollectorNodemanagerProtocolService_GetTimelineCollectorContext_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn3.GetTimelineCollectorContextRequestProto)
+	in := new(GetTimelineCollectorContextRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -116,7 +101,7 @@ func _CollectorNodemanagerProtocolService_GetTimelineCollectorContext_Handler(sr
 		FullMethod: "/hadoop.yarn.CollectorNodemanagerProtocolService/GetTimelineCollectorContext",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CollectorNodemanagerProtocolServiceServer).GetTimelineCollectorContext(ctx, req.(*hadoop_yarn3.GetTimelineCollectorContextRequestProto))
+		return srv.(CollectorNodemanagerProtocolServiceServer).GetTimelineCollectorContext(ctx, req.(*GetTimelineCollectorContextRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -135,12 +120,12 @@ var _CollectorNodemanagerProtocolService_serviceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: fileDescriptor0,
+	Metadata: fileDescriptor5,
 }
 
-func init() { proto.RegisterFile("collectornodemanager_protocol.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("collectornodemanager_protocol.proto", fileDescriptor5) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor5 = []byte{
 	// 232 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0x8c, 0x90, 0xbd, 0x4e, 0x85, 0x30,
 	0x14, 0x80, 0x53, 0xc7, 0xba, 0x75, 0x70, 0xb8, 0xde, 0x8d, 0xc1, 0xad, 0x1a, 0xa3, 0x2f, 0x00,

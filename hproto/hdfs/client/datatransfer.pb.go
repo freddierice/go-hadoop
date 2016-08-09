@@ -2,60 +2,17 @@
 // source: datatransfer.proto
 // DO NOT EDIT!
 
-/*
-Package client is a generated protocol buffer package.
-
-It is generated from these files:
-	datatransfer.proto
-
-It has these top-level messages:
-	DataTransferEncryptorMessageProto
-	BaseHeaderProto
-	DataTransferTraceInfoProto
-	ClientOperationHeaderProto
-	CachingStrategyProto
-	OpReadBlockProto
-	ChecksumProto
-	OpWriteBlockProto
-	OpTransferBlockProto
-	OpReplaceBlockProto
-	OpCopyBlockProto
-	OpBlockChecksumProto
-	OpBlockGroupChecksumProto
-	ShortCircuitShmIdProto
-	ShortCircuitShmSlotProto
-	OpRequestShortCircuitAccessProto
-	ReleaseShortCircuitAccessRequestProto
-	ReleaseShortCircuitAccessResponseProto
-	ShortCircuitShmRequestProto
-	ShortCircuitShmResponseProto
-	PacketHeaderProto
-	PipelineAckProto
-	ReadOpChecksumInfoProto
-	BlockOpResponseProto
-	ClientReadStatusProto
-	DNTransferAckProto
-	OpBlockChecksumResponseProto
-	OpCustomProto
-*/
 package client
 
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import hadoop_common "."
-import hadoop_hdfs "."
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
-
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 // Status is a 4-bit enum
 type Status int32
@@ -123,7 +80,7 @@ func (x *Status) UnmarshalJSON(data []byte) error {
 	*x = Status(value)
 	return nil
 }
-func (Status) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (Status) EnumDescriptor() ([]byte, []int) { return fileDescriptor9, []int{0} }
 
 type ShortCircuitFdResponse int32
 
@@ -157,7 +114,7 @@ func (x *ShortCircuitFdResponse) UnmarshalJSON(data []byte) error {
 	*x = ShortCircuitFdResponse(value)
 	return nil
 }
-func (ShortCircuitFdResponse) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
+func (ShortCircuitFdResponse) EnumDescriptor() ([]byte, []int) { return fileDescriptor9, []int{1} }
 
 type DataTransferEncryptorMessageProto_DataTransferEncryptorStatus int32
 
@@ -195,7 +152,7 @@ func (x *DataTransferEncryptorMessageProto_DataTransferEncryptorStatus) Unmarsha
 	return nil
 }
 func (DataTransferEncryptorMessageProto_DataTransferEncryptorStatus) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{0, 0}
+	return fileDescriptor9, []int{0, 0}
 }
 
 type OpWriteBlockProto_BlockConstructionStage int32
@@ -260,14 +217,14 @@ func (x *OpWriteBlockProto_BlockConstructionStage) UnmarshalJSON(data []byte) er
 	return nil
 }
 func (OpWriteBlockProto_BlockConstructionStage) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{7, 0}
+	return fileDescriptor9, []int{7, 0}
 }
 
 type DataTransferEncryptorMessageProto struct {
 	Status           *DataTransferEncryptorMessageProto_DataTransferEncryptorStatus `protobuf:"varint,1,req,name=status,enum=hadoop.hdfs.DataTransferEncryptorMessageProto_DataTransferEncryptorStatus" json:"status,omitempty"`
 	Payload          []byte                                                         `protobuf:"bytes,2,opt,name=payload" json:"payload,omitempty"`
 	Message          *string                                                        `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	CipherOption     []*hadoop_hdfs.CipherOptionProto                               `protobuf:"bytes,4,rep,name=cipherOption" json:"cipherOption,omitempty"`
+	CipherOption     []*CipherOptionProto                                           `protobuf:"bytes,4,rep,name=cipherOption" json:"cipherOption,omitempty"`
 	XXX_unrecognized []byte                                                         `json:"-"`
 }
 
@@ -275,7 +232,7 @@ func (m *DataTransferEncryptorMessageProto) Reset()         { *m = DataTransferE
 func (m *DataTransferEncryptorMessageProto) String() string { return proto.CompactTextString(m) }
 func (*DataTransferEncryptorMessageProto) ProtoMessage()    {}
 func (*DataTransferEncryptorMessageProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{0}
+	return fileDescriptor9, []int{0}
 }
 
 func (m *DataTransferEncryptorMessageProto) GetStatus() DataTransferEncryptorMessageProto_DataTransferEncryptorStatus {
@@ -299,7 +256,7 @@ func (m *DataTransferEncryptorMessageProto) GetMessage() string {
 	return ""
 }
 
-func (m *DataTransferEncryptorMessageProto) GetCipherOption() []*hadoop_hdfs.CipherOptionProto {
+func (m *DataTransferEncryptorMessageProto) GetCipherOption() []*CipherOptionProto {
 	if m != nil {
 		return m.CipherOption
 	}
@@ -307,18 +264,18 @@ func (m *DataTransferEncryptorMessageProto) GetCipherOption() []*hadoop_hdfs.Cip
 }
 
 type BaseHeaderProto struct {
-	Block            *hadoop_hdfs.ExtendedBlockProto `protobuf:"bytes,1,req,name=block" json:"block,omitempty"`
-	Token            *hadoop_common.TokenProto       `protobuf:"bytes,2,opt,name=token" json:"token,omitempty"`
-	TraceInfo        *DataTransferTraceInfoProto     `protobuf:"bytes,3,opt,name=traceInfo" json:"traceInfo,omitempty"`
-	XXX_unrecognized []byte                          `json:"-"`
+	Block            *ExtendedBlockProto         `protobuf:"bytes,1,req,name=block" json:"block,omitempty"`
+	Token            *hadoop_common.TokenProto   `protobuf:"bytes,2,opt,name=token" json:"token,omitempty"`
+	TraceInfo        *DataTransferTraceInfoProto `protobuf:"bytes,3,opt,name=traceInfo" json:"traceInfo,omitempty"`
+	XXX_unrecognized []byte                      `json:"-"`
 }
 
 func (m *BaseHeaderProto) Reset()                    { *m = BaseHeaderProto{} }
 func (m *BaseHeaderProto) String() string            { return proto.CompactTextString(m) }
 func (*BaseHeaderProto) ProtoMessage()               {}
-func (*BaseHeaderProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
+func (*BaseHeaderProto) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{1} }
 
-func (m *BaseHeaderProto) GetBlock() *hadoop_hdfs.ExtendedBlockProto {
+func (m *BaseHeaderProto) GetBlock() *ExtendedBlockProto {
 	if m != nil {
 		return m.Block
 	}
@@ -348,7 +305,7 @@ type DataTransferTraceInfoProto struct {
 func (m *DataTransferTraceInfoProto) Reset()                    { *m = DataTransferTraceInfoProto{} }
 func (m *DataTransferTraceInfoProto) String() string            { return proto.CompactTextString(m) }
 func (*DataTransferTraceInfoProto) ProtoMessage()               {}
-func (*DataTransferTraceInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{2} }
+func (*DataTransferTraceInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{2} }
 
 func (m *DataTransferTraceInfoProto) GetTraceId() uint64 {
 	if m != nil && m.TraceId != nil {
@@ -373,7 +330,7 @@ type ClientOperationHeaderProto struct {
 func (m *ClientOperationHeaderProto) Reset()                    { *m = ClientOperationHeaderProto{} }
 func (m *ClientOperationHeaderProto) String() string            { return proto.CompactTextString(m) }
 func (*ClientOperationHeaderProto) ProtoMessage()               {}
-func (*ClientOperationHeaderProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{3} }
+func (*ClientOperationHeaderProto) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{3} }
 
 func (m *ClientOperationHeaderProto) GetBaseHeader() *BaseHeaderProto {
 	if m != nil {
@@ -398,7 +355,7 @@ type CachingStrategyProto struct {
 func (m *CachingStrategyProto) Reset()                    { *m = CachingStrategyProto{} }
 func (m *CachingStrategyProto) String() string            { return proto.CompactTextString(m) }
 func (*CachingStrategyProto) ProtoMessage()               {}
-func (*CachingStrategyProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{4} }
+func (*CachingStrategyProto) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{4} }
 
 func (m *CachingStrategyProto) GetDropBehind() bool {
 	if m != nil && m.DropBehind != nil {
@@ -426,7 +383,7 @@ type OpReadBlockProto struct {
 func (m *OpReadBlockProto) Reset()                    { *m = OpReadBlockProto{} }
 func (m *OpReadBlockProto) String() string            { return proto.CompactTextString(m) }
 func (*OpReadBlockProto) ProtoMessage()               {}
-func (*OpReadBlockProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{5} }
+func (*OpReadBlockProto) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{5} }
 
 const Default_OpReadBlockProto_SendChecksums bool = true
 
@@ -466,21 +423,21 @@ func (m *OpReadBlockProto) GetCachingStrategy() *CachingStrategyProto {
 }
 
 type ChecksumProto struct {
-	Type             *hadoop_hdfs.ChecksumTypeProto `protobuf:"varint,1,req,name=type,enum=hadoop.hdfs.ChecksumTypeProto" json:"type,omitempty"`
-	BytesPerChecksum *uint32                        `protobuf:"varint,2,req,name=bytesPerChecksum" json:"bytesPerChecksum,omitempty"`
-	XXX_unrecognized []byte                         `json:"-"`
+	Type             *ChecksumTypeProto `protobuf:"varint,1,req,name=type,enum=hadoop.hdfs.ChecksumTypeProto" json:"type,omitempty"`
+	BytesPerChecksum *uint32            `protobuf:"varint,2,req,name=bytesPerChecksum" json:"bytesPerChecksum,omitempty"`
+	XXX_unrecognized []byte             `json:"-"`
 }
 
 func (m *ChecksumProto) Reset()                    { *m = ChecksumProto{} }
 func (m *ChecksumProto) String() string            { return proto.CompactTextString(m) }
 func (*ChecksumProto) ProtoMessage()               {}
-func (*ChecksumProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{6} }
+func (*ChecksumProto) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{6} }
 
-func (m *ChecksumProto) GetType() hadoop_hdfs.ChecksumTypeProto {
+func (m *ChecksumProto) GetType() ChecksumTypeProto {
 	if m != nil && m.Type != nil {
 		return *m.Type
 	}
-	return hadoop_hdfs.ChecksumTypeProto_CHECKSUM_NULL
+	return ChecksumTypeProto_CHECKSUM_NULL
 }
 
 func (m *ChecksumProto) GetBytesPerChecksum() uint32 {
@@ -492,8 +449,8 @@ func (m *ChecksumProto) GetBytesPerChecksum() uint32 {
 
 type OpWriteBlockProto struct {
 	Header                *ClientOperationHeaderProto               `protobuf:"bytes,1,req,name=header" json:"header,omitempty"`
-	Targets               []*hadoop_hdfs.DatanodeInfoProto          `protobuf:"bytes,2,rep,name=targets" json:"targets,omitempty"`
-	Source                *hadoop_hdfs.DatanodeInfoProto            `protobuf:"bytes,3,opt,name=source" json:"source,omitempty"`
+	Targets               []*DatanodeInfoProto                      `protobuf:"bytes,2,rep,name=targets" json:"targets,omitempty"`
+	Source                *DatanodeInfoProto                        `protobuf:"bytes,3,opt,name=source" json:"source,omitempty"`
 	Stage                 *OpWriteBlockProto_BlockConstructionStage `protobuf:"varint,4,req,name=stage,enum=hadoop.hdfs.OpWriteBlockProto_BlockConstructionStage" json:"stage,omitempty"`
 	PipelineSize          *uint32                                   `protobuf:"varint,5,req,name=pipelineSize" json:"pipelineSize,omitempty"`
 	MinBytesRcvd          *uint64                                   `protobuf:"varint,6,req,name=minBytesRcvd" json:"minBytesRcvd,omitempty"`
@@ -501,10 +458,10 @@ type OpWriteBlockProto struct {
 	LatestGenerationStamp *uint64                                   `protobuf:"varint,8,req,name=latestGenerationStamp" json:"latestGenerationStamp,omitempty"`
 	// *
 	// The requested checksum mechanism for this block write.
-	RequestedChecksum  *ChecksumProto                 `protobuf:"bytes,9,req,name=requestedChecksum" json:"requestedChecksum,omitempty"`
-	CachingStrategy    *CachingStrategyProto          `protobuf:"bytes,10,opt,name=cachingStrategy" json:"cachingStrategy,omitempty"`
-	StorageType        *hadoop_hdfs.StorageTypeProto  `protobuf:"varint,11,opt,name=storageType,enum=hadoop.hdfs.StorageTypeProto,def=1" json:"storageType,omitempty"`
-	TargetStorageTypes []hadoop_hdfs.StorageTypeProto `protobuf:"varint,12,rep,name=targetStorageTypes,enum=hadoop.hdfs.StorageTypeProto" json:"targetStorageTypes,omitempty"`
+	RequestedChecksum  *ChecksumProto        `protobuf:"bytes,9,req,name=requestedChecksum" json:"requestedChecksum,omitempty"`
+	CachingStrategy    *CachingStrategyProto `protobuf:"bytes,10,opt,name=cachingStrategy" json:"cachingStrategy,omitempty"`
+	StorageType        *StorageTypeProto     `protobuf:"varint,11,opt,name=storageType,enum=hadoop.hdfs.StorageTypeProto,def=1" json:"storageType,omitempty"`
+	TargetStorageTypes []StorageTypeProto    `protobuf:"varint,12,rep,name=targetStorageTypes,enum=hadoop.hdfs.StorageTypeProto" json:"targetStorageTypes,omitempty"`
 	// *
 	// Hint to the DataNode that the block can be allocated on transient
 	// storage i.e. memory and written to disk lazily. The DataNode is free
@@ -519,9 +476,9 @@ type OpWriteBlockProto struct {
 func (m *OpWriteBlockProto) Reset()                    { *m = OpWriteBlockProto{} }
 func (m *OpWriteBlockProto) String() string            { return proto.CompactTextString(m) }
 func (*OpWriteBlockProto) ProtoMessage()               {}
-func (*OpWriteBlockProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{7} }
+func (*OpWriteBlockProto) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{7} }
 
-const Default_OpWriteBlockProto_StorageType hadoop_hdfs.StorageTypeProto = hadoop_hdfs.StorageTypeProto_DISK
+const Default_OpWriteBlockProto_StorageType StorageTypeProto = StorageTypeProto_DISK
 const Default_OpWriteBlockProto_AllowLazyPersist bool = false
 const Default_OpWriteBlockProto_Pinning bool = false
 
@@ -532,14 +489,14 @@ func (m *OpWriteBlockProto) GetHeader() *ClientOperationHeaderProto {
 	return nil
 }
 
-func (m *OpWriteBlockProto) GetTargets() []*hadoop_hdfs.DatanodeInfoProto {
+func (m *OpWriteBlockProto) GetTargets() []*DatanodeInfoProto {
 	if m != nil {
 		return m.Targets
 	}
 	return nil
 }
 
-func (m *OpWriteBlockProto) GetSource() *hadoop_hdfs.DatanodeInfoProto {
+func (m *OpWriteBlockProto) GetSource() *DatanodeInfoProto {
 	if m != nil {
 		return m.Source
 	}
@@ -595,14 +552,14 @@ func (m *OpWriteBlockProto) GetCachingStrategy() *CachingStrategyProto {
 	return nil
 }
 
-func (m *OpWriteBlockProto) GetStorageType() hadoop_hdfs.StorageTypeProto {
+func (m *OpWriteBlockProto) GetStorageType() StorageTypeProto {
 	if m != nil && m.StorageType != nil {
 		return *m.StorageType
 	}
 	return Default_OpWriteBlockProto_StorageType
 }
 
-func (m *OpWriteBlockProto) GetTargetStorageTypes() []hadoop_hdfs.StorageTypeProto {
+func (m *OpWriteBlockProto) GetTargetStorageTypes() []StorageTypeProto {
 	if m != nil {
 		return m.TargetStorageTypes
 	}
@@ -631,16 +588,16 @@ func (m *OpWriteBlockProto) GetTargetPinnings() []bool {
 }
 
 type OpTransferBlockProto struct {
-	Header             *ClientOperationHeaderProto      `protobuf:"bytes,1,req,name=header" json:"header,omitempty"`
-	Targets            []*hadoop_hdfs.DatanodeInfoProto `protobuf:"bytes,2,rep,name=targets" json:"targets,omitempty"`
-	TargetStorageTypes []hadoop_hdfs.StorageTypeProto   `protobuf:"varint,3,rep,name=targetStorageTypes,enum=hadoop.hdfs.StorageTypeProto" json:"targetStorageTypes,omitempty"`
-	XXX_unrecognized   []byte                           `json:"-"`
+	Header             *ClientOperationHeaderProto `protobuf:"bytes,1,req,name=header" json:"header,omitempty"`
+	Targets            []*DatanodeInfoProto        `protobuf:"bytes,2,rep,name=targets" json:"targets,omitempty"`
+	TargetStorageTypes []StorageTypeProto          `protobuf:"varint,3,rep,name=targetStorageTypes,enum=hadoop.hdfs.StorageTypeProto" json:"targetStorageTypes,omitempty"`
+	XXX_unrecognized   []byte                      `json:"-"`
 }
 
 func (m *OpTransferBlockProto) Reset()                    { *m = OpTransferBlockProto{} }
 func (m *OpTransferBlockProto) String() string            { return proto.CompactTextString(m) }
 func (*OpTransferBlockProto) ProtoMessage()               {}
-func (*OpTransferBlockProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{8} }
+func (*OpTransferBlockProto) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{8} }
 
 func (m *OpTransferBlockProto) GetHeader() *ClientOperationHeaderProto {
 	if m != nil {
@@ -649,14 +606,14 @@ func (m *OpTransferBlockProto) GetHeader() *ClientOperationHeaderProto {
 	return nil
 }
 
-func (m *OpTransferBlockProto) GetTargets() []*hadoop_hdfs.DatanodeInfoProto {
+func (m *OpTransferBlockProto) GetTargets() []*DatanodeInfoProto {
 	if m != nil {
 		return m.Targets
 	}
 	return nil
 }
 
-func (m *OpTransferBlockProto) GetTargetStorageTypes() []hadoop_hdfs.StorageTypeProto {
+func (m *OpTransferBlockProto) GetTargetStorageTypes() []StorageTypeProto {
 	if m != nil {
 		return m.TargetStorageTypes
 	}
@@ -664,19 +621,19 @@ func (m *OpTransferBlockProto) GetTargetStorageTypes() []hadoop_hdfs.StorageType
 }
 
 type OpReplaceBlockProto struct {
-	Header           *BaseHeaderProto               `protobuf:"bytes,1,req,name=header" json:"header,omitempty"`
-	DelHint          *string                        `protobuf:"bytes,2,req,name=delHint" json:"delHint,omitempty"`
-	Source           *hadoop_hdfs.DatanodeInfoProto `protobuf:"bytes,3,req,name=source" json:"source,omitempty"`
-	StorageType      *hadoop_hdfs.StorageTypeProto  `protobuf:"varint,4,opt,name=storageType,enum=hadoop.hdfs.StorageTypeProto,def=1" json:"storageType,omitempty"`
-	XXX_unrecognized []byte                         `json:"-"`
+	Header           *BaseHeaderProto   `protobuf:"bytes,1,req,name=header" json:"header,omitempty"`
+	DelHint          *string            `protobuf:"bytes,2,req,name=delHint" json:"delHint,omitempty"`
+	Source           *DatanodeInfoProto `protobuf:"bytes,3,req,name=source" json:"source,omitempty"`
+	StorageType      *StorageTypeProto  `protobuf:"varint,4,opt,name=storageType,enum=hadoop.hdfs.StorageTypeProto,def=1" json:"storageType,omitempty"`
+	XXX_unrecognized []byte             `json:"-"`
 }
 
 func (m *OpReplaceBlockProto) Reset()                    { *m = OpReplaceBlockProto{} }
 func (m *OpReplaceBlockProto) String() string            { return proto.CompactTextString(m) }
 func (*OpReplaceBlockProto) ProtoMessage()               {}
-func (*OpReplaceBlockProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{9} }
+func (*OpReplaceBlockProto) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{9} }
 
-const Default_OpReplaceBlockProto_StorageType hadoop_hdfs.StorageTypeProto = hadoop_hdfs.StorageTypeProto_DISK
+const Default_OpReplaceBlockProto_StorageType StorageTypeProto = StorageTypeProto_DISK
 
 func (m *OpReplaceBlockProto) GetHeader() *BaseHeaderProto {
 	if m != nil {
@@ -692,14 +649,14 @@ func (m *OpReplaceBlockProto) GetDelHint() string {
 	return ""
 }
 
-func (m *OpReplaceBlockProto) GetSource() *hadoop_hdfs.DatanodeInfoProto {
+func (m *OpReplaceBlockProto) GetSource() *DatanodeInfoProto {
 	if m != nil {
 		return m.Source
 	}
 	return nil
 }
 
-func (m *OpReplaceBlockProto) GetStorageType() hadoop_hdfs.StorageTypeProto {
+func (m *OpReplaceBlockProto) GetStorageType() StorageTypeProto {
 	if m != nil && m.StorageType != nil {
 		return *m.StorageType
 	}
@@ -714,7 +671,7 @@ type OpCopyBlockProto struct {
 func (m *OpCopyBlockProto) Reset()                    { *m = OpCopyBlockProto{} }
 func (m *OpCopyBlockProto) String() string            { return proto.CompactTextString(m) }
 func (*OpCopyBlockProto) ProtoMessage()               {}
-func (*OpCopyBlockProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{10} }
+func (*OpCopyBlockProto) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{10} }
 
 func (m *OpCopyBlockProto) GetHeader() *BaseHeaderProto {
 	if m != nil {
@@ -731,7 +688,7 @@ type OpBlockChecksumProto struct {
 func (m *OpBlockChecksumProto) Reset()                    { *m = OpBlockChecksumProto{} }
 func (m *OpBlockChecksumProto) String() string            { return proto.CompactTextString(m) }
 func (*OpBlockChecksumProto) ProtoMessage()               {}
-func (*OpBlockChecksumProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{11} }
+func (*OpBlockChecksumProto) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{11} }
 
 func (m *OpBlockChecksumProto) GetHeader() *BaseHeaderProto {
 	if m != nil {
@@ -741,20 +698,20 @@ func (m *OpBlockChecksumProto) GetHeader() *BaseHeaderProto {
 }
 
 type OpBlockGroupChecksumProto struct {
-	Header    *BaseHeaderProto                `protobuf:"bytes,1,req,name=header" json:"header,omitempty"`
-	Datanodes *hadoop_hdfs.DatanodeInfosProto `protobuf:"bytes,2,req,name=datanodes" json:"datanodes,omitempty"`
+	Header    *BaseHeaderProto    `protobuf:"bytes,1,req,name=header" json:"header,omitempty"`
+	Datanodes *DatanodeInfosProto `protobuf:"bytes,2,req,name=datanodes" json:"datanodes,omitempty"`
 	// each internal block has a block token
-	BlockTokens       []*hadoop_common.TokenProto           `protobuf:"bytes,3,rep,name=blockTokens" json:"blockTokens,omitempty"`
-	EcPolicy          *hadoop_hdfs.ErasureCodingPolicyProto `protobuf:"bytes,4,req,name=ecPolicy" json:"ecPolicy,omitempty"`
-	BlockIndices      []uint32                              `protobuf:"varint,5,rep,name=blockIndices" json:"blockIndices,omitempty"`
-	RequestedNumBytes *uint64                               `protobuf:"varint,6,req,name=requestedNumBytes" json:"requestedNumBytes,omitempty"`
-	XXX_unrecognized  []byte                                `json:"-"`
+	BlockTokens       []*hadoop_common.TokenProto `protobuf:"bytes,3,rep,name=blockTokens" json:"blockTokens,omitempty"`
+	EcPolicy          *ErasureCodingPolicyProto   `protobuf:"bytes,4,req,name=ecPolicy" json:"ecPolicy,omitempty"`
+	BlockIndices      []uint32                    `protobuf:"varint,5,rep,name=blockIndices" json:"blockIndices,omitempty"`
+	RequestedNumBytes *uint64                     `protobuf:"varint,6,req,name=requestedNumBytes" json:"requestedNumBytes,omitempty"`
+	XXX_unrecognized  []byte                      `json:"-"`
 }
 
 func (m *OpBlockGroupChecksumProto) Reset()                    { *m = OpBlockGroupChecksumProto{} }
 func (m *OpBlockGroupChecksumProto) String() string            { return proto.CompactTextString(m) }
 func (*OpBlockGroupChecksumProto) ProtoMessage()               {}
-func (*OpBlockGroupChecksumProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{12} }
+func (*OpBlockGroupChecksumProto) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{12} }
 
 func (m *OpBlockGroupChecksumProto) GetHeader() *BaseHeaderProto {
 	if m != nil {
@@ -763,7 +720,7 @@ func (m *OpBlockGroupChecksumProto) GetHeader() *BaseHeaderProto {
 	return nil
 }
 
-func (m *OpBlockGroupChecksumProto) GetDatanodes() *hadoop_hdfs.DatanodeInfosProto {
+func (m *OpBlockGroupChecksumProto) GetDatanodes() *DatanodeInfosProto {
 	if m != nil {
 		return m.Datanodes
 	}
@@ -777,7 +734,7 @@ func (m *OpBlockGroupChecksumProto) GetBlockTokens() []*hadoop_common.TokenProto
 	return nil
 }
 
-func (m *OpBlockGroupChecksumProto) GetEcPolicy() *hadoop_hdfs.ErasureCodingPolicyProto {
+func (m *OpBlockGroupChecksumProto) GetEcPolicy() *ErasureCodingPolicyProto {
 	if m != nil {
 		return m.EcPolicy
 	}
@@ -809,7 +766,7 @@ type ShortCircuitShmIdProto struct {
 func (m *ShortCircuitShmIdProto) Reset()                    { *m = ShortCircuitShmIdProto{} }
 func (m *ShortCircuitShmIdProto) String() string            { return proto.CompactTextString(m) }
 func (*ShortCircuitShmIdProto) ProtoMessage()               {}
-func (*ShortCircuitShmIdProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{13} }
+func (*ShortCircuitShmIdProto) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{13} }
 
 func (m *ShortCircuitShmIdProto) GetHi() int64 {
 	if m != nil && m.Hi != nil {
@@ -836,7 +793,7 @@ type ShortCircuitShmSlotProto struct {
 func (m *ShortCircuitShmSlotProto) Reset()                    { *m = ShortCircuitShmSlotProto{} }
 func (m *ShortCircuitShmSlotProto) String() string            { return proto.CompactTextString(m) }
 func (*ShortCircuitShmSlotProto) ProtoMessage()               {}
-func (*ShortCircuitShmSlotProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{14} }
+func (*ShortCircuitShmSlotProto) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{14} }
 
 func (m *ShortCircuitShmSlotProto) GetShmId() *ShortCircuitShmIdProto {
 	if m != nil {
@@ -873,7 +830,7 @@ func (m *OpRequestShortCircuitAccessProto) Reset()         { *m = OpRequestShort
 func (m *OpRequestShortCircuitAccessProto) String() string { return proto.CompactTextString(m) }
 func (*OpRequestShortCircuitAccessProto) ProtoMessage()    {}
 func (*OpRequestShortCircuitAccessProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{15}
+	return fileDescriptor9, []int{15}
 }
 
 const Default_OpRequestShortCircuitAccessProto_SupportsReceiptVerification bool = false
@@ -916,7 +873,7 @@ func (m *ReleaseShortCircuitAccessRequestProto) Reset()         { *m = ReleaseSh
 func (m *ReleaseShortCircuitAccessRequestProto) String() string { return proto.CompactTextString(m) }
 func (*ReleaseShortCircuitAccessRequestProto) ProtoMessage()    {}
 func (*ReleaseShortCircuitAccessRequestProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{16}
+	return fileDescriptor9, []int{16}
 }
 
 func (m *ReleaseShortCircuitAccessRequestProto) GetSlotId() *ShortCircuitShmSlotProto {
@@ -945,7 +902,7 @@ func (m *ReleaseShortCircuitAccessResponseProto) Reset() {
 func (m *ReleaseShortCircuitAccessResponseProto) String() string { return proto.CompactTextString(m) }
 func (*ReleaseShortCircuitAccessResponseProto) ProtoMessage()    {}
 func (*ReleaseShortCircuitAccessResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{17}
+	return fileDescriptor9, []int{17}
 }
 
 func (m *ReleaseShortCircuitAccessResponseProto) GetStatus() Status {
@@ -973,7 +930,7 @@ type ShortCircuitShmRequestProto struct {
 func (m *ShortCircuitShmRequestProto) Reset()                    { *m = ShortCircuitShmRequestProto{} }
 func (m *ShortCircuitShmRequestProto) String() string            { return proto.CompactTextString(m) }
 func (*ShortCircuitShmRequestProto) ProtoMessage()               {}
-func (*ShortCircuitShmRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{18} }
+func (*ShortCircuitShmRequestProto) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{18} }
 
 func (m *ShortCircuitShmRequestProto) GetClientName() string {
 	if m != nil && m.ClientName != nil {
@@ -999,7 +956,7 @@ type ShortCircuitShmResponseProto struct {
 func (m *ShortCircuitShmResponseProto) Reset()                    { *m = ShortCircuitShmResponseProto{} }
 func (m *ShortCircuitShmResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*ShortCircuitShmResponseProto) ProtoMessage()               {}
-func (*ShortCircuitShmResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{19} }
+func (*ShortCircuitShmResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{19} }
 
 func (m *ShortCircuitShmResponseProto) GetStatus() Status {
 	if m != nil && m.Status != nil {
@@ -1035,7 +992,7 @@ type PacketHeaderProto struct {
 func (m *PacketHeaderProto) Reset()                    { *m = PacketHeaderProto{} }
 func (m *PacketHeaderProto) String() string            { return proto.CompactTextString(m) }
 func (*PacketHeaderProto) ProtoMessage()               {}
-func (*PacketHeaderProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{20} }
+func (*PacketHeaderProto) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{20} }
 
 const Default_PacketHeaderProto_SyncBlock bool = false
 
@@ -1085,7 +1042,7 @@ type PipelineAckProto struct {
 func (m *PipelineAckProto) Reset()                    { *m = PipelineAckProto{} }
 func (m *PipelineAckProto) String() string            { return proto.CompactTextString(m) }
 func (*PipelineAckProto) ProtoMessage()               {}
-func (*PipelineAckProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{21} }
+func (*PipelineAckProto) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{21} }
 
 const Default_PipelineAckProto_DownstreamAckTimeNanos uint64 = 0
 
@@ -1133,7 +1090,7 @@ type ReadOpChecksumInfoProto struct {
 func (m *ReadOpChecksumInfoProto) Reset()                    { *m = ReadOpChecksumInfoProto{} }
 func (m *ReadOpChecksumInfoProto) String() string            { return proto.CompactTextString(m) }
 func (*ReadOpChecksumInfoProto) ProtoMessage()               {}
-func (*ReadOpChecksumInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{22} }
+func (*ReadOpChecksumInfoProto) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{22} }
 
 func (m *ReadOpChecksumInfoProto) GetChecksum() *ChecksumProto {
 	if m != nil {
@@ -1170,7 +1127,7 @@ type BlockOpResponseProto struct {
 func (m *BlockOpResponseProto) Reset()                    { *m = BlockOpResponseProto{} }
 func (m *BlockOpResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*BlockOpResponseProto) ProtoMessage()               {}
-func (*BlockOpResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{23} }
+func (*BlockOpResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{23} }
 
 func (m *BlockOpResponseProto) GetStatus() Status {
 	if m != nil && m.Status != nil {
@@ -1225,7 +1182,7 @@ type ClientReadStatusProto struct {
 func (m *ClientReadStatusProto) Reset()                    { *m = ClientReadStatusProto{} }
 func (m *ClientReadStatusProto) String() string            { return proto.CompactTextString(m) }
 func (*ClientReadStatusProto) ProtoMessage()               {}
-func (*ClientReadStatusProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{24} }
+func (*ClientReadStatusProto) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{24} }
 
 func (m *ClientReadStatusProto) GetStatus() Status {
 	if m != nil && m.Status != nil {
@@ -1242,7 +1199,7 @@ type DNTransferAckProto struct {
 func (m *DNTransferAckProto) Reset()                    { *m = DNTransferAckProto{} }
 func (m *DNTransferAckProto) String() string            { return proto.CompactTextString(m) }
 func (*DNTransferAckProto) ProtoMessage()               {}
-func (*DNTransferAckProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{25} }
+func (*DNTransferAckProto) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{25} }
 
 func (m *DNTransferAckProto) GetStatus() Status {
 	if m != nil && m.Status != nil {
@@ -1252,17 +1209,17 @@ func (m *DNTransferAckProto) GetStatus() Status {
 }
 
 type OpBlockChecksumResponseProto struct {
-	BytesPerCrc      *uint32                        `protobuf:"varint,1,req,name=bytesPerCrc" json:"bytesPerCrc,omitempty"`
-	CrcPerBlock      *uint64                        `protobuf:"varint,2,req,name=crcPerBlock" json:"crcPerBlock,omitempty"`
-	Md5              []byte                         `protobuf:"bytes,3,req,name=md5" json:"md5,omitempty"`
-	CrcType          *hadoop_hdfs.ChecksumTypeProto `protobuf:"varint,4,opt,name=crcType,enum=hadoop.hdfs.ChecksumTypeProto" json:"crcType,omitempty"`
-	XXX_unrecognized []byte                         `json:"-"`
+	BytesPerCrc      *uint32            `protobuf:"varint,1,req,name=bytesPerCrc" json:"bytesPerCrc,omitempty"`
+	CrcPerBlock      *uint64            `protobuf:"varint,2,req,name=crcPerBlock" json:"crcPerBlock,omitempty"`
+	Md5              []byte             `protobuf:"bytes,3,req,name=md5" json:"md5,omitempty"`
+	CrcType          *ChecksumTypeProto `protobuf:"varint,4,opt,name=crcType,enum=hadoop.hdfs.ChecksumTypeProto" json:"crcType,omitempty"`
+	XXX_unrecognized []byte             `json:"-"`
 }
 
 func (m *OpBlockChecksumResponseProto) Reset()                    { *m = OpBlockChecksumResponseProto{} }
 func (m *OpBlockChecksumResponseProto) String() string            { return proto.CompactTextString(m) }
 func (*OpBlockChecksumResponseProto) ProtoMessage()               {}
-func (*OpBlockChecksumResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{26} }
+func (*OpBlockChecksumResponseProto) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{26} }
 
 func (m *OpBlockChecksumResponseProto) GetBytesPerCrc() uint32 {
 	if m != nil && m.BytesPerCrc != nil {
@@ -1285,11 +1242,11 @@ func (m *OpBlockChecksumResponseProto) GetMd5() []byte {
 	return nil
 }
 
-func (m *OpBlockChecksumResponseProto) GetCrcType() hadoop_hdfs.ChecksumTypeProto {
+func (m *OpBlockChecksumResponseProto) GetCrcType() ChecksumTypeProto {
 	if m != nil && m.CrcType != nil {
 		return *m.CrcType
 	}
-	return hadoop_hdfs.ChecksumTypeProto_CHECKSUM_NULL
+	return ChecksumTypeProto_CHECKSUM_NULL
 }
 
 type OpCustomProto struct {
@@ -1300,7 +1257,7 @@ type OpCustomProto struct {
 func (m *OpCustomProto) Reset()                    { *m = OpCustomProto{} }
 func (m *OpCustomProto) String() string            { return proto.CompactTextString(m) }
 func (*OpCustomProto) ProtoMessage()               {}
-func (*OpCustomProto) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{27} }
+func (*OpCustomProto) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{27} }
 
 func (m *OpCustomProto) GetCustomId() string {
 	if m != nil && m.CustomId != nil {
@@ -1344,9 +1301,9 @@ func init() {
 	proto.RegisterEnum("hadoop.hdfs.OpWriteBlockProto_BlockConstructionStage", OpWriteBlockProto_BlockConstructionStage_name, OpWriteBlockProto_BlockConstructionStage_value)
 }
 
-func init() { proto.RegisterFile("datatransfer.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("datatransfer.proto", fileDescriptor9) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor9 = []byte{
 	// 2063 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xcc, 0x58, 0xcd, 0x72, 0xdb, 0xc8,
 	0x11, 0x0e, 0x28, 0x52, 0x26, 0x9b, 0xa2, 0x0c, 0xcd, 0xda, 0x5e, 0x5a, 0x76, 0x6c, 0x19, 0x5e,

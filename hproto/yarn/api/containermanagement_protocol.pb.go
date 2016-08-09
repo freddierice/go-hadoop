@@ -2,20 +2,11 @@
 // source: containermanagement_protocol.proto
 // DO NOT EDIT!
 
-/*
-Package api is a generated protocol buffer package.
-
-It is generated from these files:
-	containermanagement_protocol.proto
-
-It has these top-level messages:
-*/
 package api
 
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
-import hadoop_yarn1 "."
 
 import (
 	context "golang.org/x/net/context"
@@ -26,12 +17,6 @@ import (
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
-
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ context.Context
@@ -44,11 +29,11 @@ const _ = grpc.SupportPackageIsVersion3
 // Client API for ContainerManagementProtocolService service
 
 type ContainerManagementProtocolServiceClient interface {
-	StartContainers(ctx context.Context, in *hadoop_yarn1.StartContainersRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.StartContainersResponseProto, error)
-	StopContainers(ctx context.Context, in *hadoop_yarn1.StopContainersRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.StopContainersResponseProto, error)
-	GetContainerStatuses(ctx context.Context, in *hadoop_yarn1.GetContainerStatusesRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetContainerStatusesResponseProto, error)
-	IncreaseContainersResource(ctx context.Context, in *hadoop_yarn1.IncreaseContainersResourceRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.IncreaseContainersResourceResponseProto, error)
-	SignalToContainer(ctx context.Context, in *hadoop_yarn1.SignalContainerRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.SignalContainerResponseProto, error)
+	StartContainers(ctx context.Context, in *StartContainersRequestProto, opts ...grpc.CallOption) (*StartContainersResponseProto, error)
+	StopContainers(ctx context.Context, in *StopContainersRequestProto, opts ...grpc.CallOption) (*StopContainersResponseProto, error)
+	GetContainerStatuses(ctx context.Context, in *GetContainerStatusesRequestProto, opts ...grpc.CallOption) (*GetContainerStatusesResponseProto, error)
+	IncreaseContainersResource(ctx context.Context, in *IncreaseContainersResourceRequestProto, opts ...grpc.CallOption) (*IncreaseContainersResourceResponseProto, error)
+	SignalToContainer(ctx context.Context, in *SignalContainerRequestProto, opts ...grpc.CallOption) (*SignalContainerResponseProto, error)
 }
 
 type containerManagementProtocolServiceClient struct {
@@ -59,8 +44,8 @@ func NewContainerManagementProtocolServiceClient(cc *grpc.ClientConn) ContainerM
 	return &containerManagementProtocolServiceClient{cc}
 }
 
-func (c *containerManagementProtocolServiceClient) StartContainers(ctx context.Context, in *hadoop_yarn1.StartContainersRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.StartContainersResponseProto, error) {
-	out := new(hadoop_yarn1.StartContainersResponseProto)
+func (c *containerManagementProtocolServiceClient) StartContainers(ctx context.Context, in *StartContainersRequestProto, opts ...grpc.CallOption) (*StartContainersResponseProto, error) {
+	out := new(StartContainersResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ContainerManagementProtocolService/startContainers", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -68,8 +53,8 @@ func (c *containerManagementProtocolServiceClient) StartContainers(ctx context.C
 	return out, nil
 }
 
-func (c *containerManagementProtocolServiceClient) StopContainers(ctx context.Context, in *hadoop_yarn1.StopContainersRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.StopContainersResponseProto, error) {
-	out := new(hadoop_yarn1.StopContainersResponseProto)
+func (c *containerManagementProtocolServiceClient) StopContainers(ctx context.Context, in *StopContainersRequestProto, opts ...grpc.CallOption) (*StopContainersResponseProto, error) {
+	out := new(StopContainersResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ContainerManagementProtocolService/stopContainers", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -77,8 +62,8 @@ func (c *containerManagementProtocolServiceClient) StopContainers(ctx context.Co
 	return out, nil
 }
 
-func (c *containerManagementProtocolServiceClient) GetContainerStatuses(ctx context.Context, in *hadoop_yarn1.GetContainerStatusesRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.GetContainerStatusesResponseProto, error) {
-	out := new(hadoop_yarn1.GetContainerStatusesResponseProto)
+func (c *containerManagementProtocolServiceClient) GetContainerStatuses(ctx context.Context, in *GetContainerStatusesRequestProto, opts ...grpc.CallOption) (*GetContainerStatusesResponseProto, error) {
+	out := new(GetContainerStatusesResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ContainerManagementProtocolService/getContainerStatuses", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -86,8 +71,8 @@ func (c *containerManagementProtocolServiceClient) GetContainerStatuses(ctx cont
 	return out, nil
 }
 
-func (c *containerManagementProtocolServiceClient) IncreaseContainersResource(ctx context.Context, in *hadoop_yarn1.IncreaseContainersResourceRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.IncreaseContainersResourceResponseProto, error) {
-	out := new(hadoop_yarn1.IncreaseContainersResourceResponseProto)
+func (c *containerManagementProtocolServiceClient) IncreaseContainersResource(ctx context.Context, in *IncreaseContainersResourceRequestProto, opts ...grpc.CallOption) (*IncreaseContainersResourceResponseProto, error) {
+	out := new(IncreaseContainersResourceResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ContainerManagementProtocolService/increaseContainersResource", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -95,8 +80,8 @@ func (c *containerManagementProtocolServiceClient) IncreaseContainersResource(ct
 	return out, nil
 }
 
-func (c *containerManagementProtocolServiceClient) SignalToContainer(ctx context.Context, in *hadoop_yarn1.SignalContainerRequestProto, opts ...grpc.CallOption) (*hadoop_yarn1.SignalContainerResponseProto, error) {
-	out := new(hadoop_yarn1.SignalContainerResponseProto)
+func (c *containerManagementProtocolServiceClient) SignalToContainer(ctx context.Context, in *SignalContainerRequestProto, opts ...grpc.CallOption) (*SignalContainerResponseProto, error) {
+	out := new(SignalContainerResponseProto)
 	err := grpc.Invoke(ctx, "/hadoop.yarn.ContainerManagementProtocolService/signalToContainer", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -107,11 +92,11 @@ func (c *containerManagementProtocolServiceClient) SignalToContainer(ctx context
 // Server API for ContainerManagementProtocolService service
 
 type ContainerManagementProtocolServiceServer interface {
-	StartContainers(context.Context, *hadoop_yarn1.StartContainersRequestProto) (*hadoop_yarn1.StartContainersResponseProto, error)
-	StopContainers(context.Context, *hadoop_yarn1.StopContainersRequestProto) (*hadoop_yarn1.StopContainersResponseProto, error)
-	GetContainerStatuses(context.Context, *hadoop_yarn1.GetContainerStatusesRequestProto) (*hadoop_yarn1.GetContainerStatusesResponseProto, error)
-	IncreaseContainersResource(context.Context, *hadoop_yarn1.IncreaseContainersResourceRequestProto) (*hadoop_yarn1.IncreaseContainersResourceResponseProto, error)
-	SignalToContainer(context.Context, *hadoop_yarn1.SignalContainerRequestProto) (*hadoop_yarn1.SignalContainerResponseProto, error)
+	StartContainers(context.Context, *StartContainersRequestProto) (*StartContainersResponseProto, error)
+	StopContainers(context.Context, *StopContainersRequestProto) (*StopContainersResponseProto, error)
+	GetContainerStatuses(context.Context, *GetContainerStatusesRequestProto) (*GetContainerStatusesResponseProto, error)
+	IncreaseContainersResource(context.Context, *IncreaseContainersResourceRequestProto) (*IncreaseContainersResourceResponseProto, error)
+	SignalToContainer(context.Context, *SignalContainerRequestProto) (*SignalContainerResponseProto, error)
 }
 
 func RegisterContainerManagementProtocolServiceServer(s *grpc.Server, srv ContainerManagementProtocolServiceServer) {
@@ -119,7 +104,7 @@ func RegisterContainerManagementProtocolServiceServer(s *grpc.Server, srv Contai
 }
 
 func _ContainerManagementProtocolService_StartContainers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn1.StartContainersRequestProto)
+	in := new(StartContainersRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -131,13 +116,13 @@ func _ContainerManagementProtocolService_StartContainers_Handler(srv interface{}
 		FullMethod: "/hadoop.yarn.ContainerManagementProtocolService/StartContainers",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContainerManagementProtocolServiceServer).StartContainers(ctx, req.(*hadoop_yarn1.StartContainersRequestProto))
+		return srv.(ContainerManagementProtocolServiceServer).StartContainers(ctx, req.(*StartContainersRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ContainerManagementProtocolService_StopContainers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn1.StopContainersRequestProto)
+	in := new(StopContainersRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -149,13 +134,13 @@ func _ContainerManagementProtocolService_StopContainers_Handler(srv interface{},
 		FullMethod: "/hadoop.yarn.ContainerManagementProtocolService/StopContainers",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContainerManagementProtocolServiceServer).StopContainers(ctx, req.(*hadoop_yarn1.StopContainersRequestProto))
+		return srv.(ContainerManagementProtocolServiceServer).StopContainers(ctx, req.(*StopContainersRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ContainerManagementProtocolService_GetContainerStatuses_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn1.GetContainerStatusesRequestProto)
+	in := new(GetContainerStatusesRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -167,13 +152,13 @@ func _ContainerManagementProtocolService_GetContainerStatuses_Handler(srv interf
 		FullMethod: "/hadoop.yarn.ContainerManagementProtocolService/GetContainerStatuses",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContainerManagementProtocolServiceServer).GetContainerStatuses(ctx, req.(*hadoop_yarn1.GetContainerStatusesRequestProto))
+		return srv.(ContainerManagementProtocolServiceServer).GetContainerStatuses(ctx, req.(*GetContainerStatusesRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ContainerManagementProtocolService_IncreaseContainersResource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn1.IncreaseContainersResourceRequestProto)
+	in := new(IncreaseContainersResourceRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -185,13 +170,13 @@ func _ContainerManagementProtocolService_IncreaseContainersResource_Handler(srv 
 		FullMethod: "/hadoop.yarn.ContainerManagementProtocolService/IncreaseContainersResource",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContainerManagementProtocolServiceServer).IncreaseContainersResource(ctx, req.(*hadoop_yarn1.IncreaseContainersResourceRequestProto))
+		return srv.(ContainerManagementProtocolServiceServer).IncreaseContainersResource(ctx, req.(*IncreaseContainersResourceRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ContainerManagementProtocolService_SignalToContainer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(hadoop_yarn1.SignalContainerRequestProto)
+	in := new(SignalContainerRequestProto)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -203,7 +188,7 @@ func _ContainerManagementProtocolService_SignalToContainer_Handler(srv interface
 		FullMethod: "/hadoop.yarn.ContainerManagementProtocolService/SignalToContainer",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContainerManagementProtocolServiceServer).SignalToContainer(ctx, req.(*hadoop_yarn1.SignalContainerRequestProto))
+		return srv.(ContainerManagementProtocolServiceServer).SignalToContainer(ctx, req.(*SignalContainerRequestProto))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -234,12 +219,12 @@ var _ContainerManagementProtocolService_serviceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: fileDescriptor0,
+	Metadata: fileDescriptor6,
 }
 
-func init() { proto.RegisterFile("containermanagement_protocol.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("containermanagement_protocol.proto", fileDescriptor6) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor6 = []byte{
 	// 280 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0x8c, 0x92, 0x4f, 0x4a, 0xc4, 0x30,
 	0x14, 0xc6, 0x09, 0xb8, 0x8a, 0xa0, 0x18, 0xdc, 0x58, 0x5d, 0xcd, 0xc6, 0x71, 0x61, 0x16, 0xea,

@@ -2,21 +2,6 @@
 // source: ReconfigurationProtocol.proto
 // DO NOT EDIT!
 
-/*
-Package client is a generated protocol buffer package.
-
-It is generated from these files:
-	ReconfigurationProtocol.proto
-
-It has these top-level messages:
-	StartReconfigurationRequestProto
-	StartReconfigurationResponseProto
-	GetReconfigurationStatusRequestProto
-	GetReconfigurationStatusConfigChangeProto
-	GetReconfigurationStatusResponseProto
-	ListReconfigurablePropertiesRequestProto
-	ListReconfigurablePropertiesResponseProto
-*/
 package client
 
 import proto "github.com/golang/protobuf/proto"
@@ -33,12 +18,6 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
-
 // * Asks NN/DN to reload configuration file.
 type StartReconfigurationRequestProto struct {
 	XXX_unrecognized []byte `json:"-"`
@@ -48,7 +27,7 @@ func (m *StartReconfigurationRequestProto) Reset()         { *m = StartReconfigu
 func (m *StartReconfigurationRequestProto) String() string { return proto.CompactTextString(m) }
 func (*StartReconfigurationRequestProto) ProtoMessage()    {}
 func (*StartReconfigurationRequestProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{0}
+	return fileDescriptor3, []int{0}
 }
 
 type StartReconfigurationResponseProto struct {
@@ -59,7 +38,7 @@ func (m *StartReconfigurationResponseProto) Reset()         { *m = StartReconfig
 func (m *StartReconfigurationResponseProto) String() string { return proto.CompactTextString(m) }
 func (*StartReconfigurationResponseProto) ProtoMessage()    {}
 func (*StartReconfigurationResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{1}
+	return fileDescriptor3, []int{1}
 }
 
 // * Query the running status of reconfiguration process
@@ -71,7 +50,7 @@ func (m *GetReconfigurationStatusRequestProto) Reset()         { *m = GetReconfi
 func (m *GetReconfigurationStatusRequestProto) String() string { return proto.CompactTextString(m) }
 func (*GetReconfigurationStatusRequestProto) ProtoMessage()    {}
 func (*GetReconfigurationStatusRequestProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{2}
+	return fileDescriptor3, []int{2}
 }
 
 type GetReconfigurationStatusConfigChangeProto struct {
@@ -88,7 +67,7 @@ func (m *GetReconfigurationStatusConfigChangeProto) Reset() {
 func (m *GetReconfigurationStatusConfigChangeProto) String() string { return proto.CompactTextString(m) }
 func (*GetReconfigurationStatusConfigChangeProto) ProtoMessage()    {}
 func (*GetReconfigurationStatusConfigChangeProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{3}
+	return fileDescriptor3, []int{3}
 }
 
 func (m *GetReconfigurationStatusConfigChangeProto) GetName() string {
@@ -130,7 +109,7 @@ func (m *GetReconfigurationStatusResponseProto) Reset()         { *m = GetReconf
 func (m *GetReconfigurationStatusResponseProto) String() string { return proto.CompactTextString(m) }
 func (*GetReconfigurationStatusResponseProto) ProtoMessage()    {}
 func (*GetReconfigurationStatusResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{4}
+	return fileDescriptor3, []int{4}
 }
 
 func (m *GetReconfigurationStatusResponseProto) GetStartTime() int64 {
@@ -165,7 +144,7 @@ func (m *ListReconfigurablePropertiesRequestProto) Reset() {
 func (m *ListReconfigurablePropertiesRequestProto) String() string { return proto.CompactTextString(m) }
 func (*ListReconfigurablePropertiesRequestProto) ProtoMessage()    {}
 func (*ListReconfigurablePropertiesRequestProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{5}
+	return fileDescriptor3, []int{5}
 }
 
 type ListReconfigurablePropertiesResponseProto struct {
@@ -179,7 +158,7 @@ func (m *ListReconfigurablePropertiesResponseProto) Reset() {
 func (m *ListReconfigurablePropertiesResponseProto) String() string { return proto.CompactTextString(m) }
 func (*ListReconfigurablePropertiesResponseProto) ProtoMessage()    {}
 func (*ListReconfigurablePropertiesResponseProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{6}
+	return fileDescriptor3, []int{6}
 }
 
 func (m *ListReconfigurablePropertiesResponseProto) GetName() []string {
@@ -334,12 +313,12 @@ var _ReconfigurationProtocolService_serviceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: fileDescriptor0,
+	Metadata: fileDescriptor3,
 }
 
-func init() { proto.RegisterFile("ReconfigurationProtocol.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("ReconfigurationProtocol.proto", fileDescriptor3) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor3 = []byte{
 	// 401 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0x94, 0x54, 0xb1, 0x6e, 0xdb, 0x30,
 	0x10, 0x05, 0x2d, 0x03, 0xae, 0xcf, 0x9d, 0x88, 0x0e, 0x82, 0xe0, 0x16, 0xae, 0x5a, 0x17, 0x76,
