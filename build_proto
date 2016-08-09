@@ -1,7 +1,63 @@
-#/!/bin/bash
-dir=$(pwd)
-cd $(dirname $0)
+#!/bin/bash
 
-(cd ./hproto && protoc --go_out=plugins=grpc,import_path=hproto:. *.proto)
+# check usage
+if [ $# != 1 ]; then
+	echo usage: $0 \</path/to/hadoop\>
+    exit 1
+fi
+hadoop_dir="$(realpath $1)"
+
+dir="$(pwd)"
+cd "$(dirname $0)/hproto"
+
+# ugly bash that finds the right proto directory structure.
+while IFS= read -r -d '' proto; do 
+
+    # make sure proto is not a test proto
+    echo $proto | grep -q main
+    if [ $? == 1 ]; then
+        continue
+    fi
+
+    # parse the proto
+    proto_parsed="$(echo $proto | sed 's/^.*\/\([^\/]*\)\/src\/main\/proto\/\(.*\)/\1\/\2/g')"
+    proto_dir=$(dirname $proto_parsed)
+
+    # rename the proto_dir something useful
+    # TODO: fix this!
+    proto_dir="$(echo $proto_dir | sed 's/hadoop-//')"
+    proto_dir="$(echo $proto_dir | sed 's/-/\//g')"
+
+    # make the directory structure and copy the file over
+    mkdir -p "$proto_dir"
+    cp "$proto" "$proto_dir"
+done < <(find $hadoop_dir -name "*.proto" -print0)
+
+# setup working directory
+cd ./hproto
+cdir="$(pwd)"
+
+# find import paths
+ipaths=$(while IFS= read -r -d '' idir; do
+    echo -I"$(realpath "$idir")"
+done < <(find . -type d -print0) | xargs)
+ipaths="$(echo -I. $ipaths)"
+
+# compile the protos
+while IFS= read -r -d '' proto; do
+    proto="$(realpath "$proto")"
+    proto_name="$(basename "$proto")"
+    package_dir="$(dirname "$proto")"
+    package_name="$(basename "$package_dir")"
+
+    cd "$package_dir"
+    protoc $ipaths --go_out=plugins=grpc,import_path=$package_name:. "$proto_name"
+    cd "$cdir"
+done < <(find . -name "*.proto" -print0)
+
+# delete the remaining proto files
+while IFS= read -r -d '' proto; do 
+    rm -f "$proto"
+done < <(find . -name "*.proto" -print0)
 
 cd "$dir"
