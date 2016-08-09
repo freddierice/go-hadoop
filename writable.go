@@ -33,13 +33,13 @@ func WriteVInt(w io.Writer, i int) {
 	if blen < -120 {
 		blen = -(blen + 120)
 	} else {
-		blen = -(len + 112)
+		blen = -(blen + 112)
 	}
 
 	for idx := blen; idx != 0; idx-- {
 		shiftbits := (idx - 1) * 8
-		mask := 0xFF << shiftbits
-		out := int8((i & mask) >> shiftbits)
+		mask := 0xFF << uint(shiftbits)
+		out := int8((i & mask) >> uint(shiftbits))
 		binary.Write(w, binary.BigEndian, &out)
 	}
 }
