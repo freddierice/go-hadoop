@@ -11,7 +11,7 @@ import (
 	"strings"
 
 	"github.com/golang/protobuf/proto"
-	"gopkg.in/freddierice/go-hadoop.v2/hproto"
+	hpcommon "gopkg.in/freddierice/go-hadoop.v2/hproto/common"
 	"gopkg.in/freddierice/go-sasl.v1"
 )
 
@@ -130,8 +130,8 @@ func (rc *Conn) authenticateSasl() (err error) {
 	}
 
 	// 1. Initialize negotiation with the rpc server
-	state := hproto.RpcSaslProto_NEGOTIATE
-	negotiate := &hproto.RpcSaslProto{
+	state := hpcommon.RpcSaslProto_NEGOTIATE
+	negotiate := &hpcommon.RpcSaslProto{
 		State: &state,
 	}
 	saslRes, err := rc.sendSasl(negotiate)
@@ -141,7 +141,7 @@ func (rc *Conn) authenticateSasl() (err error) {
 
 	for {
 		switch *saslRes.State {
-		case hproto.RpcSaslProto_NEGOTIATE:
+		case hpcommon.RpcSaslProto_NEGOTIATE:
 			// build a mechanism list that work for both the client
 			// and the server.
 			mechlist := make([]string, len(saslRes.Auths))
@@ -164,7 +164,7 @@ func (rc *Conn) authenticateSasl() (err error) {
 				return fmt.Errorf("could not negotiate sasl: %v", err)
 			}
 
-			var chosenAuth *hproto.RpcSaslProto_SaslAuth
+			var chosenAuth *hpcommon.RpcSaslProto_SaslAuth
 			for _, serverAuth := range saslRes.Auths {
 				if *serverAuth.Mechanism == mech {
 					chosenAuth = serverAuth
@@ -173,11 +173,11 @@ func (rc *Conn) authenticateSasl() (err error) {
 			}
 
 			// 2. initiate the challenge/response with a chosen algorithm.
-			state = hproto.RpcSaslProto_INITIATE
-			initiate := &hproto.RpcSaslProto{
+			state = hpcommon.RpcSaslProto_INITIATE
+			initiate := &hpcommon.RpcSaslProto{
 				State: &state,
 				Token: []byte(resp),
-				Auths: []*hproto.RpcSaslProto_SaslAuth{
+				Auths: []*hpcommon.RpcSaslProto_SaslAuth{
 					chosenAuth,
 				},
 			}
@@ -185,7 +185,7 @@ func (rc *Conn) authenticateSasl() (err error) {
 			if err != nil {
 				return err
 			}
-		case hproto.RpcSaslProto_CHALLENGE:
+		case hpcommon.RpcSaslProto_CHALLENGE:
 			// 3. do the challenge to prove that we are who we say we are.
 			token, err := saslClient.Step(string(saslRes.Token))
 			if err != nil {
@@ -193,15 +193,15 @@ func (rc *Conn) authenticateSasl() (err error) {
 			}
 
 			// 4. construct a response to send to the server
-			state = hproto.RpcSaslProto_RESPONSE
-			response := &hproto.RpcSaslProto{
+			state = hpcommon.RpcSaslProto_RESPONSE
+			response := &hpcommon.RpcSaslProto{
 				State: &state,
 				Token: []byte(token),
 			}
 			if saslRes, err = rc.sendSasl(response); err != nil {
 				return err
 			}
-		case hproto.RpcSaslProto_SUCCESS:
+		case hpcommon.RpcSaslProto_SUCCESS:
 			return nil
 		default:
 			return fmt.Errorf("recieved unexpected saslRes.State from server: %v\n", *saslRes.State)
@@ -212,9 +212,9 @@ func (rc *Conn) authenticateSasl() (err error) {
 }
 
 // sendSasl ships a sasl step to the server and returns the server's response.
-func (rc *Conn) sendSasl(msg *hproto.RpcSaslProto) (*hproto.RpcSaslProto,
+func (rc *Conn) sendSasl(msg *hpcommon.RpcSaslProto) (*hpcommon.RpcSaslProto,
 	error) {
-	resSasl := &hproto.RpcSaslProto{}
+	resSasl := &hpcommon.RpcSaslProto{}
 
 	header := rc.newSaslRpcRequestHeaderProto()
 	buf, err := rpcPackage(header, msg)
@@ -273,7 +273,7 @@ func (rc *Conn) Call(rfunc string, req, resp proto.Message) error {
 
 // recv recieves a message from the server in response to a send. fill must be
 // the right type, or this function will have undefined behavior.
-func (rc *Conn) recv(fill proto.Message) (*hproto.RpcResponseHeaderProto, error) {
+func (rc *Conn) recv(fill proto.Message) (*hpcommon.RpcResponseHeaderProto, error) {
 	var recvLen uint32
 	binary.Read(rc, binary.BigEndian, &recvLen)
 
@@ -289,12 +289,12 @@ func (rc *Conn) recv(fill proto.Message) (*hproto.RpcResponseHeaderProto, error)
 		return nil, err
 	}
 
-	resp := &hproto.RpcResponseHeaderProto{}
+	resp := &hpcommon.RpcResponseHeaderProto{}
 	if err := proto.Unmarshal(headerBytes, resp); err != nil {
 		return nil, err
 	}
 
-	if resp.GetStatus() != hproto.RpcResponseHeaderProto_SUCCESS {
+	if resp.GetStatus() != hpcommon.RpcResponseHeaderProto_SUCCESS {
 		log.Print(resp)
 		return resp, errors.New("error response from hadoop")
 	}
@@ -348,22 +348,22 @@ func (rc *Conn) incrementCallId() {
 	}
 }
 
-func (rc *Conn) newRequestHeaderProto(method string) *hproto.RequestHeaderProto {
+func (rc *Conn) newRequestHeaderProto(method string) *hpcommon.RequestHeaderProto {
 	declaringClassProtocolName := rc.Context
 	clientProtocolVersion := uint64(1)
-	return &hproto.RequestHeaderProto{
+	return &hpcommon.RequestHeaderProto{
 		MethodName:                 &method,
 		DeclaringClassProtocolName: &declaringClassProtocolName,
 		ClientProtocolVersion:      &clientProtocolVersion,
 	}
 }
 
-func (rc *Conn) newSaslRpcRequestHeaderProto() *hproto.RpcRequestHeaderProto {
+func (rc *Conn) newSaslRpcRequestHeaderProto() *hpcommon.RpcRequestHeaderProto {
 	callId := int32(-33) // actually part of the spec...
 
-	rpcKind := hproto.RpcKindProto_RPC_PROTOCOL_BUFFER
-	rpcOp := hproto.RpcRequestHeaderProto_RPC_FINAL_PACKET
-	return &hproto.RpcRequestHeaderProto{
+	rpcKind := hpcommon.RpcKindProto_RPC_PROTOCOL_BUFFER
+	rpcOp := hpcommon.RpcRequestHeaderProto_RPC_FINAL_PACKET
+	return &hpcommon.RpcRequestHeaderProto{
 		CallId:   &callId,
 		ClientId: rc.ClientId,
 		RpcKind:  &rpcKind,
@@ -371,13 +371,13 @@ func (rc *Conn) newSaslRpcRequestHeaderProto() *hproto.RpcRequestHeaderProto {
 	}
 }
 
-func (rc *Conn) newRpcRequestHeaderProto() *hproto.RpcRequestHeaderProto {
+func (rc *Conn) newRpcRequestHeaderProto() *hpcommon.RpcRequestHeaderProto {
 	callId := int32(rc.CallId)
 	rc.incrementCallId()
 
-	rpcKind := hproto.RpcKindProto_RPC_PROTOCOL_BUFFER
-	rpcOp := hproto.RpcRequestHeaderProto_RPC_FINAL_PACKET
-	return &hproto.RpcRequestHeaderProto{
+	rpcKind := hpcommon.RpcKindProto_RPC_PROTOCOL_BUFFER
+	rpcOp := hpcommon.RpcRequestHeaderProto_RPC_FINAL_PACKET
+	return &hpcommon.RpcRequestHeaderProto{
 		CallId:   &callId,
 		ClientId: rc.ClientId,
 		RpcKind:  &rpcKind,
@@ -385,12 +385,12 @@ func (rc *Conn) newRpcRequestHeaderProto() *hproto.RpcRequestHeaderProto {
 	}
 }
 
-func (rc *Conn) newIpcConnectionContextProto() *hproto.IpcConnectionContextProto {
+func (rc *Conn) newIpcConnectionContextProto() *hpcommon.IpcConnectionContextProto {
 	effectiveUser := rc.Username
 	protocolName := rc.Context
 	//realUser := "user"
-	return &hproto.IpcConnectionContextProto{
-		UserInfo: &hproto.UserInformationProto{
+	return &hpcommon.IpcConnectionContextProto{
+		UserInfo: &hpcommon.UserInformationProto{
 			//RealUser:      &realUser,
 			RealUser: &effectiveUser,
 		},
