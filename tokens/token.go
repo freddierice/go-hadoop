@@ -1,6 +1,6 @@
 package tokens
 
-import "gopkg.in/freddierice/go-hadoop.v1/hproto"
+import "gopkg.in/freddierice/go-hadoop.v2/hproto"
 
 // Token is an interface for a type that implements the following functions.
 type Token interface {
