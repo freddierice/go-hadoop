@@ -11,7 +11,7 @@ import (
 	"strings"
 
 	"github.com/golang/protobuf/proto"
-	hpcommon "gopkg.in/freddierice/go-hadoop.v2/hproto/common"
+	hpcommon "gopkg.in/freddierice/go-hproto.v1/common"
 	"gopkg.in/freddierice/go-sasl.v1"
 )
 

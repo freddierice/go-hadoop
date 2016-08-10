@@ -1,6 +1,8 @@
 package tokens
 
-import "gopkg.in/freddierice/go-hadoop.v2/hproto"
+import (
+	hpcommon "gopkg.in/freddierice/go-hproto.v1/common"
+)
 
 // Token is an interface for a type that implements the following functions.
 type Token interface {
@@ -11,19 +13,24 @@ type Token interface {
 	// Kind returns the token's kind.
 	Kind() string
 
+	// Service returns the token's service.
+	Service() string
+
 	// Password returns the token's password.
-	Password() string
+	Password() []byte
 
 	// SetPassword is a function to set the token's password
-	SetPassword(string)
+	SetPassword([]byte)
 }
 
 // NewTokenProto converts a Token to its protobuf version.
-func NewTokenProto(t Token) *hproto.TokenProto {
-	return &hproto.TokenProto{
+func NewTokenProto(t Token) *hpcommon.TokenProto {
+	kind := t.Kind()
+	service := t.Service()
+	return &hpcommon.TokenProto{
 		Identifier: t.Bytes(),
 		Password:   t.Password(),
-		Kind:       t.Kind(),
-		Service:    t.Service(),
+		Kind:       &kind,
+		Service:    &service,
 	}
 }

@@ -3,6 +3,8 @@ package tokens
 import (
 	"bytes"
 	"time"
+
+	"gopkg.in/freddierice/go-hadoop.v2"
 )
 
 type BlockAccessMode int
@@ -21,8 +23,8 @@ type BlockToken struct {
 	BlockPoolId string
 	BlockId     int
 	Modes       map[BlockAccessMode]bool
-	Password    []byte
-	Service     string
+	password    []byte
+	service     string
 }
 
 // Kind implements the Token interface
@@ -30,14 +32,20 @@ func (bt *BlockToken) Kind() string {
 	return "HDFS_BLOCK_TOKEN"
 }
 
+// Service implements the Token interface.
+func (bt *BlockToken) Service() string {
+	// TODO: make sure this is correct.
+	return "hdfs"
+}
+
 // Password implements the Token interface.
 func (bt *BlockToken) Password() []byte {
-	return bt.Password
+	return bt.password
 }
 
 // SetPassword implements the Token interface.
 func (bt *BlockToken) SetPassword(b []byte) {
-	bt.Password = b
+	bt.password = b
 }
 
 // Bytes implements the Token interface.
@@ -50,8 +58,8 @@ func (bt *BlockToken) Bytes() []byte {
 	hadoop.WriteString(buf, bt.BlockPoolId)
 	hadoop.WriteVInt(buf, bt.BlockId)
 	hadoop.WriteVInt(buf, len(bt.Modes))
-	for _, mode := range bt.Modes {
-		hadoop.WriteVInt(buf, mode)
+	for mode, _ := range bt.Modes {
+		hadoop.WriteVInt(buf, int(mode))
 	}
 
 	return buf.Bytes()
