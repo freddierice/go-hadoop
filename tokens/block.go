@@ -34,8 +34,7 @@ func (bt *BlockToken) Kind() string {
 
 // Service implements the Token interface.
 func (bt *BlockToken) Service() string {
-	// TODO: make sure this is correct.
-	return "hdfs"
+	return ""
 }
 
 // Password implements the Token interface.
