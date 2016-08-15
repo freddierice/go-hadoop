@@ -6,3 +6,5 @@ Version 2 has been released. It is still being heavily tested/changed, so do not
 ```bash
 go get gopkg.in/freddierice/go-hadoop.v2
 ```
+## example
+For an example of how to use the latest library, check out [go-hadoop-example](http://www.github.com/freddierice/go-hadoop-example).
