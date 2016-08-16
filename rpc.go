@@ -12,7 +12,7 @@ import (
 
 	"github.com/golang/protobuf/proto"
 	hpcommon "gopkg.in/freddierice/go-hproto.v1/common"
-	"gopkg.in/freddierice/go-sasl.v1"
+	"gopkg.in/freddierice/go-sasl.v2"
 )
 
 // Auth is the type of authentication that should be used over RPC.
@@ -159,7 +159,7 @@ func (rc *Conn) authenticateSasl() (err error) {
 			mechlist = mechlist[0:i]
 
 			// make the first step with an agreed upon mechanism list.
-			mech, resp, err := saslClient.Start(mechlist)
+			mech, resp, _, err := saslClient.Start(mechlist)
 			if err != nil {
 				return fmt.Errorf("could not negotiate sasl: %v", err)
 			}
@@ -187,7 +187,7 @@ func (rc *Conn) authenticateSasl() (err error) {
 			}
 		case hpcommon.RpcSaslProto_CHALLENGE:
 			// 3. do the challenge to prove that we are who we say we are.
-			token, err := saslClient.Step(string(saslRes.Token))
+			token, _, err := saslClient.Step(saslRes.Token)
 			if err != nil {
 				return err
 			}
