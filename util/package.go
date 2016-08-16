@@ -1,4 +1,4 @@
-package hadoop
+package util
 
 import (
 	"bytes"
@@ -6,21 +6,15 @@ import (
 	"io"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/satori/go.uuid"
 )
 
-// NewUUID creates a new UUID for usage with rpc.
-func NewUUID() string {
-	return string(uuid.NewV4().String()[0:16])
-}
-
-// intPackageBytes takes in a byte slice, then packages it as
+// IntPackageBytes takes in a byte slice, then packages it as
 // -----------------------------------
 // |     big endian uint32 len(b)    |
 // -----------------------------------
 // |        provided bytes (b)       |
 // -----------------------------------
-func intPackageBytes(b []byte) ([]byte, error) {
+func IntPackageBytes(b []byte) ([]byte, error) {
 	buf := &bytes.Buffer{}
 	num32 := uint32(len(b))
 
@@ -30,13 +24,13 @@ func intPackageBytes(b []byte) ([]byte, error) {
 	return buf.Bytes(), nil
 }
 
-// varintPackageBytes takes in a byteslice then packes it as
+// VarintPackageBytes takes in a byteslice then packes it as
 // -----------------------------------
 // |      varint encoded len(b)      |
 // -----------------------------------
 // |        provided bytes (b)       |
 // -----------------------------------
-func varintPackageBytes(b []byte) ([]byte, error) {
+func VarintPackageBytes(b []byte) ([]byte, error) {
 	buf := &bytes.Buffer{}
 	bLen := proto.EncodeVarint(uint64(len(b)))
 
@@ -46,10 +40,10 @@ func varintPackageBytes(b []byte) ([]byte, error) {
 	return buf.Bytes(), nil
 }
 
-// varintUnpackage takes an io.Reader, reads a varint, then returns that many
+// VarintUnpackage takes an io.Reader, reads a varint, then returns that many
 // bytes from the io.Reader. An error is returned if the reader cannot read
 // a sufficient number of bytes (i.e. if there is malformed data).
-func varintUnpackage(r io.Reader) ([]byte, error) {
+func VarintUnpackage(r io.Reader) ([]byte, error) {
 	packageLen := uint64(0)
 	n := 0
 	var buf []byte
@@ -75,13 +69,13 @@ func varintUnpackage(r io.Reader) ([]byte, error) {
 	return buf, nil
 }
 
-// varintPackage packages a protobuf structure as
+// VarintPackage packages a protobuf structure as
 // --------------------------------------
 // | varint encoded len(serialized msg) |
 // --------------------------------------
 // |         (serialized msg)           |
 // --------------------------------------
-func varintPackage(msg proto.Message) ([]byte, error) {
+func VarintPackage(msg proto.Message) ([]byte, error) {
 	msgBytes, err := proto.Marshal(msg)
 	if err != nil {
 		return nil, err
@@ -90,9 +84,9 @@ func varintPackage(msg proto.Message) ([]byte, error) {
 	return varintPackageBytes(msgBytes)
 }
 
-// rpcPackage takes in a slice of protobufs, and packages them for use with
+// RpcPackage takes in a slice of protobufs, and packages them for use with
 // the hadoop rpc server.
-func rpcPackage(msgs ...proto.Message) ([]byte, error) {
+func RpcPackage(msgs ...proto.Message) ([]byte, error) {
 	buf := &bytes.Buffer{}
 	for _, msg := range msgs {
 		msgBytes, err := varintPackage(msg)

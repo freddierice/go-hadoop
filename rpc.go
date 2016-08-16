@@ -11,6 +11,7 @@ import (
 	"strings"
 
 	"github.com/golang/protobuf/proto"
+	"gopkg.in/freddierice/go-hadoop.v2/util"
 	hpcommon "gopkg.in/freddierice/go-hproto.v1/common"
 	"gopkg.in/freddierice/go-sasl.v2"
 )
@@ -69,7 +70,7 @@ func Dial(username, host, context, service string, auth Auth) (rc *Conn,
 
 	// hadoop has great protocols.
 	rc = &Conn{
-		ClientId: []byte(NewUUID()),
+		ClientId: []byte(util.NewUUID()),
 		CallId:   -3,
 		Context:  context,
 		Username: username,
