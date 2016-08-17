@@ -93,7 +93,7 @@ func Dial(username, host, context, service string, auth Auth) (rc *Conn,
 	// conn write the RPC header and the context
 	ipc := rc.newIpcConnectionContextProto()
 	header := rc.newRpcRequestHeaderProto()
-	buf, err := rpcPackage(header, ipc)
+	buf, err := util.RpcPackage(header, ipc)
 	if err != nil {
 		return nil, err
 	}
@@ -218,7 +218,7 @@ func (rc *Conn) sendSasl(msg *hpcommon.RpcSaslProto) (*hpcommon.RpcSaslProto,
 	resSasl := &hpcommon.RpcSaslProto{}
 
 	header := rc.newSaslRpcRequestHeaderProto()
-	buf, err := rpcPackage(header, msg)
+	buf, err := util.RpcPackage(header, msg)
 	if err != nil {
 		return nil, err
 	}
@@ -285,7 +285,7 @@ func (rc *Conn) recv(fill proto.Message) (*hpcommon.RpcResponseHeaderProto, erro
 	}
 
 	allReader := bytes.NewReader(allRecv)
-	headerBytes, err := varintUnpackage(allReader)
+	headerBytes, err := util.VarintUnpackage(allReader)
 	if err != nil {
 		return nil, err
 	}
@@ -300,7 +300,7 @@ func (rc *Conn) recv(fill proto.Message) (*hpcommon.RpcResponseHeaderProto, erro
 		return resp, errors.New("error response from hadoop")
 	}
 
-	messageBytes, err := varintUnpackage(allReader)
+	messageBytes, err := util.VarintUnpackage(allReader)
 	if err != nil {
 		return resp, err
 	}
@@ -317,7 +317,7 @@ func (rc *Conn) send(method string, req proto.Message) error {
 	rpcRequestHeader := rc.newRpcRequestHeaderProto()
 	requestHeader := rc.newRequestHeaderProto(method)
 
-	buf, err := rpcPackage(rpcRequestHeader, requestHeader, req)
+	buf, err := util.RpcPackage(rpcRequestHeader, requestHeader, req)
 	if err != nil {
 		return err
 	}

@@ -81,7 +81,7 @@ func VarintPackage(msg proto.Message) ([]byte, error) {
 		return nil, err
 	}
 
-	return varintPackageBytes(msgBytes)
+	return VarintPackageBytes(msgBytes)
 }
 
 // RpcPackage takes in a slice of protobufs, and packages them for use with
@@ -89,7 +89,7 @@ func VarintPackage(msg proto.Message) ([]byte, error) {
 func RpcPackage(msgs ...proto.Message) ([]byte, error) {
 	buf := &bytes.Buffer{}
 	for _, msg := range msgs {
-		msgBytes, err := varintPackage(msg)
+		msgBytes, err := VarintPackage(msg)
 		if err != nil {
 			return nil, err
 		}
@@ -97,5 +97,5 @@ func RpcPackage(msgs ...proto.Message) ([]byte, error) {
 		buf.Write(msgBytes)
 	}
 
-	return intPackageBytes(buf.Bytes())
+	return IntPackageBytes(buf.Bytes())
 }
