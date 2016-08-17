@@ -53,7 +53,10 @@ type Conn struct {
 	// context cannot change without creating a new connection.
 	Context string
 
-	// Username is the name the user wants to authenticate as.
+	// Authname is the name the user wants to authenticate as.
+	Authname string
+
+	// Username is the name the user wants present as.
 	Username string
 
 	// Hostname is the network location of the server (as a FQDN).
@@ -73,7 +76,7 @@ func Dial(username, host, context, service string, auth Auth) (rc *Conn,
 		ClientId: []byte(util.NewUUID()),
 		CallId:   -3,
 		Context:  context,
-		Username: username,
+		Authname: username,
 		Hostname: strings.Split(host, ":")[0],
 		Service:  service,
 	}
@@ -124,6 +127,7 @@ func (rc *Conn) authenticateSasl() (err error) {
 
 	// create a new sasl client
 	saslClient, err := sasl.NewClient(rc.Service, rc.Hostname, &sasl.Config{
+		Authname: rc.Authname,
 		Username: rc.Username,
 	})
 	if err != nil {
