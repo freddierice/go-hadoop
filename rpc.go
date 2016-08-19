@@ -6,7 +6,6 @@ import (
 	"errors"
 	"fmt"
 	"io"
-	"log"
 	"net"
 	"strings"
 
@@ -39,6 +38,10 @@ var (
 type Conn struct {
 	// net.Conn is the underlying TCP connection.
 	net.Conn
+
+	// saslClient is the client that manages the SASL state. saslClient is
+	// nil until rpc is protected by the encoding.
+	saslClient *sasl.Client
 
 	// ClientId is the sequence of bytes that are used to uniquely identify this
 	// client from others that may be connecting to the server.
@@ -207,6 +210,15 @@ func (rc *Conn) authenticateSasl() (err error) {
 				return err
 			}
 		case hpcommon.RpcSaslProto_SUCCESS:
+			// get the security layer strength factor
+			ssf, err := saslClient.GetSSF()
+			if err != nil {
+				return err
+			}
+			// if the ssf is > 0, wrapping is necesary
+			if ssf != 0 {
+				rc.saslClient = saslClient
+			}
 			return nil
 		default:
 			return fmt.Errorf("recieved unexpected saslRes.State from server: %v\n", *saslRes.State)
@@ -278,42 +290,75 @@ func (rc *Conn) Call(rfunc string, req, resp proto.Message) error {
 
 // recv recieves a message from the server in response to a send. fill must be
 // the right type, or this function will have undefined behavior.
-func (rc *Conn) recv(fill proto.Message) (*hpcommon.RpcResponseHeaderProto, error) {
-	var recvLen uint32
-	binary.Read(rc, binary.BigEndian, &recvLen)
+func (rc *Conn) recv(m proto.Message) (*hpcommon.RpcResponseHeaderProto, error) {
 
-	allRecv := make([]byte, int(recvLen))
-	_, err := io.ReadFull(rc, allRecv)
-	if err != nil {
-		return nil, err
+	// recvProto is the actual implementation of recv, however without
+	// taking into account the saslWrapping component. Defining the function
+	// inside another function keeps other library functions from accidentally
+	// calling the wrong function.
+	recvProto := func(r io.Reader, fill proto.Message) (
+		*hpcommon.RpcResponseHeaderProto, error) {
+		var recvLen uint32
+		binary.Read(r, binary.BigEndian, &recvLen)
+
+		allRecv := make([]byte, int(recvLen))
+		_, err := io.ReadFull(r, allRecv)
+		if err != nil {
+			return nil, err
+		}
+
+		allReader := bytes.NewReader(allRecv)
+		headerBytes, err := util.VarintUnpackage(allReader)
+		if err != nil {
+			return nil, err
+		}
+
+		resp := &hpcommon.RpcResponseHeaderProto{}
+		if err := proto.Unmarshal(headerBytes, resp); err != nil {
+			return nil, err
+		}
+
+		if resp.GetStatus() != hpcommon.RpcResponseHeaderProto_SUCCESS {
+			return resp, errors.New("error response from hadoop")
+		}
+
+		messageBytes, err := util.VarintUnpackage(allReader)
+		if err != nil {
+			return resp, err
+		}
+
+		if err := proto.Unmarshal(messageBytes, fill); err != nil {
+			return resp, err
+		}
+
+		return resp, nil
 	}
 
-	allReader := bytes.NewReader(allRecv)
-	headerBytes, err := util.VarintUnpackage(allReader)
-	if err != nil {
-		return nil, err
+	// if there is sasl, unwrap the security layer, unwrap the connection
+	// before calling recvProto
+	r := io.Reader(rc)
+	if rc.saslClient != nil {
+		saslProto := &hpcommon.RpcSaslProto{}
+		_, err := recvProto(rc, saslProto)
+		if err != nil {
+			return nil, err
+		}
+
+		// package bytes for sasl decoder
+		allBytes, err := util.IntPackageBytes(saslProto.GetToken())
+		if err != nil {
+			return nil, err
+		}
+
+		// decode the package bytes
+		if allBytes, err = rc.saslClient.Decode(allBytes); err != nil {
+			return nil, err
+		}
+
+		r = bytes.NewBuffer(allBytes)
 	}
 
-	resp := &hpcommon.RpcResponseHeaderProto{}
-	if err := proto.Unmarshal(headerBytes, resp); err != nil {
-		return nil, err
-	}
-
-	if resp.GetStatus() != hpcommon.RpcResponseHeaderProto_SUCCESS {
-		log.Print(resp)
-		return resp, errors.New("error response from hadoop")
-	}
-
-	messageBytes, err := util.VarintUnpackage(allReader)
-	if err != nil {
-		return resp, err
-	}
-
-	if err := proto.Unmarshal(messageBytes, fill); err != nil {
-		return resp, err
-	}
-
-	return resp, nil
+	return recvProto(r, m)
 }
 
 // send makes a request to run method with req.

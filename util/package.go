@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"encoding/binary"
 	"io"
+	"log"
 
 	"github.com/golang/protobuf/proto"
 )
@@ -22,6 +23,41 @@ func IntPackageBytes(b []byte) ([]byte, error) {
 	buf.Write(b)
 
 	return buf.Bytes(), nil
+}
+
+// IntUnpackageBytes takes in an io.Reader, then returns b on input:
+// -----------------------------------
+// |     big endian uint32 len(b)    |
+// -----------------------------------
+// |        provided bytes (b)       |
+// -----------------------------------
+func IntUnpackageBytes(r io.Reader) ([]byte, error) {
+	var num32 uint32
+	if err := binary.Read(r, binary.BigEndian, &num32); err != nil {
+		return nil, err
+	}
+
+	log.Print(num32)
+	buf := make([]byte, int(num32))
+	_, err := io.ReadFull(r, buf)
+	return buf, err
+}
+
+// ShortUnpackageBytes takes in an io.Reader, then returns b on input:
+// -----------------------------------
+// |     big endian uint16 len(b)    |
+// -----------------------------------
+// |        provided bytes (b)       |
+// -----------------------------------
+func ShortUnpackageBytes(r io.Reader) ([]byte, error) {
+	var num16 uint16
+	if err := binary.Read(r, binary.BigEndian, &num16); err != nil {
+		return nil, err
+	}
+
+	buf := make([]byte, int(num16))
+	_, err := io.ReadFull(r, buf)
+	return buf, err
 }
 
 // VarintPackageBytes takes in a byteslice then packes it as
