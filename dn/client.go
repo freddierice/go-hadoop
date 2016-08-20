@@ -66,8 +66,8 @@ func (cl *Client) Authenticate() error {
 		Authname: cl.Username + " ",
 		Username: cl.Username,
 		Password: cl.Password,
-		MaxSsf:   65535,
-		MinSsf:   1,
+		MaxSsf:   112,
+		MinSsf:   112,
 	})
 	if err != nil {
 		return err
