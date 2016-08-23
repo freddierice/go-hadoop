@@ -7,6 +7,7 @@ import (
 	"io"
 	"net"
 
+	"github.com/freddierice/go-hadoop/tokens"
 	"github.com/golang/protobuf/proto"
 
 	"gopkg.in/freddierice/go-hadoop.v2/util"
@@ -33,7 +34,7 @@ type Client struct {
 
 // Dial attempts to connect to a remote datanode through SASL. On success, a
 // Client is returned that can be used to do other operations.
-func Dial(token, password, host string) (*Client, error) {
+func Dial(token *tokens.BlockToken, password, host string) (*Client, error) {
 	conn, err := net.Dial("tcp", host)
 	if err != nil {
 		return nil, err
