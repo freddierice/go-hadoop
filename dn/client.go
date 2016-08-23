@@ -42,7 +42,7 @@ func Dial(token *tokens.BlockToken, password, host string) (*Client, error) {
 
 	cl := &Client{
 		conn:     conn,
-		Username: token,
+		Username: string(token.Bytes()),
 		Service:  "hdfs",
 		Password: password,
 	}

@@ -1,6 +1,7 @@
 package util
 
 import (
+	"bytes"
 	"encoding/binary"
 	"io"
 )
@@ -9,7 +10,7 @@ import (
 func WriteVInt(w io.Writer, i int) {
 	// code follows almost exact logic from the actual implementation. it was
 	// not written to look pretty or be particularly readable.
-	if i >= -120 || i <= 127 {
+	if i >= -120 && i <= 127 {
 		out := int8(i)
 		binary.Write(w, binary.BigEndian, &out)
 		return
@@ -23,7 +24,7 @@ func WriteVInt(w io.Writer, i int) {
 
 	tmp := i
 	for tmp != 0 {
-		tmp = tmp >> 0
+		tmp = tmp >> 8
 		blen--
 	}
 
@@ -59,4 +60,77 @@ func WriteString(w io.Writer, s string) {
 
 	binary.Write(w, binary.BigEndian, &blen)
 	w.Write(b)
+}
+
+// ByteToSignedByte takes ina a byte and returns the signed version. This is to
+// keep the compatibility between java/golang symantics for the signedness of a
+// byte.
+func ByteToSignedByte(v byte) int8 {
+	var num int8
+	binary.Read(bytes.NewBuffer([]byte{v}), binary.BigEndian, &num)
+	return num
+}
+
+// DecodeVIntSize is a utility function in hadoop that parses the first byte
+// of a vint/vlong to determine the following number of bytes (1 to 9).
+func DecodeVIntSize(v int8) int {
+	vint := int(v)
+	if vint >= -112 {
+		return 1
+	} else if vint < -120 {
+		return -119 - vint
+	} else {
+		return -111 - vint
+	}
+}
+
+// IsNegativeVInt determines whether v represents a negative value.
+func IsNegativeVInt(v int8) bool {
+	return v < -120 || (v >= -112 && v < 0)
+}
+
+// ReadString reads a string from the io.Reader as hadoop does. It assumes that
+// the string is UTF-8 encoded.
+func ReadString(r io.Reader) (string, error) {
+	var inlen int32
+	binary.Read(r, binary.BigEndian, &inlen)
+
+	if inlen == 0 {
+		return "", nil
+	}
+
+	b := make([]byte, int(inlen))
+	_, err := io.ReadFull(r, b)
+
+	return string(b), err
+}
+
+// ReadVInt as it is implemented in hadoop. This code is not meant to be
+// readable, but instead mimic the style in the actual code base.
+func ReadVInt(r io.Reader) (int, error) {
+	buf := make([]byte, 1)
+	if _, err := io.ReadFull(r, buf); err != nil {
+		return 0, err
+	}
+	firstByte := ByteToSignedByte(buf[0])
+
+	blen := DecodeVIntSize(firstByte)
+	if blen == 1 {
+		return int(firstByte), nil
+	}
+
+	i := 0
+	for idx := 0; idx < blen-1; idx++ {
+		if _, err := io.ReadFull(r, buf); err != nil {
+			return 0, err
+		}
+		i = i << 8
+		i = i | (int(buf[0]) & 0xFF)
+	}
+
+	if IsNegativeVInt(firstByte) {
+		return i ^ -1, nil
+	}
+
+	return i, nil
 }
